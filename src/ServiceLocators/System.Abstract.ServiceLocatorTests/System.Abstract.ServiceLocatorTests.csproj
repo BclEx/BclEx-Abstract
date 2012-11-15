@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD44D896-158F-43E3-BA2F-273A32C0AE86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Abstract.ServiceLocatorTests</RootNamespace>
+    <AssemblyName>System.Abstract.ServiceLocatorTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="xunit">
+      <HintPath>..\..\..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract+ServiceLocator\AutofacServiceLocatorIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\AutofacServiceRegistrarIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\CastleWindsorServiceLocatorIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\CastleWindsorServiceRegistrarIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\HiroServiceLocatorIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\HiroServiceRegistrarIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\NinjectServiceLocatorIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\NinjectServiceRegistrarIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\SpringServiceLocatorIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\SpringServiceRegistrarIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\StructureMapServiceLocatorIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\StructureMapServiceRegistrarIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\UnityServiceLocatorIntegrationTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\UnityServiceRegistrarIntegrationTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\System.Abstract.Tests\System.Abstract.Tests.csproj">
+      <Project>{E24BF01E-3160-45E8-BE5A-D2F2D4A50C2C}</Project>
+      <Name>System.Abstract.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Abstract\System.Abstract.csproj">
+      <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
+      <Name>System.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Autofac\Contoso.Abstract.Autofac.csproj">
+      <Project>{3AB44594-75F2-4D20-8450-F3FA9D4DE763}</Project>
+      <Name>Contoso.Abstract.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.CastleWindsor\Contoso.Abstract.CastleWindsor.csproj">
+      <Project>{C03A8167-F65E-4271-978C-E72914C9C311}</Project>
+      <Name>Contoso.Abstract.CastleWindsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Hiro\Contoso.Abstract.Hiro.csproj">
+      <Project>{60E87E13-151E-40A4-A896-D1C3E2B4DEE7}</Project>
+      <Name>Contoso.Abstract.Hiro</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Munq\Contoso.Abstract.Munq.csproj">
+      <Project>{492A084B-B89A-49D1-B52A-285D69730A6C}</Project>
+      <Name>Contoso.Abstract.Munq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Ninject\Contoso.Abstract.Ninject.csproj">
+      <Project>{03A4AE50-0401-4DDB-96E8-B90A5D64FA93}</Project>
+      <Name>Contoso.Abstract.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Spring\Contoso.Abstract.Spring.csproj">
+      <Project>{08D54C60-5744-423F-A700-9ABE13C62B20}</Project>
+      <Name>Contoso.Abstract.Spring</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.StructureMap\Contoso.Abstract.StructureMap.csproj">
+      <Project>{48DC2445-A460-4B42-B175-10B0924B248C}</Project>
+      <Name>Contoso.Abstract.StructureMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Unity\Contoso.Abstract.Unity.csproj">
+      <Project>{21FCE5EA-3C6D-43D7-9984-1278307AB77E}</Project>
+      <Name>Contoso.Abstract.Unity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F33A53BF-D56E-4F54-AE6E-14E0BDA13D8B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Abstract.ServiceBusTests</RootNamespace>
+    <AssemblyName>System.Abstract.ServiceBusTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\packages\NServiceBus.3.2.8\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\packages\NServiceBus.3.2.8\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="xunit">
+      <HintPath>..\..\..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract+ServiceBus\NServiceBusFakes\ConfigFakeTransport.cs" />
+    <Compile Include="Abstract+ServiceBus\NServiceBusFakes\FakeTransport.cs" />
+    <Compile Include="Abstract+ServiceBus\NServiceBusServiceBusIntegrationTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\System.Abstract.Tests\System.Abstract.Tests.csproj">
+      <Project>{E24BF01E-3160-45E8-BE5A-D2F2D4A50C2C}</Project>
+      <Name>System.Abstract.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Abstract\System.Abstract.csproj">
+      <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
+      <Name>System.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.MTServiceBus\Contoso.Abstract.MTServiceBus.csproj">
+      <Project>{6C7BE524-C5E4-4647-A271-841CA6A0A221}</Project>
+      <Name>Contoso.Abstract.MTServiceBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.NServiceBus\Contoso.Abstract.NServiceBus.csproj">
+      <Project>{BF36681D-4869-48B6-B2E9-F78430206F62}</Project>
+      <Name>Contoso.Abstract.NServiceBus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.RabbitMQ\Contoso.Abstract.RabbitMq.csproj">
+      <Project>{23DE10E6-3675-417C-A0E6-FE9CF566CBB0}</Project>
+      <Name>Contoso.Abstract.RabbitMq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.RhinoServiceBus\Contoso.Abstract.RhinoServiceBus.csproj">
+      <Project>{C1A8AD53-BCFC-447D-8C03-D7C453D2739E}</Project>
+      <Name>Contoso.Abstract.RhinoServiceBus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

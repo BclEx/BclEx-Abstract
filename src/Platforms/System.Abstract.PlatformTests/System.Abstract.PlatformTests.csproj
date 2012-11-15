@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C176830-D64B-450D-BE96-EDBD451C30A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Abstract.PlatformTests</RootNamespace>
+    <AssemblyName>System.Abstract.PlatformTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="xunit">
+      <HintPath>..\..\..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\System.Abstract.Tests\System.Abstract.Tests.csproj">
+      <Project>{E24BF01E-3160-45E8-BE5A-D2F2D4A50C2C}</Project>
+      <Name>System.Abstract.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System.Abstract\System.Abstract.csproj">
+      <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
+      <Name>System.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.MvcTurbine\Contoso.Abstract.MvcTurbine.csproj">
+      <Project>{6ECD2B38-B550-430E-A90B-E770512BF458}</Project>
+      <Name>Contoso.Abstract.MvcTurbine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Web.Mvc2\Contoso.Abstract.Web.Mvc2.csproj">
+      <Project>{9E961ED4-69FD-42FE-B19C-3EAB67D1535B}</Project>
+      <Name>Contoso.Abstract.Web.Mvc2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Web.Mvc3\Contoso.Abstract.Web.Mvc3.csproj">
+      <Project>{9061E52B-AB9F-4BCE-8840-850824B039D8}</Project>
+      <Name>Contoso.Abstract.Web.Mvc3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Web.Mvc4\Contoso.Abstract.Web.Mvc4.csproj">
+      <Project>{25B38D5A-5331-455A-8D96-6ACA5845001E}</Project>
+      <Name>Contoso.Abstract.Web.Mvc4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Web\Contoso.Abstract.Web.csproj">
+      <Project>{D1EBE7A3-1CFD-438C-A007-FF281F0B1D2A}</Project>
+      <Name>Contoso.Abstract.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
