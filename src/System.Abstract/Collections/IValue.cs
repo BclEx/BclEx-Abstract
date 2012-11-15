@@ -23,22 +23,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Configuration;
-using System.Abstract.Configuration.ServiceBus;
-namespace System.Abstract.Configuration
+namespace System.Collections
 {
     /// <summary>
-    /// ServiceBusConfiguration
+    /// Generic interface used to decouple specific implementation details of an object instance and the underlying
+    /// <see cref="Value"/> of the object. Allows for passing of abstract object types
+    /// containing a modifiable unkeyed <see cref="Value"/> property 
     /// </summary>
-    public partial class ServiceBusConfiguration
+    /// <typeparam name="T">Data type of the value.</typeparam>
+    public interface IValue<T>
     {
         /// <summary>
-        /// Gets the endpoints.
+        /// Allows Get and Set access the the underlying value of the object.
         /// </summary>
-        [ConfigurationProperty("endpoints")]
-        public EndpointElementCollection Endpoints
-        {
-            get { return (EndpointElementCollection)base["endpoints"]; }
-        }
+        /// <value>The value.</value>
+        T Value { get; set; }
     }
 }

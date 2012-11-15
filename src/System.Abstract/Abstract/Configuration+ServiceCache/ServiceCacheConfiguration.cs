@@ -24,33 +24,12 @@ THE SOFTWARE.
 */
 #endregion
 using System.Configuration;
-namespace System.Abstract.Configuration.ServiceBus
+namespace System.Abstract.Configuration
 {
     /// <summary>
-    /// EndpointElement
+    /// ServiceCacheConfiguration
     /// </summary>
-    public partial class EndpointElement
+    public class ServiceCacheConfiguration : ConfigurationElementEx
     {
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        [ConfigurationProperty("name", IsRequired = true)]
-        public string Name
-        {
-            get { return (string)base["name"]; }
-            set { base["name"] = value; }
-        }
-
-        /// <summary>
-        /// Gets the endpoint.
-        /// </summary>
-        [ConfigurationProperty("endpoint", IsRequired = true)]
-        public string Endpoint
-        {
-            get { return (string)base["endpoint"]; }
-        }
     }
 }

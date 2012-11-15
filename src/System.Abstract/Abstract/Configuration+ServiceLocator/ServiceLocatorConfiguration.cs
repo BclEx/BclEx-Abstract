@@ -27,9 +27,9 @@ using System.Configuration;
 namespace System.Abstract.Configuration
 {
     /// <summary>
-    /// ServiceLogConfiguration
+    /// ServiceLocatorConfiguration
     /// </summary>
-    public partial class ServiceLogConfiguration
+    public class ServiceLocatorConfiguration : ConfigurationElementEx
     {
     }
 }

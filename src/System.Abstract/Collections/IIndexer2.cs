@@ -23,13 +23,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Configuration;
-namespace System.Abstract.Configuration
+namespace System.Collections
 {
     /// <summary>
-    /// ServiceLocatorConfiguration
+    /// Provides a standardized, abstract, generic base class for indexed object types. Provides no implementation details by itself.
     /// </summary>
-    public partial class ServiceLocatorConfiguration
+    /// <typeparam name="TKey">Generic type of the key for the indexed object instance.</typeparam>
+    /// <typeparam name="TKey2">The type of the key2.</typeparam>
+    /// <typeparam name="TValue">Generic type for the value in the indexed object instance.</typeparam>
+    public interface IIndexer<TKey, TKey2, TValue> : IIndexer<TKey, TValue>
     {
+        /// <summary>
+        /// Gets or sets the value associated with the specified key.
+        /// </summary>
+        /// <value>The value associated with the specified key.</value>
+        TValue this[TKey key, TKey2 key2] { get; set; }
     }
 }

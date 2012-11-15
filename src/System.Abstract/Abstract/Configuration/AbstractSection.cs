@@ -29,7 +29,7 @@ namespace System.Abstract.Configuration
     /// <summary>
     /// AbstractSection
     /// </summary>
-    public partial class AbstractSection
+    public class AbstractSection : ConfigurationSectionEx
     {
         /// <summary>
         /// Gets the event source.

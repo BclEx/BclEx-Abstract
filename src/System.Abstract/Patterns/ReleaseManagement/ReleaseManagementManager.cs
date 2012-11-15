@@ -29,7 +29,7 @@ namespace System.Patterns.ReleaseManagement
     /// <summary>
     /// ReleaseManagementManager
     /// </summary>
-    public static partial class ReleaseManagementManager
+    public static class ReleaseManagementManager
     {
         /// <summary>
         /// Loads from configuration.

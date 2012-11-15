@@ -24,12 +24,13 @@ THE SOFTWARE.
 */
 #endregion
 using System.Configuration;
+using System.Abstract.Configuration.ServiceBus;
 namespace System.Abstract.Configuration
 {
     /// <summary>
-    /// ServiceCacheConfiguration
+    /// EventSourceConfiguration
     /// </summary>
-    public partial class ServiceCacheConfiguration
+    public class EventSourceConfiguration : ConfigurationElementEx
     {
     }
 }

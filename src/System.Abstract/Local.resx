@@ -162,4 +162,7 @@
   <data name="RedefineNameA" xml:space="preserve">
     <value>RedefineNameA {0}</value>
   </data>
+  <data name="UndefinedItemAB" xml:space="preserve">
+    <value>'{0}' item '{1}' not defined.</value>
+  </data>
 </root>

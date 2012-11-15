@@ -8,7 +8,7 @@
     <ProjectGuid>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>System.Abstract</RootNamespace>
+    <RootNamespace>System</RootNamespace>
     <AssemblyName>System.Abstract</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -87,9 +87,6 @@
     <Compile Include="..\+FromCoreEx\+Kludge\Runtime\CompilerServices\DependentHandle.cs">
       <Link>+FromCoreEx\+Kludge\Runtime\CompilerServices\DependentHandle.cs</Link>
     </Compile>
-    <Compile Include="..\+FromCoreEx\Collections\IIndexer.cs">
-      <Link>+FromCoreEx\Collections\IIndexer.cs</Link>
-    </Compile>
     <Compile Include="..\+FromCoreEx\CoreExtensions+Lazy.cs">
       <Link>+FromCoreEx\CoreExtensions+Lazy.cs</Link>
     </Compile>
@@ -167,22 +164,23 @@
     <Compile Include="Abstract\Parts+TypeSerializer\WcfTypeSerializer.cs" />
     <Compile Include="Abstract\Parts+TypeSerializer\XmlTypeSerializer.cs" />
     <Compile Include="Abstract\Parts\PartsExtensions.cs" />
-    <Compile Include="Configuration+EventSource\EventSourceConfiguration+FromCoreEx.cs" />
-    <Compile Include="Configuration+EventSource\EventSourceConfiguration.cs" />
-    <Compile Include="Configuration+ServiceBus\ServiceBusConfiguration+FromCoreEx.cs" />
-    <Compile Include="Configuration+ServiceBus\ServiceBusConfiguration.cs" />
-    <Compile Include="Configuration+ServiceBus\ServiceBus\EndpointElement+FromCoreEx.cs" />
-    <Compile Include="Configuration+ServiceBus\ServiceBus\EndpointElement.cs" />
-    <Compile Include="Configuration+ServiceBus\ServiceBus\EndpointElementCollection+FromCoreEx.cs" />
-    <Compile Include="Configuration+ServiceBus\ServiceBus\EndpointElementCollection.cs" />
-    <Compile Include="Configuration+ServiceCache\ServiceCacheConfiguration+FromCoreEx.cs" />
-    <Compile Include="Configuration+ServiceCache\ServiceCacheConfiguration.cs" />
-    <Compile Include="Configuration+ServiceLocator\ServiceLocatorConfiguration+FromCoreEx.cs" />
-    <Compile Include="Configuration+ServiceLocator\ServiceLocatorConfiguration.cs" />
-    <Compile Include="Configuration+ServiceLog\ServiceLogConfiguration+FromCoreEx.cs" />
-    <Compile Include="Configuration+ServiceLog\ServiceLogConfiguration.cs" />
-    <Compile Include="Configuration\AbstractSection+FromCoreEx.cs" />
-    <Compile Include="Configuration\AbstractSection.cs" />
+    <Compile Include="Collections\IIndexer.cs" />
+    <Compile Include="Collections\IIndexer2.cs" />
+    <Compile Include="Collections\IValue.cs" />
+    <Compile Include="Abstract\Configuration+EventSource\EventSourceConfiguration.cs" />
+    <Compile Include="Abstract\Configuration+ServiceBus\ServiceBusConfiguration.cs" />
+    <Compile Include="Abstract\Configuration+ServiceBus\ServiceBus\EndpointElement.cs" />
+    <Compile Include="Abstract\Configuration+ServiceBus\ServiceBus\EndpointElementCollection.cs" />
+    <Compile Include="Abstract\Configuration+ServiceCache\ServiceCacheConfiguration.cs" />
+    <Compile Include="Abstract\Configuration+ServiceLocator\ServiceLocatorConfiguration.cs" />
+    <Compile Include="Abstract\Configuration+ServiceLog\ServiceLogConfiguration.cs" />
+    <Compile Include="Abstract\Configuration\AbstractSection.cs" />
+    <Compile Include="Configuration\AssemblyNameConverter.cs" />
+    <Compile Include="Configuration\ConfigurationElementCollectionEx.cs" />
+    <Compile Include="Configuration\ConfigurationElementCollectionEx2.cs" />
+    <Compile Include="Configuration\ConfigurationElementEx.cs" />
+    <Compile Include="Configuration\ConfigurationManagerEx.cs" />
+    <Compile Include="Configuration\ConfigurationSectionEx.cs" />
     <Compile Include="Contoso.Abstract+Impl\+ServiceBus\AppServiceBus.cs" />
     <Compile Include="Contoso.Abstract+Impl\+ServiceBus\AppServiceBusRegistration.cs" />
     <Compile Include="Contoso.Abstract+Impl\+ServiceBus\IAppServiceMessageHandler.cs" />
@@ -290,7 +288,6 @@
     <Compile Include="AbstractExtensions.cs" />
     <Compile Include="+EnvironmentEx\DeploymentEnvironment.cs" />
     <Compile Include="+EnvironmentEx\DevelopmentStage.cs" />
-    <Compile Include="Patterns\ReleaseManagement\ReleaseManagementConfiguration+FromCoreEx.cs" />
     <Compile Include="Patterns\ReleaseManagement\ReleaseManagementConfiguration.cs" />
     <Compile Include="Patterns\ReleaseManagement\ReleaseManagementManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -303,7 +300,7 @@
     <Compile Include="Abstract\Parts+TypeSerializer\ITypeSerializer.cs" />
     <Compile Include="+Kludge\System_LazyDebugView.cs" />
     <Compile Include="+Kludge\Threading\LazyThreadSafetyMode.cs" />
-    <Compile Include="ServiceConfigurationExtensions.cs" />
+    <Compile Include="Abstract\ServiceConfigurationExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Local.resx">
@@ -322,7 +319,7 @@
     <None Include="BclEx.snk" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Configuration+EventSource\EventSourcing\" />
+    <Folder Include="Abstract\Configuration+EventSource\EventSourcing\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

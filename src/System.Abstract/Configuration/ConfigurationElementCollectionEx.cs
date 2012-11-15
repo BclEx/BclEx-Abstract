@@ -24,19 +24,19 @@ THE SOFTWARE.
 */
 #endregion
 using System.Collections;
-#if COREINTERNAL
+#if DEFINENAMEHERE
 using System.Configuration;
-namespace System.Abstract.Configuration.ServiceBus
+namespace NAMESPACEHERE
 {
     /// <summary>
     /// An abstract class representing a simplified configuration setting object collection.
     /// </summary>
-    public partial class EndpointElementCollection : ConfigurationElementCollection
+    public partial class NAMEHERE : ConfigurationElementCollection
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EndpointElementCollection"/> class.
+        /// Initializes a new instance of the <see cref="NAMEHERE"/> class.
         /// </summary>
-        public EndpointElementCollection() { _collectionType = ConfigurationElementCollectionType.AddRemoveClearMap; _attributeIndex = new AttributeIndex(this); }
+        public NAMEHERE() { _collectionType = ConfigurationElementCollectionType.AddRemoveClearMap; _attributeIndex = new AttributeIndex(this); }
 #else
 namespace System.Configuration
 {
@@ -45,16 +45,16 @@ namespace System.Configuration
     /// facade over the <see cref="T:System.Configuration.ConfigurationElementCollection">ConfigurationElement</see> class.
     /// </summary>
     /// <typeparam name="T">Specific type contained within the generic hash instance.</typeparam>
-    public class ConfigurationElementCollectionEx<EndpointElement> : ConfigurationElementCollection
-        where EndpointElement : ConfigurationElementEx, new()
+    public class ConfigurationElementCollectionEx<T> : ConfigurationElementCollection
+        where T : ConfigurationElementEx, new()
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConfigurationSet&lt;EndpointElement&gt;"/> class.
+        /// Initializes a new instance of the <see cref="ConfigurationElementCollectionEx&lt;T&gt;"/> class.
         /// </summary>
         protected ConfigurationElementCollectionEx()
             : this(ConfigurationElementCollectionType.AddRemoveClearMap) { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConfigurationSet&lt;EndpointElement&gt;"/> class.
+        /// Initializes a new instance of the <see cref="ConfigurationElementCollectionEx&lt;T&gt;"/> class.
         /// </summary>
         /// <param name="collectionType">Type of the collection.</param>
         protected ConfigurationElementCollectionEx(ConfigurationElementCollectionType collectionType)
@@ -67,18 +67,12 @@ namespace System.Configuration
         private ConfigurationElementCollectionType _collectionType;
 
         /// <summary>
-        /// Gets or sets the <see cref="System.Configuration.ConfigurationSection"/> or
-        /// <see cref="System.Configuration.ConfigurationElement"/> instance at the specified index.
+        /// Gets or sets a property, attribute, or child element of this configuration element.
         /// </summary>
-        /// <value>
-        /// An instance of a class that derives from <see cref="System.Configuration.ConfigurationElement"/>
-        /// </value>
-        /// <returns>
-        /// The specified property, attribute, or child element
-        /// </returns>
-        public EndpointElement this[int index]
+        /// <returns>The specified property, attribute, or child element</returns>
+        public T this[int index]
         {
-            get { return (EndpointElement)BaseGet(index); }
+            get { return (T)BaseGet(index); }
             set
             {
                 if (BaseGet(index) != null)
@@ -87,18 +81,12 @@ namespace System.Configuration
             }
         }
         /// <summary>
-        /// Gets or sets the <see cref="System.Configuration.ConfigurationSection"/> or
-        /// <see cref="System.Configuration.ConfigurationElement"/> instance at the specified index.
+        /// Gets or sets a property, attribute, or child element of this configuration element.
         /// </summary>
-        /// <value>
-        /// An instance of a class that derives from <see cref="System.Configuration.ConfigurationElement"/>
-        /// </value>
-        /// <returns>
-        /// The specified property, attribute, or child element
-        /// </returns>
-        public new EndpointElement this[string name]
+        /// <returns>The specified property, attribute, or child element</returns>
+        public new T this[string name]
         {
-            get { return (EndpointElement)BaseGet(name); }
+            get { return (T)BaseGet(name); }
         }
 
         /// <summary>
@@ -106,7 +94,7 @@ namespace System.Configuration
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public EndpointElement AddIfUndefined(string name)
+        public T AddIfUndefined(string name)
         {
             bool isNew;
             return AddIfUndefined(name, out isNew);
@@ -117,12 +105,12 @@ namespace System.Configuration
         /// <param name="name">The name.</param>
         /// <param name="wasAdded">if set to <c>true</c> [is new].</param>
         /// <returns></returns>
-        public EndpointElement AddIfUndefined(string name, out bool wasAdded)
+        public T AddIfUndefined(string name, out bool wasAdded)
         {
-            EndpointElement t = (EndpointElement)BaseGet(name);
+            T t = (T)BaseGet(name);
             if (t == null)
             {
-                t = (EndpointElement)CreateNewElement();
+                t = (T)CreateNewElement();
                 t.Name = name;
                 BaseAdd(t);
                 wasAdded = true;
@@ -158,9 +146,9 @@ namespace System.Configuration
         /// <returns>
         ///   <c>true</c> if the Collection contains an element with the specified key; otherwise, <c>false</c>
         /// </returns>
-        public bool TryGetValue(object key, out EndpointElement value)
+        public bool TryGetValue(object key, out T value)
         {
-            value = (EndpointElement)BaseGet(key);
+            value = (T)BaseGet(key);
             return (value != null);
         }
 
@@ -215,12 +203,12 @@ namespace System.Configuration
 
         /// <summary>
         /// When overridden in a derived class, creates a new <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see>
-        /// of the generic parameter type EndpointElement.
+        /// of the generic parameter type T.
         /// </summary>
         /// <returns>
         /// A new <see cref="T:System.Configuration.ConfigurationElement"></see>.
         /// </returns>
-        protected override ConfigurationElement CreateNewElement() { return new EndpointElement(); }
+        protected override ConfigurationElement CreateNewElement() { return new T(); }
 
         /// <summary>
         /// Gets the Name for a specified configuration element when overridden in a derived class.
@@ -229,13 +217,13 @@ namespace System.Configuration
         /// <returns>
         /// An <see cref="T:System.Object"></see> that acts as the key for the specified <see cref="T:System.Configuration.ConfigurationElement"></see>.
         /// </returns>
-        protected override object GetElementKey(ConfigurationElement element) { return ((EndpointElement)element).Name; }
+        protected override object GetElementKey(ConfigurationElement element) { return ((T)element).Name; }
 
         #endregion
 
         #region Attribute
 
-#if COREINTERNAL
+#if DEFINENAMEHERE
         /// <summary>
         /// Gets the AttributeIndex of this class.
         /// </summary>
@@ -251,12 +239,12 @@ namespace System.Configuration
         /// </summary>
         public class AttributeIndex
         {
-            private EndpointElementCollection _parent;
+            private NAMEHERE _parent;
             /// <summary>
             /// Initializes a new instance of the <see cref="AttributeIndex"/> class.
             /// </summary>
             /// <param name="parent">The parent.</param>
-            public AttributeIndex(EndpointElementCollection parent) { _parent = parent; }
+            public AttributeIndex(NAMEHERE parent) { _parent = parent; }
 #else
         /// <summary>
         /// Gets the AttributeIndex of this class.
@@ -270,13 +258,13 @@ namespace System.Configuration
         }
         private class AttributeIndex : IIndexer<string, object>
         {
-            private ConfigurationElementCollectionEx<EndpointElement> _parent;
+            private ConfigurationElementCollectionEx<T> _parent;
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="ConfigurationHashBase&lt;EndpointElement&gt;.AttributeIndex"/> class.
+            /// Initializes a new instance of the <see cref="ConfigurationElementCollectionEx&lt;T&gt;.AttributeIndex"/> class.
             /// </summary>
-            /// <param name="configCollection">The config collection.</param>
-            public AttributeIndex(ConfigurationElementCollectionEx<EndpointElement> parent) { _parent = parent; }
+            /// <param name="parent">The parent.</param>
+            public AttributeIndex(ConfigurationElementCollectionEx<T> parent) { _parent = parent; }
 #endif
             /// <summary>
             /// Gets or sets the <see cref="System.Object"/> with the specified key.

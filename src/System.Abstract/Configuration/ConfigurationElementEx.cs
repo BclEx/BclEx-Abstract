@@ -24,20 +24,20 @@ THE SOFTWARE.
 */
 #endregion
 using System.Collections;
-#if COREINTERNAL
+#if DEFINENAMEHERE
 using System.Configuration;
-namespace System.Patterns.ReleaseManagement
+namespace NAMESPACEHERE
 {
     /// <summary>
     /// An abstract class representing a simplified configuration setting object. This provides a basic
     /// facade over the <see cref="T:System.Configuration.ConfigurationElement">ConfigurationElement</see> class.
     /// </summary>
-    public partial class ReleaseManagementConfiguration : ConfigurationElement
+    public partial class NAMEHERE : ConfigurationElement
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReleaseManagementConfiguration"/> class.
+        /// Initializes a new instance of the <see cref="NAMEHERE"/> class.
         /// </summary>
-        public ReleaseManagementConfiguration() { _attributeIndex = new AttributeIndex(this); }
+        public NAMEHERE() { _attributeIndex = new AttributeIndex(this); }
 #else
 namespace System.Configuration
 {
@@ -62,7 +62,7 @@ namespace System.Configuration
         /// </returns>
         public override bool IsReadOnly() { return false; }
 
-#if !COREINTERNAL
+#if !DEFINENAMEHERE
         /// <summary>
         /// Gets or sets the name of the configuration setting.
         /// </summary>
@@ -118,7 +118,7 @@ namespace System.Configuration
 
         #region Attribute
 
-#if COREINTERNAL
+#if DEFINENAMEHERE
         /// <summary>
         /// Gets the attribute.
         /// </summary>
@@ -131,12 +131,12 @@ namespace System.Configuration
         /// </summary>
         protected class AttributeIndex
         {
-            private ReleaseManagementConfiguration _parent;
+            private NAMEHERE _parent;
             /// <summary>
             /// Initializes a new instance of the <see cref="AttributeIndex"/> class.
             /// </summary>
             /// <param name="parent">The parent.</param>
-            public AttributeIndex(ReleaseManagementConfiguration parent) { _parent = parent; }
+            public AttributeIndex(NAMEHERE parent) { _parent = parent; }
 #else
         /// <summary>
         /// Gets the AttributeIndex of this class.

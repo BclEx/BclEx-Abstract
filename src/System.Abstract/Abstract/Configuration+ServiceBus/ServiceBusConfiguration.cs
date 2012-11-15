@@ -24,37 +24,21 @@ THE SOFTWARE.
 */
 #endregion
 using System.Configuration;
-namespace System.Patterns.ReleaseManagement
+using System.Abstract.Configuration.ServiceBus;
+namespace System.Abstract.Configuration
 {
     /// <summary>
-    /// ReleaseManagementConfiguration
+    /// ServiceBusConfiguration
     /// </summary>
-    public class ReleaseManagementConfiguration : ConfigurationElementEx
+    public class ServiceBusConfiguration : ConfigurationElementEx
     {
         /// <summary>
-        /// Gets or sets the deployment environment.
+        /// Gets the endpoints.
         /// </summary>
-        /// <value>
-        /// The deployment environment.
-        /// </value>
-        [ConfigurationProperty("deploymentEnvironment", DefaultValue = DeploymentEnvironment.Production)]
-        public DeploymentEnvironment DeploymentEnvironment
+        [ConfigurationProperty("endpoints")]
+        public EndpointElementCollection Endpoints
         {
-            get { return (DeploymentEnvironment)this["deploymentEnvironment"]; }
-            set { this["deploymentEnvironment"] = value; }
-        }
-
-        /// <summary>
-        /// Gets or sets the development stage.
-        /// </summary>
-        /// <value>
-        /// The development stage.
-        /// </value>
-        [ConfigurationProperty("developmentStage", DefaultValue = DevelopmentStage.Release)]
-        public DevelopmentStage DevelopmentStage
-        {
-            get { return (DevelopmentStage)this["developmentStage"]; }
-            set { this["developmentStage"] = value; }
+            get { return (EndpointElementCollection)base["endpoints"]; }
         }
     }
 }

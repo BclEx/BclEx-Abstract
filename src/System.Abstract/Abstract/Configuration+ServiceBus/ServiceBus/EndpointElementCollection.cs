@@ -29,7 +29,7 @@ namespace System.Abstract.Configuration.ServiceBus
     /// <summary>
     /// EndpointElementCollection
     /// </summary>
-    public partial class EndpointElementCollection
+    public class EndpointElementCollection : ConfigurationElementCollectionEx<EndpointElement>
     {
     }
 }

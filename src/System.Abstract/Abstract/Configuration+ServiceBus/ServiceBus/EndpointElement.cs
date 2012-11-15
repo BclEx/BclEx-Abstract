@@ -24,13 +24,33 @@ THE SOFTWARE.
 */
 #endregion
 using System.Configuration;
-using System.Abstract.Configuration.ServiceBus;
-namespace System.Abstract.Configuration
+namespace System.Abstract.Configuration.ServiceBus
 {
     /// <summary>
-    /// EventSourceConfiguration
+    /// EndpointElement
     /// </summary>
-    public partial class EventSourceConfiguration
+    public class EndpointElement : ConfigurationElementEx
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        [ConfigurationProperty("name", IsRequired = true)]
+        public override string Name
+        {
+            get { return (string)base["name"]; }
+            set { base["name"] = value; }
+        }
+
+        /// <summary>
+        /// Gets the endpoint.
+        /// </summary>
+        [ConfigurationProperty("endpoint", IsRequired = true)]
+        public string Endpoint
+        {
+            get { return (string)base["endpoint"]; }
+        }
     }
 }
