@@ -28,6 +28,13 @@ namespace System
 {
     static partial class CoreExtensions
     {
+        /// <summary>
+        /// Hooks the value factory.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="lazy">The lazy.</param>
+        /// <param name="valueFactory">The value factory.</param>
+        /// <returns></returns>
         public static Lazy<T> HookValueFactory<T>(this Lazy<T> lazy, Func<Func<T>, T> valueFactory) { LazyHelper<T>.HookValueFactory(lazy, valueFactory); return lazy; }
 
         private class LazyHelper<T>

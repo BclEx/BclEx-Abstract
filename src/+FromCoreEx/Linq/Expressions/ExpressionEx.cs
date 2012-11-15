@@ -37,6 +37,13 @@ namespace System.Linq.Expressions
  static class ExpressionEx
     {
 #if !NO_EXPRESSIONS
+        /// <summary>
+        /// Covariants the cast.
+        /// </summary>
+        /// <typeparam name="TBase">The type of the base.</typeparam>
+        /// <typeparam name="TDerived">The type of the derived.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <returns></returns>
         public static Action<TBase> CovariantCast<TBase, TDerived>(Expression<Action<TDerived>> source)
             where TDerived : TBase
         {
@@ -52,6 +59,13 @@ namespace System.Linq.Expressions
         }
 #endif
 
+        /// <summary>
+        /// Covariants the cast.
+        /// </summary>
+        /// <typeparam name="TBase">The type of the base.</typeparam>
+        /// <typeparam name="TDerived">The type of the derived.</typeparam>
+        /// <param name="method">The method.</param>
+        /// <returns></returns>
         public static Action<TBase> CovariantCast<TBase, TDerived>(MethodInfo method)
             where TDerived : TBase
         {
@@ -70,8 +84,24 @@ namespace System.Linq.Expressions
 #endif
         }
 
+        /// <summary>
+        /// Covariants the accessor.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TBase">The type of the base.</typeparam>
+        /// <typeparam name="TDerived">The type of the derived.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <returns></returns>
         public static Func<T, TBase> CovariantAccessor<T, TBase, TDerived>(Func<T, TDerived> source)
             where TDerived : TBase { return CovariantAccessor<T, TBase, TDerived>(source.Method); }
+        /// <summary>
+        /// Covariants the accessor.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TBase">The type of the base.</typeparam>
+        /// <typeparam name="TDerived">The type of the derived.</typeparam>
+        /// <param name="method">The method.</param>
+        /// <returns></returns>
         public static Func<T, TBase> CovariantAccessor<T, TBase, TDerived>(MethodInfo method)
             where TDerived : TBase
         {

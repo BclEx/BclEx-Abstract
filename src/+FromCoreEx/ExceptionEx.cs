@@ -33,19 +33,39 @@ namespace System
 #if !COREINTERNAL
     public
 #endif
-    static class ExceptionExtensions
+ static class ExceptionExtensions
     {
         private static readonly MethodInfo _prepForRemotingMethod = typeof(Exception).GetMethod("PrepForRemoting", BindingFlags.NonPublic | BindingFlags.Instance);
         private static readonly MethodInfo _internalPreserveStackTraceMethod = typeof(Exception).GetMethod("InternalPreserveStackTrace", BindingFlags.NonPublic | BindingFlags.Instance);
 
+        /// <summary>
+        /// Determines whether the specified exception is critical.
+        /// </summary>
+        /// <param name="exception">The exception.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified exception is critical; otherwise, <c>false</c>.
+        /// </returns>
         public static bool IsCritical(this Exception exception)
         {
-#pragma warning disable 618
+#if CLR4
+            return (exception is AccessViolationException || exception is NullReferenceException || exception is StackOverflowException || exception is OutOfMemoryException || exception is ThreadAbortException);
+#else
             return (exception is AccessViolationException || exception is NullReferenceException || exception is StackOverflowException || exception is OutOfMemoryException || exception is ExecutionEngineException || exception is ThreadAbortException);
-#pragma warning restore 618
+#endif
         }
 
+        /// <summary>
+        /// Prepares for rethrow.
+        /// </summary>
+        /// <param name="exception">The exception.</param>
+        /// <returns></returns>
         public static Exception PrepareForRethrow(this Exception exception) { return PrepareForRethrow(exception, false); }
+        /// <summary>
+        /// Prepares for rethrow.
+        /// </summary>
+        /// <param name="exception">The exception.</param>
+        /// <param name="remoting">if set to <c>true</c> [remoting].</param>
+        /// <returns></returns>
         public static Exception PrepareForRethrow(this Exception exception, bool remoting)
         {
             if (exception == null)

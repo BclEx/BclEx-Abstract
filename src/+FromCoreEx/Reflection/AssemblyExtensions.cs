@@ -36,6 +36,12 @@ namespace System.Reflection
 #endif
  static class AssemblyExtensions
     {
+        /// <summary>
+        /// Ases the types.
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <returns></returns>
         public static IEnumerable<Type> AsTypes(this Assembly assembly, Predicate<Type> predicate)
         {
             if (assembly == null)
@@ -45,9 +51,35 @@ namespace System.Reflection
                     yield return type;
         }
 
+        /// <summary>
+        /// Ases the concrete types.
+        /// </summary>
+        /// <typeparam name="TBasedOn">The type of the based on.</typeparam>
+        /// <param name="assembly">The assembly.</param>
+        /// <returns></returns>
         public static IEnumerable<Type> AsConcreteTypes<TBasedOn>(this Assembly assembly) { return AsConcreteTypes(assembly, typeof(TBasedOn), null); }
+        /// <summary>
+        /// Ases the concrete types.
+        /// </summary>
+        /// <typeparam name="TBasedOn">The type of the based on.</typeparam>
+        /// <param name="assembly">The assembly.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <returns></returns>
         public static IEnumerable<Type> AsConcreteTypes<TBasedOn>(this Assembly assembly, Predicate<Type> predicate) { return AsConcreteTypes(assembly, typeof(TBasedOn), null); }
+        /// <summary>
+        /// Ases the concrete types.
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        /// <param name="basedOnType">Type of the based on.</param>
+        /// <returns></returns>
         public static IEnumerable<Type> AsConcreteTypes(this Assembly assembly, Type basedOnType) { return AsConcreteTypes(assembly, basedOnType, null); }
+        /// <summary>
+        /// Ases the concrete types.
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        /// <param name="basedOnType">Type of the based on.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <returns></returns>
         public static IEnumerable<Type> AsConcreteTypes(this Assembly assembly, Type basedOnType, Predicate<Type> predicate)
         {
             if (assembly == null)

@@ -35,12 +35,28 @@ namespace System
 #endif
  static partial class EnvironmentEx2
     {
+        /// <summary>
+        /// Gets the resource from default.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         [SecurityCritical]
         public static string GetResourceFromDefault(string key) { return key; }
 
+        /// <summary>
+        /// Gets the resource string.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         [SecuritySafeCritical] //, TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
         public static string GetResourceString(string key) { return GetResourceFromDefault(key); }
 
+        /// <summary>
+        /// Gets the resource string.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="values">The values.</param>
+        /// <returns></returns>
         [SecuritySafeCritical]
         public static string GetResourceString(string key, params object[] values)
         {

@@ -49,6 +49,11 @@ namespace System.Runtime.CompilerServices
     *    Will not corrupt unmanaged handle table on OOM. No guarantees about managed weak table consistency. Native handles reclamation
     *    may be delayed until appdomain shutdown.
     */
+    /// <summary>
+    /// ConditionalWeakTable
+    /// </summary>
+    /// <typeparam name="TKey">The type of the key.</typeparam>
+    /// <typeparam name="TValue">The type of the value.</typeparam>
     [ComVisible(false)]
 #if !COREINTERNAL
     public
@@ -64,6 +69,11 @@ namespace System.Runtime.CompilerServices
         private bool _invalid; // flag detects if OOM or other background exception threw us out of the lock.
         private object _lock; // this could be a ReaderWriterLock but CoreCLR does not support RWLocks. 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         public delegate TValue CreateValueCallback(TKey key);
 
         [StructLayout(LayoutKind.Sequential)]
@@ -76,6 +86,9 @@ namespace System.Runtime.CompilerServices
             public int next; // Index of next entry, -1 if last 
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConditionalWeakTable&lt;TKey, TValue&gt;"/> class.
+        /// </summary>
         [SecuritySafeCritical]
         public ConditionalWeakTable()
         {
@@ -86,6 +99,10 @@ namespace System.Runtime.CompilerServices
             // Resize at once (so won't need "if initialized" checks all over)
             Resize();
         }
+        /// <summary>
+        /// Releases unmanaged resources and performs other cleanup operations before the
+        /// <see cref="ConditionalWeakTable&lt;TKey, TValue&gt;"/> is reclaimed by garbage collection.
+        /// </summary>
         [SecuritySafeCritical]
         ~ConditionalWeakTable()
         {
@@ -105,6 +122,11 @@ namespace System.Runtime.CompilerServices
                     }
         }
 
+        /// <summary>
+        /// Adds the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
         [SecuritySafeCritical]
         public void Add(TKey key, TValue value)
         {
@@ -165,8 +187,19 @@ namespace System.Runtime.CompilerServices
             return -1;
         }
 
+        /// <summary>
+        /// Gets the or create value.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         public TValue GetOrCreateValue(TKey key) { return GetValue(key, (TKey k) => Activator.CreateInstance<TValue>()); }
 
+        /// <summary>
+        /// Gets the value.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="createValueCallback">The create value callback.</param>
+        /// <returns></returns>
         [SecuritySafeCritical]
         public TValue GetValue(TKey key, CreateValueCallback createValueCallback)
         {
@@ -194,6 +227,11 @@ namespace System.Runtime.CompilerServices
             }
         }
 
+        /// <summary>
+        /// Removes the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         [SecuritySafeCritical]
         public bool Remove(TKey key)
         {
@@ -285,6 +323,12 @@ namespace System.Runtime.CompilerServices
             _freeList = newFreeList;
         }
 
+        /// <summary>
+        /// Tries the get value.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
         [SecuritySafeCritical]
         public bool TryGetValue(TKey key, out TValue value)
         {
@@ -319,6 +363,14 @@ namespace System.Runtime.CompilerServices
         }
 
         // Kludge: CompilerServicesExtensions dependency
+        /// <summary>
+        /// Tries the get value worker for lazy value helper.
+        /// </summary>
+        /// <typeparam name="TLazyKey">The type of the lazy key.</typeparam>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="isValueCreated">if set to <c>true</c> [is value created].</param>
+        /// <returns></returns>
         [SecurityCritical]
         public bool TryGetValueWorkerForLazyValueHelper<TLazyKey>(TLazyKey key, out TValue value, bool isValueCreated)
         {
