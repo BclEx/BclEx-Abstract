@@ -267,22 +267,9 @@ namespace System.Abstract
         /// Registers the by I service registration.
         /// </summary>
         /// <param name="service">The service.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceLocator> RegisterByIServiceRegistration(this Lazy<IServiceLocator> service) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByIServiceRegistration(l.Registrar, null, assembiles)); return service; }
-        /// <summary>
-        /// Registers the by I service registration.
-        /// </summary>
-        /// <param name="service">The service.</param>
         /// <param name="assemblies">The assemblies.</param>
         /// <returns></returns>
         public static Lazy<IServiceLocator> RegisterByIServiceRegistration(this Lazy<IServiceLocator> service, params Assembly[] assemblies) { ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByIServiceRegistration(l.Registrar, null, assemblies)); return service; }
-        /// <summary>
-        /// Registers the by I service registration.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceLocator> RegisterByIServiceRegistration(this Lazy<IServiceLocator> service, Predicate<Type> predicate) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByIServiceRegistration(l.Registrar, predicate, assembiles)); return service; }
         /// <summary>
         /// Registers the by I service registration.
         /// </summary>
@@ -296,23 +283,9 @@ namespace System.Abstract
         /// Registers the by naming convention.
         /// </summary>
         /// <param name="service">The service.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceLocator> RegisterByNamingConvention(this Lazy<IServiceLocator> service) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByNamingConvention(l.Registrar, null, assembiles)); return service; }
-        /// <summary>
-        /// Registers the by naming convention.
-        /// </summary>
-        /// <param name="service">The service.</param>
         /// <param name="assemblies">The assemblies.</param>
         /// <returns></returns>
         public static Lazy<IServiceLocator> RegisterByNamingConvention(this Lazy<IServiceLocator> service, params Assembly[] assemblies) { ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByNamingConvention(l.Registrar, null, assemblies)); return service; }
-        /// <summary>
-        /// Registers the by naming convention.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        public static Lazy<IServiceLocator> RegisterByNamingConvention(this Lazy<IServiceLocator> service, Predicate<Type> predicate) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByNamingConvention(l.Registrar, predicate, assembiles)); return service; }
         /// <summary>
         /// Registers the by naming convention.
         /// </summary>
@@ -327,25 +300,9 @@ namespace System.Abstract
         /// </summary>
         /// <typeparam name="TBasedOn">The type of the based on.</typeparam>
         /// <param name="service">The service.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceLocator> RegisterByTypeMatch<TBasedOn>(this Lazy<IServiceLocator> service) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, typeof(TBasedOn), null, assembiles)); return service; }
-        /// <summary>
-        /// Registers the by type match.
-        /// </summary>
-        /// <typeparam name="TBasedOn">The type of the based on.</typeparam>
-        /// <param name="service">The service.</param>
         /// <param name="assemblies">The assemblies.</param>
         /// <returns></returns>
         public static Lazy<IServiceLocator> RegisterByTypeMatch<TBasedOn>(this Lazy<IServiceLocator> service, params Assembly[] assemblies) { ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, typeof(TBasedOn), null, assemblies)); return service; }
-        /// <summary>
-        /// Registers the by type match.
-        /// </summary>
-        /// <typeparam name="TBasedOn">The type of the based on.</typeparam>
-        /// <param name="service">The service.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        public static Lazy<IServiceLocator> RegisterByTypeMatch<TBasedOn>(this Lazy<IServiceLocator> service, Predicate<Type> predicate) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, typeof(TBasedOn), predicate, assembiles)); return service; }
         /// <summary>
         /// Registers the by type match.
         /// </summary>
@@ -360,24 +317,9 @@ namespace System.Abstract
         /// </summary>
         /// <param name="service">The service.</param>
         /// <param name="basedOnType">Type of the based on.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceLocator> RegisterByTypeMatch(this Lazy<IServiceLocator> service, Type basedOnType) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, basedOnType, null, assembiles)); return service; }
-        /// <summary>
-        /// Registers the by type match.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="basedOnType">Type of the based on.</param>
         /// <param name="assemblies">The assemblies.</param>
         /// <returns></returns>
         public static Lazy<IServiceLocator> RegisterByTypeMatch(this Lazy<IServiceLocator> service, Type basedOnType, params Assembly[] assemblies) { ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, basedOnType, null, assemblies)); return service; }
-        /// <summary>
-        /// Registers the by type match.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="basedOnType">Type of the based on.</param>
-        /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceLocator> RegisterByTypeMatch(this Lazy<IServiceLocator> service, Type basedOnType, Predicate<Type> predicate) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, basedOnType, predicate, assembiles)); return service; }
         /// <summary>
         /// Registers the by type match.
         /// </summary>
@@ -388,23 +330,48 @@ namespace System.Abstract
         /// <returns></returns>
         public static Lazy<IServiceLocator> RegisterByTypeMatch(this Lazy<IServiceLocator> service, Type basedOnType, Predicate<Type> predicate, params Assembly[] assemblies) { ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, basedOnType, predicate, assemblies)); return service; }
 
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private static Assembly GetPreviousCallingMethodAssembly()
-        {
-            var log = ServiceLogManager.Current;
-            var thisAssembly = typeof(ServiceLocatorExtensions).Assembly;
-            var stackTrace = new StackTrace();
-            for (var i = 2; i < 10 && i < stackTrace.FrameCount; i++)
-            {
-                Assembly assembly;
-                var method = stackTrace.GetFrame(i).GetMethod();
-                if (method != null)
-                    log.InformationFormat("{0}: {1} at {2}.", i, method.ToString(), method.ReflectedType.Assembly.FullName);
-                if (method != null && (assembly = method.ReflectedType.Assembly) != thisAssembly)
-                    return assembly;
-            }
-            throw new InvalidOperationException("Unable to find an assembly");
-        }
+        #endregion
+
+        #region ThisAssembly
+
+        //public static Lazy<IServiceLocator> RegisterByIServiceRegistration(this Lazy<IServiceLocator> service) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByIServiceRegistration(l.Registrar, null, assembiles)); return service; }
+        //public static Lazy<IServiceLocator> RegisterByIServiceRegistration(this Lazy<IServiceLocator> service, Predicate<Type> predicate) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByIServiceRegistration(l.Registrar, predicate, assembiles)); return service; }
+        //
+        //public static Lazy<IServiceLocator> RegisterByNamingConvention(this Lazy<IServiceLocator> service) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByNamingConvention(l.Registrar, null, assembiles)); return service; }
+        //public static Lazy<IServiceLocator> RegisterByNamingConvention(this Lazy<IServiceLocator> service, Predicate<Type> predicate) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByNamingConvention(l.Registrar, predicate, assembiles)); return service; }
+        //
+        //public static Lazy<IServiceLocator> RegisterByTypeMatch<TBasedOn>(this Lazy<IServiceLocator> service) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, typeof(TBasedOn), null, assembiles)); return service; }
+        //public static Lazy<IServiceLocator> RegisterByTypeMatch<TBasedOn>(this Lazy<IServiceLocator> service, Predicate<Type> predicate) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, typeof(TBasedOn), predicate, assembiles)); return service; }
+        //public static Lazy<IServiceLocator> RegisterByTypeMatch(this Lazy<IServiceLocator> service, Type basedOnType) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, basedOnType, null, assembiles)); return service; }
+        //public static Lazy<IServiceLocator> RegisterByTypeMatch(this Lazy<IServiceLocator> service, Type basedOnType, Predicate<Type> predicate) { var assembiles = new[] { GetPreviousCallingMethodAssembly() }; ServiceLocatorManager.GetSetupDescriptor(service).Do(l => RegisterByTypeMatch(l.Registrar, basedOnType, predicate, assembiles)); return service; }
+        //
+        //public static void RegisterByIServiceRegistration(this IServiceRegistrar registrar) { RegisterByIServiceRegistration(registrar, x => DefaultPredicate(registrar, x), new[] { GetPreviousCallingMethodAssembly() }); }
+        //public static void RegisterByIServiceRegistration(this IServiceRegistrar registrar, Predicate<Type> predicate) { RegisterByIServiceRegistration(registrar, predicate, new[] { GetPreviousCallingMethodAssembly() }); }
+        //
+        //public static void RegisterByNamingConvention(this IServiceRegistrar registrar) { RegisterByNamingConvention((serviceType, implementationType) => registrar.Register(serviceType, implementationType), x => DefaultPredicate(registrar, x), new[] { GetPreviousCallingMethodAssembly() }); }
+        //public static void RegisterByNamingConvention(this IServiceRegistrar registrar, Predicate<Type> predicate) { RegisterByNamingConvention((serviceType, implementationType) => registrar.Register(serviceType, implementationType), predicate, new[] { GetPreviousCallingMethodAssembly() }); }
+        //
+        //public static void RegisterByTypeMatch<TBasedOn>(this IServiceRegistrar registrar) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), typeof(TBasedOn), x => DefaultPredicate(registrar, x), new[] { GetPreviousCallingMethodAssembly() }); }
+        //public static void RegisterByTypeMatch<TBasedOn>(this IServiceRegistrar registrar, Predicate<Type> predicate) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), typeof(TBasedOn), predicate, new[] { GetPreviousCallingMethodAssembly() }); }
+        //public static void RegisterByTypeMatch(this IServiceRegistrar registrar, Type basedOnType) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), basedOnType, x => DefaultPredicate(registrar, x), new[] { GetPreviousCallingMethodAssembly() }); }
+        //public static void RegisterByTypeMatch(this IServiceRegistrar registrar, Type basedOnType, Predicate<Type> predicate) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), basedOnType, predicate, new[] { GetPreviousCallingMethodAssembly() }); }
+
+        //private static Assembly GetPreviousCallingMethodAssembly()
+        //{
+        //    var log = ServiceLogManager.Current;
+        //    var thisAssembly = typeof(ServiceLocatorExtensions).Assembly;
+        //    var stackTrace = new StackTrace();
+        //    for (var i = 2; i < 10 && i < stackTrace.FrameCount; i++)
+        //    {
+        //        Assembly assembly;
+        //        var method = stackTrace.GetFrame(i).GetMethod();
+        //        if (method != null)
+        //            log.InformationFormat("{0}: {1} at {2}.", i, method.ToString(), method.ReflectedType.Assembly.FullName);
+        //        if (method != null && (assembly = method.ReflectedType.Assembly) != thisAssembly)
+        //            return assembly;
+        //    }
+        //    throw new InvalidOperationException("Unable to find an assembly");
+        //}
 
         #endregion
 
@@ -412,19 +379,8 @@ namespace System.Abstract
         /// Registers the by I service registration.
         /// </summary>
         /// <param name="registrar">The registrar.</param>
-        public static void RegisterByIServiceRegistration(this IServiceRegistrar registrar) { RegisterByIServiceRegistration(registrar, x => DefaultPredicate(registrar, x), new[] { GetPreviousCallingMethodAssembly() }); }
-        /// <summary>
-        /// Registers the by I service registration.
-        /// </summary>
-        /// <param name="registrar">The registrar.</param>
         /// <param name="assemblies">The assemblies.</param>
         public static void RegisterByIServiceRegistration(this IServiceRegistrar registrar, params Assembly[] assemblies) { RegisterByIServiceRegistration(registrar, x => DefaultPredicate(registrar, x), assemblies); }
-        /// <summary>
-        /// Registers the by I service registration.
-        /// </summary>
-        /// <param name="registrar">The registrar.</param>
-        /// <param name="predicate">The predicate.</param>
-        public static void RegisterByIServiceRegistration(this IServiceRegistrar registrar, Predicate<Type> predicate) { RegisterByIServiceRegistration(registrar, predicate, new[] { GetPreviousCallingMethodAssembly() }); }
         /// <summary>
         /// Registers the by I service registration.
         /// </summary>
@@ -483,19 +439,8 @@ namespace System.Abstract
         /// Registers the by naming convention.
         /// </summary>
         /// <param name="registrar">The registrar.</param>
-        public static void RegisterByNamingConvention(this IServiceRegistrar registrar) { RegisterByNamingConvention((serviceType, implementationType) => registrar.Register(serviceType, implementationType), x => DefaultPredicate(registrar, x), new[] { GetPreviousCallingMethodAssembly() }); }
-        /// <summary>
-        /// Registers the by naming convention.
-        /// </summary>
-        /// <param name="registrar">The registrar.</param>
         /// <param name="assemblies">The assemblies.</param>
         public static void RegisterByNamingConvention(this IServiceRegistrar registrar, params Assembly[] assemblies) { RegisterByNamingConvention((serviceType, implementationType) => registrar.Register(serviceType, implementationType), x => DefaultPredicate(registrar, x), assemblies); }
-        /// <summary>
-        /// Registers the by naming convention.
-        /// </summary>
-        /// <param name="registrar">The registrar.</param>
-        /// <param name="predicate">The predicate.</param>
-        public static void RegisterByNamingConvention(this IServiceRegistrar registrar, Predicate<Type> predicate) { RegisterByNamingConvention((serviceType, implementationType) => registrar.Register(serviceType, implementationType), predicate, new[] { GetPreviousCallingMethodAssembly() }); }
         /// <summary>
         /// Registers the by naming convention.
         /// </summary>
@@ -576,21 +521,8 @@ namespace System.Abstract
         /// </summary>
         /// <typeparam name="TBasedOn">The type of the based on.</typeparam>
         /// <param name="registrar">The registrar.</param>
-        public static void RegisterByTypeMatch<TBasedOn>(this IServiceRegistrar registrar) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), typeof(TBasedOn), x => DefaultPredicate(registrar, x), new[] { GetPreviousCallingMethodAssembly() }); }
-        /// <summary>
-        /// Registers the by type match.
-        /// </summary>
-        /// <typeparam name="TBasedOn">The type of the based on.</typeparam>
-        /// <param name="registrar">The registrar.</param>
         /// <param name="assemblies">The assemblies.</param>
         public static void RegisterByTypeMatch<TBasedOn>(this IServiceRegistrar registrar, params Assembly[] assemblies) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), typeof(TBasedOn), x => DefaultPredicate(registrar, x), assemblies); }
-        /// <summary>
-        /// Registers the by type match.
-        /// </summary>
-        /// <typeparam name="TBasedOn">The type of the based on.</typeparam>
-        /// <param name="registrar">The registrar.</param>
-        /// <param name="predicate">The predicate.</param>
-        public static void RegisterByTypeMatch<TBasedOn>(this IServiceRegistrar registrar, Predicate<Type> predicate) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), typeof(TBasedOn), predicate, new[] { GetPreviousCallingMethodAssembly() }); }
         /// <summary>
         /// Registers the by type match.
         /// </summary>
@@ -604,21 +536,8 @@ namespace System.Abstract
         /// </summary>
         /// <param name="registrar">The registrar.</param>
         /// <param name="basedOnType">Type of the based on.</param>
-        public static void RegisterByTypeMatch(this IServiceRegistrar registrar, Type basedOnType) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), basedOnType, x => DefaultPredicate(registrar, x), new[] { GetPreviousCallingMethodAssembly() }); }
-        /// <summary>
-        /// Registers the by type match.
-        /// </summary>
-        /// <param name="registrar">The registrar.</param>
-        /// <param name="basedOnType">Type of the based on.</param>
         /// <param name="assemblies">The assemblies.</param>
         public static void RegisterByTypeMatch(this IServiceRegistrar registrar, Type basedOnType, params Assembly[] assemblies) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), basedOnType, x => DefaultPredicate(registrar, x), assemblies); }
-        /// <summary>
-        /// Registers the by type match.
-        /// </summary>
-        /// <param name="registrar">The registrar.</param>
-        /// <param name="basedOnType">Type of the based on.</param>
-        /// <param name="predicate">The predicate.</param>
-        public static void RegisterByTypeMatch(this IServiceRegistrar registrar, Type basedOnType, Predicate<Type> predicate) { RegisterByTypeMatch((serviceType, implementationType, name) => registrar.Register(serviceType, implementationType, name), basedOnType, predicate, new[] { GetPreviousCallingMethodAssembly() }); }
         /// <summary>
         /// Registers the by type match.
         /// </summary>
@@ -673,7 +592,7 @@ namespace System.Abstract
         }
 
         /// <summary>
-        /// 
+        /// DefaultPredicate
         /// </summary>
         public static readonly Func<IServiceRegistrar, Type, bool> DefaultPredicate = (r, t) => !r.HasRegistered(t);
     }
