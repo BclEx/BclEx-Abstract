@@ -181,6 +181,7 @@
     <Compile Include="Configuration\ConfigurationElementEx.cs" />
     <Compile Include="Configuration\ConfigurationManagerEx.cs" />
     <Compile Include="Configuration\ConfigurationSectionEx.cs" />
+    <Compile Include="Configuration\CodecConverter.cs" />
     <Compile Include="Contoso.Abstract+Impl\+ServiceBus\AppServiceBus.cs" />
     <Compile Include="Contoso.Abstract+Impl\+ServiceBus\AppServiceBusRegistration.cs" />
     <Compile Include="Contoso.Abstract+Impl\+ServiceBus\IAppServiceMessageHandler.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializableAttribute.cs" />
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializationException.cs" />
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializer.cs" />
+    <Compile Include="ICodec.cs" />
     <Compile Include="IO\PathEx2+PathWrapper.cs" />
     <Compile Include="Lazy.cs" />
     <Compile Include="Abstract+ServiceLog+Impl\ServiceLogManager.cs" />

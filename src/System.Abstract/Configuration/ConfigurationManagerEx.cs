@@ -101,5 +101,72 @@ namespace System.Configuration
                 throw new InvalidOperationException(string.Format(Local.UndefinedItemAB, "Configuration::Section", sectionName));
             return section;
         }
+
+        #region Codec
+
+        /// <summary>
+        /// Encodes the specified value.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public static T Encode<T>(T value) { return Encode<T>(null, value); }
+        /// <summary>
+        /// Encodes the specified tag.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="tag">The tag.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public static T Encode<T>(object tag, T value)
+        {
+            var codec = GetCodec<T>();
+            if (codec == null)
+                throw new InvalidOperationException(string.Format("No registration found for {0}. Please register one.", typeof(T).Name));
+            return codec.Encode(tag, value);
+        }
+
+        /// <summary>
+        /// Decodes the specified value.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public static T Decode<T>(T value) { return Decode<T>(null, value); }
+        /// <summary>
+        /// Decodes the specified tag.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="tag">The tag.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public static T Decode<T>(object tag, T value)
+        {
+            var codec = GetCodec<T>();
+            if (codec == null)
+                throw new InvalidOperationException(string.Format("No registration found for {0}. Please register one.", typeof(T).Name));
+            return codec.Decode(tag, value);
+        }
+
+        /// <summary>
+        /// Gets the codec.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static ICodec<T> GetCodec<T>() { return Registration<T>.Codec; }
+
+        /// <summary>
+        /// Sets the codec.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="codec">The codec.</param>
+        public static void SetCodec<T>(ICodec<T> codec) { Registration<T>.Codec = codec; }
+
+        internal static class Registration<T>
+        {
+            public static ICodec<T> Codec { get; set; }
+        }
+
+        #endregion
     }
 }

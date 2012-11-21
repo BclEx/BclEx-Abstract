@@ -71,6 +71,42 @@ namespace System.Configuration
         //    get { return base.Properties; }
         //}
 
+        #region Codec
+
+        /// <summary>
+        /// Encodes the specified value.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        protected T Encode<T>(T value) { return ConfigurationManagerEx.Encode(null, value); }
+        /// <summary>
+        /// Encodes the specified tag.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="tag">The tag.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        protected T Encode<T>(object tag, T value) { return ConfigurationManagerEx.Encode(tag, value); }
+
+        /// <summary>
+        /// Decodes the specified value.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        protected T Decode<T>(T value) { return ConfigurationManagerEx.Decode(null, value); }
+        /// <summary>
+        /// Decodes the specified tag.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="tag">The tag.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        protected T Decode<T>(object tag, T value) { return ConfigurationManagerEx.Decode(tag, value); }
+
+        #endregion
+
         #region Inheriting
 
         /// <summary>
