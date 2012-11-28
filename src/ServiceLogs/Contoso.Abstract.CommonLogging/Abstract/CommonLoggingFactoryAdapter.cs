@@ -53,40 +53,36 @@ namespace Contoso.Abstract
                 _log = log;
             }
 
-            /// <summary>
-            /// Gets the write handler.
-            /// </summary>
-            /// <returns></returns>
             //protected override WriteHandler GetWriteHandler() { return (LogLevel level, object s, Exception ex) => _log.Write(FromLogLevel(level), ex, FromMessage(s)); }
 
             public override bool IsDebugEnabled
             {
-                get { throw new NotSupportedException(); }
+                get { return true; }
             }
 
             public override bool IsErrorEnabled
             {
-                get { throw new NotSupportedException(); }
+                get { return true; }
             }
 
             public override bool IsFatalEnabled
             {
-                get { throw new NotSupportedException(); }
+                get { return true; }
             }
 
             public override bool IsInfoEnabled
             {
-                get { throw new NotSupportedException(); }
+                get { return true; }
             }
 
             public override bool IsTraceEnabled
             {
-                get { throw new NotSupportedException(); }
+                get { return true; }
             }
 
             public override bool IsWarnEnabled
             {
-                get { throw new NotSupportedException(); }
+                get { return true; }
             }
 
             protected override void WriteInternal(LogLevel level, object message, Exception exception)
