@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;COMMONLOGGING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -31,7 +31,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug.4\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;CLR4</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;CLR4;COMMONLOGGING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -41,7 +41,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;COMMONLOGGING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Contoso.Abstract.RhinoServiceBus.XML</DocumentationFile>
@@ -53,7 +53,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release.4\</OutputPath>
-    <DefineConstants>TRACE;CLR4</DefineConstants>
+    <DefineConstants>TRACE;CLR4;COMMONLOGGING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release.4\Contoso.Abstract.RhinoServiceBus.XML</DocumentationFile>
@@ -97,6 +97,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\ServiceLogs\Contoso.Abstract.CommonLogging\Abstract\CommonLoggingFactoryAdapter.cs">
+      <Link>Abstract\+FromCommonLogging\CommonLoggingFactoryAdapter.cs</Link>
+    </Compile>
     <Compile Include="Abstract\BootstrapRhinoServiceBusLoadBalancedHost.cs" />
     <Compile Include="Abstract\BootstrapRhinoServiceBusHost.cs" />
     <Compile Include="Abstract\OnewayRhinoWrapServiceBusAbstractor.cs" />

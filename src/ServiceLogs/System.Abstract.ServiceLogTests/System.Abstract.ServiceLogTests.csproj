@@ -51,6 +51,10 @@
       <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
       <Name>System.Abstract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.CommonLogging\Contoso.Abstract.CommonLogging.csproj">
+      <Project>{ED24E708-5F01-4546-8629-025F0C9E83B2}</Project>
+      <Name>Contoso.Abstract.CommonLogging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Contoso.Abstract.Log4Net\Contoso.Abstract.Log4Net.csproj">
       <Project>{539BA0CF-E8E4-4501-A6A8-F7E695BCFA19}</Project>
       <Name>Contoso.Abstract.Log4Net</Name>

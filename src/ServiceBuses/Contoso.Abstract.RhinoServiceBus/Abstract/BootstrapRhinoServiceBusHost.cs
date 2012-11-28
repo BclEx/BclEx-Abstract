@@ -32,26 +32,26 @@ namespace Contoso.Abstract
     /// </summary>
     public abstract class BootstrapRhinoServiceBusHost : ServiceLocatorBootStrapper, IServiceBusHostBootstrap
     {
-        private string _name;
+        private readonly string _name;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BootstrapRhinoServiceBusHost"/> class.
         /// </summary>
         protected BootstrapRhinoServiceBusHost()
-            : base(ServiceLocatorManager.Current) { }
+            : base(ServiceLocatorManager.Current) { CommonLoggingFactoryAdapter.EnsureRegistration(); }
         /// <summary>
         /// Initializes a new instance of the <see cref="BootstrapRhinoServiceBusHost"/> class.
         /// </summary>
         /// <param name="locator">The locator.</param>
         protected BootstrapRhinoServiceBusHost(IServiceLocator locator)
-            : base(locator) { }
+            : base(locator) { CommonLoggingFactoryAdapter.EnsureRegistration(); }
         /// <summary>
         /// Initializes a new instance of the <see cref="BootstrapRhinoServiceBusHost"/> class.
         /// </summary>
         /// <param name="locator">The locator.</param>
         /// <param name="name">The name.</param>
         protected BootstrapRhinoServiceBusHost(IServiceLocator locator, string name)
-            : base(locator) { _name = name; }
+            : base(locator) { CommonLoggingFactoryAdapter.EnsureRegistration(); _name = name; }
 
         /// <summary>
         /// Initializes this instance.
