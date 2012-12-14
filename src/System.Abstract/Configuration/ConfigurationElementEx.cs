@@ -71,7 +71,7 @@ namespace System.Configuration
         /// </value>
         public virtual string Name
         {
-            get { return string.Empty; }
+            get { throw new NotImplementedException("Name property not correctly overriden or undefined."); }
             set { }
         }
 #endif

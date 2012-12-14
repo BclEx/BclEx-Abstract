@@ -91,7 +91,7 @@ namespace System.Abstract.EventSourcing
             where TAggregateRoot : AggregateRoot
         {
             var connectionStringBuilder = new MongoConnectionStringBuilder(_connectionString);
-            var database = MongoServer.Create(connectionStringBuilder).GetDatabase(connectionStringBuilder.DatabaseName);
+            var database = new MongoClient(connectionStringBuilder.ConnectionString).GetServer().GetDatabase(connectionStringBuilder.DatabaseName);
             var query = Query.EQ("AggregateID", _makeAggregateID(aggregateID));
             return database.GetCollection<AggregateRootSnapshot>(_tableName).FindOne(query);
         }
@@ -104,7 +104,7 @@ namespace System.Abstract.EventSourcing
         public void SaveSnapshot(Type aggregateType, AggregateRootSnapshot snapshot)
         {
             var connectionStringBuilder = new MongoConnectionStringBuilder(_connectionString);
-            var database = MongoServer.Create(connectionStringBuilder).GetDatabase(connectionStringBuilder.DatabaseName);
+            var database = new MongoClient(connectionStringBuilder.ConnectionString).GetServer().GetDatabase(connectionStringBuilder.DatabaseName);
             var query = Query.EQ("AggregateID", _makeAggregateID(snapshot.AggregateID));
             var update = new UpdateDocument
             {

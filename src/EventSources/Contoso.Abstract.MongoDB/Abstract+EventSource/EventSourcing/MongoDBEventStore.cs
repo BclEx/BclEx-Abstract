@@ -91,7 +91,7 @@ namespace Contoso.Abstract.EventSourcing
         public IEnumerable<Event> GetEventsByID(object aggregateID, int startSequence)
         {
             var connectionStringBuilder = new MongoConnectionStringBuilder(_connectionString);
-            var database = MongoServer.Create(connectionStringBuilder).GetDatabase(connectionStringBuilder.DatabaseName);
+            var database = new MongoClient(connectionStringBuilder.ConnectionString).GetServer().GetDatabase(connectionStringBuilder.DatabaseName);
             var query = Query.And(
                 Query.EQ("AggregateID", _makeAggregateID(aggregateID)),
                 Query.GT("EventSequence", startSequence));
@@ -106,7 +106,7 @@ namespace Contoso.Abstract.EventSourcing
         public void SaveEvents(object aggregateID, IEnumerable<Event> events)
         {
             var connectionStringBuilder = new MongoConnectionStringBuilder(_connectionString);
-            var database = MongoServer.Create(connectionStringBuilder).GetDatabase(connectionStringBuilder.DatabaseName);
+            var database = new MongoClient(connectionStringBuilder.ConnectionString).GetServer().GetDatabase(connectionStringBuilder.DatabaseName);
             database.GetCollection<Event>(_tableName).Insert(events);
         }
     }

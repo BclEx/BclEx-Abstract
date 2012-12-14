@@ -152,6 +152,42 @@ namespace System.Configuration
             return (value != null);
         }
 
+        #region Codec
+
+        /// <summary>
+        /// Encodes the specified value.
+        /// </summary>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        protected T2 Encode<T2>(T2 value) { return ConfigurationManagerEx.Encode(null, value); }
+        /// <summary>
+        /// Encodes the specified tag.
+        /// </summary>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="tag">The tag.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        protected T2 Encode<T2>(object tag, T2 value) { return ConfigurationManagerEx.Encode(tag, value); }
+
+        /// <summary>
+        /// Decodes the specified value.
+        /// </summary>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        protected T2 Decode<T2>(T2 value) { return ConfigurationManagerEx.Decode(null, value); }
+        /// <summary>
+        /// Decodes the specified tag.
+        /// </summary>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="tag">The tag.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        protected T2 Decode<T2>(object tag, T2 value) { return ConfigurationManagerEx.Decode(tag, value); }
+
+        #endregion
+
         #region Inheriting
 
         /// <summary>
