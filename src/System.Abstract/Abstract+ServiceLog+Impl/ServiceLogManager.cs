@@ -33,9 +33,14 @@ namespace System.Abstract
     public class ServiceLogManager : ServiceManagerBase<IServiceLog, Action<IServiceLog>, ServiceLogManagerDebugger>
     {
         /// <summary>
-        /// 
+        /// Empty
         /// </summary>
-        public static readonly Lazy<IServiceLog> EmptyServiceLog = new Lazy<IServiceLog>(() => new EmptyServiceLog());
+        public static readonly IServiceLog Empty = new EmptyServiceLog();
+
+        /// <summary>
+        /// EmptyLazy
+        /// </summary>
+        public static readonly Lazy<IServiceLog> EmptyLazy = new Lazy<IServiceLog>(() => Empty);
 
         static ServiceLogManager()
         {
@@ -117,12 +122,12 @@ namespace System.Abstract
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IServiceLog Get<T>() { return (ServiceLogManager.Lazy ?? EmptyServiceLog).Value.Get<T>(); }
+        public static IServiceLog Get<T>() { return (ServiceLogManager.Lazy ?? EmptyLazy).Value.Get<T>(); }
         /// <summary>
         /// Gets the specified name.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public static IServiceLog Get(string name) { return (ServiceLogManager.Lazy ?? EmptyServiceLog).Value.Get(name); }
+        public static IServiceLog Get(string name) { return (ServiceLogManager.Lazy ?? EmptyLazy).Value.Get(name); }
     }
 }

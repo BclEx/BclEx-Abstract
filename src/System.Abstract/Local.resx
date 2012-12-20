@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ExceedRecurseCount" xml:space="preserve">
     <value>ExceedRecurseCount</value>
@@ -164,5 +164,38 @@
   </data>
   <data name="UndefinedItemAB" xml:space="preserve">
     <value>'{0}' item '{1}' not defined.</value>
+  </data>
+  <data name="ResourcePropertyIncorrectType" xml:space="preserve">
+    <value>The property '{0}' on resource type '{1}' is not a type of ResourceManager.</value>
+  </data>
+  <data name="ResourceTypeDoesNotHaveProperty" xml:space="preserve">
+    <value>The resource type '{0}' does not have an accessible static property named '{1}'.</value>
+  </data>
+  <data name="ConsoleConfirmMessage" xml:space="preserve">
+    <value>{0} (y/N)</value>
+  </data>
+  <data name="ConsoleConfirmMessageAccept" xml:space="preserve">
+    <value>y</value>
+  </data>
+  <data name="ConsoleCannotPromptForInput_Error" xml:space="preserve">
+    <value>Cannot prompt for input in non-interactive mode.</value>
+  </data>
+  <data name="ConsoleCommandLine_Warning" xml:space="preserve">
+    <value>WARNING: {0}</value>
+  </data>
+  <data name="AddedFileA" xml:space="preserve">
+    <value>Added file '{0}'.</value>
+  </data>
+  <data name="AddedFileToFolderAB" xml:space="preserve">
+    <value>Added file '{0}' to folder '{1}'.</value>
+  </data>
+  <data name="RemovedFileA" xml:space="preserve">
+    <value>Removed file '{0}'.</value>
+  </data>
+  <data name="RemovedFileFromFolderAB" xml:space="preserve">
+    <value>Removed file '{0}' to folder '{1}'.</value>
+  </data>
+  <data name="RemovedFolderA" xml:space="preserve">
+    <value>Removed folder '{0}'.</value>
   </data>
 </root>

@@ -73,7 +73,26 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="+EnvironmentEx\EnvironmentEx+Resource.cs" />
     <Compile Include="+EnvironmentEx\PlatformProductID.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileSystemEnumerableHelpers.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\SearchResult.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\SearchResultHandler.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\StringResultHandler.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileInfoResultHandler.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\DirectoryInfoResultHandler.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileSystemInfoResultHandler.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\Iterator.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileSystemEnumerableIterator.cs" />
+    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileSystemEnumerableFactory.cs" />
+    <Compile Include="+Kludge\IO\__Error.cs" />
+    <Compile Include="+Kludge\IO\KludgeExtensions+FileSystemInfo.cs" />
+    <Compile Include="+Kludge\IO\PathEx.cs" />
+    <Compile Include="+Kludge\IO\DirectoryEx+Internal.cs" />
+    <Compile Include="+Kludge\IO\DirectoryEx.cs" />
+    <Compile Include="+Kludge\IO\KludgeExtensions+Stream.cs" />
+    <Compile Include="+Kludge\Microsoft.Win32_\SafeHandles\SafeFindHandle.cs" />
+    <Compile Include="+Kludge\Microsoft.Win32_\Win32Native.cs" />
     <Compile Include="+Nparams+Impl\StdParams.cs" />
     <Compile Include="+Nparams\NparamsExtensions.cs" />
     <Compile Include="+ParseFormat\IConvertFormatter.cs" />
@@ -182,6 +201,7 @@
     <Compile Include="Configuration\ConfigurationManagerEx.cs" />
     <Compile Include="Configuration\ConfigurationSectionEx.cs" />
     <Compile Include="Configuration\CodecConverter.cs" />
+    <Compile Include="ConsoleEx.cs" />
     <Compile Include="Contoso.Abstract+Impl\+ServiceBus\AppServiceBus.cs" />
     <Compile Include="Contoso.Abstract+Impl\+ServiceBus\AppServiceBusRegistration.cs" />
     <Compile Include="Contoso.Abstract+Impl\+ServiceBus\IAppServiceMessageHandler.cs" />
@@ -207,7 +227,10 @@
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializationException.cs" />
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializer.cs" />
     <Compile Include="ICodec.cs" />
+    <Compile Include="IO\IFileSystemEx.cs" />
+    <Compile Include="IO\EmptyFileSystemEx.cs" />
     <Compile Include="IO\PathEx2+PathWrapper.cs" />
+    <Compile Include="IO\SystemFileSystemEx.cs" />
     <Compile Include="Lazy.cs" />
     <Compile Include="Abstract+ServiceLog+Impl\ServiceLogManager.cs" />
     <Compile Include="Abstract+ServiceLog\IServiceLog.cs" />
@@ -303,6 +326,8 @@
     <Compile Include="+Kludge\System_LazyDebugView.cs" />
     <Compile Include="+Kludge\Threading\LazyThreadSafetyMode.cs" />
     <Compile Include="Abstract\ServiceConfigurationExtensions.cs" />
+    <Compile Include="Resources\ResourceManagerEx.cs" />
+    <Compile Include="ConsoleVerbosity.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Local.resx">

@@ -61,6 +61,60 @@ namespace System {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Added file &apos;{0}&apos;..
+        /// </summary>
+        internal static string AddedFileA {
+            get {
+                return ResourceManager.GetString("AddedFileA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Added file &apos;{0}&apos; to folder &apos;{1}&apos;..
+        /// </summary>
+        internal static string AddedFileToFolderAB {
+            get {
+                return ResourceManager.GetString("AddedFileToFolderAB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot prompt for input in non-interactive mode..
+        /// </summary>
+        internal static string ConsoleCannotPromptForInput_Error {
+            get {
+                return ResourceManager.GetString("ConsoleCannotPromptForInput_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WARNING: {0}.
+        /// </summary>
+        internal static string ConsoleCommandLine_Warning {
+            get {
+                return ResourceManager.GetString("ConsoleCommandLine_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} (y/N).
+        /// </summary>
+        internal static string ConsoleConfirmMessage {
+            get {
+                return ResourceManager.GetString("ConsoleConfirmMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to y.
+        /// </summary>
+        internal static string ConsoleConfirmMessageAccept {
+            get {
+                return ResourceManager.GetString("ConsoleConfirmMessageAccept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ExceedRecurseCount.
         /// </summary>
         internal static string ExceedRecurseCount {
@@ -156,6 +210,51 @@ namespace System {
         internal static string RedefineSetupDescriptorA {
             get {
                 return ResourceManager.GetString("RedefineSetupDescriptorA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Removed file &apos;{0}&apos;..
+        /// </summary>
+        internal static string RemovedFileA {
+            get {
+                return ResourceManager.GetString("RemovedFileA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Removed file &apos;{0}&apos; to folder &apos;{1}&apos;..
+        /// </summary>
+        internal static string RemovedFileFromFolderAB {
+            get {
+                return ResourceManager.GetString("RemovedFileFromFolderAB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Removed folder &apos;{0}&apos;..
+        /// </summary>
+        internal static string RemovedFolderA {
+            get {
+                return ResourceManager.GetString("RemovedFolderA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The property &apos;{0}&apos; on resource type &apos;{1}&apos; is not a type of ResourceManager..
+        /// </summary>
+        internal static string ResourcePropertyIncorrectType {
+            get {
+                return ResourceManager.GetString("ResourcePropertyIncorrectType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The resource type &apos;{0}&apos; does not have an accessible static property named &apos;{1}&apos;..
+        /// </summary>
+        internal static string ResourceTypeDoesNotHaveProperty {
+            get {
+                return ResourceManager.GetString("ResourceTypeDoesNotHaveProperty", resourceCulture);
             }
         }
         
