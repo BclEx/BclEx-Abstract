@@ -4,10 +4,7 @@
 #if !CLR4
 namespace System.IO
 {
-    /// <summary>
-    /// KludgeExtensions
-    /// </summary>
-    public static partial class KludgeExtensions
+    partial class KludgeExtensions
     {
         /// <summary>
         /// Copies to.

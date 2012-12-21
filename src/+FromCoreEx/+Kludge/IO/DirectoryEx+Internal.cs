@@ -5,7 +5,7 @@
 using System.Collections.Generic;
 namespace System.IO
 {
-    public partial class DirectoryEx
+    partial class DirectoryEx
     {
         internal sealed class SearchData
         {

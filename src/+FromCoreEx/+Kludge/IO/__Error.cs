@@ -9,7 +9,7 @@ namespace System.IO
     /// <summary>
     /// __Error
     /// </summary>
-    public class __Error
+    internal class __Error
     {
         private static readonly MethodInfo _winIOErrorInfo = Type.GetType("System.IO.__Error").GetMethod("WinIOError", BindingFlags.NonPublic | BindingFlags.Static, null, new[] { typeof(int), typeof(string) }, null);
 

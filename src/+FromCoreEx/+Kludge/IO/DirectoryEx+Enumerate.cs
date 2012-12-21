@@ -5,10 +5,7 @@
 using System.Collections.Generic;
 namespace System.IO
 {
-    /// <summary>
-    /// DirectoryEx
-    /// </summary>
-    public partial class DirectoryEx
+    partial class DirectoryEx
     {
         /// <summary>
         /// Enumerates the directories.

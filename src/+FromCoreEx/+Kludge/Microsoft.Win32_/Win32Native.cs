@@ -5,8 +5,8 @@
 using System;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
 using System.Security;
+using Microsoft.Win32.SafeHandles;
 namespace Microsoft.Win32
 {
     /// <summary>

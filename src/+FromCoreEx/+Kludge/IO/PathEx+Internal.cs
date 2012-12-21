@@ -7,7 +7,7 @@ namespace System.IO
     /// <summary>
     /// PathEx
     /// </summary>
-    internal partial class PathEx
+    partial class PathEx
     {
         internal static readonly char[] TrimEndChars = new char[] { '\t', '\n', '\v', '\f', '\r', ' ', '\x0085', '\x00a0' };
 

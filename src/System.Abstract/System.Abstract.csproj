@@ -75,30 +75,66 @@
   <ItemGroup>
     <Compile Include="+EnvironmentEx\EnvironmentEx+Resource.cs" />
     <Compile Include="+EnvironmentEx\PlatformProductID.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileSystemEnumerableHelpers.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\SearchResult.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\SearchResultHandler.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\StringResultHandler.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileInfoResultHandler.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\DirectoryInfoResultHandler.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileSystemInfoResultHandler.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\Iterator.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileSystemEnumerableIterator.cs" />
-    <Compile Include="+Kludge\IO+FileSystemEnumerable\FileSystemEnumerableFactory.cs" />
-    <Compile Include="+Kludge\IO\__Error.cs" />
-    <Compile Include="+Kludge\IO\KludgeExtensions+FileSystemInfo.cs" />
-    <Compile Include="+Kludge\IO\PathEx.cs" />
-    <Compile Include="+Kludge\IO\DirectoryEx+Internal.cs" />
-    <Compile Include="+Kludge\IO\DirectoryEx.cs" />
-    <Compile Include="+Kludge\IO\KludgeExtensions+Stream.cs" />
-    <Compile Include="+Kludge\Microsoft.Win32_\SafeHandles\SafeFindHandle.cs" />
-    <Compile Include="+Kludge\Microsoft.Win32_\Win32Native.cs" />
     <Compile Include="+Nparams+Impl\StdParams.cs" />
     <Compile Include="+Nparams\NparamsExtensions.cs" />
     <Compile Include="+ParseFormat\IConvertFormatter.cs" />
     <Compile Include="+ParseFormat\IConvertParser.cs" />
     <Compile Include="..\+FromCoreEx\+Kludge\Collections\HashHelpers.cs">
       <Link>+FromCoreEx\+Kludge\Collections\HashHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\DirectoryInfoResultHandler.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\DirectoryInfoResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\FileInfoResultHandler.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\FileInfoResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\FileSystemEnumerableFactory.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\FileSystemEnumerableFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\FileSystemEnumerableHelpers.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\FileSystemEnumerableHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\FileSystemEnumerableIterator.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\FileSystemEnumerableIterator.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\FileSystemInfoResultHandler.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\FileSystemInfoResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\Iterator.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\Iterator.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\SearchResult.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\SearchResult.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\SearchResultHandler.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\SearchResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO+Enumerate\StringResultHandler.cs">
+      <Link>+FromCoreEx\+Kludge\IO+Enumerate\StringResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO\DirectoryEx+Enumerate.cs">
+      <Link>+FromCoreEx\+Kludge\IO\DirectoryEx+Enumerate.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO\DirectoryEx+Internal.cs">
+      <Link>+FromCoreEx\+Kludge\IO\DirectoryEx+Internal.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO\KludgeExtensions+Stream.cs">
+      <Link>+FromCoreEx\+Kludge\IO\KludgeExtensions+Stream.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO\KludgeExtensions.cs">
+      <Link>+FromCoreEx\+Kludge\IO\KludgeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO\PathEx+Internal.cs">
+      <Link>+FromCoreEx\+Kludge\IO\PathEx+Internal.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\IO\__Error.cs">
+      <Link>+FromCoreEx\+Kludge\IO\__Error.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\Microsoft.Win32_\SafeHandles\SafeFindHandle.cs">
+      <Link>+FromCoreEx\+Kludge\Microsoft.Win32_\SafeHandles\SafeFindHandle.cs</Link>
+    </Compile>
+    <Compile Include="..\+FromCoreEx\+Kludge\Microsoft.Win32_\Win32Native.cs">
+      <Link>+FromCoreEx\+Kludge\Microsoft.Win32_\Win32Native.cs</Link>
     </Compile>
     <Compile Include="..\+FromCoreEx\+Kludge\Runtime\CompilerServices\ConditionalWeakTable.cs">
       <Link>+FromCoreEx\+Kludge\Runtime\CompilerServices\ConditionalWeakTable.cs</Link>
@@ -108,9 +144,6 @@
     </Compile>
     <Compile Include="..\+FromCoreEx\CoreExtensions+Lazy.cs">
       <Link>+FromCoreEx\CoreExtensions+Lazy.cs</Link>
-    </Compile>
-    <Compile Include="..\+FromCoreEx\EnvironmentEx2.cs">
-      <Link>+FromCoreEx\EnvironmentEx2.cs</Link>
     </Compile>
     <Compile Include="..\+FromCoreEx\ExceptionEx.cs">
       <Link>+FromCoreEx\ExceptionEx.cs</Link>
