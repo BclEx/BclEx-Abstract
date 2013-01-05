@@ -56,5 +56,18 @@ namespace System.Patterns.ReleaseManagement
             get { return (DevelopmentStage)this["developmentStage"]; }
             set { this["developmentStage"] = value; }
         }
+
+        /// <summary>
+        /// Gets or sets the version.
+        /// </summary>
+        /// <value>
+        /// The version.
+        /// </value>
+        [ConfigurationProperty("releaseVersion")]
+        public string ReleaseVersion
+        {
+            get { return (string)this["releaseVersion"]; }
+            set { this["releaseVersion"] = value; }
+        }
     }
 }

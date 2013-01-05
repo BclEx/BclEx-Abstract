@@ -122,7 +122,7 @@ namespace System.Abstract
             /// <param name="header">The header.</param>
             /// <returns></returns>
             public object Invoke(IServiceCache cache, object tag, CacheItemHeader header) { return _invokeInternalInfo.MakeGenericMethod(Action.TType).Invoke(this, new[] { cache, tag, header }); }
-            private object InvokeInternal<T>(IServiceCache cache, object tag, CacheItemHeader header) { return ActionInvoke<T>(Message, tag, header.Values, () => (T)cache.Get(null, header.Item)); }
+            private object InvokeInternal<T>(IServiceCache cache, object tag, CacheItemHeader header) { return ActionInvoke<T>(Message, tag, header.Values, () => { var v = cache.Get(null, header.Item); return (v is T ? (T)v : default(T)); }); }
         }
 
         /// <summary>

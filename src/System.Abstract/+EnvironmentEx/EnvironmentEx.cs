@@ -32,6 +32,7 @@ namespace System
     {
         private static DeploymentEnvironment _deploymentEnvironment = DeploymentEnvironment.Production;
         private static DevelopmentStage _developmentStage = DevelopmentStage.Release;
+        private static string _build;
 
         #region MockBase
 
@@ -57,6 +58,14 @@ namespace System
             /// Gets the development stage.
             /// </summary>
             public virtual DevelopmentStage DevelopmentStage
+            {
+                get { throw new NotImplementedException(); }
+            }
+
+            /// <summary>
+            /// Gets the version.
+            /// </summary>
+            public virtual string ReleaseVersion
             {
                 get { throw new NotImplementedException(); }
             }
@@ -128,6 +137,24 @@ namespace System
             {
                 if (_mock == null)
                     _developmentStage = value;
+                else
+                    throw new InvalidOperationException("Mocked");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the version.
+        /// </summary>
+        /// <value>
+        /// The version.
+        /// </value>
+        public static string ReleaseVersion
+        {
+            get { return (_mock == null ? _build : _mock.ReleaseVersion); }
+            set
+            {
+                if (_mock == null)
+                    _build = value;
                 else
                     throw new InvalidOperationException("Mocked");
             }

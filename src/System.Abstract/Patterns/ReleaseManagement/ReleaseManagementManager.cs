@@ -41,6 +41,7 @@ namespace System.Patterns.ReleaseManagement
                 throw new ArgumentNullException("configuration");
             EnvironmentEx.DeploymentEnvironment = configuration.DeploymentEnvironment;
             EnvironmentEx.DevelopmentStage = configuration.DevelopmentStage;
+            EnvironmentEx.ReleaseVersion = configuration.ReleaseVersion;
         }
     }
 }
