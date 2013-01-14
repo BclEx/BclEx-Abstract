@@ -465,7 +465,6 @@ namespace System.Abstract
             return registrationDispatcher.Get<T>(service, foundRegistration, tag, values);
         }
 
-
         /// <summary>
         /// Sends the specified service.
         /// </summary>
@@ -481,6 +480,7 @@ namespace System.Abstract
         /// <param name="tag">The tag.</param>
         /// <param name="messages">The messages.</param>
         /// <exception cref="System.ArgumentNullException"></exception>
+        ///   
         /// <exception cref="System.InvalidOperationException"></exception>
         public static void Send(this IServiceCache service, IServiceCacheRegistration registration, object tag, object[] messages)
         {
@@ -499,6 +499,46 @@ namespace System.Abstract
             if (foundRegistration is ServiceCacheForeignRegistration)
                 throw new InvalidOperationException(Local.InvalidDataSource);
             registrationDispatcher.Send(service, foundRegistration, tag, messages);
+        }
+
+        /// <summary>
+        /// Querys the specified service.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="service">The service.</param>
+        /// <param name="registration">The registration.</param>
+        /// <param name="messages">The messages.</param>
+        /// <returns></returns>
+        public static IEnumerable<T> Query<T>(this IServiceCache service, IServiceCacheRegistration registration, object[] messages) { return Query<T>(service, registration, null, messages); }
+        /// <summary>
+        /// Querys the specified cache.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="service">The cache.</param>
+        /// <param name="registration">The registration.</param>
+        /// <param name="tag">The tag.</param>
+        /// <param name="messages">The messages.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        ///   
+        /// <exception cref="System.InvalidOperationException"></exception>
+        public static IEnumerable<T> Query<T>(this IServiceCache service, IServiceCacheRegistration registration, object tag, object[] messages)
+        {
+            if (service == null)
+                throw new ArgumentNullException("service");
+            if (registration == null)
+                throw new ArgumentNullException("registration");
+            if (messages == null)
+                throw new ArgumentNullException("messages");
+            var registrationDispatcher = GetRegistrationDispatcher(service);
+            // fetch registration
+            var recurses = 0;
+            IServiceCacheRegistration foundRegistration;
+            if (!ServiceCacheRegistrar.TryGetValue(registration, ref recurses, out foundRegistration))
+                throw new InvalidOperationException(string.Format(Local.UndefinedServiceCacheRegistrationAB, (registration.Registrar != null ? registration.Registrar.AnchorType.ToString() : "{unregistered}"), registration.Name));
+            if (foundRegistration is ServiceCacheForeignRegistration)
+                throw new InvalidOperationException(Local.InvalidDataSource);
+            return registrationDispatcher.Query<T>(service, foundRegistration, tag, messages);
         }
 
         /// <summary>
@@ -734,6 +774,7 @@ namespace System.Abstract
         /// <param name="tag">The tag.</param>
         /// <param name="messages">The messages.</param>
         /// <exception cref="System.ArgumentNullException"></exception>
+        ///   
         /// <exception cref="System.InvalidOperationException"></exception>
         public static void Send(this IServiceCache service, Type anchorType, string registrationName, object tag, object[] messages)
         {
@@ -754,6 +795,50 @@ namespace System.Abstract
             if (foundRegistration is ServiceCacheForeignRegistration)
                 throw new InvalidOperationException(Local.InvalidDataSource);
             registrationDispatcher.Send(service, foundRegistration, tag, messages);
+        }
+
+        /// <summary>
+        /// Querys the specified service.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="service">The service.</param>
+        /// <param name="anchorType">Type of the anchor.</param>
+        /// <param name="registrationName">Name of the registration.</param>
+        /// <param name="messages">The messages.</param>
+        /// <returns></returns>
+        public static IEnumerable<T> Query<T>(this IServiceCache service, Type anchorType, string registrationName, object[] messages) { return Query<T>(service, anchorType, registrationName, null, messages); }
+        /// <summary>
+        /// Querys the specified cache.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="service">The service.</param>
+        /// <param name="anchorType">Type of the anchor.</param>
+        /// <param name="registrationName">Name of the registration.</param>
+        /// <param name="tag">The tag.</param>
+        /// <param name="messages">The messages.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        ///   
+        /// <exception cref="System.InvalidOperationException"></exception>
+        public static IEnumerable<T> Query<T>(this IServiceCache service, Type anchorType, string registrationName, object tag, object[] messages)
+        {
+            if (service == null)
+                throw new ArgumentNullException("service");
+            if (anchorType == null)
+                throw new ArgumentNullException("anchorType");
+            if (string.IsNullOrEmpty(registrationName))
+                throw new ArgumentNullException("registrationName");
+            if (messages == null)
+                throw new ArgumentNullException("messages");
+            var registrationDispatcher = GetRegistrationDispatcher(service);
+            // fetch registration
+            var recurses = 0;
+            IServiceCacheRegistration foundRegistration;
+            if (!ServiceCacheRegistrar.TryGetValue(anchorType, registrationName, ref recurses, out foundRegistration))
+                throw new InvalidOperationException(string.Format(Local.UndefinedServiceCacheRegistrationAB, anchorType.ToString(), registrationName));
+            if (foundRegistration is ServiceCacheForeignRegistration)
+                throw new InvalidOperationException(Local.InvalidDataSource);
+            return registrationDispatcher.Query<T>(service, foundRegistration, tag, messages);
         }
 
         /// <summary>
@@ -786,6 +871,7 @@ namespace System.Abstract
         /// <param name="tag">The tag.</param>
         /// <param name="messages">The messages.</param>
         /// <exception cref="System.ArgumentNullException"></exception>
+        ///   
         /// <exception cref="System.InvalidOperationException"></exception>
         public static void SendAll(this IServiceCache service, Type anchorType, object tag, object[] messages)
         {
@@ -812,6 +898,74 @@ namespace System.Abstract
                     registrationDispatcher.Send(service, foundRegistration, tag, messages);
                 }
         }
+
+        /// <summary>
+        /// Querys the specified service.
+        /// </summary>
+        /// <typeparam name="TAnchor">The type of the anchor.</typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="service">The service.</param>
+        /// <param name="messages">The messages.</param>
+        /// <returns></returns>
+        public static IEnumerable<T> QueryAll<TAnchor, T>(this IServiceCache service, object[] messages) { return QueryAll<T>(service, typeof(TAnchor), null, messages); }
+        /// <summary>
+        /// Querys the specified cache.
+        /// </summary>
+        /// <typeparam name="TAnchor">The type of the anchor.</typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="service">The cache.</param>
+        /// <param name="tag">The tag.</param>
+        /// <param name="messages">The messages.</param>
+        /// <returns></returns>
+        public static IEnumerable<T> QueryAll<TAnchor, T>(this IServiceCache service, object tag, object[] messages) { return QueryAll<T>(service, typeof(TAnchor), tag, messages); }
+        /// <summary>
+        /// Querys the specified service.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="service">The service.</param>
+        /// <param name="anchorType">Type of the anchor.</param>
+        /// <param name="messages">The messages.</param>
+        /// <returns></returns>
+        public static IEnumerable<T> QueryAll<T>(this IServiceCache service, Type anchorType, object[] messages) { return QueryAll<T>(service, anchorType, null, messages); }
+        /// <summary>
+        /// Querys the specified cache.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="service">The cache.</param>
+        /// <param name="anchorType">Type of the anchor.</param>
+        /// <param name="tag">The tag.</param>
+        /// <param name="messages">The messages.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        ///   
+        /// <exception cref="System.InvalidOperationException"></exception>
+        public static IEnumerable<T> QueryAll<T>(this IServiceCache service, Type anchorType, object tag, object[] messages)
+        {
+            if (service == null)
+                throw new ArgumentNullException("service");
+            if (anchorType == null)
+                throw new ArgumentNullException("anchorType");
+            if (messages == null)
+                throw new ArgumentNullException("messages");
+            var registrationDispatcher = GetRegistrationDispatcher(service);
+            // fetch all registrations
+            ServiceCacheRegistrar registrar;
+            ServiceCacheRegistrar.TryGet(anchorType, out registrar, false);
+            if (registrar != null)
+                foreach (var registration in registrar.All)
+                {
+                    // fetch registration
+                    var recurses = 0;
+                    IServiceCacheRegistration foundRegistration;
+                    if (!ServiceCacheRegistrar.TryGetValue(registration, ref recurses, out foundRegistration))
+                        throw new InvalidOperationException(string.Format(Local.UndefinedServiceCacheRegistrationAB, (registration.Registrar != null ? registration.Registrar.AnchorType.ToString() : "{unregistered}"), registration.Name));
+                    if (foundRegistration is ServiceCacheForeignRegistration)
+                        throw new InvalidOperationException(Local.InvalidDataSource);
+                    foreach (var item in registrationDispatcher.Query<T>(service, foundRegistration, tag, messages))
+                        yield return item;
+                }
+        }
+
 
         /// <summary>
         /// Removes all.

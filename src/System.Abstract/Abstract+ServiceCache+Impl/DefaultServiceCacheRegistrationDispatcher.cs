@@ -24,6 +24,8 @@ THE SOFTWARE.
 */
 #endregion
 using System.Threading;
+using System.Reflection;
+using System.Collections.Generic;
 namespace System.Abstract
 {
     /// <summary>
@@ -75,7 +77,6 @@ namespace System.Abstract
         /// <param name="registration">The registration.</param>
         /// <param name="tag">The tag.</param>
         /// <param name="messages">The messages.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
         public void Send(IServiceCache cache, IServiceCacheRegistration registration, object tag, params object[] messages)
         {
             if (cache == null)
@@ -85,44 +86,45 @@ namespace System.Abstract
             var registration2 = (registration as ServiceCacheRegistration);
             if (registration2 == null)
                 throw new ArgumentException("must be ServiceCacheRegistration", "registration");
-            var consumerInfos = registration2.GetConsumersFor(messages);
-            if (!consumerInfos.GetEnumerator().MoveNext())
-                return;
-            //
             var itemPolicy = registration2.ItemPolicy;
             if (itemPolicy == null)
                 throw new ArgumentNullException("registration.ItemPolicy");
-            var useDBNull = ((cache.Settings.Options & ServiceCacheOptions.UseDBNullWithRegistrations) == ServiceCacheOptions.UseDBNullWithRegistrations);
-            var distributedServiceCache = cache.BehaveAs<IDistributedServiceCache>();
-            object value;
+            var handlerInfos = registration2.GetHandlersFor(messages);
+            if (!handlerInfos.GetEnumerator().MoveNext())
+                return;
             foreach (var header in cache.Get(tag, registration))
-                foreach (var consumerInfo in consumerInfos)
-                    if ((value = consumerInfo.Invoke(cache, tag, header)) != null)
-                        if (distributedServiceCache == null)
-                            SetUsingLock(cache, registration2, tag, header, useDBNull, value);
-                        else
-                            SetUsingCas(distributedServiceCache, registration2, tag, header, useDBNull, value);
+                foreach (var handlerInfo in handlerInfos)
+                    handlerInfo.ConsumerInvoke(_handlerContextInfos, cache, registration, tag, header);
         }
 
-        //public void Update(IServiceCache cache, IServiceCacheRegistration registration, object tag, object value)
-        //{
-        //    if (cache == null)
-        //        throw new ArgumentNullException("cache");
-        //    if (registration == null)
-        //        throw new ArgumentNullException("registration");
-        //    var registration2 = (registration as ServiceCacheRegistration);
-        //    if (registration2 == null)
-        //        throw new ArgumentException("must be ServiceCacheRegistration", "registration");
-        //    var itemPolicy = registration2.ItemPolicy;
-        //    if (itemPolicy == null)
-        //        throw new ArgumentNullException("registration.ItemPolicy");
-        //    var useDBNull = ((cache.Settings.Options & ServiceCacheOptions.UseDBNullWithRegistrations) == ServiceCacheOptions.UseDBNullWithRegistrations);
-        //    var distributedServiceCache = cache.BehaveAs<IDistributedServiceCache>();
-        //    if (distributedServiceCache == null)
-        //        SetUsingLock(cache, registration2, tag, header, useDBNull, value);
-        //    else
-        //        SetUsingCas(distributedServiceCache, registration2, tag, header, useDBNull, value);
-        //}
+        /// <summary>
+        /// Querys the specified cache.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="cache">The cache.</param>
+        /// <param name="registration">The registration.</param>
+        /// <param name="tag">The tag.</param>
+        /// <param name="messages">The messages.</param>
+        /// <returns></returns>
+        public IEnumerable<T> Query<T>(IServiceCache cache, IServiceCacheRegistration registration, object tag, params object[] messages)
+        {
+            if (cache == null)
+                throw new ArgumentNullException("cache");
+            if (registration == null)
+                throw new ArgumentNullException("registration");
+            var registration2 = (registration as ServiceCacheRegistration);
+            if (registration2 == null)
+                throw new ArgumentException("must be ServiceCacheRegistration", "registration");
+            var itemPolicy = registration2.ItemPolicy;
+            if (itemPolicy == null)
+                throw new ArgumentNullException("registration.ItemPolicy");
+            var handlerInfos = registration2.GetHandlersFor(messages);
+            if (!handlerInfos.GetEnumerator().MoveNext())
+                yield break;
+            foreach (var header in cache.Get(tag, registration))
+                foreach (var handlerInfo in handlerInfos)
+                    yield return (T)handlerInfo.QueryInvoke(_handlerContextInfos, cache, registration, tag, header);
+        }
 
         /// <summary>
         /// Removes the specified cache.
@@ -153,6 +155,31 @@ namespace System.Abstract
             header = new CacheItemHeader { Values = values, };
             return (T)registration.Builder(tag, values);
         }
+
+        #region HandlerContext
+
+        private static MethodInfo[] _handlerContextInfos = new[] { 
+            typeof(DefaultServiceCacheRegistrationDispatcher).GetMethod("HandlerContextGet", BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.DeclaredOnly),
+            typeof(DefaultServiceCacheRegistrationDispatcher).GetMethod("HandlerContextUpdate", BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.DeclaredOnly) };
+
+        private static T HandlerContextGet<T>(IServiceCache cache, IServiceCacheRegistration registration, object tag, CacheItemHeader header)
+        {
+            var v = cache.Get(null, header.Item);
+            return (v is T ? (T)v : default(T));
+        }
+
+        private static void HandlerContextUpdate<T>(IServiceCache cache, IServiceCacheRegistration registration, object tag, CacheItemHeader header, object value)
+        {
+            var registration2 = (registration as ServiceCacheRegistration);
+            var useDBNull = ((cache.Settings.Options & ServiceCacheOptions.UseDBNullWithRegistrations) == ServiceCacheOptions.UseDBNullWithRegistrations);
+            var distributedServiceCache = cache.BehaveAs<IDistributedServiceCache>();
+            if (distributedServiceCache == null)
+                SetUsingLock(cache, registration2, tag, header, useDBNull, value);
+            else
+                SetUsingCas(distributedServiceCache, registration2, tag, header, useDBNull, value);
+        }
+
+        #endregion
 
         #region Locks
 

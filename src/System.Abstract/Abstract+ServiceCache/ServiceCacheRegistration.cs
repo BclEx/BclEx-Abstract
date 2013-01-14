@@ -73,15 +73,15 @@ namespace System.Abstract
     /// </summary>
     public class ServiceCacheRegistration : IServiceCacheRegistration
     {
-        private Dictionary<Type, List<ConsumerAction>> _consumers = new Dictionary<Type, List<ConsumerAction>>();
+        private Dictionary<Type, List<HandlerAction>> _handlers = new Dictionary<Type, List<HandlerAction>>();
 
-        internal struct ConsumerAction
+        internal struct HandlerAction
         {
             public Type TType;
             public MethodInfo Method;
             public object Target;
 
-            public ConsumerAction(Type tType, MethodInfo method, object target)
+            public HandlerAction(Type tType, MethodInfo method, object target)
             {
                 TType = tType;
                 Method = method;
@@ -90,39 +90,105 @@ namespace System.Abstract
         }
 
         /// <summary>
+        /// HandlerContext
+        /// </summary>
+        public class HandlerContext<TData>
+        {
+            /// <summary>
+            /// Gets or sets the get.
+            /// </summary>
+            /// <value>
+            /// The get.
+            /// </value>
+            public Func<TData> Get { get; set; }
+            /// <summary>
+            /// Gets or sets the update.
+            /// </summary>
+            /// <value>
+            /// The update.
+            /// </value>
+            public Action<TData> Update { get; set; }
+        }
+
+        /// <summary>
         /// ConsumerInfo
         /// </summary>
-        public struct ConsumerInfo
+        public struct HandlerInfo
         {
-            private static MethodInfo _invokeInternalInfo = typeof(ConsumerInfo).GetMethod("InvokeInternal", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+            private static MethodInfo _consumerInvokeInternalInfo = typeof(HandlerInfo).GetMethod("ConsumerInvokeInternal", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+            private static MethodInfo _queryInvokeInternalInfo = typeof(HandlerInfo).GetMethod("QueryInvokeInternal", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly);
 
-            internal ConsumerAction Action { get; set; }
+            internal HandlerAction Action { get; set; }
+
             /// <summary>
             /// Gets the message.
             /// </summary>
             /// <value>
             /// The message.
             /// </value>
-            public object Message { get; internal set; }
+            internal object Message { get; set; }
+
             /// <summary>
-            /// Actions the invoke.
+            /// Consumers the invoke.
             /// </summary>
-            /// <typeparam name="T"></typeparam>
+            /// <typeparam name="TData">The type of the data.</typeparam>
+            /// <param name="ctx">The CTX.</param>
             /// <param name="message">The message.</param>
             /// <param name="tag">The tag.</param>
             /// <param name="values">The values.</param>
-            /// <param name="get">The get.</param>
-            /// <returns></returns>
-            public object ActionInvoke<T>(object message, object tag, object[] values, Func<T> get) { return Action.Method.Invoke(Action.Target, new object[] { message, tag, values, get }); }
+            public void ConsumerInvoke<TData>(HandlerContext<TData> ctx, object message, object tag, object[] values) { Action.Method.Invoke(Action.Target, new object[] { ctx, message, tag, values }); }
             /// <summary>
-            /// Invokes the specified cache.
+            /// Consumers the invoke.
             /// </summary>
+            /// <param name="handlerContextInfos">The handler context infos.</param>
             /// <param name="cache">The cache.</param>
+            /// <param name="registration">The registration.</param>
+            /// <param name="tag">The tag.</param>
+            /// <param name="header">The header.</param>
+            public void ConsumerInvoke(MethodInfo[] handlerContextInfos, IServiceCache cache, IServiceCacheRegistration registration, object tag, CacheItemHeader header) { _consumerInvokeInternalInfo.MakeGenericMethod(Action.TType).Invoke(this, new[] { handlerContextInfos, cache, registration, tag, header }); }
+            private void ConsumerInvokeInternal<TData>(MethodInfo[] handlerContextInfos, IServiceCache cache, IServiceCacheRegistration registration, object tag, CacheItemHeader header)
+            {
+                var getInfo = handlerContextInfos[0].MakeGenericMethod(Action.TType);
+                var updateInfo = handlerContextInfos[1].MakeGenericMethod(Action.TType);
+                var ctx = new ServiceCacheRegistration.HandlerContext<TData>
+                {
+                    Get = () => (TData)getInfo.Invoke(null, new[] { cache, registration, tag, header }),
+                    Update = value => updateInfo.Invoke(null, new[] { cache, registration, tag, header, value }),
+                };
+                ConsumerInvoke<TData>(ctx, Message, tag, header.Values);
+            }
+
+            /// <summary>
+            /// Queries the invoke.
+            /// </summary>
+            /// <typeparam name="TData">The type of the data.</typeparam>
+            /// <param name="ctx">The CTX.</param>
+            /// <param name="message">The message.</param>
+            /// <param name="tag">The tag.</param>
+            /// <param name="values">The values.</param>
+            /// <returns></returns>
+            public object QueryInvoke<TData>(HandlerContext<TData> ctx, object message, object tag, object[] values) { return Action.Method.Invoke(Action.Target, new object[] { ctx, message, tag, values }); }
+            /// <summary>
+            /// Queries the invoke.
+            /// </summary>
+            /// <param name="handlerContextInfos">The handler context infos.</param>
+            /// <param name="cache">The cache.</param>
+            /// <param name="registration">The registration.</param>
             /// <param name="tag">The tag.</param>
             /// <param name="header">The header.</param>
             /// <returns></returns>
-            public object Invoke(IServiceCache cache, object tag, CacheItemHeader header) { return _invokeInternalInfo.MakeGenericMethod(Action.TType).Invoke(this, new[] { cache, tag, header }); }
-            private object InvokeInternal<T>(IServiceCache cache, object tag, CacheItemHeader header) { return ActionInvoke<T>(Message, tag, header.Values, () => { var v = cache.Get(null, header.Item); return (v is T ? (T)v : default(T)); }); }
+            public object QueryInvoke(MethodInfo[] handlerContextInfos, IServiceCache cache, IServiceCacheRegistration registration, object tag, CacheItemHeader header) { return _queryInvokeInternalInfo.MakeGenericMethod(Action.TType).Invoke(this, new[] { handlerContextInfos, cache, registration, tag, header }); }
+            private object QueryInvokeInternal<TData>(MethodInfo[] handlerContextInfos, IServiceCache cache, IServiceCacheRegistration registration, object tag, CacheItemHeader header)
+            {
+                var getInfo = handlerContextInfos[0].MakeGenericMethod(Action.TType);
+                var updateInfo = handlerContextInfos[1].MakeGenericMethod(Action.TType);
+                var ctx = new ServiceCacheRegistration.HandlerContext<TData>
+                {
+                    Get = () => (TData)getInfo.Invoke(null, new[] { cache, registration, tag, header }),
+                    Update = value => updateInfo.Invoke(null, new[] { cache, registration, tag, header, value }),
+                };
+                return QueryInvoke<TData>(ctx, Message, tag, header.Values);
+            }
         }
 
         /// <summary>
@@ -148,6 +214,16 @@ namespace System.Abstract
             /// <param name="tag">The tag.</param>
             /// <param name="messages">The messages.</param>
             void Send(IServiceCache cache, IServiceCacheRegistration registration, object tag, params object[] messages);
+            /// <summary>
+            /// Querys the specified cache.
+            /// </summary>
+            /// <typeparam name="T"></typeparam>
+            /// <param name="cache">The cache.</param>
+            /// <param name="registration">The registration.</param>
+            /// <param name="tag">The tag.</param>
+            /// <param name="messages">The messages.</param>
+            /// <returns></returns>
+            IEnumerable<T> Query<T>(IServiceCache cache, IServiceCacheRegistration registration, object tag, params object[] messages);
             /// <summary>
             /// Removes the specified cache.
             /// </summary>
@@ -316,24 +392,50 @@ namespace System.Abstract
         /// <typeparam name="TMessage">The type of the message.</typeparam>
         /// <param name="action">The action.</param>
         /// <returns></returns>
-        public ServiceCacheRegistration ConsumerOf<TMessage>(Func<TMessage, object, object[], Func<object>, object> action) { return ConsumerOf<object, TMessage>(action); }
+        public ServiceCacheRegistration Consume<TMessage>(Action<HandlerContext<object>, TMessage, object, object[]> action) { return Consume<TMessage, object>(action); }
         /// <summary>
         /// Consumeses the specified action.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <typeparam name="TMessage">The type of the message.</typeparam>
+        /// <typeparam name="TData">The type of the data.</typeparam>
         /// <param name="action">The action.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException"></exception>
-        public ServiceCacheRegistration ConsumerOf<T, TMessage>(Func<TMessage, object, object[], Func<T>, object> action)
+        public ServiceCacheRegistration Consume<TMessage, TData>(Action<HandlerContext<TData>, TMessage, object, object[]> action)
         {
             if (action == null)
                 throw new ArgumentNullException("action");
             UseHeaders = true;
-            List<ConsumerAction> consumerActions;
-            if (!_consumers.TryGetValue(typeof(TMessage), out consumerActions))
-                _consumers.Add(typeof(TMessage), consumerActions = new List<ConsumerAction>());
-            consumerActions.Add(new ConsumerAction(typeof(T), action.Method, action.Target));
+            List<HandlerAction> consumerActions;
+            if (!_handlers.TryGetValue(typeof(TMessage), out consumerActions))
+                _handlers.Add(typeof(TMessage), consumerActions = new List<HandlerAction>());
+            consumerActions.Add(new HandlerAction(typeof(TData), action.Method, action.Target));
+            return this;
+        }
+
+        /// <summary>
+        /// Queries the specified action.
+        /// </summary>
+        /// <typeparam name="TMessage">The type of the message.</typeparam>
+        /// <param name="action">The action.</param>
+        /// <returns></returns>
+        public ServiceCacheRegistration Query<TMessage>(Func<HandlerContext<object>, TMessage, object, object[], object> action) { return Query<TMessage, object>(action); }
+        /// <summary>
+        /// Queries the specified action.
+        /// </summary>
+        /// <typeparam name="TMessage">The type of the message.</typeparam>
+        /// <typeparam name="TData">The type of the data.</typeparam>
+        /// <param name="action">The action.</param>
+        /// <returns></returns>
+        public ServiceCacheRegistration Query<TMessage, TData>(Func<HandlerContext<TData>, TMessage, object, object[], object> action)
+        {
+            if (action == null)
+                throw new ArgumentNullException("action");
+            UseHeaders = true;
+            List<HandlerAction> consumerActions;
+            if (!_handlers.TryGetValue(typeof(TMessage), out consumerActions))
+                _handlers.Add(typeof(TMessage), consumerActions = new List<HandlerAction>());
+            consumerActions.Add(new HandlerAction(typeof(TData), action.Method, action.Target));
             return this;
         }
 
@@ -343,15 +445,15 @@ namespace System.Abstract
         /// <param name="messages">The messages.</param>
         /// <returns></returns>
         /// <exception cref="System.ArgumentNullException"></exception>
-        public IEnumerable<ConsumerInfo> GetConsumersFor(object[] messages)
+        public IEnumerable<HandlerInfo> GetHandlersFor(object[] messages)
         {
             if (messages == null)
                 throw new ArgumentNullException("messages");
-            List<ConsumerAction> consumerActions;
+            List<HandlerAction> handlerActions;
             foreach (var message in messages)
-                if (_consumers.TryGetValue(message.GetType(), out consumerActions))
-                    foreach (var consumerAction in consumerActions)
-                        yield return new ConsumerInfo { Message = message, Action = consumerAction };
+                if (_handlers.TryGetValue(message.GetType(), out handlerActions))
+                    foreach (var handlerAction in handlerActions)
+                        yield return new HandlerInfo { Message = message, Action = handlerAction };
         }
 
         #region Registrar
