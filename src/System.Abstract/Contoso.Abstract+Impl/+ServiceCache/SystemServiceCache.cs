@@ -341,8 +341,9 @@ namespace Contoso.Abstract
             /// </summary>
             /// <param name="tag">The tag.</param>
             /// <param name="names">The names.</param>
+            /// <param name="baseDependency">The base dependency.</param>
             /// <returns></returns>
-            protected override object MakeDependencyInternal(object tag, string[] names) { return new SystemCaching.HostFileChangeMonitor(names.Select(x => GetFilePathForName(x)).ToArray()); }
+            protected override object MakeDependencyInternal(object tag, string[] names, object baseDependency) { return new SystemCaching.HostFileChangeMonitor(names.Select(x => GetFilePathForName(x)).ToArray()); }
         }
 
         #endregion

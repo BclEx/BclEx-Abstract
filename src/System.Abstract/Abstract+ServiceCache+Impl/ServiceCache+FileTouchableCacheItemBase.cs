@@ -114,14 +114,15 @@ namespace System.Abstract
             /// <returns></returns>
             public virtual object MakeDependency(object tag, string[] names)
             {
+                var baseDependency = (_base != null ? _base.MakeDependency(tag, names) : null);
                 if (string.IsNullOrEmpty(Directory))
-                    return (_base != null ? _base.MakeDependency(tag, names) : null);
+                    return baseDependency;
                 //
                 if (names == null || names.Length == 0)
                     return null;
                 string[] newNames;
                 EnsureKeysExist(tag, names, out newNames);
-                return MakeDependencyInternal(tag, newNames);
+                return MakeDependencyInternal(tag, newNames, baseDependency);
             }
 
             /// <summary>
@@ -129,8 +130,9 @@ namespace System.Abstract
             /// </summary>
             /// <param name="tag">The tag.</param>
             /// <param name="names">The names.</param>
+            /// <param name="baseDependency">The base dependency.</param>
             /// <returns></returns>
-            protected abstract object MakeDependencyInternal(object tag, string[] names);
+            protected abstract object MakeDependencyInternal(object tag, string[] names, object baseDependency);
 
             /// <summary>
             /// Gets the name of the file path for.
@@ -154,9 +156,9 @@ namespace System.Abstract
                     {
                         var newName = name;
                         var canTouch = CanTouch(tag, ref newName);
-                        newNames2.Add(newName);
                         if (!canTouch)
                             continue;
+                        newNames2.Add(newName);
                         var filePath = GetFilePathForName(newName);
                         if (filePath == null)
                             continue;

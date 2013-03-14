@@ -259,6 +259,8 @@
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializableAttribute.cs" />
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializationException.cs" />
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializer.cs" />
+    <Compile Include="Nameable2.cs" />
+    <Compile Include="Nameable.cs" />
     <Compile Include="ICodec.cs" />
     <Compile Include="IO\IFileSystemEx.cs" />
     <Compile Include="IO\EmptyFileSystemEx.cs" />

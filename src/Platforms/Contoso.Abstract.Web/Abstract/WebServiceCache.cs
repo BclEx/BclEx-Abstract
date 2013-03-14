@@ -301,7 +301,7 @@ namespace Contoso.Abstract
                 var cache = _parent.Cache;
                 // ensure
                 foreach (var name in names)
-                    cache.Insert(name, string.Empty, null, ServiceCache.InfiniteAbsoluteExpiration, ServiceCache.NoSlidingExpiration, WebCacheItemPriority.Normal, null);
+                    cache.Add(name, string.Empty, null, ServiceCache.InfiniteAbsoluteExpiration, ServiceCache.NoSlidingExpiration, WebCacheItemPriority.Normal, null);
                 return (_base == null ? new WebCacheDependency(null, names) : new WebCacheDependency(null, names, _base.MakeDependency(tag, names) as WebCacheDependency));
             }
         }
@@ -324,8 +324,9 @@ namespace Contoso.Abstract
             /// </summary>
             /// <param name="tag">The tag.</param>
             /// <param name="names">The names.</param>
+            /// <param name="baseDependency">The base dependency.</param>
             /// <returns></returns>
-            protected override object MakeDependencyInternal(object tag, string[] names) { return new WebCacheDependency(names.Select(x => GetFilePathForName(x)).ToArray()); }
+            protected override object MakeDependencyInternal(object tag, string[] names, object baseDependency) { return new WebCacheDependency(names.Select(x => GetFilePathForName(x)).ToArray(), null, (System.Web.Caching.CacheDependency)baseDependency); }
             //    var touchablesDependency = (touchables.Count > 0 ? (WebCacheDependency)touchable.MakeDependency(tag, touchables.ToArray())(this, tag) : null);
             //    return (touchablesDependency == null ? new WebCacheDependency(null, cacheKeys.ToArray()) : new WebCacheDependency(null, cacheKeys.ToArray(), touchablesDependency));
         }

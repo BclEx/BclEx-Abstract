@@ -302,8 +302,9 @@ namespace Contoso.Abstract
             /// </summary>
             /// <param name="tag">The tag.</param>
             /// <param name="names">The names.</param>
+            /// <param name="baseDependency">The base dependency.</param>
             /// <returns></returns>
-            protected override object MakeDependencyInternal(object tag, string[] names) { return null; }
+            protected override object MakeDependencyInternal(object tag, string[] names, object baseDependency) { return null; }
         }
 
         #endregion
