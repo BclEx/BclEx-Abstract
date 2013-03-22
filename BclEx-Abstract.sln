@@ -111,6 +111,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Abstract.ZeroMQ.x86
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Abstract.CommonLogging", "src\ServiceLogs\Contoso.Abstract.CommonLogging\Contoso.Abstract.CommonLogging.csproj", "{ED24E708-5F01-4546-8629-025F0C9E83B2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceMaps", "ServiceMaps", "{0A5730C8-39D1-47C4-A840-5A63C7A651A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug.4|Any CPU = Debug.4|Any CPU

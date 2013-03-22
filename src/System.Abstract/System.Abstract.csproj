@@ -259,6 +259,11 @@
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializableAttribute.cs" />
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializationException.cs" />
     <Compile Include="Contoso.Abstract+Impl\Micro\JsonSerializer.cs" />
+    <Compile Include="Abstract+ServiceMap+Impl\ServiceMap.cs" />
+    <Compile Include="Abstract+ServiceMap+Impl\ServiceMapManager.cs" />
+    <Compile Include="Abstract+ServiceMap+Impl\ServiceMapManagerDebugger.cs" />
+    <Compile Include="Abstract+ServiceMap\IServiceMap.cs" />
+    <Compile Include="Abstract+ServiceMap\ServiceMapExtensions.cs" />
     <Compile Include="Nameable2.cs" />
     <Compile Include="Nameable.cs" />
     <Compile Include="ICodec.cs" />
