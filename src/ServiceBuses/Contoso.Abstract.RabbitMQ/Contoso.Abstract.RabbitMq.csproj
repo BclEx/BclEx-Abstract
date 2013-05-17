@@ -71,8 +71,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\nuspecs\BclEx-Abstract.RabbitMQ.nuspec">
-      <Link>BclEx-Abstract.RabbitMQ.nuspec</Link>
+    <None Include="..\..\..\nuspecs\BclEx-Abstract.RabbitMQ.nuspec_">
+      <Link>BclEx-Abstract.RabbitMQ.nuspec_</Link>
     </None>
     <None Include="BclEx.4.snk" />
     <None Include="BclEx.snk" />

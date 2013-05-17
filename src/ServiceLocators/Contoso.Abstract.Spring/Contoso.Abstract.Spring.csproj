@@ -80,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.Spring.nuspec">
+      <Link>BclContrib-Abstract.Spring.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.Spring.nuspec">
       <Link>BclEx-Abstract.Spring.nuspec</Link>
     </None>

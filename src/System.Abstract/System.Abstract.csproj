@@ -226,6 +226,9 @@
     <None Include="..\..\default.ps1">
       <Link>default.ps1</Link>
     </None>
+    <None Include="..\..\nuspecs.last\BclContrib-Abstract.nuspec">
+      <Link>BclContrib-Abstract.nuspec</Link>
+    </None>
     <None Include="..\..\nuspecs\BclEx-Abstract.nuspec">
       <Link>BclEx-Abstract.nuspec</Link>
     </None>

@@ -82,6 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.StructureMap.nuspec">
+      <Link>BclContrib-Abstract.StructureMap.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.StructureMap.nuspec">
       <Link>BclEx-Abstract.StructureMap.nuspec</Link>
     </None>

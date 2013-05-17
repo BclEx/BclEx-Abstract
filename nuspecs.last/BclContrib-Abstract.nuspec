@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>BclEx-Abstract</id>
-    <version>1.0.0</version>
-    <title>BclEx-Abstract</title>
+    <id>BclContrib-Abstract</id>
+    <version>1.0.1</version>
+    <title>BclContrib-Abstract (moved)</title>
     <authors>Contoso</authors>
     <owners>Contoso</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
@@ -11,7 +11,7 @@
     <iconUrl>http://docs.bclex.org/bclex-abstract.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This package contains abstractions to provide standard Interfaces, or Abstracts, for common services typicality re-implemented in various Projects/Assemblies. Utilizing a standards based Type allows services to flow between otherwise disconnected Assemblies.</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>NOTE: Project has moved to http://docs.bclex.org. with a new package name of BclEx-Abstract</releaseNotes>
     <copyright>Copyright 2010</copyright>
     <tags>abstract nosql interface ioc di aggregateroot servicebus servicelocator bclex</tags>
     <language>en-US</language>

@@ -71,8 +71,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\nuspecs\BclEx-Abstract.ZeroMQ.x64.nuspec">
-      <Link>BclEx-Abstract.ZeroMQ.x64.nuspec</Link>
+    <None Include="..\..\..\nuspecs\BclEx-Abstract.ZeroMQ.x64.nuspec_">
+      <Link>BclEx-Abstract.ZeroMQ.x64.nuspec_</Link>
     </None>
     <None Include="BclEx.4.snk" />
     <None Include="BclEx.snk" />

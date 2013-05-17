@@ -90,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.Autofac.nuspec">
+      <Link>BclContrib-Abstract.Autofac.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.Autofac.nuspec">
       <Link>BclEx-Abstract.Autofac.nuspec</Link>
     </None>

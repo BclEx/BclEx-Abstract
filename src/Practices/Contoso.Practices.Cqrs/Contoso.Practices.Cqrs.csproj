@@ -82,8 +82,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\nuspecs\BclEx-Practices.Cqrs.nuspec">
-      <Link>BclEx-Practices.Cqrs.xnuspec</Link>
+    <None Include="..\..\..\nuspecs\BclEx-Practices.Cqrs.nuspec_">
+      <Link>BclEx-Practices.Cqrs.nuspec_</Link>
     </None>
     <None Include="BclEx.4.snk" />
     <None Include="BclEx.snk" />

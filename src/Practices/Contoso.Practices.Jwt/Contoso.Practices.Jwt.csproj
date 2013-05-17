@@ -82,8 +82,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\nuspecs\BclEx-Practices.Jwt.nuspec">
-      <Link>BclEx-Practices.Jwt.xnuspec</Link>
+    <None Include="..\..\..\nuspecs\BclEx-Practices.Jwt.nuspec_">
+      <Link>BclEx-Practices.Jwt.nuspec_</Link>
     </None>
     <None Include="BclEx.4.snk" />
     <None Include="BclEx.snk" />

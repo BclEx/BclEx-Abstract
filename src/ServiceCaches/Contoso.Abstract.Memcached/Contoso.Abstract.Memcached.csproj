@@ -66,6 +66,9 @@
     <Compile Include="Abstract\MemcachedServiceCache.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.Memcached.nuspec">
+      <Link>BclContrib-Abstract.Memcached.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.Memcached.nuspec">
       <Link>BclEx-Abstract.Memcached.nuspec</Link>
     </None>

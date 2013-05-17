@@ -77,6 +77,9 @@
     <Compile Include="Abstract\SPG2010\SharePointServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.SPG2010.nuspec">
+      <Link>BclContrib-Abstract.SPG2010.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.SPG2010.nuspec">
       <Link>BclEx-Abstract.SPG2010.nuspec</Link>
     </None>

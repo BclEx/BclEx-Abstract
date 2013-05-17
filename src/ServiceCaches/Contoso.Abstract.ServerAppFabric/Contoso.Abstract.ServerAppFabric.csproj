@@ -71,6 +71,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.ServerAppFabric.nuspec">
+      <Link>BclContrib-Abstract.ServerAppFabric.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.ServerAppFabric.nuspec">
       <Link>BclEx-Abstract.ServerAppFabric.nuspec</Link>
     </None>

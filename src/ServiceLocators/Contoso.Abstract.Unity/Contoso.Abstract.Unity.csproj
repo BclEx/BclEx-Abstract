@@ -78,6 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.Unity.nuspec">
+      <Link>BclContrib-Abstract.Unity.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.Unity.nuspec">
       <Link>BclEx-Abstract.Unity.nuspec</Link>
     </None>

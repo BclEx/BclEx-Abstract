@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>BclEx-Abstract.Web.Mvc2</id>
-    <version>1.0.0</version>
-    <title>BclEx-Abstract.Web.Mvc2</title>
+    <id>BclContrib-Abstract.Web.Mvc</id>
+    <version>1.0.1</version>
+    <title>BclContrib-Abstract.Web.Mvc (moved)</title>
     <authors>Contoso</authors>
     <owners>Contoso</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
@@ -11,7 +11,7 @@
     <iconUrl>http://docs.bclex.org/bclex-abstract.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This package contains implementations of abstract Services for use with ASP.NET MVC 2.</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>NOTE: Project has moved to http://docs.bclex.org. with a new package name of BclEx-Abstract.Web.Mvc2</releaseNotes>
     <copyright>Copyright 2010</copyright>
     <tags>mvc mvc2 servicelocator web bclex</tags>
     <language>en-US</language>

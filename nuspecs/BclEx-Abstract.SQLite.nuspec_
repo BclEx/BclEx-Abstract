@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>BclEx-Abstract.SqlLite</id>
+    <id>BclEx-Abstract.SQLite</id>
     <version>1.0.0</version>
-    <title>BclEx-Abstract.SqlLite</title>
+    <title>BclEx-Abstract.SQLite</title>
     <authors>Contoso</authors>
     <owners>Contoso</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <projectUrl>http://docs.bclex.org/bclex-abstract/</projectUrl>
     <iconUrl>http://docs.bclex.org/bclex-abstract.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This package contains SQL Lite implementations of the Event-Sourceing storage for the abstract AggregateRoot.</description>
+    <description>This package contains SQLite implementations of the Event-Sourceing storage for the abstract AggregateRoot.</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2010</copyright>
     <tags>sqllite nosql sql aggregateroot event eventsourcing bclex</tags>
@@ -18,7 +18,7 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="SqlLite" version="1.0.0" />
+        <dependency id="System.Data.SQLite" version="1.0.85.0" />
       </group>
     </dependencies>
   </metadata>

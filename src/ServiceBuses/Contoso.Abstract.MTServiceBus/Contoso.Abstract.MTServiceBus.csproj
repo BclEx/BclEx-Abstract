@@ -104,8 +104,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\nuspecs\BclEx-Abstract.MTServiceBus.nuspec">
-      <Link>BclEx-Abstract.MTServiceBus.nuspec</Link>
+    <None Include="..\..\..\nuspecs\BclEx-Abstract.MTServiceBus.nuspec_">
+      <Link>BclEx-Abstract.MTServiceBus.nuspec_</Link>
     </None>
     <None Include="BclEx.4.snk" />
     <None Include="BclEx.snk" />

@@ -62,9 +62,9 @@
       <Project>{530515EF-6DFC-4A59-BCF2-F0F998DC6D89}</Project>
       <Name>Contoso.Abstract.MSSql</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Contoso.Abstract.SqlLite\Contoso.Abstract.SqlLite.csproj">
+    <ProjectReference Include="..\Contoso.Abstract.SqlLite\Contoso.Abstract.SQLite.csproj">
       <Project>{F00A360E-5956-451A-8407-A847B13F047A}</Project>
-      <Name>Contoso.Abstract.SqlLite</Name>
+      <Name>Contoso.Abstract.SQLite</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

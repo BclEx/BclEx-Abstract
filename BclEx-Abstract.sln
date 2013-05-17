@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Abstract.MongoDB", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Abstract.MSSql", "src\EventSources\Contoso.Abstract.MSSql\Contoso.Abstract.MSSql.csproj", "{530515EF-6DFC-4A59-BCF2-F0F998DC6D89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Abstract.SqlLite", "src\EventSources\Contoso.Abstract.SqlLite\Contoso.Abstract.SqlLite.csproj", "{F00A360E-5956-451A-8407-A847B13F047A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Abstract.SQLite", "src\EventSources\Contoso.Abstract.SqlLite\Contoso.Abstract.SQLite.csproj", "{F00A360E-5956-451A-8407-A847B13F047A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocsExamples", "src\EventSources\DocsExamples\DocsExamples.csproj", "{0194BC96-FBEE-49A9-9F9B-6FB7D55E810B}"
 EndProject

@@ -88,6 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.MvcTurbine.nuspec">
+      <Link>BclContrib-Abstract.MvcTurbine.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.MvcTurbine.nuspec">
       <Link>BclEx-Abstract.MvcTurbine.nuspec</Link>
     </None>

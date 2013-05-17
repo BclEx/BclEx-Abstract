@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>BclEx-Abstract.Hiro</id>
-    <version>1.0.0</version>
-    <title>BclEx-Abstract.Hiro</title>
+    <id>BclContrib-Abstract.Hiro</id>
+    <version>1.0.1</version>
+    <title>BclContrib-Abstract.Hiro (moved)</title>
     <authors>Contoso</authors>
     <owners>Contoso</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
@@ -11,7 +11,7 @@
     <iconUrl>http://docs.bclex.org/bclex-abstract.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This package contains a Hiro implementation of the abstract ServiceLocator.</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>NOTE: Project has moved to http://docs.bclex.org. with a new package name of BclEx-Abstract.Hiro</releaseNotes>
     <copyright>Copyright 2010</copyright>
     <tags>hiro servicelocator ioc di bclex</tags>
     <language>en-US</language>

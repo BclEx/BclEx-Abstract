@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>BclEx-Abstract.ServerAppFabric</id>
-    <version>1.0.0</version>
-    <title>BclEx-Abstract.ServerAppFabric</title>
+    <id>BclContrib-Abstract.Memcached</id>
+    <version>1.0.1</version>
+    <title>BclContrib-Abstract.Memcached (moved)</title>
     <authors>Contoso</authors>
     <owners>Contoso</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <projectUrl>http://docs.bclex.org/bclex-abstract/</projectUrl>
     <iconUrl>http://docs.bclex.org/bclex-abstract.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This package contains a Server AppFabric implementation of the abstract ServiceCache.</description>
-    <releaseNotes></releaseNotes>
+    <description>This package contains a Memcached implementation of the abstract ServiceCache.</description>
+    <releaseNotes>NOTE: Project has moved to http://docs.bclex.org. with a new package name of BclEx-Abstract.Memcached</releaseNotes>
     <copyright>Copyright 2010</copyright>
-    <tags>appfabric servicecache bclex</tags>
+    <tags>memcache memcached cache servicecache bclex</tags>
     <language>en-US</language>
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="ServerAppFabric.Client" version="1.1.2106" />
+        <dependency id="EnyimMemcached" version="2.12" />
       </group>
     </dependencies>
   </metadata>

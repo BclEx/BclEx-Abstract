@@ -91,6 +91,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.CastleWindsor.nuspec">
+      <Link>BclContrib-Abstract.CastleWindsor.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.CastleWindsor.nuspec">
       <Link>BclEx-Abstract.CastleWindsor.nuspec</Link>
     </None>

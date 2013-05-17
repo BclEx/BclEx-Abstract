@@ -87,6 +87,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.Hiro.nuspec">
+      <Link>BclContrib-Abstract.Hiro.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.Hiro.nuspec">
       <Link>BclEx-Abstract.Hiro.nuspec</Link>
     </None>

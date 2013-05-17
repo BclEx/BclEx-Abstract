@@ -81,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.NLog.nuspec">
+      <Link>BclContrib-Abstract.NLog.nuspec</Link>
+    </None>
     <None Include="..\..\..\nuspecs\BclEx-Abstract.NLog.nuspec">
       <Link>BclEx-Abstract.NLog.nuspec</Link>
     </None>
