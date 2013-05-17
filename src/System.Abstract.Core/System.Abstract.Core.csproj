@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0DFFDBA-92E2-4DED-A2D3-1722123FEF46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System</RootNamespace>
+    <AssemblyName>System.Abstract.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;COREINTERNAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.4|AnyCPU'">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.4\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;COREINTERNAL;CLR4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;COREINTERNAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release\System.Abstract.Core.XML</DocumentationFile>
+    <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.4|AnyCPU'">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.4\</OutputPath>
+    <DefineConstants>TRACE;COREINTERNAL;CLR4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release.4\System.Abstract.Core.XML</DocumentationFile>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="+EnvironmentEx\EnvironmentEx+OSVersion.cs" />
+    <Compile Include="+EnvironmentEx\EnvironmentEx+Resource.cs" />
+    <Compile Include="+EnvironmentEx\EnvironmentEx.cs" />
+    <Compile Include="+EnvironmentEx\OperatingSystemEx.cs" />
+    <Compile Include="Collections\IIndexer.cs" />
+    <Compile Include="Collections\IIndexer2.cs" />
+    <Compile Include="Collections\IValue.cs" />
+    <Compile Include="ConsoleEx.cs" />
+    <Compile Include="..\+fromcoreex\linq\expressions\ExpressionEx.cs">
+      <Link>+FromCoreEx\Linq\Expressions\ExpressionEx.cs</Link>
+    </Compile>
+    <Compile Include="Abstract+EventSource\Configuration+EventSource\EventSourceConfiguration.cs" />
+    <Compile Include="Abstract+EventSource\EventSourcing\RegistryEventDispatcher.cs" />
+    <Compile Include="Abstract+ServiceBus\Configuration+ServiceBus\ServiceBusConfiguration.cs" />
+    <Compile Include="Abstract+ServiceBus\Configuration+ServiceBus\ServiceBus\EndpointElement.cs" />
+    <Compile Include="Abstract+ServiceBus\Configuration+ServiceBus\ServiceBus\EndpointElementCollection.cs" />
+    <Compile Include="Abstract+ServiceCache\Configuration+ServiceCache\ServiceCacheConfiguration.cs" />
+    <Compile Include="Abstract+ServiceCache\DefaultServiceCacheRegistrationDispatcher.cs" />
+    <Compile Include="Abstract+ServiceLocator\Configuration+ServiceLocator\ServiceLocatorConfiguration.cs" />
+    <Compile Include="Abstract+ServiceLog\Configuration+ServiceLog\ServiceLogConfiguration.cs" />
+    <Compile Include="Abstract\Configuration\AbstractSection.cs" />
+    <Compile Include="Abstract\Parts+TypeGrapher\BuildManagerTypeCache.cs" />
+    <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheManager.cs" />
+    <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheSerializer.cs" />
+    <Compile Include="Abstract\Parts+TypeSerializer\BinaryTypeSerializer.cs" />
+    <Compile Include="Abstract\Parts+TypeSerializer\WcfTypeSerializer.cs" />
+    <Compile Include="Abstract\Parts+TypeSerializer\XmlTypeSerializer.cs" />
+    <Compile Include="Abstract\ServiceConfigurationExtensions.cs" />
+    <Compile Include="Configuration\AssemblyNameConverter.cs" />
+    <Compile Include="Configuration\CodecConverter.cs" />
+    <Compile Include="Configuration\ConfigurationElementCollectionEx.cs" />
+    <Compile Include="Configuration\ConfigurationElementCollectionEx2.cs" />
+    <Compile Include="Configuration\ConfigurationElementEx.cs" />
+    <Compile Include="Configuration\ConfigurationManagerEx.cs" />
+    <Compile Include="Configuration\ConfigurationSectionEx.cs" />
+    <Compile Include="Local.Designer.cs">
+      <DependentUpon>Local.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Patterns\ReleaseManagement\ReleaseManagementConfiguration.cs" />
+    <Compile Include="Patterns\ReleaseManagement\ReleaseManagementManager.cs" />
+    <Compile Include="Resources\ResourceManagerEx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstract+EventSource\Configuration+EventSource\EventSourcing\" />
+    <Folder Include="Abstract+PlatformWeb\" />
+    <Folder Include="Abstract+ServiceMap\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BclEx.4.snk" />
+    <None Include="BclEx.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Local.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Local.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.Abstract\System.Abstract.csproj">
+      <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
+      <Name>System.Abstract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

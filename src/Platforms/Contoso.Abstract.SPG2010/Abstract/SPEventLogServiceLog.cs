@@ -163,7 +163,7 @@ namespace Contoso.Abstract
         /// <param name="level">The level.</param>
         /// <param name="ex">The ex.</param>
         /// <param name="s">The s.</param>
-        public void Write(ServiceLog.LogLevel level, Exception ex, string s)
+        public void Write(ServiceLogLevel level, Exception ex, string s)
         {
             if (Log == null)
                 throw new NullReferenceException("Log");
@@ -171,11 +171,11 @@ namespace Contoso.Abstract
                 s = GetExceptionMessage(ex, s);
             switch (level)
             {
-                case ServiceLog.LogLevel.Fatal: Log.Log(s, EventID, EventSeverity.ErrorCritical, Name); return;
-                case ServiceLog.LogLevel.Error: Log.Log(s, EventID, EventSeverity.Error, Name); return;
-                case ServiceLog.LogLevel.Warning: Log.Log(s, EventID, EventSeverity.Warning, Name); return;
-                case ServiceLog.LogLevel.Information: Log.Log(s, EventID, EventSeverity.Information, Name); return;
-                case ServiceLog.LogLevel.Debug: Log.Log(s, EventID, EventSeverity.Verbose, Name); return;
+                case ServiceLogLevel.Fatal: Log.Log(s, EventID, EventSeverity.ErrorCritical, Name); return;
+                case ServiceLogLevel.Error: Log.Log(s, EventID, EventSeverity.Error, Name); return;
+                case ServiceLogLevel.Warning: Log.Log(s, EventID, EventSeverity.Warning, Name); return;
+                case ServiceLogLevel.Information: Log.Log(s, EventID, EventSeverity.Information, Name); return;
+                case ServiceLogLevel.Debug: Log.Log(s, EventID, EventSeverity.Verbose, Name); return;
                 default: return;
             }
         }

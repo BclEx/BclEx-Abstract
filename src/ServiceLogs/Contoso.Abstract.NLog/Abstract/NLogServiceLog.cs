@@ -115,7 +115,7 @@ namespace Contoso.Abstract
         /// <param name="level">The level.</param>
         /// <param name="ex">The ex.</param>
         /// <param name="s">The s.</param>
-        public void Write(ServiceLog.LogLevel level, Exception ex, string s)
+        public void Write(ServiceLogLevel level, Exception ex, string s)
         {
             if (Log == null)
                 throw new NullReferenceException("Log");
@@ -123,19 +123,19 @@ namespace Contoso.Abstract
             if (ex == null)
                 switch (level)
                 {
-                    case ServiceLog.LogLevel.Fatal:
+                    case ServiceLogLevel.Fatal:
                         Log.Fatal(message);
                         return;
-                    case ServiceLog.LogLevel.Error:
+                    case ServiceLogLevel.Error:
                         Log.Error(message);
                         return;
-                    case ServiceLog.LogLevel.Warning:
+                    case ServiceLogLevel.Warning:
                         Log.Warn(message);
                         return;
-                    case ServiceLog.LogLevel.Information:
+                    case ServiceLogLevel.Information:
                         Log.Info(message);
                         return;
-                    case ServiceLog.LogLevel.Debug:
+                    case ServiceLogLevel.Debug:
                         Log.Debug(message);
                         return;
                     default:
@@ -144,19 +144,19 @@ namespace Contoso.Abstract
             else
                 switch (level)
                 {
-                    case ServiceLog.LogLevel.Fatal:
+                    case ServiceLogLevel.Fatal:
                         Log.FatalException(message, ex);
                         return;
-                    case ServiceLog.LogLevel.Error:
+                    case ServiceLogLevel.Error:
                         Log.ErrorException(message, ex);
                         return;
-                    case ServiceLog.LogLevel.Warning:
+                    case ServiceLogLevel.Warning:
                         Log.WarnException(message, ex);
                         return;
-                    case ServiceLog.LogLevel.Information:
+                    case ServiceLogLevel.Information:
                         Log.InfoException(message, ex);
                         return;
-                    case ServiceLog.LogLevel.Debug:
+                    case ServiceLogLevel.Debug:
                         Log.DebugException(message, ex);
                         return;
                     default:

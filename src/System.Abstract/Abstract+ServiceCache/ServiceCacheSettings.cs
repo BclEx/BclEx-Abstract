@@ -38,7 +38,8 @@ namespace System.Abstract
 		public ServiceCacheSettings()
 		{
 			RegionMarker = "@";
-            RegistrationDispatcher = new DefaultServiceCacheRegistrationDispatcher();
+            //TODO: MAP THIS
+            //RegistrationDispatcher = new DefaultServiceCacheRegistrationDispatcher();
             Options = ServiceCacheOptions.UseDBNullWithRegistrations;
 		}
         /// <summary>
@@ -79,7 +80,7 @@ namespace System.Abstract
 				regionName = null;
 				return false;
 			}
-			string originalName = name;
+			var originalName = name;
 			regionName = originalName.Substring(0, index);
 			name = originalName.Substring(index + RegionMarker.Length);
 			return true;

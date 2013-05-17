@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{778F9918-F2F2-4EB5-9FB0-B12FA11F988B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System</RootNamespace>
+    <AssemblyName>System.Abstract.Legacy</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;COREINTERNAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.4|AnyCPU'">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.4\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;COREINTERNAL;CLR4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;COREINTERNAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release\System.Abstract.Legacy.XML</DocumentationFile>
+    <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.4|AnyCPU'">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.4\</OutputPath>
+    <DefineConstants>TRACE;COREINTERNAL;CLR4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release.4\System.Abstract.Legacy.XML</DocumentationFile>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="+ParseFormat\IConvertFormatter.cs" />
+    <Compile Include="+ParseFormat\IConvertParser.cs" />
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\DirectoryInfoResultHandler.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\DirectoryInfoResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\FileInfoResultHandler.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\FileInfoResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\FileSystemEnumerableFactory.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\FileSystemEnumerableFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\FileSystemEnumerableHelpers.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\FileSystemEnumerableHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\FileSystemEnumerableIterator.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\FileSystemEnumerableIterator.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\FileSystemInfoResultHandler.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\FileSystemInfoResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\Iterator.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\Iterator.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\SearchResult.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\SearchResult.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\SearchResultHandler.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\SearchResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\StringResultHandler.cs">
+      <Link>+FromCoreEx\+Polyfill\IO+Enumerate\StringResultHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io\DirectoryEx+Enumerate.cs">
+      <Link>+FromCoreEx\+Polyfill\IO\DirectoryEx+Enumerate.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io\DirectoryEx+Internal.cs">
+      <Link>+FromCoreEx\+Polyfill\IO\DirectoryEx+Internal.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io\KludgeExtensions+Stream.cs">
+      <Link>+FromCoreEx\+Polyfill\IO\KludgeExtensions+Stream.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io\KludgeExtensions.cs">
+      <Link>+FromCoreEx\+Polyfill\IO\KludgeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io\PathEx+Internal.cs">
+      <Link>+FromCoreEx\+Polyfill\IO\PathEx+Internal.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\io\__Error.cs">
+      <Link>+FromCoreEx\+Polyfill\IO\__Error.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\microsoft.win32_\safehandles\SafeFindHandle.cs">
+      <Link>+FromCoreEx\+Polyfill\Microsoft.Win32_\SafeHandles\SafeFindHandle.cs</Link>
+    </Compile>
+    <Compile Include="..\+fromcoreex\+polyfill\microsoft.win32_\Win32Native.cs">
+      <Link>+FromCoreEx\+Polyfill\Microsoft.Win32_\Win32Native.cs</Link>
+    </Compile>
+    <Compile Include="DateTimeEx2.cs" />
+    <Compile Include="IO\DirectoryEx2+DirectoryWrapper.cs" />
+    <Compile Include="IO\DirectoryEx2+MockBase.cs" />
+    <Compile Include="IO\DirectoryEx2.cs" />
+    <Compile Include="IO\EmptyFileSystemEx.cs" />
+    <Compile Include="IO\FileEx2+FileWrapper.cs" />
+    <Compile Include="IO\FileEx2+MockBase.cs" />
+    <Compile Include="IO\FileEx2.cs" />
+    <Compile Include="IO\IFileSystemEx.cs" />
+    <Compile Include="IO\PathEx2+MockBase.cs" />
+    <Compile Include="IO\PathEx2+PathWrapper.cs" />
+    <Compile Include="IO\PathEx2.cs" />
+    <Compile Include="IO\SystemFileSystemEx.cs" />
+    <Compile Include="Local.Designer.cs">
+      <DependentUpon>Local.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BclEx.4.snk" />
+    <None Include="BclEx.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.Abstract\System.Abstract.csproj">
+      <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
+      <Name>System.Abstract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Local.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Local.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

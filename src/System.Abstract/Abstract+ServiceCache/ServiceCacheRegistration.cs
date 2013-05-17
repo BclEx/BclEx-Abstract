@@ -472,7 +472,7 @@ namespace System.Abstract
         /// <value>
         /// The namespaces.
         /// </value>
-        internal List<string> Namespaces { get; private set; }
+        public IEnumerable<string> Namespaces { get; private set; }
 
         /// <summary>
         /// Gets the names.

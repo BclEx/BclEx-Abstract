@@ -67,4 +67,79 @@ namespace System
             return (nameableType.IsGenericType && !nameableType.IsGenericTypeDefinition && object.ReferenceEquals(nameableType.GetGenericTypeDefinition(), typeof(Nameable<>)) ? nameableType.GetGenericArguments()[0] : null);
         }
     }
+
+    /// <summary>
+    /// Nameable
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public struct Nameable<T>
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Nameable&lt;T&gt;"/> struct.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public Nameable(T value)
+        {
+            Value = value;
+            Name = null;
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Nameable&lt;T&gt;"/> struct.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="name">The name.</param>
+        public Nameable(T value, string name)
+        {
+            Value = value;
+            Name = name;
+        }
+
+        /// <summary>
+        /// Value
+        /// </summary>
+        public T Value;
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name;
+
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object"/> is equal to this instance.
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object"/> to compare with this instance.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+        /// </returns>
+        public override bool Equals(object obj) { return Value.Equals(obj); }
+        /// <summary>
+        /// Returns a <see cref="System.String"/> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String"/> that represents this instance.
+        /// </returns>
+        public override string ToString() { return Value.ToString(); }
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
+        public override int GetHashCode() { return Value.GetHashCode(); }
+        /// <summary>
+        /// Performs an implicit conversion from T to <see cref="System.Nameable&lt;T&gt;"/>.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>
+        /// The result of the conversion.
+        /// </returns>
+        public static implicit operator Nameable<T>(T value) { return new Nameable<T>(value); }
+        /// <summary>
+        /// Performs an explicit conversion from <see cref="System.Nameable&lt;T&gt;"/> to T.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns>
+        /// The result of the conversion.
+        /// </returns>
+        public static explicit operator T(Nameable<T> value) { return value.Value; }
+    }
 }

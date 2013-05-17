@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71978B4F-A869-4AFE-A330-8284D2F3DCF2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System</RootNamespace>
+    <AssemblyName>System.Abstract.Micro</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;COREINTERNAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.4|AnyCPU'">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.4\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;COREINTERNAL;CLR4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;COREINTERNAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release\System.Abstract.Micro.XML</DocumentationFile>
+    <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.4|AnyCPU'">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.4\</OutputPath>
+    <DefineConstants>TRACE;COREINTERNAL;CLR4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release.4\System.Abstract.Micro.XML</DocumentationFile>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+    <Reference Include="System.Runtime.Caching" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\+fromcoreex\io\WrapTextReader.cs">
+      <Link>+FromCoreEx\IO\WrapTextReader.cs</Link>
+    </Compile>
+    <Compile Include="Contoso.Abstract\+ServiceBus\AppServiceBus.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceBus\AppServiceBusRegistration.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceBus\IAppServiceMessageHandler.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceBus\IAppServiceMessageHandlerFactory.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceCache\StaticServiceCache.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceCache\SystemServiceCache.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLocator\MicroServiceLocator.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLocator\MicroServiceRegistrar.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLog\ConsoleServiceLog.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLog\EventLogServiceLog.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLog\StreamServiceLog.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLog\TraceSourceServiceLog.cs" />
+    <Compile Include="Contoso.Abstract\EmptyNparams.cs" />
+    <Compile Include="Contoso.Abstract\EventSourcing\FileAggregateRootSnapshotStore.cs" />
+    <Compile Include="Contoso.Abstract\EventSourcing\FileEventStore.cs" />
+    <Compile Include="Contoso.Abstract\EventSourcing\MemoryAggregateRootSnapshotStore.cs" />
+    <Compile Include="Contoso.Abstract\EventSourcing\MemoryEventStore.cs" />
+    <Compile Include="Contoso.Abstract\Micro\Internal\JsonArraySerializer.cs" />
+    <Compile Include="Contoso.Abstract\Micro\Internal\JsonBooleanSerializer.cs" />
+    <Compile Include="Contoso.Abstract\Micro\Internal\JsonGenericSerializerAdapter.cs" />
+    <Compile Include="Contoso.Abstract\Micro\Internal\JsonMemberSerializationInfo.cs" />
+    <Compile Include="Contoso.Abstract\Micro\Internal\JsonNumberSerializer.cs" />
+    <Compile Include="Contoso.Abstract\Micro\Internal\JsonParserUtil.cs" />
+    <Compile Include="Contoso.Abstract\Micro\Internal\JsonStringSerializer.cs" />
+    <Compile Include="Contoso.Abstract\Micro\JsonDeserializationException.cs" />
+    <Compile Include="Contoso.Abstract\Micro\JsonOptions.cs" />
+    <Compile Include="Contoso.Abstract\Micro\JsonPropertyAttribute.cs" />
+    <Compile Include="Contoso.Abstract\Micro\JsonSerializableAttribute.cs" />
+    <Compile Include="Contoso.Abstract\Micro\JsonSerializationException.cs" />
+    <Compile Include="Contoso.Abstract\Micro\JsonSerializer.cs" />
+    <Compile Include="Contoso.Abstract\Micro\JsonSerializer2.cs" />
+    <Compile Include="Contoso.Abstract\Micro\JsonValueType.cs" />
+    <Compile Include="Contoso.Abstract\Parts+TypeSerializer\MicroJsonTypeSerializer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BclEx.4.snk" />
+    <None Include="BclEx.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.Abstract\System.Abstract.csproj">
+      <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
+      <Name>System.Abstract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

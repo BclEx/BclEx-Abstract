@@ -29,21 +29,6 @@ using System.Abstract.Parts;
 namespace System.Abstract
 {
     /// <summary>
-    /// IEventSource
-    /// </summary>
-    public interface IEventSource : IServiceProvider
-    {
-        /// <summary>
-        /// Makes the repository.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="arg">The arg.</param>
-        /// <param name="serializer">The serializer.</param>
-        /// <returns></returns>
-        IAggregateRootRepository MakeRepository<T>(T arg, ITypeSerializer serializer);
-    }
-
-    /// <summary>
     /// EventSource
     /// </summary>
     public class EventSource : IEventSource, EventSourceManager.ISetupRegistration

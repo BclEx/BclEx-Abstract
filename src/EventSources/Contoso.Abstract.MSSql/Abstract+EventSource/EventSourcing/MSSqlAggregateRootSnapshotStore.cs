@@ -31,7 +31,6 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using System.Abstract.Parts;
 using System.Abstract.EventSourcing;
-using Contoso.Abstract.Parts;
 namespace Contoso.Abstract.EventSourcing
 {
     /// <summary>

@@ -92,18 +92,18 @@ namespace Contoso.Abstract
 
             private string FromMessage(object s) { var sAsString = (s as string); return (s == null || sAsString != null ? sAsString : s.ToString()); }
 
-            private ServiceLog.LogLevel FromLogLevel(LogLevel level)
+            private ServiceLogLevel FromLogLevel(LogLevel level)
             {
                 switch (level)
                 {
-                    case LogLevel.All: return ServiceLog.LogLevel.Debug;
-                    case LogLevel.Trace: return ServiceLog.LogLevel.Debug;
-                    case LogLevel.Debug: return ServiceLog.LogLevel.Debug;
-                    case LogLevel.Info: return ServiceLog.LogLevel.Information;
-                    case LogLevel.Warn: return ServiceLog.LogLevel.Warning;
-                    case LogLevel.Error: return ServiceLog.LogLevel.Error;
-                    case LogLevel.Fatal: return ServiceLog.LogLevel.Fatal;
-                    case LogLevel.Off: return ServiceLog.LogLevel.None;
+                    case LogLevel.All: return ServiceLogLevel.Debug;
+                    case LogLevel.Trace: return ServiceLogLevel.Debug;
+                    case LogLevel.Debug: return ServiceLogLevel.Debug;
+                    case LogLevel.Info: return ServiceLogLevel.Information;
+                    case LogLevel.Warn: return ServiceLogLevel.Warning;
+                    case LogLevel.Error: return ServiceLogLevel.Error;
+                    case LogLevel.Fatal: return ServiceLogLevel.Fatal;
+                    case LogLevel.Off: return ServiceLogLevel.None;
                     default: throw new InvalidOperationException();
                 }
             }

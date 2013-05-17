@@ -55,6 +55,6 @@ namespace System.Abstract
         /// <param name="level">The level.</param>
         /// <param name="ex">The ex.</param>
         /// <param name="s">The s.</param>
-        void Write(ServiceLog.LogLevel level, Exception ex, string s);
+        void Write(ServiceLogLevel level, Exception ex, string s);
     }
 }

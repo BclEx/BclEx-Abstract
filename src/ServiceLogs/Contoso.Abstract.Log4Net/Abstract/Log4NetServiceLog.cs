@@ -115,17 +115,17 @@ namespace Contoso.Abstract
         /// <param name="level">The level.</param>
         /// <param name="ex">The ex.</param>
         /// <param name="s">The s.</param>
-        public void Write(ServiceLog.LogLevel level, Exception ex, string s)
+        public void Write(ServiceLogLevel level, Exception ex, string s)
         {
             if (Log == null)
                 throw new NullReferenceException("Log");
             switch (level)
             {
-                case ServiceLog.LogLevel.Fatal: Log.Fatal(s, ex); return;
-                case ServiceLog.LogLevel.Error: Log.Error(s, ex); return;
-                case ServiceLog.LogLevel.Warning: Log.Warn(s, ex); return;
-                case ServiceLog.LogLevel.Information: Log.Info(s, ex); return;
-                case ServiceLog.LogLevel.Debug: Log.Debug(s, ex); return;
+                case ServiceLogLevel.Fatal: Log.Fatal(s, ex); return;
+                case ServiceLogLevel.Error: Log.Error(s, ex); return;
+                case ServiceLogLevel.Warning: Log.Warn(s, ex); return;
+                case ServiceLogLevel.Information: Log.Info(s, ex); return;
+                case ServiceLogLevel.Debug: Log.Debug(s, ex); return;
                 default: return;
             }
         }

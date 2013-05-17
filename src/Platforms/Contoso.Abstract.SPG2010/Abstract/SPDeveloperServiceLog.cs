@@ -163,28 +163,28 @@ namespace Contoso.Abstract
         /// <param name="level">The level.</param>
         /// <param name="ex">The ex.</param>
         /// <param name="s">The s.</param>
-        public void Write(ServiceLog.LogLevel level, Exception ex, string s)
+        public void Write(ServiceLogLevel level, Exception ex, string s)
         {
             if (Log == null)
                 throw new NullReferenceException("Log");
             if (ex == null)
                 switch (level)
                 {
-                    case ServiceLog.LogLevel.Fatal: Log.TraceToDeveloper(s, EventID, TraceSeverity.Unexpected, Name); return;
-                    case ServiceLog.LogLevel.Error: Log.TraceToDeveloper(s, EventID, TraceSeverity.High, Name); return;
-                    case ServiceLog.LogLevel.Warning: Log.TraceToDeveloper(s, EventID, TraceSeverity.Medium, Name); return;
-                    case ServiceLog.LogLevel.Information: Log.TraceToDeveloper(s, EventID, TraceSeverity.Monitorable, Name); return;
-                    case ServiceLog.LogLevel.Debug: Log.TraceToDeveloper(s, EventID, TraceSeverity.Verbose, Name); return;
+                    case ServiceLogLevel.Fatal: Log.TraceToDeveloper(s, EventID, TraceSeverity.Unexpected, Name); return;
+                    case ServiceLogLevel.Error: Log.TraceToDeveloper(s, EventID, TraceSeverity.High, Name); return;
+                    case ServiceLogLevel.Warning: Log.TraceToDeveloper(s, EventID, TraceSeverity.Medium, Name); return;
+                    case ServiceLogLevel.Information: Log.TraceToDeveloper(s, EventID, TraceSeverity.Monitorable, Name); return;
+                    case ServiceLogLevel.Debug: Log.TraceToDeveloper(s, EventID, TraceSeverity.Verbose, Name); return;
                     default: return;
                 }
             else
                 switch (level)
                 {
-                    case ServiceLog.LogLevel.Fatal: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.Unexpected, Name); return;
-                    case ServiceLog.LogLevel.Error: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.High, Name); return;
-                    case ServiceLog.LogLevel.Warning: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.Medium, Name); return;
-                    case ServiceLog.LogLevel.Information: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.Monitorable, Name); return;
-                    case ServiceLog.LogLevel.Debug: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.Verbose, Name); return;
+                    case ServiceLogLevel.Fatal: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.Unexpected, Name); return;
+                    case ServiceLogLevel.Error: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.High, Name); return;
+                    case ServiceLogLevel.Warning: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.Medium, Name); return;
+                    case ServiceLogLevel.Information: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.Monitorable, Name); return;
+                    case ServiceLogLevel.Debug: Log.TraceToDeveloper(ex, s, EventID, TraceSeverity.Verbose, Name); return;
                     default: return;
                 }
         }

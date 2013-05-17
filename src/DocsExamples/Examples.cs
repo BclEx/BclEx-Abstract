@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Abstract;
-using Contoso.Abstract;
 using System.Abstract.EventSourcing;
-using Contoso.Abstract.EventSourcing;
 namespace Example
 {
     //class Examples

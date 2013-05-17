@@ -23,37 +23,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-namespace System.Abstract
-{
-    /// <summary>
-    /// Category of events for classifying logging actions.
-    /// </summary>
-    public enum ServiceLogEventType
-    {
-        /// <summary>
-        /// Generic logging action indicating tracking information.
-        /// </summary>
-        Trace,
-        /// <summary>
-        /// Logging action involving application debugging information.
-        /// </summary>
-        Debug,
-        /// <summary>
-        /// Logging action involving non-specific information of general purpose.
-        /// </summary>
-        Information,
-        /// <summary>
-        /// Logging action involving information of concern.
-        /// </summary>
-        Warning,
-        /// <summary>
-        /// Logging action involving information regarding a system or application error of a non-critical nature.
-        /// </summary>
-        Error,
-        /// <summary>
-        /// Logging action involving information regarding a critical system or application error.
-        /// </summary>
-        Fatal
-    }
-
-}
+//namespace System.Abstract
+//{
+//    /// <summary>
+//    /// Category of events for classifying logging actions.
+//    /// </summary>
+//    public enum ServiceLogEventType
+//    {
+//        /// <summary>
+//        /// Generic logging action indicating tracking information.
+//        /// </summary>
+//        Trace,
+//        /// <summary>
+//        /// Logging action involving application debugging information.
+//        /// </summary>
+//        Debug,
+//        /// <summary>
+//        /// Logging action involving non-specific information of general purpose.
+//        /// </summary>
+//        Information,
+//        /// <summary>
+//        /// Logging action involving information of concern.
+//        /// </summary>
+//        Warning,
+//        /// <summary>
+//        /// Logging action involving information regarding a system or application error of a non-critical nature.
+//        /// </summary>
+//        Error,
+//        /// <summary>
+//        /// Logging action involving information regarding a critical system or application error.
+//        /// </summary>
+//        Fatal
+//    }
+//}

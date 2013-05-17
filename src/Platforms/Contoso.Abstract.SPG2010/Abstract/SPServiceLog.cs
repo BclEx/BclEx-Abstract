@@ -163,28 +163,28 @@ namespace Contoso.Abstract
         /// <param name="level">The level.</param>
         /// <param name="ex">The ex.</param>
         /// <param name="s">The s.</param>
-        public void Write(ServiceLog.LogLevel level, Exception ex, string s)
+        public void Write(ServiceLogLevel level, Exception ex, string s)
         {
             if (Log == null)
                 throw new NullReferenceException("Log");
             if (ex == null)
                 switch (level)
                 {
-                    case ServiceLog.LogLevel.Fatal: Log.LogToOperations(s, EventID, EventSeverity.ErrorCritical, Name); return;
-                    case ServiceLog.LogLevel.Error: Log.LogToOperations(s, EventID, EventSeverity.Error, Name); return;
-                    case ServiceLog.LogLevel.Warning: Log.LogToOperations(s, EventID, EventSeverity.Warning, Name); return;
-                    case ServiceLog.LogLevel.Information: Log.LogToOperations(s, EventID, EventSeverity.Information, Name); return;
-                    case ServiceLog.LogLevel.Debug: Log.LogToOperations(s, EventID, EventSeverity.Verbose, Name); return;
+                    case ServiceLogLevel.Fatal: Log.LogToOperations(s, EventID, EventSeverity.ErrorCritical, Name); return;
+                    case ServiceLogLevel.Error: Log.LogToOperations(s, EventID, EventSeverity.Error, Name); return;
+                    case ServiceLogLevel.Warning: Log.LogToOperations(s, EventID, EventSeverity.Warning, Name); return;
+                    case ServiceLogLevel.Information: Log.LogToOperations(s, EventID, EventSeverity.Information, Name); return;
+                    case ServiceLogLevel.Debug: Log.LogToOperations(s, EventID, EventSeverity.Verbose, Name); return;
                     default: return;
                 }
             else
                 switch (level)
                 {
-                    case ServiceLog.LogLevel.Fatal: Log.LogToOperations(ex, s, EventID, EventSeverity.ErrorCritical, Name); return;
-                    case ServiceLog.LogLevel.Error: Log.LogToOperations(ex, s, EventID, EventSeverity.Error, Name); return;
-                    case ServiceLog.LogLevel.Warning: Log.LogToOperations(ex, s, EventID, EventSeverity.Warning, Name); return;
-                    case ServiceLog.LogLevel.Information: Log.LogToOperations(ex, s, EventID, EventSeverity.Information, Name); return;
-                    case ServiceLog.LogLevel.Debug: Log.LogToOperations(ex, s, EventID, EventSeverity.Verbose, Name); return;
+                    case ServiceLogLevel.Fatal: Log.LogToOperations(ex, s, EventID, EventSeverity.ErrorCritical, Name); return;
+                    case ServiceLogLevel.Error: Log.LogToOperations(ex, s, EventID, EventSeverity.Error, Name); return;
+                    case ServiceLogLevel.Warning: Log.LogToOperations(ex, s, EventID, EventSeverity.Warning, Name); return;
+                    case ServiceLogLevel.Information: Log.LogToOperations(ex, s, EventID, EventSeverity.Information, Name); return;
+                    case ServiceLogLevel.Debug: Log.LogToOperations(ex, s, EventID, EventSeverity.Verbose, Name); return;
                     default: return;
                 }
         }
