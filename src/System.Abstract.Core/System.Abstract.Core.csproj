@@ -76,16 +76,11 @@
     <Compile Include="Collections\IIndexer2.cs" />
     <Compile Include="Collections\IValue.cs" />
     <Compile Include="ConsoleEx.cs" />
-    <Compile Include="..\+fromcoreex\linq\expressions\ExpressionEx.cs">
-      <Link>+FromCoreEx\Linq\Expressions\ExpressionEx.cs</Link>
-    </Compile>
     <Compile Include="Abstract+EventSource\Configuration+EventSource\EventSourceConfiguration.cs" />
-    <Compile Include="Abstract+EventSource\EventSourcing\RegistryEventDispatcher.cs" />
     <Compile Include="Abstract+ServiceBus\Configuration+ServiceBus\ServiceBusConfiguration.cs" />
     <Compile Include="Abstract+ServiceBus\Configuration+ServiceBus\ServiceBus\EndpointElement.cs" />
     <Compile Include="Abstract+ServiceBus\Configuration+ServiceBus\ServiceBus\EndpointElementCollection.cs" />
     <Compile Include="Abstract+ServiceCache\Configuration+ServiceCache\ServiceCacheConfiguration.cs" />
-    <Compile Include="Abstract+ServiceCache\DefaultServiceCacheRegistrationDispatcher.cs" />
     <Compile Include="Abstract+ServiceLocator\Configuration+ServiceLocator\ServiceLocatorConfiguration.cs" />
     <Compile Include="Abstract+ServiceLog\Configuration+ServiceLog\ServiceLogConfiguration.cs" />
     <Compile Include="Abstract\Configuration\AbstractSection.cs" />
@@ -115,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract+EventSource\Configuration+EventSource\EventSourcing\" />
+    <Folder Include="Abstract+EventSource\EventSourcing\" />
     <Folder Include="Abstract+PlatformWeb\" />
     <Folder Include="Abstract+ServiceMap\" />
   </ItemGroup>

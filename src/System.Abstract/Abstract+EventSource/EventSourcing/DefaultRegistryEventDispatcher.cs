@@ -31,21 +31,21 @@ using System.Reflection;
 namespace System.Abstract.EventSourcing
 {
     /// <summary>
-    /// RegistryEventDispatcher
+    /// DefaultRegistryEventDispatcher
     /// </summary>
-    public class RegistryEventDispatcher : IAggregateRootEventDispatcher
+    public class DefaultRegistryEventDispatcher : IAggregateRootEventDispatcher
     {
         private readonly IDictionary<Type, Action<Event>> _handlerRegistry = new Dictionary<Type, Action<Event>>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegistryEventDispatcher"/> class.
+        /// Initializes a new instance of the <see cref="DefaultRegistryEventDispatcher"/> class.
         /// </summary>
-        public RegistryEventDispatcher() { }
+        public DefaultRegistryEventDispatcher() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RegistryEventDispatcher"/> class.
+        /// Initializes a new instance of the <see cref="DefaultRegistryEventDispatcher"/> class.
         /// </summary>
         /// <param name="aggregate">The aggregate.</param>
-        public RegistryEventDispatcher(AggregateRoot aggregate)
+        public DefaultRegistryEventDispatcher(AggregateRoot aggregate)
         {
             RegisterByConvention(aggregate);
         }

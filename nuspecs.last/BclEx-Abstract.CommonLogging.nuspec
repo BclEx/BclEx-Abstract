@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>BclEx-Abstract.CommonLogging</id>
+    <version>1.0.0</version>
+    <title>BclEx-Abstract.CommonLogging</title>
+    <authors>Contoso</authors>
+    <owners>Contoso</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>http://docs.bclex.org/bclex-abstract/</projectUrl>
+    <iconUrl>http://docs.bclex.org/bclex-abstract.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package contains a Common.Logging implementation of the abstract ServiceLog.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2010</copyright>
+    <tags>servicecache web bclex</tags>
+    <language>en-US</language>
+    <dependencies>
+      <group>
+        <dependency id="BclEx-Abstract" version="1.0.0" />
+        <dependency id="Common.Logging" version="2.1.1" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="build\3.5\Contoso.Abstract.CommonLogging.dll" target="lib\net35" />
+    <file src="build\3.5\Contoso.Abstract.CommonLogging.xml" target="lib\net35" />
+    <file src="build\4.0\Contoso.Abstract.CommonLogging.dll" target="lib\net40" />
+    <file src="build\4.0\Contoso.Abstract.CommonLogging.xml" target="lib\net40" />
+    <file src="src\ServiceLogs\Contoso.Abstract.CommonLogging\**\*.cs" target="src\Contoso.Abstract.CommonLogging" />
+  </files>
+</package>

@@ -24,7 +24,7 @@ THE SOFTWARE.
 */
 #endregion
 using System.Abstract.Parts;
-namespace System.Abstract.EventSourcing
+namespace System.Abstract
 {
     /// <summary>
     /// PlatformWebExtensions

@@ -84,18 +84,23 @@
     <Compile Include="..\+fromcoreex\ExceptionEx.cs">
       <Link>+FromCoreEx\ExceptionEx.cs</Link>
     </Compile>
+    <Compile Include="..\+fromcoreex\linq\expressions\ExpressionEx.cs">
+      <Link>+FromCoreEx\Linq\Expressions\ExpressionEx.cs</Link>
+    </Compile>
     <Compile Include="..\+fromcoreex\reflection\AssemblyExtensions.cs">
       <Link>+FromCoreEx\Reflection\AssemblyExtensions.cs</Link>
     </Compile>
     <Compile Include="Abstract+EventSource\EventSource.cs" />
     <Compile Include="Abstract+EventSource\EventSourceManager.cs" />
     <Compile Include="Abstract+EventSource\EventSourceManagerDebugger.cs" />
+    <Compile Include="Abstract+EventSource\EventSourcing\DefaultRegistryEventDispatcher.cs" />
     <Compile Include="Abstract+PlatformWeb\PlatformWeb.cs" />
     <Compile Include="Abstract+PlatformWeb\PlatformWebManager.cs" />
     <Compile Include="Abstract+PlatformWeb\PlatformWebManagerDebugger.cs" />
     <Compile Include="Abstract+ServiceBus\ServiceBus.cs" />
     <Compile Include="Abstract+ServiceBus\ServiceBusManager.cs" />
     <Compile Include="Abstract+ServiceBus\ServiceBusManagerDebugger.cs" />
+    <Compile Include="Abstract+ServiceCache\DefaultServiceCacheRegistrationDispatcher.cs" />
     <Compile Include="Abstract+ServiceCache\ServiceCache+FileTouchableCacheItemBase.cs" />
     <Compile Include="Abstract+ServiceCache\ServiceCache+Primitives.cs" />
     <Compile Include="Abstract+ServiceCache\ServiceCache.cs" />
