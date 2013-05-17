@@ -134,6 +134,8 @@
     <Compile Include="+EnvironmentEx\DevelopmentStage.cs" />
     <Compile Include="Abstract\Parts\ServiceManagerBase.cs" />
     <Compile Include="Abstract\Parts\ServiceManagerDebuggerBase.cs" />
+    <Compile Include="IConvertFormatter.cs" />
+    <Compile Include="IConvertParser.cs" />
     <Compile Include="Local.Designer.cs">
       <DependentUpon>Local.resx</DependentUpon>
       <AutoGen>True</AutoGen>

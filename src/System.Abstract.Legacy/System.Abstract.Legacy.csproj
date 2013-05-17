@@ -67,8 +67,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="+ParseFormat\IConvertFormatter.cs" />
-    <Compile Include="+ParseFormat\IConvertParser.cs" />
     <Compile Include="..\+fromcoreex\+polyfill\io+enumerate\DirectoryInfoResultHandler.cs">
       <Link>+FromCoreEx\+Polyfill\IO+Enumerate\DirectoryInfoResultHandler.cs</Link>
     </Compile>
