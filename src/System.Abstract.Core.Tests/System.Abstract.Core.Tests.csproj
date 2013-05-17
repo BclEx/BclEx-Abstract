@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E24BF01E-3160-45E8-BE5A-D2F2D4A50C2C}</ProjectGuid>
+    <ProjectGuid>{B661EA04-CB14-4078-9E73-0435EA2DC20A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>System.Abstract.Tests</RootNamespace>
-    <AssemblyName>System.Abstract.Tests</AssemblyName>
+    <RootNamespace>System.Abstract.Core.Tests</RootNamespace>
+    <AssemblyName>System.Abstract.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,7 +37,6 @@
       <HintPath>..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Runtime.Caching" />
     <Reference Include="xunit">
       <HintPath>..\..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
     </Reference>
@@ -46,21 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="+Nparams\NparamsExtensionsTests.cs" />
-    <Compile Include="+Nparams\NparamsManagerTests.cs" />
-    <Compile Include="+Template\Abstract+EventSource\EventSourcing\AggregateRootSnapshotStoreIntegrationTestsBase.cs" />
-    <Compile Include="+Template\Abstract+EventSource\EventSourcing\EventStoreIntegrationTestsBase.cs" />
-    <Compile Include="+Template\Abstract+ServiceBus\ServiceBusIntegrationTestsBase.cs" />
-    <Compile Include="+Template\Abstract+ServiceCache\ServiceCacheIntegrationTestsBase.cs" />
-    <Compile Include="+Template\Abstract+ServiceLocator\ServiceLocatorIntegrationTestsBase+Future.cs" />
-    <Compile Include="+Template\Abstract+ServiceLocator\ServiceLocatorIntegrationTestsBase.cs" />
-    <Compile Include="+Template\Abstract+ServiceLocator\ServiceRegistrarIntegrationTestsBase.cs" />
-    <Compile Include="+Template\Abstract+ServiceLog\ServiceLogIntegrationTestsBase.cs" />
-    <Compile Include="Abstract+EventSource\EventSourcing\AggregateRootOfflineSnapshotServiceTests.cs" />
-    <Compile Include="Abstract+EventSource\EventSourcing\AggregateRootRepositoryTests.cs" />
-    <Compile Include="Abstract+EventSource\EventSourcing\AggregateRootTests.cs" />
-    <Compile Include="Abstract+EventSource\EventSourcing\RegistryEventDispatcherTests.cs" />
-    <Compile Include="Abstract+EventSource\EventSourcing\EventSourceManagerTests.cs" />
+    <Compile Include="Abstract+EventSourcing\AggregateRootOfflineSnapshotServiceTests.cs" />
+    <Compile Include="Abstract+EventSourcing\AggregateRootRepositoryTests.cs" />
+    <Compile Include="Abstract+EventSourcing\AggregateRootTests.cs" />
+    <Compile Include="Abstract+EventSourcing\RegistryEventDispatcherTests.cs" />
+    <Compile Include="Abstract+EventSourcing\EventSourceManagerTests.cs" />
     <Compile Include="Abstract+ServiceBus\AggregateServiceMessageTests.cs" />
     <Compile Include="Abstract+ServiceBus\Fakes\TestMessage.cs" />
     <Compile Include="Abstract+ServiceBus\IPublishingServiceBusExtensionsTests.cs" />
@@ -86,7 +75,6 @@
     <Compile Include="Abstract+ServiceLocator\IServiceLocatorExtensionsTests.cs" />
     <Compile Include="Abstract+ServiceLocator\ServiceLocatorManagerTests.cs" />
     <Compile Include="Abstract+ServiceLocator\ServiceLocatorResolutionExceptionTests.cs" />
-    <Compile Include="Abstract+ServiceLog\EmptyServiceLogIntegrationTests.cs" />
     <Compile Include="Abstract+ServiceLog\ServiceLogManagerTests.cs" />
     <Compile Include="Abstract+TypeGrapher\TypeGraphManagerTests.cs" />
     <Compile Include="Abstract+TypeGrapher\TypeGraphSerializerTests.cs" />
@@ -95,12 +83,18 @@
     <Compile Include="Abstract\Parts+TypeSerializer\ITypeSerializerExtensionsTests.cs" />
     <Compile Include="Abstract\Parts\ServiceManagerBaseTests.cs" />
     <Compile Include="Abstract\ServiceDependencyAttributeTests.cs" />
+    <Compile Include="+EnvironmentEx\EnvironmentEx2Tests.cs" />
+    <Compile Include="Patterns\ReleaseManagement\ReleaseManagementExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\System.Abstract.Core\System.Abstract.Core.csproj">
+      <Project>{C0DFFDBA-92E2-4DED-A2D3-1722123FEF46}</Project>
+      <Name>System.Abstract.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\System.Abstract\System.Abstract.csproj">
       <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
       <Name>System.Abstract</Name>

@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("System.Abstract.Micro")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This package contains abstractions to provide standard Interfaces, or Abstracts, for common services typicality re-implemented in various Projects/Assemblies. Utilizing a standards based Type allows services to flow between otherwise disconnected Assemblies.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("System.Abstract.Micro")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("Contoso")]
+[assembly: AssemblyProduct("BclEx-Abstract")]
+[assembly: AssemblyCopyright("Copyright © Contoso 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

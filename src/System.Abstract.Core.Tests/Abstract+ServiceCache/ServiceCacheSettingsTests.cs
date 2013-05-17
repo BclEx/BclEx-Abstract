@@ -23,13 +23,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Abstract;
-using System.Abstract.Fakes;
 using Xunit;
-namespace Contoso.Abstract
+namespace System.Abstract
 {
-    public class EmptyServiceLogIntegrationTests : ServiceLogIntegrationTestsBase
+    public class ServiceCacheSettingsTests
     {
-		protected override IServiceLog CreateServiceLog() { return new EmptyServiceLog(); }
     }
 }

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("System.Abstract.Legacy")]
-[assembly: AssemblyDescription("This package contains abstractions to provide standard Interfaces, or Abstracts, for common services typicality re-implemented in various Projects/Assemblies. Utilizing a standards based Type allows services to flow between otherwise disconnected Assemblies.")]
+[assembly: AssemblyTitle("System.Abstract.Tests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Contoso")]
-[assembly: AssemblyProduct("BclEx-Abstract")]
-[assembly: AssemblyCopyright("Copyright © Contoso 2010")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("System.Abstract.Tests")]
+[assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("539b14fc-f5a6-4476-9f36-afb3c13ac623")]
+[assembly: Guid("95427d1f-ca0e-4d06-9382-85e1ee33746c")]
 
 // Version information for an assembly consists of the following four values:
 //

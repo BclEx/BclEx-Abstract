@@ -123,6 +123,9 @@
     <Compile Include="..\+fromcoreex\+polyfill\microsoft.win32_\Win32Native.cs">
       <Link>+FromCoreEx\+Polyfill\Microsoft.Win32_\Win32Native.cs</Link>
     </Compile>
+    <Compile Include="..\+FromCoreEx\+Polyfill\SR.cs">
+      <Link>+FromCoreEx\+Polyfill\SR.cs</Link>
+    </Compile>
     <Compile Include="DateTimeEx2.cs" />
     <Compile Include="IO\DirectoryEx2+DirectoryWrapper.cs" />
     <Compile Include="IO\DirectoryEx2+MockBase.cs" />
