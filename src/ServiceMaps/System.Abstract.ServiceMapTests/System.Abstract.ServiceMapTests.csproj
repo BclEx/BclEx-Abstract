@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{514B73C1-951F-4B75-BC8F-A0969E281735}</ProjectGuid>
+    <ProjectGuid>{36696FC0-0964-4D9A-95C7-D873EE8665DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>System.Abstract.ServiceCacheTests</RootNamespace>
-    <AssemblyName>System.Abstract.ServiceCacheTests</AssemblyName>
+    <RootNamespace>System.Abstract.ServiceMapTests</RootNamespace>
+    <AssemblyName>System.Abstract.ServiceMapTests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -53,30 +53,14 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v3.5'">
-    <Reference Include="Moq">
-      <HintPath>..\..\..\packages\Moq.4.0.10827\lib\NET35\Moq.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
-    <Reference Include="Moq">
-      <HintPath>..\..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <ItemGroup>
-    <Reference Include="Enyim.Caching">
-      <HintPath>..\..\..\packages\EnyimMemcached.2.12\lib\net35\Enyim.Caching.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="xunit">
+    <Reference Include="xunit, Version=1.9.1.1600, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract+ServiceCache\DispatcherTests.cs" />
-    <Compile Include="Abstract+ServiceCache\MemcachedServiceCacheIntegrationTests.cs" />
-    <Compile Include="Abstract+ServiceCache\MemcachedServiceCacheTests.cs" />
-    <Compile Include="Abstract+ServiceCache\ServerAppFabricServiceCacheIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,17 +72,9 @@
       <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
       <Name>System.Abstract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Contoso.Abstract.Memcached\Contoso.Abstract.Memcached.csproj">
-      <Project>{4681087B-F518-41B5-A6AB-5421F7BD198A}</Project>
-      <Name>Contoso.Abstract.Memcached</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Contoso.Abstract.ServerAppFabric\Contoso.Abstract.ServerAppFabric.csproj">
-      <Project>{11AB87CE-AC55-4371-B2FB-F8D8E445654F}</Project>
-      <Name>Contoso.Abstract.ServerAppFabric</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Folder Include="Abstract+ServiceMap\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

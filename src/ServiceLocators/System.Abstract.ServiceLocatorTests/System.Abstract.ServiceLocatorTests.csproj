@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>System.Abstract.ServiceLocatorTests</RootNamespace>
     <AssemblyName>System.Abstract.ServiceLocatorTests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -23,11 +23,32 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug.4|AnyCPU' ">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.4\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;CLR4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release.4|AnyCPU' ">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.4\</OutputPath>
+    <DefineConstants>TRACE;CLR4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -55,6 +76,12 @@
     <Compile Include="Abstract+ServiceLocator\UnityServiceRegistrarIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+    <ProjectReference Include="..\Contoso.Abstract.Munq\Contoso.Abstract.Munq.csproj">
+      <Project>{492A084B-B89A-49D1-B52A-285D69730A6C}</Project>
+      <Name>Contoso.Abstract.Munq</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\System.Abstract.Tests\System.Abstract.Tests.csproj">
       <Project>{E24BF01E-3160-45E8-BE5A-D2F2D4A50C2C}</Project>
@@ -75,10 +102,6 @@
     <ProjectReference Include="..\Contoso.Abstract.Hiro\Contoso.Abstract.Hiro.csproj">
       <Project>{60E87E13-151E-40A4-A896-D1C3E2B4DEE7}</Project>
       <Name>Contoso.Abstract.Hiro</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Contoso.Abstract.Munq\Contoso.Abstract.Munq.csproj">
-      <Project>{492A084B-B89A-49D1-B52A-285D69730A6C}</Project>
-      <Name>Contoso.Abstract.Munq</Name>
     </ProjectReference>
     <ProjectReference Include="..\Contoso.Abstract.Ninject\Contoso.Abstract.Ninject.csproj">
       <Project>{03A4AE50-0401-4DDB-96E8-B90A5D64FA93}</Project>

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>System.Abstract.PlatformTests</RootNamespace>
     <AssemblyName>System.Abstract.PlatformTests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -19,6 +19,17 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug.4|AnyCPU' ">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.4\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;CLR4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -32,6 +43,16 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release.4|AnyCPU' ">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.4\</OutputPath>
+    <DefineConstants>TRACE;CLR4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="xunit">
@@ -40,6 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+    <ProjectReference Include="..\Contoso.Abstract.Web.Mvc3\Contoso.Abstract.Web.Mvc3.csproj">
+      <Project>{9061E52B-AB9F-4BCE-8840-850824B039D8}</Project>
+      <Name>Contoso.Abstract.Web.Mvc3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Web.Mvc4\Contoso.Abstract.Web.Mvc4.csproj">
+      <Project>{25B38D5A-5331-455A-8D96-6ACA5845001E}</Project>
+      <Name>Contoso.Abstract.Web.Mvc4</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\System.Abstract.Tests\System.Abstract.Tests.csproj">
@@ -57,14 +88,6 @@
     <ProjectReference Include="..\Contoso.Abstract.Web.Mvc2\Contoso.Abstract.Web.Mvc2.csproj">
       <Project>{9E961ED4-69FD-42FE-B19C-3EAB67D1535B}</Project>
       <Name>Contoso.Abstract.Web.Mvc2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Contoso.Abstract.Web.Mvc3\Contoso.Abstract.Web.Mvc3.csproj">
-      <Project>{9061E52B-AB9F-4BCE-8840-850824B039D8}</Project>
-      <Name>Contoso.Abstract.Web.Mvc3</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Contoso.Abstract.Web.Mvc4\Contoso.Abstract.Web.Mvc4.csproj">
-      <Project>{25B38D5A-5331-455A-8D96-6ACA5845001E}</Project>
-      <Name>Contoso.Abstract.Web.Mvc4</Name>
     </ProjectReference>
     <ProjectReference Include="..\Contoso.Abstract.Web\Contoso.Abstract.Web.csproj">
       <Project>{D1EBE7A3-1CFD-438C-A007-FF281F0B1D2A}</Project>
