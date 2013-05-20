@@ -26,13 +26,16 @@ THE SOFTWARE.
 using System;
 using System.Abstract;
 using System.Abstract.Parts;
-namespace Contoso.Abstract.Parts
+namespace Contoso.Abstract
 {
     /// <summary>
-    /// MicroJsonTypeSerializer
+    /// MicroRegistrar
     /// </summary>
-    public static class MicroRegistar
+    public static class MicroRegistrar
     {
+        /// <summary>
+        /// Registers this instance.
+        /// </summary>
         public static void Register()
         {
             //ServiceManagerBase<IEventSource, Action<IEventSource>, EventSourceManagerDebugger>.DefaultServiceProvider = null;

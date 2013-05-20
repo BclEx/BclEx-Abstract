@@ -27,7 +27,7 @@ using System;
 using System.Abstract.Parts;
 using System.Collections.Generic;
 using System.IO;
-namespace Contoso.Abstract.Parts
+namespace Contoso.Abstract
 {
     /// <summary>
     /// MicroJsonTypeSerializer
