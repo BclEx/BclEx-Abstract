@@ -144,9 +144,9 @@
     <Compile Include="AbstractExtensions+Nparams.cs" />
     <Compile Include="Abstract+EventSource\EventSourcing\EventSourcingExtensions.cs" />
     <Compile Include="Abstract+EventSource\IEventSource.cs" />
-    <Compile Include="Abstract+Event\IEvent.cs" />
-    <Compile Include="Abstract+Event\EventBus.cs" />
-    <Compile Include="Abstract+Event\IEventHandler.cs" />
+    <Compile Include="Abstract+EventSource\IEvent.cs" />
+    <Compile Include="Abstract+EventSource\EventBus.cs" />
+    <Compile Include="Abstract+EventSource\IEventHandler.cs" />
     <Compile Include="Abstract+PlatformWeb\PlatformWebExtensions.cs" />
     <Compile Include="Abstract+PlatformWeb\IPlatformWeb.cs" />
     <Compile Include="Abstract+ServiceBus\IServiceBusHostBootstrap.cs" />
@@ -243,6 +243,7 @@
       <LastGenOutput>Local.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

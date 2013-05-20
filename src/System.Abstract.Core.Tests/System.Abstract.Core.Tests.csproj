@@ -73,11 +73,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract+EventSourcing\AggregateRootOfflineSnapshotServiceTests.cs" />
-    <Compile Include="Abstract+EventSourcing\AggregateRootRepositoryTests.cs" />
-    <Compile Include="Abstract+EventSourcing\AggregateRootTests.cs" />
-    <Compile Include="Abstract+EventSourcing\RegistryEventDispatcherTests.cs" />
-    <Compile Include="Abstract+EventSourcing\EventSourceManagerTests.cs" />
+    <Compile Include="Abstract+EventSource\AggregateRootOfflineSnapshotServiceTests.cs" />
+    <Compile Include="Abstract+EventSource\AggregateRootRepositoryTests.cs" />
+    <Compile Include="Abstract+EventSource\AggregateRootTests.cs" />
+    <Compile Include="Abstract+EventSource\RegistryEventDispatcherTests.cs" />
+    <Compile Include="Abstract+EventSource\EventSourceManagerTests.cs" />
     <Compile Include="Abstract+ServiceBus\AggregateServiceMessageTests.cs" />
     <Compile Include="Abstract+ServiceBus\Fakes\TestMessage.cs" />
     <Compile Include="Abstract+ServiceBus\IPublishingServiceBusExtensionsTests.cs" />
@@ -108,9 +108,6 @@
     <Compile Include="Abstract+TypeGrapher\TypeGraphSerializerTests.cs" />
     <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheManagerTests.cs" />
     <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheSerializerTests.cs" />
-    <Compile Include="Abstract\Parts+TypeSerializer\ITypeSerializerExtensionsTests.cs" />
-    <Compile Include="Abstract\Parts\ServiceManagerBaseTests.cs" />
-    <Compile Include="Abstract\ServiceDependencyAttributeTests.cs" />
     <Compile Include="+EnvironmentEx\EnvironmentEx2Tests.cs" />
     <Compile Include="Patterns\ReleaseManagement\ReleaseManagementExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

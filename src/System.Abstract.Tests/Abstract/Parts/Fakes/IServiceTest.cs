@@ -24,9 +24,9 @@ THE SOFTWARE.
 */
 #endregion
 using Xunit;
-namespace System.Abstract.Parts
+namespace System.Abstract.Parts.Fakes
 {
-    public class ServiceManagerBaseTests
-	{
-	}
+    public interface IServiceTest
+    {
+    }
 }

@@ -26,7 +26,7 @@ THE SOFTWARE.
 using Xunit;
 namespace System.Abstract.Parts
 {
-    public class TypeCacheManagerTests
+    public class ServiceManagerDebuggerBaseTests
 	{
 	}
 }

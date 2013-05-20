@@ -74,8 +74,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="+Nparams\NparamsExtensionsTests.cs" />
-    <Compile Include="+Nparams\NparamsManagerTests.cs" />
+    <Compile Include="Abstract+ServiceLocator\ServiceDependencyAttributeTests.cs" />
+    <Compile Include="Abstract\Parts\Fakes\ServiceTestManagerDebugger.cs" />
+    <Compile Include="Abstract\Parts\Fakes\ServiceTestManager.cs" />
+    <Compile Include="Abstract\Parts\Fakes\IServiceTest.cs" />
+    <Compile Include="Abstract\Parts\ServiceManagerDebuggerBaseTests.cs" />
+    <Compile Include="NparamsExtensionsTests.cs" />
+    <Compile Include="NparamsManagerTests.cs" />
     <Compile Include="+Template\Abstract+EventSource\EventSourcing\AggregateRootSnapshotStoreIntegrationTestsBase.cs" />
     <Compile Include="+Template\Abstract+EventSource\EventSourcing\EventStoreIntegrationTestsBase.cs" />
     <Compile Include="+Template\Abstract+ServiceBus\ServiceBusIntegrationTestsBase.cs" />
@@ -118,11 +123,8 @@
     <Compile Include="Abstract+ServiceLog\ServiceLogManagerTests.cs" />
     <Compile Include="Abstract+TypeGrapher\TypeGraphManagerTests.cs" />
     <Compile Include="Abstract+TypeGrapher\TypeGraphSerializerTests.cs" />
-    <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheManagerTests.cs" />
-    <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheSerializerTests.cs" />
-    <Compile Include="Abstract\Parts+TypeSerializer\ITypeSerializerExtensionsTests.cs" />
+    <Compile Include="Abstract\Parts+TypeSerializer\PartsExtensionsTests+TypeSerializer.cs" />
     <Compile Include="Abstract\Parts\ServiceManagerBaseTests.cs" />
-    <Compile Include="Abstract\ServiceDependencyAttributeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

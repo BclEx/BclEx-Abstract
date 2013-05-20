@@ -24,9 +24,17 @@ THE SOFTWARE.
 */
 #endregion
 using Xunit;
-namespace System.Abstract.Parts
+namespace System.Abstract.Parts.Fakes
 {
-    public class TypeCacheSerializerTests
-	{
-	}
+    public class ServiceTestManagerDebugger : ServiceManagerDebuggerBase<ServiceTestManagerDebugger.DebuggerFlags>
+    {
+        [Flags]
+        public enum DebuggerFlags
+        {
+        }
+
+        protected override void DebugStarted()
+        {
+        }
+    }
 }

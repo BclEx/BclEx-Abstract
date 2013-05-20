@@ -27,6 +27,29 @@ using Xunit;
 namespace System.Abstract.Parts
 {
     public class ServiceManagerBaseTests
-	{
-	}
+    {
+        [Fact]
+        public void MakeByProviderProtected()
+        {
+            //var append = new ArraySegment<byte>();
+            //var appendCas = new CasResult<ArraySegment<byte>> { Cas = 1, Result = append };
+
+            //// Test : bool Append(string key, ArraySegment<byte> data);
+            //var clientMock = new Mock<IMemcachedClient>();
+            //var service = new MemcachedServiceCache(clientMock.Object);
+            //service.Add(append, "name", CacheItemPolicy.Infinite, "value");
+            //clientMock.Verify(x => x.Append("name", It.IsAny<ArraySegment<byte>>()));
+
+            //// Test : CasResult<bool> Append(string key, ulong cas, ArraySegment<byte> data);
+            //var clientMock2 = new Mock<IMemcachedClient>();
+            //var service2 = new MemcachedServiceCache(clientMock2.Object);
+            //service2.Add(appendCas, "name", CacheItemPolicy.Infinite, "value");
+            //clientMock2.Verify(x => x.Append("name", appendCas.Cas, It.IsAny<ArraySegment<byte>>()));
+        }
+
+        //public void RegisterInstance
+        //{
+        //    //ServiceBusManagerBase
+        //}
+    }
 }
