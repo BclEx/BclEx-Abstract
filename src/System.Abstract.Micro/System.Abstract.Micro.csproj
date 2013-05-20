@@ -84,11 +84,11 @@
     <Compile Include="Contoso.Abstract\+ServiceLog\EventLogServiceLog.cs" />
     <Compile Include="Contoso.Abstract\+ServiceLog\StreamServiceLog.cs" />
     <Compile Include="Contoso.Abstract\+ServiceLog\TraceSourceServiceLog.cs" />
-    <Compile Include="Contoso.Abstract\EmptyNparams.cs" />
     <Compile Include="Contoso.Abstract\EventSourcing\FileAggregateRootSnapshotStore.cs" />
     <Compile Include="Contoso.Abstract\EventSourcing\FileEventStore.cs" />
     <Compile Include="Contoso.Abstract\EventSourcing\MemoryAggregateRootSnapshotStore.cs" />
     <Compile Include="Contoso.Abstract\EventSourcing\MemoryEventStore.cs" />
+    <Compile Include="Contoso.Abstract\MicroRegistar.cs" />
     <Compile Include="Contoso.Abstract\Micro\Internal\JsonArraySerializer.cs" />
     <Compile Include="Contoso.Abstract\Micro\Internal\JsonBooleanSerializer.cs" />
     <Compile Include="Contoso.Abstract\Micro\Internal\JsonGenericSerializerAdapter.cs" />

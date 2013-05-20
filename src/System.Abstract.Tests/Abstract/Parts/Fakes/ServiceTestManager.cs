@@ -42,9 +42,11 @@ namespace System.Abstract.Parts.Fakes
                 },
                 DefaultServiceRegistrar = (service, locator, name) =>
                 {
-
                 },
             };
+            // default provider
+            if (Lazy == null && DefaultServiceProvider != null)
+                SetProvider(DefaultServiceProvider);
         }
 
         public static Lazy<IServiceTest> SetProvider(Func<IServiceTest> provider) { return (Lazy = MakeByProviderProtected(provider, null)); }

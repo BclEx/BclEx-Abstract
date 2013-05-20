@@ -29,7 +29,7 @@ namespace System
     public class EnvironmentEx2Tests
     {
         [Fact]
-        public void Can_publish_to_consumers_of_interface()
+        public void Can_Publish_To_Consumers_Of_Interface()
         {
             Assert.Equal(1, 1);
         }

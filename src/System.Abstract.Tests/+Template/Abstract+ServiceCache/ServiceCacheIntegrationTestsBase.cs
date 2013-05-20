@@ -39,14 +39,14 @@ namespace System.Abstract
 			Cache = CreateServiceCache();
 		}
 
-        //[Fact]
+        //[Fact, Trait("Category", "Template")]
 		//public void CreateMessage_Should_Return_Valid_Instance()
 		//{
 		//    var message = Bus.CreateMessage<TestMessage>(null);
 		//    Assert.NotNull(message);
 		//}
 
-        //[Fact]
+        //[Fact, Trait("Category", "Template")]
 		//public void CreateMessage_With_Action_Should_Return_Valid_Instance()
 		//{
 		//    var message = Bus.CreateMessage<TestMessage>(x => x.Body = "APPLY");
@@ -55,7 +55,7 @@ namespace System.Abstract
 		//}
 
 
-		//[Fact]
+        //[Fact, Trait("Category", "Template")]
 		//public void Send_Should_Return_Valid_Instance()
 		//{
 		//}

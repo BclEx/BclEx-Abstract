@@ -112,8 +112,8 @@ namespace System.Abstract
                 },
             };
             // default provider
-            //if (Lazy == null)
-            //    SetProvider(() => new ConsoleServiceLog("Default"));
+            if (Lazy == null && DefaultServiceProvider != null)
+                SetProvider(DefaultServiceProvider);
         }
 
         /// <summary>

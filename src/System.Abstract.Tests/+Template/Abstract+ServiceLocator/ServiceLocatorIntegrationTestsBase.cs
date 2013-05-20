@@ -51,7 +51,7 @@ namespace System.Abstract
 
         //Test if child works
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public void Resolve_Should_Return_Valid_Instance()
         {
             var serviceType = typeof(TestService);
@@ -64,7 +64,7 @@ namespace System.Abstract
             Assert.IsType(serviceType, serviceN);
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void GenericAndNonGeneric_Resolve_Method_Should_Return_Same_Instance_Type()
         {
             var serviceType = Locator.Resolve<ITestService>().GetType();
@@ -73,7 +73,7 @@ namespace System.Abstract
             Assert.Equal(serviceType, serviceTypeN);
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public void Asking_For_UnRegistered_Service_Return_Valid_Instance()
         {
             var service = Locator.Resolve<TestServiceN>();
@@ -83,7 +83,7 @@ namespace System.Abstract
             Assert.NotNull(serviceN);
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public void Asking_For_Invalid_Service_Should_Raise_Exception()
         {
             Assert.Throws<ServiceLocatorResolutionException>(() =>
@@ -99,7 +99,7 @@ namespace System.Abstract
 
         #region Named Instances
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public void Ask_For_Named_Instance()
         {
             var serviceType = typeof(TestNamedService);
@@ -115,7 +115,7 @@ namespace System.Abstract
             Assert.IsType(serviceType2, serviceN2);
         }
 
-        //[Fact]
+        //[Fact, Trait("Category", "Template")]
         //public virtual void GenericAndNonGeneric_Resolve_Named_Instance_Should_Return_Same_Instance_Type()
         //{
         //    Assert.Equal(
@@ -123,7 +123,7 @@ namespace System.Abstract
         //        Locator.Resolve<ITestNamedService>(typeof(TestNamedService)).GetType());
         //}
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public void Ask_For_Unknown_Service_Should_Throw_Exception()
         {
             Assert.Throws<ServiceLocatorResolutionException>(() =>
@@ -141,7 +141,7 @@ namespace System.Abstract
 
         #region ResolveAll
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void ResolveAll_Should_Return_All_Registered_UnNamed_Services()
         {
             var services = Locator.ResolveAll<ITestService>();
@@ -151,7 +151,7 @@ namespace System.Abstract
             Assert.Equal(1, servicesN.Count());
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void ResolveAll_Should_Return_All_Registered_Named_Services()
         {
             var services2 = Locator.ResolveAll<ITestNamedService>();
@@ -161,7 +161,7 @@ namespace System.Abstract
             Assert.Equal(2, servicesN2.Count());
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void ResolveAll_For_Unknown_Type_Should_Return_Empty_Enumerable()
         {
             var services = Locator.ResolveAll<string>();
@@ -171,7 +171,7 @@ namespace System.Abstract
             Assert.Equal(0, servicesN.Count());
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void GenericAndNonGeneric_ResolveAll_Should_Return_Same_Instace_Types()
         {
             var services = new List<ITestNamedService>(Locator.ResolveAll<ITestNamedService>());

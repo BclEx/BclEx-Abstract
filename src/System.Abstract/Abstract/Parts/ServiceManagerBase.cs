@@ -49,6 +49,14 @@ namespace System.Abstract.Parts
         static ServiceManagerBase() { }
 
         /// <summary>
+        /// Gets or sets the DefaultServiceProvider.
+        /// </summary>
+        /// <value>
+        /// The DefaultServiceProvider.
+        /// </value>
+        public static Func<TIService> DefaultServiceProvider { get; set; }
+
+        /// <summary>
         /// Gets or sets the lazy.
         /// </summary>
         /// <value>

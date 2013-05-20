@@ -39,7 +39,7 @@ namespace System.Abstract.EventSourcing
 			AggregateRootSnapshotStore = CreateAggregateRootSnapshotStore();
 		}
 
-		[Fact]
+        [Fact, Trait("Category", "Template")]
 		public void CreateMessage_Should_Return_Valid_Instance()
 		{
 		}

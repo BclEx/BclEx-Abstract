@@ -50,6 +50,9 @@ namespace System.Abstract
                             action(service);
                 },
             };
+            // default provider
+            if (Lazy == null && DefaultServiceProvider != null)
+                SetProvider(DefaultServiceProvider);
         }
 
         /// <summary>

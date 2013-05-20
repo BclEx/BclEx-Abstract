@@ -32,7 +32,7 @@ namespace System.Abstract.Parts
     public class PartsExtensionsTests
     {
         [Fact]
-        public void ITypeSerializer_ReadObject_Returns_Value()
+        public void TypeSerializer_ReadObject_Returns_Value()
         {
             var typeSerializerMock = new Mock<ITypeSerializer>();
             typeSerializerMock.Setup(x => x.ReadObject<string>(typeof(PartsExtensionsTests), It.IsAny<Stream>()))
@@ -45,7 +45,7 @@ namespace System.Abstract.Parts
         }
 
         [Fact]
-        public void ITypeSerializer_WriteObject_Returns_Value()
+        public void TypeSerializer_WriteObject_Returns_Value()
         {
             var b64 = Convert.ToBase64String(new byte[] { 1, 2, 3 });
             var typeSerializerMock = new Mock<ITypeSerializer>();

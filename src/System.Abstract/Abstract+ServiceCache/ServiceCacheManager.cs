@@ -62,8 +62,8 @@ namespace System.Abstract
                 },
             };
             // default provider
-            //if (Lazy == null)
-            //    SetProvider(() => new StaticServiceCache());
+            if (Lazy == null && DefaultServiceProvider != null)
+                SetProvider(DefaultServiceProvider);
         }
 
         /// <summary>

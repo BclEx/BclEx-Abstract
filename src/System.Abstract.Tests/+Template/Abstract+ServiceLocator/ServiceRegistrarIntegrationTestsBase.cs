@@ -42,7 +42,7 @@ namespace System.Abstract
 
         #region Enumerate
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void HasRegistered()
         {
             var serviceType = typeof(TestService);
@@ -54,7 +54,7 @@ namespace System.Abstract
             Assert.True(Registrar.HasRegistered(serviceType));
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void GetRegistrationsFor()
         {
             var serviceType = typeof(TestService);
@@ -72,7 +72,7 @@ namespace System.Abstract
 
         #region Register Implementation
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void Register_With_Specified_Type_Should_Return_Same_Type()
         {
             var serviceType = typeof(TestService);
@@ -84,7 +84,7 @@ namespace System.Abstract
             Assert.IsType(serviceType, serviceA);
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void Register_With_Implementation_Type_Should_Return_Same_Type()
         {
             var serviceType = typeof(TestService);
@@ -102,7 +102,7 @@ namespace System.Abstract
             Assert.IsType(serviceType2, service2A);
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void Register_With_Keyed_Type_Should_Return_Same_Type()
         {
             var serviceType = typeof(TestNamedService);
@@ -112,7 +112,7 @@ namespace System.Abstract
             Assert.IsType(serviceType, service);
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void Register_With_Specified_Service_And_Type_Should_Return_Same_Type()
         {
             var serviceType = typeof(TestService);
@@ -122,7 +122,7 @@ namespace System.Abstract
             Assert.IsType(serviceType, service);
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void Register_With_Specified_Service_Should_Return_Same_Type()
         {
             var serviceType = typeof(TestService);
@@ -136,7 +136,7 @@ namespace System.Abstract
 
         #region Register Instance
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void RegisterInstance_Generic_Should_Return_Same_Object()
         {
             Registrar.RegisterInstance<ITestService>(new TestService());
@@ -144,7 +144,7 @@ namespace System.Abstract
             var service = Locator.Resolve<ITestService>();
             Assert.IsType<TestService>(service);
         }
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void RegisterInstance_GenericNamed_Should_Return_Same_Object()
         {
             Registrar.RegisterInstance<ITestService>(new TestService(), "name");
@@ -152,7 +152,7 @@ namespace System.Abstract
             var service = Locator.Resolve<ITestService>("name");
             Assert.IsType<TestService>(service);
         }
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void RegisterInstance_Should_Return_Same_Object()
         {
             Registrar.RegisterInstance(typeof(ITestService), new TestService());
@@ -160,7 +160,7 @@ namespace System.Abstract
             var service = Locator.Resolve<ITestService>();
             Assert.IsType<TestService>(service);
         }
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void RegisterInstance_Named_Should_Return_Same_Object()
         {
             Registrar.RegisterInstance(typeof(ITestService), new TestService(), "name");
@@ -170,7 +170,7 @@ namespace System.Abstract
         }
 
         //
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void RegisterInstance_Should_Return_Same_Object_For_Same_Type()
         {
             Registrar.RegisterInstance(new TestService());
@@ -183,7 +183,7 @@ namespace System.Abstract
 
         #region Register Method
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void Register_Generic_With_FactoryMethod_Should_Return_Result_From_Factory()
         {
             var firstExpectedObject = new TestService();
@@ -206,7 +206,7 @@ namespace System.Abstract
             Assert.Same(secondExpectedObject, second);
         }
 
-        [Fact]
+        [Fact, Trait("Category", "Template")]
         public virtual void Register_With_FactoryMethod_Should_Return_Result_From_Factory()
         {
             var firstExpectedObject = new TestService();

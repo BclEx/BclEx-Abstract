@@ -38,7 +38,7 @@ namespace Contoso.Abstract
     public class DispatcherTests
     {
         [Fact]
-        public void Append_Should_Be_Called()
+        public void ServiceCache_Append_Should_Be_Called()
         {
             var append = new ArraySegment<byte>();
             var appendCas = new CasResult<ArraySegment<byte>> { Cas = 1, Result = append };
@@ -57,7 +57,7 @@ namespace Contoso.Abstract
         }
 
         [Fact]
-        public void Cas_Should_Be_Called()
+        public void ServiceCache_Cas_Should_Be_Called()
         {
             var validFor = new TimeSpan(0, 0, 1);
             var expiresAt = new DateTime(3000, 1, 1);
@@ -101,7 +101,7 @@ namespace Contoso.Abstract
         }
 
         [Fact]
-        public void Decrement_Should_Be_Called()
+        public void ServiceCache_Decrement_Should_Be_Called()
         {
             var validFor = new TimeSpan(0, 0, 1);
             var expiresAt = new DateTime(3000, 1, 1);
@@ -146,7 +146,7 @@ namespace Contoso.Abstract
         }
 
         [Fact]
-        public void FlushAll_Should_Be_Called()
+        public void ServiceCache_FlushAll_Should_Be_Called()
         {
             // Test : FlushAll();
             var clientMock = new Mock<IMemcachedClient>();
@@ -156,7 +156,7 @@ namespace Contoso.Abstract
         }
 
         [Fact]
-        public void Get_Should_Be_Called()
+        public void ServiceCache_Get_Should_Be_Called()
         {
             var names = new[] { "name" };
 
@@ -206,7 +206,7 @@ namespace Contoso.Abstract
         }
 
         [Fact]
-        public void Increment_Should_Be_Called()
+        public void ServiceCache_Increment_Should_Be_Called()
         {
             var validFor = new TimeSpan(0, 0, 1);
             var expiresAt = new DateTime(3000, 1, 1);
@@ -251,7 +251,7 @@ namespace Contoso.Abstract
         }
 
         [Fact]
-        public void Prepend_Should_Be_Called()
+        public void ServiceCache_Prepend_Should_Be_Called()
         {
             var prepend = new ArraySegment<byte>();
             var prependCas = new CasResult<ArraySegment<byte>> { Cas = 1, Result = prepend };
@@ -270,7 +270,7 @@ namespace Contoso.Abstract
         }
 
         [Fact]
-        public void Remove_Should_Be_Called()
+        public void ServiceCache_Remove_Should_Be_Called()
         {
             // Test : bool Remove(string key);
             var clientMock = new Mock<IMemcachedClient>();
@@ -280,7 +280,7 @@ namespace Contoso.Abstract
         }
 
         [Fact]
-        public void Store_Should_Be_Called()
+        public void ServiceCache_Store_Should_Be_Called()
         {
             var validFor = new TimeSpan(0, 0, 1);
             var expiresAt = new DateTime(3000, 1, 1);

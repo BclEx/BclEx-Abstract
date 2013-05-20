@@ -39,7 +39,7 @@ namespace System.Abstract
             //Registrar.Register<ITestNamedService, TestNamedService2>(typeof(TestNamedService2).FullName);
         }
 
-        [Fact(Skip = "Not Consistant")]
+        [Fact(Skip = "Not Consistant"), Trait("Category", "Template")]
         public void Future_Registration_Resolve_Should_Return_Valid_Instance()
         {
             var serviceType = typeof(TestServiceFuture);
@@ -61,7 +61,7 @@ namespace System.Abstract
             Assert.Same(futureServiceType, futureServiceN.GetType());
         }
 
-        [Fact(Skip = "Not Consistant")]
+        [Fact(Skip = "Not Consistant"), Trait("Category", "Template")]
         public void Future_Registration_Ask_For_Named_Instance()
         {
             RegisterForFutureTests();
@@ -79,7 +79,7 @@ namespace System.Abstract
             Assert.Same(serviceN2.GetType(), serviceType2);
         }
 
-        [Fact(Skip = "Not Consistant")]
+        [Fact(Skip = "Not Consistant"), Trait("Category", "Template")]
         public virtual void Future_Registration_ResolveAll_Should_Return_All_Registered_Services()
         {
             RegisterForFutureTests();
