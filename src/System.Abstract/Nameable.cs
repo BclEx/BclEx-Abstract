@@ -141,5 +141,31 @@ namespace System
         /// The result of the conversion.
         /// </returns>
         public static explicit operator T(Nameable<T> value) { return value.Value; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a">The value.</param>
+        /// <param name="b">The value.</param>
+        /// <returns>
+        /// The result of the conversion.
+        /// </returns>
+        public static bool operator ==(Nameable<T> a, Nameable<T> b) { return EqualityComparer<T>.Default.Equals(a.Value, b.Value); }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a">The value.</param>
+        /// <param name="b">The value.</param>
+        /// <returns>
+        /// The result of the conversion.
+        /// </returns>
+        public static bool operator !=(Nameable<T> a, Nameable<T> b) { return !EqualityComparer<T>.Default.Equals(a.Value, b.Value); }
+
+        /// <summary>
+        /// Ases the name.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        public Nameable<T> AsName(string name) { return new Nameable<T>(Value, name); }
     }
 }
