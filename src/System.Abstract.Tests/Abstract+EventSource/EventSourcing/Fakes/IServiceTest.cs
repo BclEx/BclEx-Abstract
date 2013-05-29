@@ -24,9 +24,9 @@ THE SOFTWARE.
 */
 #endregion
 using Xunit;
-namespace System.Abstract.EventSourcing
+namespace System.Abstract.Parts.Fakes
 {
-	public class AggregateRootOfflineSnapshotServiceTests
+    public interface IServiceTest
     {
     }
 }

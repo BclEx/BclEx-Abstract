@@ -24,7 +24,7 @@ THE SOFTWARE.
 */
 #endregion
 using Xunit;
-namespace System.Abstract
+namespace System.Abstract.EventSourcing
 {
     public class EventSourceManagerTests
     {

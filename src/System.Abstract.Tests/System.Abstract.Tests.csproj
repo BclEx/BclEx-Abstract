@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract+EventSource\EventSourcing\Fakes\IServiceTest.cs" />
     <Compile Include="Abstract+ServiceLocator\ServiceDependencyAttributeTests.cs" />
     <Compile Include="Abstract\Parts\Fakes\ServiceTestManagerDebugger.cs" />
     <Compile Include="Abstract\Parts\Fakes\ServiceTestManager.cs" />

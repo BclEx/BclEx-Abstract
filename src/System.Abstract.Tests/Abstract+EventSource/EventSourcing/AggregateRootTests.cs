@@ -24,9 +24,21 @@ THE SOFTWARE.
 */
 #endregion
 using Xunit;
-namespace System.Abstract
+namespace System.Abstract.EventSourcing
 {
 	public class AggregateRootTests
     {
+        [Fact]
+        public void TypeSerializer_ReadObject_Returns_Value()
+        {
+            var typeSerializerMock = new Mock<ITypeSerializer>();
+            typeSerializerMock.Setup(x => x.ReadObject<string>(typeof(PartsExtensionsTests), It.IsAny<Stream>()))
+                .Returns("test");
+            var typeSerializer = typeSerializerMock.Object;
+            //
+            Assert.Equal("test", typeSerializer.ReadObject<string>(typeof(PartsExtensionsTests), "123"));
+            Assert.Equal("test", typeSerializer.ReadObject<string>(typeof(PartsExtensionsTests), "123", Encoding.UTF8));
+            Assert.Equal("test", typeSerializer.ReadObjectBase64<string>(typeof(PartsExtensionsTests), Convert.ToBase64String(new byte[] { 1, 2, 3 })));
+        }
     }
 }
