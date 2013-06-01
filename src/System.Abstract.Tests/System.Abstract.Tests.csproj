@@ -74,7 +74,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract+EventSource\EventSourcing\Fakes\IServiceTest.cs" />
     <Compile Include="Abstract+ServiceLocator\ServiceDependencyAttributeTests.cs" />
     <Compile Include="Abstract\Parts\Fakes\ServiceTestManagerDebugger.cs" />
     <Compile Include="Abstract\Parts\Fakes\ServiceTestManager.cs" />
@@ -138,6 +137,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Abstract+EventSource\EventSourcing\Fakes\" />
     <Folder Include="Abstract+ServiceMap\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

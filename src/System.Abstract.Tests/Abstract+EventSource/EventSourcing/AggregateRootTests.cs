@@ -23,6 +23,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
+using Moq;
+using System.Abstract.Parts;
+using System.IO;
+using System.Text;
 using Xunit;
 namespace System.Abstract.EventSourcing
 {
