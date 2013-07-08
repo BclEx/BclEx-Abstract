@@ -24,6 +24,7 @@ THE SOFTWARE.
 */
 #endregion
 using System.Collections.Generic;
+using System.ComponentModel;
 namespace System
 {
     /// <summary>
@@ -72,6 +73,7 @@ namespace System
     /// Nameable
     /// </summary>
     /// <typeparam name="T"></typeparam>
+    [TypeConverter(typeof(NameableConverter))]
     public struct Nameable<T>
     {
         /// <summary>
