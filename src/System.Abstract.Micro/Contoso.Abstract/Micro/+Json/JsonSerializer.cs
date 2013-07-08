@@ -28,6 +28,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Contoso.Abstract.Micro.Internal;
+#if SANDBOX
+using JsonSerializationException = System.Exception;
+#endif
 namespace Contoso.Abstract.Micro
 {
     /// <summary>

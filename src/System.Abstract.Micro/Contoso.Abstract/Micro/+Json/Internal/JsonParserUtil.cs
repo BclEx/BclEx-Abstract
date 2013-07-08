@@ -26,6 +26,9 @@ THE SOFTWARE.
 using System;
 using System.IO;
 using System.Text;
+#if SANDBOX
+using JsonDeserializationException = System.Exception;
+#endif
 namespace Contoso.Abstract.Micro.Internal
 {
     internal static class JsonParserUtil

@@ -26,6 +26,9 @@ THE SOFTWARE.
 using System;
 using System.Collections.Generic;
 using System.IO;
+#if SANDBOX
+using JsonDeserializationException = System.Exception;
+#endif
 namespace Contoso.Abstract.Micro.Internal
 {
     internal class JsonArraySerializer<TEnumerable, TElement> : JsonSerializer

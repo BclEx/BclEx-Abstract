@@ -23,6 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
+#if !SANDBOX
 using System;
 using System.Runtime.Serialization;
 namespace Contoso.Abstract.Micro
@@ -76,3 +77,4 @@ namespace Contoso.Abstract.Micro
         public override void GetObjectData(SerializationInfo info, StreamingContext context) { base.GetObjectData(info, context); }
     }
 }
+#endif
