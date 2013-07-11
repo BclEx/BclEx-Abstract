@@ -70,10 +70,12 @@ task Release -depends Dependency, Compile, Test {
 }
 
 task Package -depends Release {
+	remove-item -force -recurse $packageinfo_dir -ErrorAction SilentlyContinue
+	remove-item -force -recurse $packageinfo_dir_last -ErrorAction SilentlyContinue
 	$spec_files = @(Get-ChildItem $packageinfo_dir -include *.nuspec -recurse)
 	foreach ($spec in $spec_files)
 	{
-		& $tools_dir\NuGet.exe pack $spec.FullName -o $release_dir -Version $version -Symbols -BasePath $base_dir
+#		& $tools_dir\NuGet.exe pack $spec.FullName -o $release_dir -Version $version -Symbols -BasePath $base_dir
 	}
 	$spec_files = @(Get-ChildItem $packageinfo_dir_last -include *.nuspec -recurse)
 	foreach ($spec in $spec_files)
@@ -86,11 +88,11 @@ task Push -depends Package {
 	$spec_files = @(Get-ChildItem $release_dir -include *.nupkg -recurse)
 	foreach ($spec in $spec_files)
 	{
-		& $tools_dir\NuGet.exe push $spec.FullName -source "http://nuget.org/"
+#		& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
 	}
 	$spec_files = @(Get-ChildItem $release_dir_last -include *.nupkg -recurse)
 	foreach ($spec in $spec_files)
 	{
-		& $tools_dir\NuGet.exe push $spec.FullName -source "http://nuget.org/"
+		& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
 	}
 }
