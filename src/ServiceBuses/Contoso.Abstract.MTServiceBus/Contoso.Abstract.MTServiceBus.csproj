@@ -61,31 +61,27 @@
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v3.5'">
-    <Reference Include="Magnum, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
+    <Reference Include="Magnum">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Magnum.2.1.0\lib\NET35\Magnum.dll</HintPath>
     </Reference>
-    <Reference Include="MassTransit, Version=2.7.417.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
+    <Reference Include="MassTransit">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\MassTransit.2.7.0\lib\net35\MassTransit.dll</HintPath>
+      <HintPath>..\..\..\packages\MassTransit.2.7.4\lib\net35\MassTransit.dll</HintPath>
     </Reference>
-    <Reference Include="MassTransit.Transports.MSMQ, Version=2.7.417.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\MassTransit.2.7.0\lib\net35\MassTransit.Transports.MSMQ.dll</HintPath>
+    <Reference Include="MassTransit.Transports.MSMQ">
+      <HintPath>..\..\..\packages\MassTransit.2.7.4\lib\net35\MassTransit.Transports.MSMQ.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
-    <Reference Include="Magnum, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Magnum">
       <HintPath>..\..\..\packages\Magnum.2.1.0\lib\NET40\Magnum.dll</HintPath>
     </Reference>
-    <Reference Include="MassTransit, Version=2.7.417.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\MassTransit.2.7.0\lib\net40\MassTransit.dll</HintPath>
+    <Reference Include="MassTransit">
+      <HintPath>..\..\..\packages\MassTransit.2.7.4\lib\net40\MassTransit.dll</HintPath>
     </Reference>
-    <Reference Include="MassTransit.Transports.MSMQ, Version=2.7.417.0, Culture=neutral, PublicKeyToken=b8e0e9f2f1e657fa, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\MassTransit.2.7.0\lib\net40\MassTransit.Transports.MSMQ.dll</HintPath>
+    <Reference Include="MassTransit.Transports.MSMQ">
+      <HintPath>..\..\..\packages\MassTransit.2.7.4\lib\net40\MassTransit.Transports.MSMQ.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

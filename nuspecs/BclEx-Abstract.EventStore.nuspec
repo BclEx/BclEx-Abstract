@@ -18,7 +18,12 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="EventStore" version="3.0.11326.44" />
+      </group>
+      <group targetFramework="net35">
+        <dependency id="EventStore" version="[3.0.11326.44]" />
+      </group>
+      <group targetFramework="net40">
+        <dependency id="EventStore" version="3.2.0.28" />
       </group>
     </dependencies>
   </metadata>

@@ -269,12 +269,20 @@ namespace Contoso.Abstract
             if (serviceLocator == null)
                 serviceLocator = ServiceLocatorManager.Current;
             //return Configure.Instance.Builder.Build<IBus>() as IStartableBus;
+#if !CLR4
             return Configure.With(new[] { typeof(CompletionMessage).Assembly }.Union(assemblies))
                 .AbstractServiceBuilder() //.DefaultBuilder()
                 .XmlSerializer()
                 .MsmqTransport()
                 .UnicastBus()
                 .CreateBus();
+#else
+            return Configure.With(assemblies)
+                .AbstractServiceBuilder()
+                .UseTransport<Msmq>()
+                .UnicastBus()
+                .CreateBus();
+#endif
         }
     }
 }

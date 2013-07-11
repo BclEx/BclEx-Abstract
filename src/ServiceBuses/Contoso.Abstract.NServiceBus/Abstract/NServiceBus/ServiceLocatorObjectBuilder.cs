@@ -78,6 +78,7 @@ namespace Contoso.Abstract.NServiceBus
         }
 
         public bool HasComponent(Type componentType) { return _registrar.HasRegistered(componentType); }
+        public void Release(object instance) { _locator.Release(instance); }
 #endif
 
         public void ConfigureProperty(Type component, string property, object value) { throw new NotImplementedException(); }

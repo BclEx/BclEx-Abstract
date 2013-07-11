@@ -18,7 +18,7 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="mongocsharpdriver" version="1.7" />
+        <dependency id="mongocsharpdriver" version="1.8.1" />
       </group>
     </dependencies>
   </metadata>

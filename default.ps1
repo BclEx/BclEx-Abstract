@@ -2,7 +2,7 @@ properties {
   $base_dir = resolve-path .
   $build_dir = "$base_dir\build"
   $packageinfo_dir = "$base_dir\nuspecs"
-  $packageinfo_dir_last = "$base_dir\nuspecs.last.x"
+  $packageinfo_dir_last = "$base_dir\nuspecs.last"
   $35_build_dir = "$build_dir\3.5\"
   $40_build_dir = "$build_dir\4.0\"
   $release_dir = "$base_dir\Release"
@@ -69,7 +69,7 @@ task Release -depends Dependency, Compile, Test {
     }
 }
 
-task Package {#-depends Release {
+task Package -depends Release {
 	$spec_files = @(Get-ChildItem $packageinfo_dir -include *.nuspec -recurse)
 	foreach ($spec in $spec_files)
 	{
@@ -78,7 +78,7 @@ task Package {#-depends Release {
 	$spec_files = @(Get-ChildItem $packageinfo_dir_last -include *.nuspec -recurse)
 	foreach ($spec in $spec_files)
 	{
-		& $tools_dir\NuGet.exe pack $spec.FullName -o $release_dir_last -Symbols -BasePath $base_dir
+		#& $tools_dir\NuGet.exe pack $spec.FullName -o $release_dir_last -Symbols -BasePath $base_dir
 	}
 }
 
@@ -86,11 +86,11 @@ task Push -depends Package {
 	$spec_files = @(Get-ChildItem $release_dir -include *.nupkg -recurse)
 	foreach ($spec in $spec_files)
 	{
-#		& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
+		& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
 	}
 	$spec_files = @(Get-ChildItem $release_dir_last -include *.nupkg -recurse)
 	foreach ($spec in $spec_files)
 	{
-		& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
+		#& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
 	}
 }

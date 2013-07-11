@@ -68,12 +68,12 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v3.5'">
     <Reference Include="NLog">
-      <HintPath>..\..\..\packages\NLog.2.0.0.2000\lib\net35\NLog.dll</HintPath>
+      <HintPath>..\..\..\packages\NLog.2.0.1.2\lib\net35\NLog.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
     <Reference Include="NLog">
-      <HintPath>..\..\..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+      <HintPath>..\..\..\packages\NLog.2.0.1.2\lib\net40\NLog.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

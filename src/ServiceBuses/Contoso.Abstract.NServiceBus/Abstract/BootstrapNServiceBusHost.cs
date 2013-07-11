@@ -30,7 +30,11 @@ namespace Contoso.Abstract
     /// <summary>
     /// BootstrapNServiceBusHost
     /// </summary>
+#if !CLR4
     public abstract class BootstrapNServiceBusHost : IServiceBusHostBootstrap, IConfigureThisEndpoint, AsA_Publisher, IWantToRunAtStartup, IWantCustomLogging
+#else
+    public abstract class BootstrapNServiceBusHost : IServiceBusHostBootstrap, IConfigureThisEndpoint, AsA_Publisher, IWantToRunWhenBusStartsAndStops, IWantCustomLogging
+#endif
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BootstrapNServiceBusHost"/> class.
@@ -59,8 +63,13 @@ namespace Contoso.Abstract
         /// </summary>
         public virtual void Close() { }
 
+#if !CLR4
         void IWantToRunAtStartup.Run() { Open(ServiceBusManager.Current); }
         void IWantToRunAtStartup.Stop() { Close(); }
+#else
+        void IWantToRunWhenBusStartsAndStops.Start() { Open(ServiceBusManager.Current); }
+        void IWantToRunWhenBusStartsAndStops.Stop() { Close(); }
+#endif
         void IWantCustomLogging.Init() { Initialize(); }
     }
 }

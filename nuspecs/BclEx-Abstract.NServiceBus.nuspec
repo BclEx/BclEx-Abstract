@@ -17,15 +17,15 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="log4net" version="[1.2.10]" />
       </group>
       <group targetFramework="net35">
         <dependency id="NServiceBus" version="[2.6.0.1511]" />
         <dependency id="NServiceBus.Host" version="[2.6.0.1511]" />
+        <dependency id="log4net" version="[1.2.10]" />
       </group>
       <group targetFramework="net40">
-        <dependency id="NServiceBus" version="3.3.1" />
-        <dependency id="NServiceBus.Host" version="3.3.1" />
+        <dependency id="NServiceBus" version="4.0.0.1" />
+        <dependency id="NServiceBus.Host" version="4.0.0.1" />
       </group>
     </dependencies>
   </metadata>

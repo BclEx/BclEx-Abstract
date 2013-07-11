@@ -17,8 +17,8 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="Rhino.ServiceBus" version="3.0.0.0" />
-        <dependency id="Rhino.ServiceBus.Host" version="3.0.0.0" />
+        <dependency id="Rhino.ServiceBus" version="3.1.1.0" />
+        <dependency id="Rhino.ServiceBus.Host" version="3.1.1.0" />
       </group>
     </dependencies>
   </metadata>

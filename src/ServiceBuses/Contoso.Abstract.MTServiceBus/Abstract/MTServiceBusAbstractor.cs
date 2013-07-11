@@ -205,12 +205,11 @@ namespace Contoso.Abstract
             var bus = ServiceBusFactory.New(sbc =>
             {
                 sbc.UseMsmq();
-                sbc.UseMulticastSubscriptionClient();
-                sbc.ReceiveFrom("msmq://localhost/test_queue");
-                sbc.Subscribe(subs =>
-                {
-                    //subs.Handler<YourMessage>(msg=>Console.WriteLine(msg.Text));
-                });
+                //sbc.ReceiveFrom("msmq://localhost/test_queue");
+                //sbc.Subscribe(subs =>
+                //{
+                //    //subs.Handler<YourMessage>(msg=>Console.WriteLine(msg.Text));
+                //});
             });
             return bus;
         }
