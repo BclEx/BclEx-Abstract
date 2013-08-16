@@ -24,12 +24,10 @@ THE SOFTWARE.
 */
 #endregion
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
 using System.Globalization;
 using System.Security.Permissions;
-namespace System
+namespace System.ComponentModel
 {
     /// <summary>
     /// NameableConverter
