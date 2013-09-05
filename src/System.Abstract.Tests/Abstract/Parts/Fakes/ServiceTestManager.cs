@@ -56,12 +56,7 @@ namespace System.Abstract.Parts.Fakes
 
         public static IServiceTest Current
         {
-            get
-            {
-                if (Lazy == null)
-                    throw new InvalidOperationException("Service undefined. Ensure SetProvider");
-                return Lazy.Value;
-            }
+            get { return GetCurrent(); }
         }
 
         public static void EnsureRegistration() { }

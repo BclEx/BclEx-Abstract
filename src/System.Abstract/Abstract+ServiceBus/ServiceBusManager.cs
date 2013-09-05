@@ -98,12 +98,7 @@ namespace System.Abstract
         /// </summary>
         public static IServiceBus Current
         {
-            get
-            {
-                if (Lazy == null)
-                    throw new InvalidOperationException("Service undefined. Ensure SetProvider");
-                return Lazy.Value;
-            }
+            get { return GetCurrent(); }
         }
 
         /// <summary>

@@ -94,12 +94,35 @@ namespace System.Configuration
         /// <typeparam name="T"></typeparam>
         /// <param name="sectionName">Name of the section.</param>
         /// <returns></returns>
+        /// <exception cref="System.InvalidOperationException"></exception>
         public static T GetSection<T>(string sectionName)
+            where T : class
         {
             var section = (T)ConfigurationManager.GetSection(sectionName);
             if (section == null)
                 throw new InvalidOperationException(string.Format(Local.UndefinedItemAB, "Configuration::Section", sectionName));
             return section;
+        }
+
+        /// <summary>
+        /// Gets the section.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sectionName">Name of the section.</param>
+        /// <param name="throwIfMissing">if set to <c>true</c> [throw if missing].</param>
+        /// <returns></returns>
+        /// <exception cref="System.InvalidOperationException"></exception>
+        public static T GetSection<T>(string sectionName, bool throwIfMissing)
+            where T : class, new()
+        {
+            var section = (T)ConfigurationManager.GetSection(sectionName);
+            if (throwIfMissing)
+            {
+                if (section == null)
+                    throw new InvalidOperationException(string.Format(Local.UndefinedItemAB, "Configuration::Section", sectionName));
+                return section;
+            }
+            return (section != null ? section : new T());
         }
 
         #region Codec

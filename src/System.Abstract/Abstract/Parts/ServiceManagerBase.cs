@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
 using System.Reflection;
+using System.Text;
 namespace System.Abstract.Parts
 {
     /// <summary>
@@ -65,6 +66,14 @@ namespace System.Abstract.Parts
         public static Lazy<TIService> Lazy { get; protected set; }
 
         /// <summary>
+        /// Gets or sets the last exception.
+        /// </summary>
+        /// <value>
+        /// The last exception.
+        /// </value>
+        public static Exception LastException { get; protected set; }
+
+        /// <summary>
         /// Makes the by provider protected.
         /// </summary>
         /// <param name="provider">The provider.</param>
@@ -100,6 +109,34 @@ namespace System.Abstract.Parts
         /// The registration.
         /// </value>
         protected static ServiceRegistration Registration { get; set; }
+
+        /// <summary>
+        /// Gets the current.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="System.InvalidOperationException">Service undefined. Ensure SetProvider</exception>
+        /// <exception cref="System.Exception"></exception>
+        protected static TIService GetCurrent()
+        {
+            if (Lazy == null)
+                throw new InvalidOperationException("Service undefined. Ensure SetProvider");
+            if (Lazy.IsValueCreated)
+                return Lazy.Value;
+            var value = Lazy.Value;
+            if (LastException != null)
+            {
+                var reflectionTypeLoadException = (LastException as ReflectionTypeLoadException);
+                if (reflectionTypeLoadException != null)
+                {
+                    var b = new StringBuilder();
+                    foreach (var ex2 in reflectionTypeLoadException.LoaderExceptions)
+                        b.AppendLine(ex2.Message);
+                    throw new Exception(b.ToString(), LastException);
+                }
+                throw LastException.PrepareForRethrow();
+            }
+            return value;
+        }
 
         #region Setup
 
@@ -246,7 +283,13 @@ namespace System.Abstract.Parts
                 {
                     descriptor = (firstDescriptor ?? new SetupDescriptor(Registration, null));
                     _setupDescriptors.Add(service, descriptor);
-                    service.HookValueFactory(valueFactory => ApplySetup(service, LazyValue = valueFactory()));
+                    service.HookValueFactory(valueFactory =>
+                    {
+                        TIService s = null;
+                        try { s = ApplySetup(service, LazyValue = valueFactory()); }
+                        catch (Exception e) { LastException = e; }
+                        return s;
+                    });
                 }
             return descriptor;
         }

@@ -94,21 +94,7 @@ namespace System.Abstract
         /// </summary>
         public static IServiceLocator Current
         {
-            get
-            {
-                if (Lazy == null)
-                    throw new InvalidOperationException("Service undefined. Ensure SetProvider");
-                if (Lazy.IsValueCreated)
-                    return Lazy.Value;
-                try { return LazyValue ?? Lazy.Value; }
-                catch (ReflectionTypeLoadException ex)
-                {
-                    var b = new StringBuilder();
-                    foreach (var ex2 in ex.LoaderExceptions)
-                        b.AppendLine(ex2.Message);
-                    throw new Exception(b.ToString(), ex);
-                }
-            }
+            get { return GetCurrent(); }
         }
 
         /// <summary>
