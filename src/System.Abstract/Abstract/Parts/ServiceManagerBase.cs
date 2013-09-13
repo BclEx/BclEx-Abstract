@@ -120,6 +120,8 @@ namespace System.Abstract.Parts
         {
             if (Lazy == null)
                 throw new InvalidOperationException("Service undefined. Ensure SetProvider");
+            if (LazyValue != null)
+                return LazyValue;
             if (Lazy.IsValueCreated)
                 return Lazy.Value;
             var value = Lazy.Value;
