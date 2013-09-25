@@ -131,6 +131,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Abstract.ServiceMapT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Abstract.AutoMapper", "src\ServiceMaps\Contoso.Abstract.AutoMapper\Contoso.Abstract.AutoMapper.csproj", "{2A43A8FF-83FB-4B13-8465-7E2661947E17}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bundles", "Bundles", "{EFF41CA0-805A-48DA-9C38-8AC248B9EA30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contoso.Bundle.Bundle01Web", "src\Bundles\Contoso.Bundle.Bundle01Web\Contoso.Bundle.Bundle01Web.csproj", "{369E75C5-AAA0-4CD6-84A1-837C04F259DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug.4|Any CPU = Debug.4|Any CPU
@@ -1254,6 +1258,26 @@ Global
 		{2A43A8FF-83FB-4B13-8465-7E2661947E17}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2A43A8FF-83FB-4B13-8465-7E2661947E17}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2A43A8FF-83FB-4B13-8465-7E2661947E17}.Release|x86.ActiveCfg = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug.4|Any CPU.ActiveCfg = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug.4|Any CPU.Build.0 = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug.4|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug.4|Mixed Platforms.Build.0 = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug.4|x86.ActiveCfg = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release.4|Any CPU.ActiveCfg = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release.4|Any CPU.Build.0 = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release.4|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release.4|Mixed Platforms.Build.0 = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release.4|x86.ActiveCfg = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1307,5 +1331,6 @@ Global
 		{002C345F-E5C2-4A63-BA67-E4F1EBEBB584} = {0A5730C8-39D1-47C4-A840-5A63C7A651A8}
 		{36696FC0-0964-4D9A-95C7-D873EE8665DA} = {0A5730C8-39D1-47C4-A840-5A63C7A651A8}
 		{2A43A8FF-83FB-4B13-8465-7E2661947E17} = {0A5730C8-39D1-47C4-A840-5A63C7A651A8}
+		{369E75C5-AAA0-4CD6-84A1-837C04F259DA} = {EFF41CA0-805A-48DA-9C38-8AC248B9EA30}
 	EndGlobalSection
 EndGlobal

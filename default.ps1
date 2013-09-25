@@ -3,12 +3,14 @@ properties {
   $build_dir = "$base_dir\build"
   $packageinfo_dir = "$base_dir\nuspecs"
   $packageinfo_dir_last = "$base_dir\nuspecs.last"
-  $35_build_dir = "$build_dir\3.5\"
-  $40_build_dir = "$build_dir\4.0\"
+  $35_build_dir = "$build_dir\3.5"
+  $40_build_dir = "$build_dir\4.0"
   $release_dir = "$base_dir\Release"
   $release_dir_last = "$base_dir\Release.last"
   $sln_file = "$base_dir\BclEx-Abstract.sln"
   $tools_dir = "$base_dir\tools"
+  $lib_dir = "$base_dir\lib"
+  $packages_dir = "$base_dir\packages"
   $version = "1.0.0" #Get-Version-From-Git-Tag
   $35_config = "Release"
   $40_config = "Release.4"
@@ -69,7 +71,38 @@ task Release -depends Dependency, Compile, Test {
     }
 }
 
-task Package -depends Release {
+task Bundle {
+	& $tools_dir\ILMerge.exe /targetplatform:v4 /out:"$40_build_dir\Contoso.Bundle01Web.dll" `
+"$40_build_dir\Contoso.Bundle.Bundle01Web.dll" `
+"$40_build_dir\Common.Logging.dll" `
+"$40_build_dir\Contoso.Abstract.Log4Net.dll" `
+"$40_build_dir\contoso.Abstract.RhinoServiceBus.dll" `
+"$40_build_dir\contoso.Abstract.ServerAppFabric.dll" `
+"$40_build_dir\Contoso.Abstract.Unity.dll" `
+"$40_build_dir\Contoso.Abstract.Web.dll" `
+"$40_build_dir\log4net.dll" `
+"$40_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
+"$40_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
+"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$40_build_dir\Microsoft.Practices.Unity.dll" `
+"$40_build_dir\Rhino.ServiceBus.dll"
+	& $tools_dir\ILMerge.exe /targetplatform:v2 /out:"$35_build_dir\Contoso.Bundle01Web.dll" `
+"$35_build_dir\Contoso.Bundle.Bundle01Web.dll" `
+"$35_build_dir\Common.Logging.dll" `
+"$35_build_dir\Contoso.Abstract.Log4Net.dll" `
+"$35_build_dir\contoso.Abstract.RhinoServiceBus.dll" `
+"$35_build_dir\contoso.Abstract.ServerAppFabric.dll" `
+"$35_build_dir\Contoso.Abstract.Unity.dll" `
+"$35_build_dir\Contoso.Abstract.Web.dll" `
+"$35_build_dir\log4net.dll" `
+"$35_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
+"$35_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
+"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$35_build_dir\Microsoft.Practices.Unity.dll" `
+"$35_build_dir\Rhino.ServiceBus.dll"
+}
+
+task Package -depends Release, Bundle {
 	$spec_files = @(Get-ChildItem $packageinfo_dir -include *.nuspec -recurse)
 	foreach ($spec in $spec_files)
 	{
@@ -94,3 +127,4 @@ task Push -depends Package {
 		#& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
 	}
 }
+
