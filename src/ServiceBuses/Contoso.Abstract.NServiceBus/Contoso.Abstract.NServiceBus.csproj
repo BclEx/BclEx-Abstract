@@ -83,13 +83,13 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
     <Reference Include="NServiceBus">
-      <HintPath>..\..\..\packages\NServiceBus.Interfaces.4.0.0.1\lib\net40\NServiceBus.dll</HintPath>
+      <HintPath>..\..\..\packages\NServiceBus.Interfaces.4.4.2\lib\net40\NServiceBus.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus.Core">
-      <HintPath>..\..\..\packages\NServiceBus.4.0.0.1\lib\net40\NServiceBus.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\NServiceBus.4.4.2\lib\net40\NServiceBus.Core.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus.Host">
-      <HintPath>..\..\..\packages\NServiceBus.Host.4.0.0.1\lib\net40\NServiceBus.Host.exe</HintPath>
+      <HintPath>..\..\..\packages\NServiceBus.Host.4.4.2\lib\net40\NServiceBus.Host.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

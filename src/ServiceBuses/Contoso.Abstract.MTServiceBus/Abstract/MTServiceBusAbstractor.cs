@@ -204,7 +204,7 @@ namespace Contoso.Abstract
                 serviceLocator = ServiceLocatorManager.Current;
             var bus = ServiceBusFactory.New(sbc =>
             {
-                sbc.UseMsmq();
+                //sbc.UseMsmq();
                 //sbc.ReceiveFrom("msmq://localhost/test_queue");
                 //sbc.Subscribe(subs =>
                 //{

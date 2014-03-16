@@ -60,6 +60,7 @@ namespace Contoso.Abstract
 
         #region message casting
 
+#if !CLR4
         public static IMessage[] Wrap(object[] messages)
         {
             return messages.Select(x =>
@@ -70,13 +71,26 @@ namespace Contoso.Abstract
                 return (IMessage)transport;
             }).ToArray();
         }
+#else
+        public static IMessage Wrap(object[] messages)
+        {
+            return messages.Select(x =>
+            {
+                var type = typeof(Transport<>).MakeGenericType(x.GetType());
+                var transport = Activator.CreateInstance(type);
+                type.GetProperty("D").SetValue(transport, x, null);
+                return (IMessage)transport;
+            }).SingleOrDefault();
+        }
+#endif
 
         public static Type Wrap(Type messagesType) { return typeof(Transport<>).MakeGenericType(messagesType); }
 
-        public static IMessage[] Cast(object[] messages) { return messages.Cast<IMessage>().ToArray(); }
-
 #if !CLR4
         public static Predicate<IMessage> Cast(Predicate<object> predicate) { return (c => predicate(c)); }
+        public static IMessage[] Cast(object[] messages) { return messages.Cast<IMessage>().ToArray(); }
+#else
+        public static IMessage Cast(object[] messages) { return messages.Cast<IMessage>().SingleOrDefault(); }
 #endif
 
         public static string Cast(IServiceBusEndpoint endpoint)
