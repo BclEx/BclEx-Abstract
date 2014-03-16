@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>BclEx-Abstract.MongoDB</id>
+    <id>BclEx-Abstract.NEventStore</id>
     <version>1.0.0</version>
-    <title>BclEx-Abstract.MongoDB</title>
+    <title>BclEx-Abstract.NEventStore</title>
     <authors>Contoso</authors>
     <owners>Contoso</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <projectUrl>http://docs.bclex.org/bclex-abstract/</projectUrl>
     <iconUrl>http://docs.bclex.org/bclex-abstract.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This package contains MongoDB implementations of the Event-Sourcing storage for the abstract AggregateRoot.</description>
+    <description>This package contains NEventStore implementations of the Event-Sourcing storage for the abstract AggregateRoot.</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2010</copyright>
     <tags>mongodb nosql aggregateroot event eventsourcing bclex</tags>
@@ -18,16 +18,14 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="mongocsharpdriver" version="1.8.3" />
+        <dependency id="NEventStore-Signed" version="4.1.0.10" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="build\3.5\Contoso.Abstract.MongoDB.dll" target="lib\net35" />
-    <file src="build\3.5\Contoso.Abstract.MongoDB.xml" target="lib\net35" />
-    <file src="build\4.0\Contoso.Abstract.MongoDB.dll" target="lib\net40" />
-    <file src="build\4.0\Contoso.Abstract.MongoDB.xml" target="lib\net40" />
-    <file src="src\EventSources\Contoso.Abstract.MongoDB\**\*.cs" target="src\Contoso.Abstract.MongoDB" />
+    <file src="build\4.0\Contoso.Abstract.NEventStore.dll" target="lib\net40" />
+    <file src="build\4.0\Contoso.Abstract.NEventStore.xml" target="lib\net40" />
+    <file src="src\EventSources\Contoso.Abstract.NEventStore\**\*.cs" target="src\Contoso.Abstract.NEventStore" />
   </files>
 </package>
 
