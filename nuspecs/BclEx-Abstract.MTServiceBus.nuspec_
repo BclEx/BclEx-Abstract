@@ -17,7 +17,16 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="MassTransit" version="2.7.0" />
+      </group>
+      <group targetFramework="net35">
+        <dependency id="Magnum" version="[2.1.0]" />
+        <dependency id="MassTransit" version="[2.7.4]" />
+      </group>
+      <group targetFramework="net40">
+        <dependency id="Magnum" version="2.1.2" />
+        <dependency id="MassTransit" version="2.9.5" />
+        <dependency id="Newtonsoft.Json" version="5.0.8" />
+        <dependency id="MassTransit.MSMQ" version="2.9.5" />
       </group>
     </dependencies>
   </metadata>

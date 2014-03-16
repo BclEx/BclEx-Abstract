@@ -6,11 +6,11 @@ using System.Security;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Contoso.Abstract.EventStore")]
-[assembly: AssemblyDescription("This package contains EventStore implementations of the Event-Sourcing storage for the abstract AggregateRoot.")]
+[assembly: AssemblyTitle("Contoso.Abstract.NEventStore")]
+[assembly: AssemblyDescription("This package contains NEventStore implementations of the Event-Sourcing storage for the abstract AggregateRoot.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Contoso")]
-[assembly: AssemblyProduct("BclEx-Abstract.EventStore")]
+[assembly: AssemblyProduct("BclEx-Abstract.NEventStore")]
 [assembly: AssemblyCopyright("Copyright © Contoso 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

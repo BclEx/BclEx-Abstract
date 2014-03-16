@@ -18,7 +18,7 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="NLog" version="2.0.1.2" />
+        <dependency id="NLog" version="2.1.0" />
       </group>
     </dependencies>
   </metadata>
