@@ -31,7 +31,7 @@ namespace System.Collections.Generic
     /// <typeparam name="T"></typeparam>
     [Serializable]
     public class NameableComparer<T> : Comparer<Nameable<T>>
-        where T : struct, IComparable<T>
+        where T : IComparable<T>
     {
         /// <summary>
         /// Compares the specified x.

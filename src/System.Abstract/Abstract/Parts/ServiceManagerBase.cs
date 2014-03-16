@@ -28,6 +28,7 @@ using System.Runtime.CompilerServices;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 namespace System.Abstract.Parts
 {
     /// <summary>
@@ -84,7 +85,7 @@ namespace System.Abstract.Parts
         {
             if (provider == null)
                 throw new ArgumentNullException("provider");
-            var lazy = new Lazy<TIService>(provider);
+            var lazy = new Lazy<TIService>(provider, LazyThreadSafetyMode.PublicationOnly);
             GetSetupDescriptorProtected(lazy, setupDescriptor);
             return lazy;
         }

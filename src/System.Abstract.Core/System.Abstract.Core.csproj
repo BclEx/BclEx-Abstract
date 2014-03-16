@@ -60,11 +60,15 @@
     <DocumentationFile>bin\Release.4\System.Abstract.Core.XML</DocumentationFile>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+    <Reference Include="Microsoft.Web.Infrastructure" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +111,12 @@
     <Compile Include="Patterns\ReleaseManagement\ReleaseManagementConfiguration.cs" />
     <Compile Include="Patterns\ReleaseManagement\ReleaseManagementManager.cs" />
     <Compile Include="Resources\ResourceManagerEx.cs" />
+    <Compile Include="Web+Activation\ActivationManager.cs" />
+    <Compile Include="Web+Activation\ApplicationShutdownMethodAttribute.cs" />
+    <Compile Include="Web+Activation\Configuration\WebExSection.cs" />
+    <Compile Include="Web+Activation\Handlers\ActivationModule.cs" />
+    <Compile Include="Web+Activation\PostApplicationStartMethodAttribute.cs" />
+    <Compile Include="Web+Activation\PreApplicationStartMethodAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract+EventSource\Configuration+EventSource\EventSourcing\" />

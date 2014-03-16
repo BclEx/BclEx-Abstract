@@ -65,7 +65,7 @@ namespace Contoso.Abstract
 
         #endregion
 
-        #region message casting
+        #region Message Casting
 
         public static object[] Wrap(object[] messages)
         {

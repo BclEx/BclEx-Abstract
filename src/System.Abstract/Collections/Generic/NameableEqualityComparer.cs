@@ -31,7 +31,7 @@ namespace System.Collections.Generic
     /// <typeparam name="T"></typeparam>
     [Serializable]
     public class NameableEqualityComparer<T> : EqualityComparer<Nameable<T>>
-        where T : struct, IEquatable<T>
+        where T : IEquatable<T>
     {
         /// <summary>
         /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.

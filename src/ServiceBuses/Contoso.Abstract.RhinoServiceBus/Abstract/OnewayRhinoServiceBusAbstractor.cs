@@ -88,7 +88,7 @@ namespace Contoso.Abstract
                 throw new ArgumentNullException("bus", "The specified bus cannot be null.");
             _serviceLocator = serviceLocator;
             Bus = bus;
-            CommonLoggingFactoryAdapter.EnsureRegistration(); 
+            CommonLoggingFactoryAdapter.EnsureRegistration();
         }
 
         Action<IServiceLocator, string> ServiceBusManager.ISetupRegistration.DefaultServiceRegistrar
