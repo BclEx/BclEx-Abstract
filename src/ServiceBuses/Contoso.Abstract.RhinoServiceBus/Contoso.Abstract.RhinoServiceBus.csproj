@@ -37,6 +37,18 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.45|AnyCPU'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.4\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;CLR4;CLR45;COMMONLOGGING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -60,6 +72,18 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.45|AnyCPU'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.45\</OutputPath>
+    <DefineConstants>TRACE;CLR4;CLR45;COMMONLOGGING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release.45\Contoso.Abstract.RhinoServiceBus.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v3.5'">
     <Reference Include="Common.Logging">
       <HintPath>..\..\..\packages\Common.Logging.2.1.1\lib\net35\Common.Logging.dll</HintPath>
@@ -73,6 +97,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\..\packages\Common.Logging.2.1.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.ServiceBus">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Rhino.ServiceBus.3.1.1.0\lib\4.0\Rhino.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.ServiceBus.Host">
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>..\..\..\packages\Rhino.ServiceBus.Host.3.1.1.0\lib\4.0\Rhino.ServiceBus.Host.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
     <Reference Include="Common.Logging">
       <HintPath>..\..\..\packages\Common.Logging.2.1.1\lib\net40\Common.Logging.dll</HintPath>
     </Reference>

@@ -18,8 +18,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug,4\</OutputPath>
+    <OutputPath>bin\Debug.4\</OutputPath>
     <DefineConstants>DEBUG;TRACE;CLR4</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug.45|AnyCPU' ">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;CLR4;CLR45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -36,8 +48,20 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release.45|AnyCPU' ">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.45\</OutputPath>
+    <DefineConstants>TRACE;CLR4;CLR45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release.45\Contoso.Abstract.Munq.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Munq.IocContainer, Version=3.0.4403.17721, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Munq.IocContainer">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Munq.IocContainer.3.1.6\Lib\Munq.IocContainer.dll</HintPath>
     </Reference>
@@ -53,9 +77,7 @@
       <Link>BclEx-Abstract.Munq.nuspec</Link>
     </None>
     <None Include="BclEx.4.snk" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\System.Abstract\System.Abstract.csproj">

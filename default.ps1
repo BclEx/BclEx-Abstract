@@ -5,6 +5,7 @@ properties {
   $packageinfo_dir_last = "$base_dir\nuspecs.last"
   $35_build_dir = "$build_dir\3.5"
   $40_build_dir = "$build_dir\4.0"
+  $45_build_dir = "$build_dir\4.5"
   $release_dir = "$base_dir\Release"
   $release_dir_last = "$base_dir\Release.last"
   $sln_file = "$base_dir\BclEx-Abstract.sln"
@@ -14,6 +15,7 @@ properties {
   $version = "1.0.0" #Get-Version-From-Git-Tag
   $35_config = "Release"
   $40_config = "Release.4"
+  $45_config = "Release.45"
   $run_tests = $true
 }
 Framework "4.0"
@@ -37,6 +39,7 @@ task Init -depends Clean {
 task Compile -depends Init {
 	msbuild $sln_file /p:"OutDir=$35_build_dir;Configuration=$35_config" /m
 	msbuild $sln_file /target:Rebuild /p:"OutDir=$40_build_dir;Configuration=$40_config" /m
+	msbuild $sln_file /target:Rebuild /p:"OutDir=$45_build_dir;Configuration=$45_config" /m
 }
 
 task Test -depends Compile -precondition { return $run_tests } {

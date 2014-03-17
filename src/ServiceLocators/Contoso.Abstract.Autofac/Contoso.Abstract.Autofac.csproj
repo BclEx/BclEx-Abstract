@@ -37,6 +37,18 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.45|AnyCPU'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;CLR4;CLR45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -60,6 +72,18 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.45|AnyCPU'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.45\</OutputPath>
+    <DefineConstants>TRACE;CLR4;CLR45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release.45\Contoso.Abstract.Autofac.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v3.5'">
     <Reference Include="Autofac">
       <HintPath>..\..\..\packages\Autofac.2.6.3.862\lib\NET35\Autofac.dll</HintPath>
@@ -70,10 +94,18 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
     <Reference Include="Autofac">
-      <HintPath>..\..\..\packages\Autofac.3.0.2\lib\net40\Autofac.dll</HintPath>
+      <HintPath>..\..\..\packages\Autofac.3.3.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Autofac.Configuration">
-      <HintPath>..\..\..\packages\Autofac.3.0.2\lib\net40\Autofac.Configuration.dll</HintPath>
+      <HintPath>..\..\..\packages\Autofac.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\packages\Autofac.3.3.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\..\..\packages\Autofac.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

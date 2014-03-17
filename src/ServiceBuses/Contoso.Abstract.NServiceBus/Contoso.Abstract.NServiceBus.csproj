@@ -37,6 +37,18 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.45|AnyCPU'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;CLR4;CLR45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -60,8 +72,19 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <NoWarn>
-    </NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.45|AnyCPU'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.45\</OutputPath>
+    <DefineConstants>TRACE;CLR4;CLR45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release.45\Contoso.Abstract.NServiceBus.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v3.5'">
     <Reference Include="NServiceBus, Version=2.6.0.1511, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
@@ -82,6 +105,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\..\packages\NServiceBus.Interfaces.4.4.2\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\..\packages\NServiceBus.4.4.2\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Host">
+      <HintPath>..\..\..\packages\NServiceBus.Host.4.4.2\lib\net40\NServiceBus.Host.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
     <Reference Include="NServiceBus">
       <HintPath>..\..\..\packages\NServiceBus.Interfaces.4.4.2\lib\net40\NServiceBus.dll</HintPath>
     </Reference>

@@ -37,6 +37,18 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.45|AnyCPU'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.45\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;COREINTERNAL;CLR4;CLR45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -60,7 +72,22 @@
     <DocumentationFile>bin\Release.4\System.Abstract.Core.XML</DocumentationFile>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.45|AnyCPU'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.45\</OutputPath>
+    <DefineConstants>TRACE;COREINTERNAL;CLR4;CLR45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Release.45\System.Abstract.Core.XML</DocumentationFile>
+    <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+    <Reference Include="Microsoft.Web.Infrastructure" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
     <Reference Include="Microsoft.Web.Infrastructure" />
   </ItemGroup>
   <ItemGroup>

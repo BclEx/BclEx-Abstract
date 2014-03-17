@@ -34,6 +34,17 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug.45|AnyCPU' ">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.45\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;CLR4;CLR45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -53,6 +64,16 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release.45|AnyCPU' ">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.45\</OutputPath>
+    <DefineConstants>TRACE;CLR4;CLR45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="xunit">
@@ -63,6 +84,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+    <ProjectReference Include="..\Contoso.Abstract.Web.Mvc3\Contoso.Abstract.Web.Mvc3.csproj">
+      <Project>{9061E52B-AB9F-4BCE-8840-850824B039D8}</Project>
+      <Name>Contoso.Abstract.Web.Mvc3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contoso.Abstract.Web.Mvc4\Contoso.Abstract.Web.Mvc4.csproj">
+      <Project>{25B38D5A-5331-455A-8D96-6ACA5845001E}</Project>
+      <Name>Contoso.Abstract.Web.Mvc4</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
     <ProjectReference Include="..\Contoso.Abstract.Web.Mvc3\Contoso.Abstract.Web.Mvc3.csproj">
       <Project>{9061E52B-AB9F-4BCE-8840-850824B039D8}</Project>
       <Name>Contoso.Abstract.Web.Mvc3</Name>

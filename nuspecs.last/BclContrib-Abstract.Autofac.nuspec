@@ -23,7 +23,7 @@
         <dependency id="Autofac" version="[2.6.3.862]" />
       </group>
       <group targetFramework="net40">
-        <dependency id="Autofac" version="3.0.2" />
+        <dependency id="Autofac" version="3.3.0" />
       </group>
     </dependencies>
   </metadata>
