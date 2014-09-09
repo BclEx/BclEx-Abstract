@@ -103,9 +103,6 @@
     <Compile Include="+EnvironmentEx\EnvironmentEx+Resource.cs" />
     <Compile Include="+EnvironmentEx\EnvironmentEx.cs" />
     <Compile Include="+EnvironmentEx\OperatingSystemEx.cs" />
-    <Compile Include="Collections\IIndexer.cs" />
-    <Compile Include="Collections\IIndexer2.cs" />
-    <Compile Include="Collections\IValue.cs" />
     <Compile Include="ConsoleEx.cs" />
     <Compile Include="Abstract+EventSource\Configuration+EventSource\EventSourceConfiguration.cs" />
     <Compile Include="Abstract+ServiceBus\Configuration+ServiceBus\ServiceBusConfiguration.cs" />
