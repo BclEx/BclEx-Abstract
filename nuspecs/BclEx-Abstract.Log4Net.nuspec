@@ -27,6 +27,8 @@
     <file src="build\3.5\Contoso.Abstract.Log4Net.xml" target="lib\net35" />
     <file src="build\4.0\Contoso.Abstract.Log4Net.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.Log4Net.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.Log4Net.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.Log4Net.xml" target="lib\net45" />
     <file src="src\ServiceLogs\Contoso.Abstract.Log4Net\**\*.cs" target="src\Contoso.Abstract.Log4Net" />
   </files>
 </package>

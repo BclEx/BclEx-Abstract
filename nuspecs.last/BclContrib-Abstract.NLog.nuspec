@@ -18,7 +18,7 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="NLog" version="2.1.0" />
+        <dependency id="NLog" version="3.1.0.0" />
       </group>
     </dependencies>
   </metadata>
@@ -27,6 +27,8 @@
     <file src="build\3.5\Contoso.Abstract.NLog.xml" target="lib\net35" />
     <file src="build\4.0\Contoso.Abstract.NLog.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.NLog.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.NLog.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.NLog.xml" target="lib\net45" />
     <file src="src\ServiceLogs\Contoso.Abstract.NLog\**\*.cs" target="src\Contoso.Abstract.NLog" />
   </files>
 </package>
