@@ -76,7 +76,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release.4\</OutputPath>
+    <OutputPath>bin\Release.45\</OutputPath>
     <DefineConstants>TRACE;COREINTERNAL;CLR4;CLR45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

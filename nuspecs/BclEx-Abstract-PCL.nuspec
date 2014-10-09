@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>BclEx-Abstract-PCL</id>
+    <version>1.0.0</version>
+    <title>BclEx-Abstract</title>
+    <authors>Contoso</authors>
+    <owners>Contoso</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>http://docs.bclex.org/bclex-abstract/</projectUrl>
+    <iconUrl>http://docs.bclex.org/bclex-abstract.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package contains abstractions to provide standard Interfaces, or Abstracts, for common services typicality re-implemented in various Projects/Assemblies. Utilizing a standards based Type allows services to flow between otherwise disconnected Assemblies.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2010</copyright>
+    <tags>abstract nosql interface ioc di aggregateroot servicebus servicelocator bclex</tags>
+    <language>en-US</language>
+    <references>
+      <reference file="System.Abstract.dll" />
+      <reference file="System.Abstract.Core.dll" />
+    </references>
+  </metadata>
+  <files>
+    <file src="build\4.0\System.Abstract.dll" target="lib\net40" />
+    <file src="build\4.0\System.Abstract.xml" target="lib\net40" />
+    <file src="build\4.0\System.Abstract.Core.dll" target="lib\net40" />
+    <file src="build\4.0\System.Abstract.Core.xml" target="lib\net40" />
+  </files>
+</package>

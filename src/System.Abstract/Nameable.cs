@@ -65,7 +65,11 @@ namespace System
         {
             if (nameableType == null)
                 throw new ArgumentNullException("nameableType");
+#if !PCL
             return (nameableType.IsGenericType && !nameableType.IsGenericTypeDefinition && object.ReferenceEquals(nameableType.GetGenericTypeDefinition(), typeof(Nameable<>)) ? nameableType.GetGenericArguments()[0] : null);
+#else
+            return null;
+#endif
         }
     }
 
@@ -73,7 +77,9 @@ namespace System
     /// Nameable
     /// </summary>
     /// <typeparam name="T"></typeparam>
+#if !PCL
     [TypeConverter(typeof(NameableConverter))]
+#endif
     public struct Nameable<T>
     {
         /// <summary>
