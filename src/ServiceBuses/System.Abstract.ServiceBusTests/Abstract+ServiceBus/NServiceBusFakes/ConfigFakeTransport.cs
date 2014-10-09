@@ -26,6 +26,7 @@ THE SOFTWARE.
 using NServiceBus;
 namespace Contoso.Abstract.NServiceBusFakes
 {
+#if !CLR45
     public class ConfigFakeTransport : Configure
     {
         public void Configure(Configure config)
@@ -44,4 +45,5 @@ namespace Contoso.Abstract.NServiceBusFakes
             return cfg;
         }
     }
+#endif
 }

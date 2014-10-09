@@ -30,6 +30,9 @@ using System.Reflection;
 using Contoso.Abstract.NServiceBus;
 using NServiceBus;
 using NServiceBus.Unicast.Transport;
+#if CLR45
+using NServiceBusBus = NServiceBus.Bus;
+#endif
 namespace Contoso.Abstract
 {
     /// <summary>
@@ -123,10 +126,14 @@ namespace Contoso.Abstract
         public TMessage CreateMessage<TMessage>(Action<TMessage> messageBuilder)
             where TMessage : class
         {
+#if !CLR45
             var message = (TMessage)Bus.CreateInstance(typeof(TMessage));
             if (messageBuilder != null)
                 messageBuilder(message);
             return message;
+#else
+            throw new NotImplementedException();
+#endif
         }
 
         /// <summary>
@@ -184,9 +191,14 @@ namespace Contoso.Abstract
         {
             if (messageType == null)
                 throw new ArgumentNullException("messageType");
+#if CLR45
+            if (predicate != null)
+                throw new ArgumentException("predicate", "Must be null.");
+#endif
             try
             {
                 if (predicate == null) Bus.Subscribe(messageType);
+#if !CLR45
                 else Bus.Subscribe(messageType,
 #if !CLR4
  NServiceBusTransport.Cast(predicate)
@@ -194,6 +206,7 @@ namespace Contoso.Abstract
  predicate
 #endif
 );
+#endif
             }
             catch (Exception ex) { throw new ServiceBusMessageException(messageType, ex); }
         }
@@ -271,17 +284,23 @@ namespace Contoso.Abstract
             //return Configure.Instance.Builder.Build<IBus>() as IStartableBus;
 #if !CLR4
             return Configure.With(new[] { typeof(CompletionMessage).Assembly }.Union(assemblies))
-                .AbstractServiceBuilder() //.DefaultBuilder()
+                .AbstractServiceBuilder() //: .DefaultBuilder()
                 .XmlSerializer()
                 .MsmqTransport()
                 .UnicastBus()
                 .CreateBus();
-#else
+#elif !CLR45
             return Configure.With(assemblies)
-                .AbstractServiceBuilder()
+                .AbstractServiceBuilder() //: .DefaultBuilder()
                 .UseTransport<Msmq>()
                 .UnicastBus()
                 .CreateBus();
+#else
+            var configuration = new BusConfiguration();
+            configuration.AssembliesToScan(assemblies);
+            configuration.AbstractServiceBuilder(); //: .DefaultBuilder()
+            configuration.UseTransport<MsmqTransport>();
+            return NServiceBusBus.Create(configuration);
 #endif
         }
     }

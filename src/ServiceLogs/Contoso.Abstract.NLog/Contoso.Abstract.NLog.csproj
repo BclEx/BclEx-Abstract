@@ -92,17 +92,17 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v3.5'">
     <Reference Include="NLog">
-      <HintPath>..\..\..\packages\NLog.3.1.0\lib\net35\NLog.dll</HintPath>
+      <HintPath>..\..\..\packages\NLog.3.1.0.0\lib\net35\NLog.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
     <Reference Include="NLog">
-      <HintPath>..\..\..\packages\NLog.3.1.0\lib\net40\NLog.dll</HintPath>
+      <HintPath>..\..\..\packages\NLog.3.1.0.0\lib\net40\NLog.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
     <Reference Include="NLog">
-      <HintPath>..\..\..\packages\NLog.3.1.0\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\..\..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

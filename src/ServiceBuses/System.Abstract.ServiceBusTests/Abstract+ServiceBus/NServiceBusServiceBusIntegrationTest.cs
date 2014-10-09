@@ -23,38 +23,60 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Abstract;
-using System.Abstract.Fakes;
-using Xunit;
+using Contoso.Abstract.NServiceBusFakes;
 using NServiceBus;
 using NServiceBus.Unicast.Transport;
-using Contoso.Abstract.NServiceBusFakes;
+using System.Abstract;
+using System.Linq;
+using System.Reflection;
+#if CLR45
+using NServiceBusBus = NServiceBus.Bus;
+#endif
 namespace Contoso.Abstract
 {
     public class NServiceBusServiceBusIntegrationTest : ServiceBusIntegrationTestsBase
-	{
-		protected override IServiceBus CreateServiceBus()
-		{
-			try
-			{
-                var bus = Configure.With(typeof(NServiceBusServiceBusIntegrationTest).Assembly)
-					.DefaultBuilder()
-					.XmlSerializer()
-					.FakeTransport()
-					.UnicastBus()
-					//.LoadMessageHandlers()
-					.CreateBus();
-			}
-			catch (System.Exception) { }
-			return null; // new NServiceBusAbstractor(bus);
-		}
+    {
+        protected override IServiceBus CreateServiceBus()
+        {
+            try
+            {
+                var bus = DefaultBusCreator(typeof(NServiceBusServiceBusIntegrationTest).Assembly);
+                return new NServiceBusAbstractor((IServiceLocator)null, (IStartableBus)bus);
+            }
+            catch (System.Exception) { }
+            return null; // new NServiceBusAbstractor(bus);
+        }
 
-		//[Fact]
-		//public void TestMethod1()
-		//{
-		//    //var testMessage = ServiceBus.MakeMessage<TestMessage>();
-		//    //testMessage.Name = "Test";
-		//    //ServiceBus.SendTo(testMessage);
-		//}
-	}
+        //[Fact]
+        //public void TestMethod1()
+        //{
+        //    //var testMessage = ServiceBus.MakeMessage<TestMessage>();
+        //    //testMessage.Name = "Test";
+        //    //ServiceBus.SendTo(testMessage);
+        //}
+
+        public static IStartableBus DefaultBusCreator(params Assembly[] assemblies)
+        {
+#if !CLR4
+            return Configure.With(new[] { typeof(CompletionMessage).Assembly }.Union(assemblies))
+                .DefaultBuilder()
+                .XmlSerializer()
+                .FakeTransport()
+                .UnicastBus()
+                .CreateBus();
+#elif !CLR45
+            return Configure.With(assemblies)
+                .DefaultBuilder()
+                .FakeTransport()
+                .UnicastBus()
+                .CreateBus();
+#else
+            var configuration = new BusConfiguration();
+            configuration.AssembliesToScan(assemblies);
+            //configuration.DefaultBuilder();
+            //configuration.UseTransport<FakeTransport>()
+            return NServiceBusBus.Create(configuration);
+#endif
+        }
+    }
 }

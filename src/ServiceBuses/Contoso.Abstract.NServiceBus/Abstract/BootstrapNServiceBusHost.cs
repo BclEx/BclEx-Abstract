@@ -25,6 +25,9 @@ THE SOFTWARE.
 #endregion
 using System.Abstract;
 using NServiceBus;
+#if CLR45
+using Profiles_IConfigureLogging = NServiceBus.Hosting.Profiles.IConfigureLogging;
+#endif
 namespace Contoso.Abstract
 {
     /// <summary>
@@ -32,8 +35,10 @@ namespace Contoso.Abstract
     /// </summary>
 #if !CLR4
     public abstract class BootstrapNServiceBusHost : IServiceBusHostBootstrap, IConfigureThisEndpoint, AsA_Publisher, IWantToRunAtStartup, IWantCustomLogging
-#else
+#elif !CLR45
     public abstract class BootstrapNServiceBusHost : IServiceBusHostBootstrap, IConfigureThisEndpoint, AsA_Publisher, IWantToRunWhenBusStartsAndStops, IWantCustomLogging
+#else
+    public abstract class BootstrapNServiceBusHost : IServiceBusHostBootstrap, AsA_Server, IWantToRunWhenBusStartsAndStops, Profiles_IConfigureLogging
 #endif
     {
         /// <summary>
@@ -66,10 +71,15 @@ namespace Contoso.Abstract
 #if !CLR4
         void IWantToRunAtStartup.Run() { Open(ServiceBusManager.Current); }
         void IWantToRunAtStartup.Stop() { Close(); }
+        void IWantCustomLogging.Init() { Initialize(); }
+#elif !CLR45
+        void IWantToRunWhenBusStartsAndStops.Start() { Open(ServiceBusManager.Current); }
+        void IWantToRunWhenBusStartsAndStops.Stop() { Close(); }
+        void IWantCustomLogging.Init() { Initialize(); }
 #else
         void IWantToRunWhenBusStartsAndStops.Start() { Open(ServiceBusManager.Current); }
         void IWantToRunWhenBusStartsAndStops.Stop() { Close(); }
+        void Profiles_IConfigureLogging.Configure(IConfigureThisEndpoint specifier) { Initialize(); }
 #endif
-        void IWantCustomLogging.Init() { Initialize(); }
     }
 }

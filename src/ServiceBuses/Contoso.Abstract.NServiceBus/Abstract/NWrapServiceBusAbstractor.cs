@@ -118,9 +118,14 @@ namespace Contoso.Abstract
         {
             if (messageType == null)
                 throw new ArgumentNullException("messageType");
+#if CLR45
+            if (predicate != null)
+                throw new ArgumentException("predicate", "Must be null.");
+#endif
             try
             {
                 if (predicate == null) Bus.Subscribe(NServiceBusTransport.Wrap(messageType));
+#if !CLR45
                 else Bus.Subscribe(NServiceBusTransport.Wrap(messageType),
 #if !CLR4
  NServiceBusTransport.Cast(predicate)
@@ -128,6 +133,7 @@ namespace Contoso.Abstract
  predicate
 #endif
 );
+#endif
             }
             catch (Exception ex) { throw new ServiceBusMessageException(messageType, ex); }
         }

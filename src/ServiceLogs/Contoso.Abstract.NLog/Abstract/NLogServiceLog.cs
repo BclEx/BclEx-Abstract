@@ -145,19 +145,19 @@ namespace Contoso.Abstract
                 switch (level)
                 {
                     case ServiceLogLevel.Fatal:
-                        Log.FatalException(message, ex);
+                        Log.Fatal(message, ex);
                         return;
                     case ServiceLogLevel.Error:
-                        Log.ErrorException(message, ex);
+                        Log.Error(message, ex);
                         return;
                     case ServiceLogLevel.Warning:
-                        Log.WarnException(message, ex);
+                        Log.Warn(message, ex);
                         return;
                     case ServiceLogLevel.Information:
-                        Log.InfoException(message, ex);
+                        Log.Info(message, ex);
                         return;
                     case ServiceLogLevel.Debug:
-                        Log.DebugException(message, ex);
+                        Log.Debug(message, ex);
                         return;
                     default:
                         return;

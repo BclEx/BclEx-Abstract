@@ -24,7 +24,7 @@ THE SOFTWARE.
 */
 #endregion
 using System;
-using NServiceBus.Unicast.Transport;
+//using NServiceBus.Unicast.Transport;
 namespace Contoso.Abstract.NServiceBusFakes
 {
     //public class FakeTransport : ITransport

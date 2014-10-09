@@ -125,13 +125,13 @@ namespace Contoso.Abstract
         /// Subscribes the specified message type.
         /// </summary>
         /// <param name="messageType">Type of the message.</param>
-        /// <param name="condition">The condition.</param>
-        public override void Subscribe(Type messageType, Predicate<object> condition)
+        /// <param name="predicate">The predicate.</param>
+        public override void Subscribe(Type messageType, Predicate<object> predicate)
         {
             if (messageType == null)
                 throw new ArgumentNullException("messageType");
-            if (condition != null)
-                throw new ArgumentException("condition", "Must be null.");
+            if (predicate != null)
+                throw new ArgumentException("predicate", "Must be null.");
             try { Bus.Subscribe(RhinoServiceBusTransport.Wrap(messageType)); }
             catch (Exception ex) { throw new ServiceBusMessageException(messageType, ex); }
         }
