@@ -112,21 +112,26 @@ namespace System
         /// <returns>
         ///   <c>true</c> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <c>false</c>.
         /// </returns>
-        public override bool Equals(object obj) { return Value.Equals(obj); }
+        public override bool Equals(object obj)
+        {
+            if (Value != null)
+                return (obj != null && Value.Equals(obj));
+            return (obj == null);
+        }
         /// <summary>
         /// Returns a <see cref="System.String"/> that represents this instance.
         /// </summary>
         /// <returns>
         /// A <see cref="System.String"/> that represents this instance.
         /// </returns>
-        public override string ToString() { return Value.ToString(); }
+        public override string ToString() { return (Value != null ? Value.ToString() : null); }
         /// <summary>
         /// Returns a hash code for this instance.
         /// </summary>
         /// <returns>
         /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
         /// </returns>
-        public override int GetHashCode() { return Value.GetHashCode(); }
+        public override int GetHashCode() { return (Value != null ? Value.GetHashCode() : 0); }
         /// <summary>
         /// Performs an implicit conversion from T to <see cref="System.Nameable&lt;T&gt;"/>.
         /// </summary>

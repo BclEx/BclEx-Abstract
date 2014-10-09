@@ -41,7 +41,11 @@ namespace System.Collections.Generic
         /// <returns></returns>
         public override int Compare(Nameable<T> x, Nameable<T> y)
         {
-            return x.Value.CompareTo(y.Value);
+            var xV = x.Value;
+            var yV = y.Value;
+            if (xV != null)
+                return (yV != null ? xV.CompareTo(yV) : 1);
+            return (yV != null ? -1 : 0);
         }
 
         /// <summary>

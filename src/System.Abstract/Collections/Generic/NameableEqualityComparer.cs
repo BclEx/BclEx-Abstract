@@ -54,7 +54,11 @@ namespace System.Collections.Generic
         /// <returns></returns>
         public override bool Equals(Nameable<T> x, Nameable<T> y)
         {
-            return x.Value.Equals(y.Value);
+            var xV = x.Value;
+            var yV = y.Value;
+            if (xV != null)
+                return (yV != null && xV.Equals(yV));
+            return (yV == null);
         }
 
         /// <summary>
