@@ -17,7 +17,7 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="RabbitMQ.Client" version="3.2.4" />
+        <dependency id="RabbitMQ.Client" version="3.3.5" />
       </group>
     </dependencies>
   </metadata>
@@ -26,6 +26,8 @@
     <file src="build\3.5\Contoso.Abstract.RabbitMQ.xml" target="lib\net35" />
     <file src="build\4.0\Contoso.Abstract.RabbitMQ.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.RabbitMQ.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.RabbitMQ.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.RabbitMQ.xml" target="lib\net45" />
     <file src="src\ServiceBuses\Contoso.Abstract.RabbitMQ\**\*.cs" target="src\Contoso.Abstract.RabbitMQ" />
   </files>
 </package>

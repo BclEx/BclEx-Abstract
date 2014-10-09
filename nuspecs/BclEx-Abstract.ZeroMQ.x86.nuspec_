@@ -26,6 +26,8 @@
     <file src="build\3.5\Contoso.Abstract.ZeroMQ.x86.xml" target="lib\net35" />
     <file src="build\4.0\Contoso.Abstract.ZeroMQ.x86.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.ZeroMQ.x86.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.ZeroMQ.x86.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.ZeroMQ.x86.xml" target="lib\net45" />
     <file src="src\ServiceBuses\Contoso.Abstract.ZeroMQ.x86\**\*.cs" target="src\Contoso.Abstract.ZeroMQ.x86" />
   </files>
 </package>
