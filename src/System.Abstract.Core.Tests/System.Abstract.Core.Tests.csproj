@@ -100,53 +100,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract+EventSource\AggregateRootOfflineSnapshotServiceTests.cs" />
-    <Compile Include="Abstract+EventSource\AggregateRootRepositoryTests.cs" />
-    <Compile Include="Abstract+EventSource\AggregateRootTests.cs" />
-    <Compile Include="Abstract+EventSource\RegistryEventDispatcherTests.cs" />
-    <Compile Include="Abstract+EventSource\EventSourceManagerTests.cs" />
-    <Compile Include="Abstract+ServiceBus\AggregateServiceMessageTests.cs" />
-    <Compile Include="Abstract+ServiceBus\Fakes\TestMessage.cs" />
-    <Compile Include="Abstract+ServiceBus\IPublishingServiceBusExtensionsTests.cs" />
-    <Compile Include="Abstract+ServiceBus\IServiceBusExtensionsTests.cs" />
-    <Compile Include="Abstract+ServiceBus\IServiceBusLocationExtensionsTests.cs" />
-    <Compile Include="Abstract+ServiceBus\LiteralServiceBusLocationTests.cs" />
-    <Compile Include="Abstract+ServiceBus\ServiceBusManagerTests.cs" />
-    <Compile Include="Abstract+ServiceBus\ServiceBusMessageExceptionTests.cs" />
-    <Compile Include="Abstract+ServiceCache\CacheItemPolicyTests.cs" />
-    <Compile Include="Abstract+ServiceCache\DefaultServiceCacheRegistrationDispatcherTests.cs" />
-    <Compile Include="Abstract+ServiceCache\IServiceCacheExtensionsTests.cs" />
-    <Compile Include="Abstract+ServiceCache\ServiceCacheCommandTests.cs" />
-    <Compile Include="Abstract+ServiceCache\ServiceCacheForeignRegistrationTests.cs" />
-    <Compile Include="Abstract+ServiceCache\ServiceCacheManagerTests.cs" />
-    <Compile Include="Abstract+ServiceCache\ServiceCacheNamespaceWrapperTests.cs" />
-    <Compile Include="Abstract+ServiceCache\ServiceCacheRegistrarTests.cs" />
-    <Compile Include="Abstract+ServiceCache\ServiceCacheRegistrationTests.cs" />
-    <Compile Include="Abstract+ServiceCache\ServiceCacheSettingsTests.cs" />
-    <Compile Include="Abstract+ServiceLocator\Fakes\TestDependency.cs" />
-    <Compile Include="Abstract+ServiceLocator\Fakes\TestFutureService.cs" />
-    <Compile Include="Abstract+ServiceLocator\Fakes\TestNamedService.cs" />
-    <Compile Include="Abstract+ServiceLocator\Fakes\TestService.cs" />
-    <Compile Include="Abstract+ServiceLocator\IServiceLocatorExtensionsTests.cs" />
-    <Compile Include="Abstract+ServiceLocator\ServiceLocatorManagerTests.cs" />
-    <Compile Include="Abstract+ServiceLocator\ServiceLocatorResolutionExceptionTests.cs" />
-    <Compile Include="Abstract+ServiceMap\ServiceMapManagerTests.cs" />
-    <Compile Include="Abstract+ServiceLog\ServiceLogManagerTests.cs" />
-    <Compile Include="Abstract+TypeGrapher\TypeGraphManagerTests.cs" />
-    <Compile Include="Abstract+TypeGrapher\TypeGraphSerializerTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+EventSource\EventSourcing\FileAggregateRootSnapshotStoreIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+EventSource\EventSourcing\FileEventStoreIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+EventSource\EventSourcing\MemoryAggregateRootSnapshotStoreIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+EventSource\EventSourcing\MemoryEventStoreIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+ServiceBus\AppServiceBusIntegrationTest.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+ServiceCache\StaticServiceCacheIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+ServiceCache\SystemServiceCacheIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+ServiceLocator\MicroServiceLocatorIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+ServiceLocator\MicroServiceRegistrarIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+ServiceLog\ConsoleServiceLogIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+ServiceLog\EventLogServiceLogIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+ServiceLog\StreamServiceLogIntegrationTests.cs" />
-    <Compile Include="Abstract.Contoso\Abstract+ServiceLog\TraceSourceServiceLogIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\EventSourcing\FileAggregateRootSnapshotStoreIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\EventSourcing\FileEventStoreIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\EventSourcing\MemoryAggregateRootSnapshotStoreIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\EventSourcing\MemoryEventStoreIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceBus\AppServiceBusIntegrationTest.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceCache\StaticServiceCacheIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceCache\SystemServiceCacheIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLocator\MicroServiceLocatorIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLocator\MicroServiceRegistrarIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLog\ConsoleServiceLogIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLog\EventLogServiceLogIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLog\StreamServiceLogIntegrationTests.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceLog\TraceSourceServiceLogIntegrationTests.cs" />
     <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheManagerTests.cs" />
     <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheSerializerTests.cs" />
     <Compile Include="+EnvironmentEx\EnvironmentEx2Tests.cs" />
@@ -160,6 +126,10 @@
     <ProjectReference Include="..\System.Abstract.Core\System.Abstract.Core.csproj">
       <Project>{C0DFFDBA-92E2-4DED-A2D3-1722123FEF46}</Project>
       <Name>System.Abstract.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Abstract.Tests\System.Abstract.Tests.csproj">
+      <Project>{e24bf01e-3160-45e8-be5a-d2f2d4a50c2c}</Project>
+      <Name>System.Abstract.Tests</Name>
     </ProjectReference>
     <ProjectReference Include="..\System.Abstract\System.Abstract.csproj">
       <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>

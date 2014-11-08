@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract+ServiceLocator\ServiceDependencyAttributeTests.cs" />
+    <Compile Include="Abstract+ServiceMap\ServiceMapManagerTests.cs" />
     <Compile Include="Abstract\Parts\Fakes\ServiceTestManagerDebugger.cs" />
     <Compile Include="Abstract\Parts\Fakes\ServiceTestManager.cs" />
     <Compile Include="Abstract\Parts\Fakes\IServiceTest.cs" />
@@ -164,7 +165,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract+EventSource\EventSourcing\Fakes\" />
-    <Folder Include="Abstract+ServiceMap\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>BclEx-Abstract.Web.Mvc3</id>
+    <id>BclEx-Abstract.Web.Mvc5</id>
     <version>1.0.0</version>
-    <title>BclEx-Abstract.Web.Mvc3</title>
+    <title>BclEx-Abstract.Web.Mvc5</title>
     <authors>Contoso</authors>
     <owners>Contoso</owners>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <projectUrl>http://docs.bclex.org/bclex-abstract/</projectUrl>
     <iconUrl>http://docs.bclex.org/bclex-abstract.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This package contains implementations of abstract Services for use with ASP.NET MVC 3.</description>
+    <description>This package contains implementations of abstract Services for use with ASP.NET MVC 5.</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2010</copyright>
-    <tags>mvc mvc3 servicelocator web bclex</tags>
+    <tags>mvc mvc4 servicelocator web bclex</tags>
     <language>en-US</language>
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="Microsoft.AspNet.Mvc" version="3.0.50813.1" allowedVersions="[3.0.50813.1]" />
+        <dependency id="Microsoft.AspNet.Mvc" version="5.2.2" allowedVersions="[5.2.2]" />
       </group>
     </dependencies>
     <frameworkAssemblies>
@@ -26,8 +26,8 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="build\4.0\Contoso.Abstract.Web.Mvc3.dll" target="lib\net40" />
-    <file src="build\4.0\Contoso.Abstract.Web.Mvc3.xml" target="lib\net40" />
-    <file src="src\Platforms\Contoso.Abstract.Web.Mvc3\**\*.cs" target="src\Contoso.Abstract.Web.Mvc3" />
+    <file src="build\4.5\Contoso.Abstract.Web.Mvc5.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.Web.Mvc5.xml" target="lib\net45" />
+    <file src="src\Platforms\Contoso.Abstract.Web.Mvc5\**\*.cs" target="src\Contoso.Abstract.Web.Mvc5" />
   </files>
 </package>
