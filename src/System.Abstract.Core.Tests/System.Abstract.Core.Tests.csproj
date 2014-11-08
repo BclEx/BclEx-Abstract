@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="xunit">
       <HintPath>..\..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
     </Reference>
@@ -129,9 +130,23 @@
     <Compile Include="Abstract+ServiceLocator\IServiceLocatorExtensionsTests.cs" />
     <Compile Include="Abstract+ServiceLocator\ServiceLocatorManagerTests.cs" />
     <Compile Include="Abstract+ServiceLocator\ServiceLocatorResolutionExceptionTests.cs" />
+    <Compile Include="Abstract+ServiceMap\ServiceMapManagerTests.cs" />
     <Compile Include="Abstract+ServiceLog\ServiceLogManagerTests.cs" />
     <Compile Include="Abstract+TypeGrapher\TypeGraphManagerTests.cs" />
     <Compile Include="Abstract+TypeGrapher\TypeGraphSerializerTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+EventSource\EventSourcing\FileAggregateRootSnapshotStoreIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+EventSource\EventSourcing\FileEventStoreIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+EventSource\EventSourcing\MemoryAggregateRootSnapshotStoreIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+EventSource\EventSourcing\MemoryEventStoreIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+ServiceBus\AppServiceBusIntegrationTest.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+ServiceCache\StaticServiceCacheIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+ServiceCache\SystemServiceCacheIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+ServiceLocator\MicroServiceLocatorIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+ServiceLocator\MicroServiceRegistrarIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+ServiceLog\ConsoleServiceLogIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+ServiceLog\EventLogServiceLogIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+ServiceLog\StreamServiceLogIntegrationTests.cs" />
+    <Compile Include="Abstract.Contoso\Abstract+ServiceLog\TraceSourceServiceLogIntegrationTests.cs" />
     <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheManagerTests.cs" />
     <Compile Include="Abstract\Parts+TypeGrapher\TypeCacheSerializerTests.cs" />
     <Compile Include="+EnvironmentEx\EnvironmentEx2Tests.cs" />
@@ -151,9 +166,7 @@
       <Name>System.Abstract</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract+ServiceMap\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

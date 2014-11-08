@@ -84,9 +84,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\System.Abstract.Micro\System.Abstract.Micro.csproj">
-      <Project>{71978B4F-A869-4AFE-A330-8284D2F3DCF2}</Project>
-      <Name>System.Abstract.Micro</Name>
+    <ProjectReference Include="..\..\System.Abstract.Core\System.Abstract.Core.csproj">
+      <Project>{c0dffdba-92e2-4ded-a2d3-1722123fef46}</Project>
+      <Name>System.Abstract.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\System.Abstract\System.Abstract.csproj">
       <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
