@@ -29,6 +29,8 @@
     <file src="build\3.5\Contoso.Abstract.Web.xml" target="lib\net35" />
     <file src="build\4.0\Contoso.Abstract.Web.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.Web.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.Web.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.Web.xml" target="lib\net45" />
     <file src="src\Platforms\Contoso.Abstract.Web\**\*.cs" target="src\Contoso.Abstract.Web" />
   </files>
 </package>

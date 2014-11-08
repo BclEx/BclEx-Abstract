@@ -32,6 +32,8 @@
     <file src="build\3.5\Contoso.Abstract.EventStore.xml" target="lib\net35" />
     <file src="build\4.0\Contoso.Abstract.EventStore.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.EventStore.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.EventStore.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.EventStore.xml" target="lib\net45" />
     <file src="src\EventSources\Contoso.Abstract.EventStore\**\*.cs" target="src\Contoso.Abstract.EventStore" />
     <file src="src\EventSources\Contoso.Abstract.EventStore\EventStore.license.txt" target="content" />
   </files>

@@ -27,6 +27,8 @@
     <file src="build\3.5\Contoso.Abstract.SqlLite.xml" target="lib\net35" />
     <file src="build\4.0\Contoso.Abstract.SqlLite.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.SqlLite.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.SqlLite.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.SqlLite.xml" target="lib\net45" />
     <file src="src\EventSources\Contoso.Abstract.SqlLite\**\*.cs" target="src\Contoso.Abstract.SqlLite" />
   </files>
 </package>

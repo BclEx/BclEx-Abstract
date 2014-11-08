@@ -16,9 +16,9 @@
     <tags>mvc mvc4 servicelocator web bclex</tags>
     <language>en-US</language>
     <dependencies>
-      <group>
+      <group targetFramework="net45">
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="Microsoft.AspNet.Mvc" version="5.2.2" allowedVersions="[5.2.2]" />
+        <dependency id="Microsoft.AspNet.Mvc" version="5.2.2" />
       </group>
     </dependencies>
     <frameworkAssemblies>

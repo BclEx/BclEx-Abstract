@@ -16,9 +16,9 @@
     <tags>mvc mvc3 servicelocator web bclex</tags>
     <language>en-US</language>
     <dependencies>
-      <group>
+      <group targetFramework="net40">
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="Microsoft.AspNet.Mvc" version="3.0.50813.1" allowedVersions="[3.0.50813.1]" />
+        <dependency id="Microsoft.AspNet.Mvc" version="[3.0.50813.1]" />
       </group>
     </dependencies>
     <frameworkAssemblies>
@@ -28,6 +28,8 @@
   <files>
     <file src="build\4.0\Contoso.Abstract.Web.Mvc3.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.Web.Mvc3.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.Web.Mvc3.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.Web.Mvc3.xml" target="lib\net45" />
     <file src="src\Platforms\Contoso.Abstract.Web.Mvc3\**\*.cs" target="src\Contoso.Abstract.Web.Mvc3" />
   </files>
 </package>

@@ -6,6 +6,7 @@ properties {
   $35_build_dir = "$build_dir\3.5"
   $40_build_dir = "$build_dir\4.0"
   $45_build_dir = "$build_dir\4.5"
+  $45pcl_build_dir = "$build_dir\4.5-PCL"
   $release_dir = "$base_dir\Release"
   $release_dir_last = "$base_dir\Release.last"
   $sln_file = "$base_dir\BclEx-Abstract.sln"
@@ -16,6 +17,7 @@ properties {
   $35_config = "Release"
   $40_config = "Release.4"
   $45_config = "Release.45"
+  $45pcl_config = "Release.45-PCL"
   $run_tests = $true
 }
 Framework "4.0"
@@ -27,19 +29,20 @@ task default -depends Package
 task Clean {
 	remove-item -force -recurse $build_dir -ErrorAction SilentlyContinue
 	remove-item -force -recurse $release_dir -ErrorAction SilentlyContinue
-	remove-item -force -recurse $release_dir_last -ErrorAction SilentlyContinue
+	#remove-item -force -recurse $release_dir_last -ErrorAction SilentlyContinue
 }
 
 task Init -depends Clean {
 	new-item $build_dir -itemType directory
 	new-item $release_dir -itemType directory
-	new-item $release_dir_last -itemType directory
+	#new-item $release_dir_last -itemType directory
 }
 
 task Compile -depends Init {
-	msbuild $sln_file /p:"OutDir=$35_build_dir;Configuration=$35_config" /m
+	msbuild $sln_file /target:Rebuild /p:"OutDir=$35_build_dir;Configuration=$35_config" /m
 	msbuild $sln_file /target:Rebuild /p:"OutDir=$40_build_dir;Configuration=$40_config" /m
 	msbuild $sln_file /target:Rebuild /p:"OutDir=$45_build_dir;Configuration=$45_config" /m
+	msbuild $sln_file /target:Rebuild /p:"OutDir=$45pcl_build_dir;Configuration=$45pcl_config" /m
 }
 
 task Test -depends Compile -precondition { return $run_tests } {
@@ -59,7 +62,7 @@ task Dependency {
 	foreach ($package in $package_files)
 	{
 		Write-Host $package.FullName
-		& $tools_dir\NuGet.exe install $package.FullName -o packages
+		#& $tools_dir\NuGet.exe install $package.FullName -o packages
 	}
 }
 
@@ -75,23 +78,8 @@ task Release -depends Dependency, Compile, Test {
 }
 
 task Bundle {
-	& $tools_dir\ILMerge.exe /targetplatform:v4 /out:"$40_build_dir\Contoso.Bundle01Web.dll" `
-"$40_build_dir\Contoso.Bundle.Bundle01Web.dll" `
-"$40_build_dir\Common.Logging.dll" `
-"$40_build_dir\Contoso.Abstract.Log4Net.dll" `
-"$40_build_dir\contoso.Abstract.RhinoServiceBus.dll" `
-"$40_build_dir\contoso.Abstract.ServerAppFabric.dll" `
-"$40_build_dir\Contoso.Abstract.Unity.dll" `
-"$40_build_dir\Contoso.Abstract.Web.dll" `
-"$40_build_dir\log4net.dll" `
-"$40_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
-"$40_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
-"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
-"$40_build_dir\Microsoft.Practices.Unity.dll" `
-"$40_build_dir\Rhino.ServiceBus.dll"
 	& $tools_dir\ILMerge.exe /targetplatform:v2 /out:"$35_build_dir\Contoso.Bundle01Web.dll" `
 "$35_build_dir\Contoso.Bundle.Bundle01Web.dll" `
-"$35_build_dir\Common.Logging.dll" `
 "$35_build_dir\Contoso.Abstract.Log4Net.dll" `
 "$35_build_dir\contoso.Abstract.RhinoServiceBus.dll" `
 "$35_build_dir\contoso.Abstract.ServerAppFabric.dll" `
@@ -103,6 +91,34 @@ task Bundle {
 "$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
 "$35_build_dir\Microsoft.Practices.Unity.dll" `
 "$35_build_dir\Rhino.ServiceBus.dll"
+
+	& $tools_dir\ILMerge.exe /targetplatform:v4 /out:"$40_build_dir\Contoso.Bundle01Web.dll" `
+"$40_build_dir\Contoso.Bundle.Bundle01Web.dll" `
+"$40_build_dir\Contoso.Abstract.Log4Net.dll" `
+"$40_build_dir\contoso.Abstract.RhinoServiceBus.dll" `
+"$40_build_dir\contoso.Abstract.ServerAppFabric.dll" `
+"$40_build_dir\Contoso.Abstract.Unity.dll" `
+"$40_build_dir\Contoso.Abstract.Web.dll" `
+"$40_build_dir\log4net.dll" `
+"$40_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
+"$40_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
+"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$40_build_dir\Microsoft.Practices.Unity.dll" `
+"$40_build_dir\Rhino.ServiceBus.dll"
+
+	& $tools_dir\ILMerge.exe /targetplatform:v4 /out:"$45_build_dir\Contoso.Bundle01Web.dll" `
+"$45_build_dir\Contoso.Bundle.Bundle01Web.dll" `
+"$45_build_dir\Contoso.Abstract.Log4Net.dll" `
+"$45_build_dir\contoso.Abstract.RhinoServiceBus.dll" `
+"$45_build_dir\contoso.Abstract.ServerAppFabric.dll" `
+"$45_build_dir\Contoso.Abstract.Unity.dll" `
+"$45_build_dir\Contoso.Abstract.Web.dll" `
+"$45_build_dir\log4net.dll" `
+"$45_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
+"$45_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
+"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$45_build_dir\Microsoft.Practices.Unity.dll" `
+"$45_build_dir\Rhino.ServiceBus.dll"
 }
 
 task Package -depends Release, Bundle {
@@ -111,11 +127,11 @@ task Package -depends Release, Bundle {
 	{
 		& $tools_dir\NuGet.exe pack $spec.FullName -o $release_dir -Symbols -BasePath $base_dir
 	}
-	$spec_files = @(Get-ChildItem $packageinfo_dir_last -include *.nuspec -recurse)
-	foreach ($spec in $spec_files)
-	{
-		#& $tools_dir\NuGet.exe pack $spec.FullName -o $release_dir_last -Symbols -BasePath $base_dir
-	}
+	#$spec_files = @(Get-ChildItem $packageinfo_dir_last -include *.nuspec -recurse)
+	#foreach ($spec in $spec_files)
+	#{
+	#	#& $tools_dir\NuGet.exe pack $spec.FullName -o $release_dir_last -Symbols -BasePath $base_dir
+	#}
 }
 
 task Push -depends Package {
@@ -124,10 +140,10 @@ task Push -depends Package {
 	{
 		& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
 	}
-	$spec_files = @(Get-ChildItem $release_dir_last -include *.nupkg -recurse)
-	foreach ($spec in $spec_files)
-	{
-		#& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
-	}
+	#$spec_files = @(Get-ChildItem $release_dir_last -include *.nupkg -recurse)
+	#foreach ($spec in $spec_files)
+	#{
+	#	#& $tools_dir\NuGet.exe push $spec.FullName -source "https://www.nuget.org"
+	#}
 }
 

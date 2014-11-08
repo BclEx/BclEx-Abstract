@@ -96,16 +96,10 @@
     <Reference Include="Autofac">
       <HintPath>..\..\..\packages\Autofac.3.3.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Autofac.Configuration">
-      <HintPath>..\..\..\packages\Autofac.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
     <Reference Include="Autofac">
       <HintPath>..\..\..\packages\Autofac.3.3.0\lib\net40\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="Autofac.Configuration">
-      <HintPath>..\..\..\packages\Autofac.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

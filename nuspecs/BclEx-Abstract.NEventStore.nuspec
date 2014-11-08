@@ -16,7 +16,7 @@
     <tags>mongodb nosql aggregateroot event eventsourcing bclex</tags>
     <language>en-US</language>
     <dependencies>
-      <group>
+      <group targetFramework="net40">
         <dependency id="BclEx-Abstract" version="1.0.0" />
         <dependency id="NEventStore-Signed" version="4.1.0.10" />
       </group>
@@ -25,6 +25,8 @@
   <files>
     <file src="build\4.0\Contoso.Abstract.NEventStore.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.NEventStore.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.NEventStore.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.NEventStore.xml" target="lib\net45" />
     <file src="src\EventSources\Contoso.Abstract.NEventStore\**\*.cs" target="src\Contoso.Abstract.NEventStore" />
   </files>
 </package>

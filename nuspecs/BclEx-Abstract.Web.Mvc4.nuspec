@@ -16,9 +16,9 @@
     <tags>mvc mvc4 servicelocator web bclex</tags>
     <language>en-US</language>
     <dependencies>
-      <group>
+      <group targetFramework="net40">
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="Microsoft.AspNet.Mvc" version="4.0.40804" allowedVersions="[4.0.40804]" />
+        <dependency id="Microsoft.AspNet.Mvc" version="[4.0.40804]" />
       </group>
     </dependencies>
     <frameworkAssemblies>
@@ -28,6 +28,8 @@
   <files>
     <file src="build\4.0\Contoso.Abstract.Web.Mvc4.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Abstract.Web.Mvc4.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.Web.Mvc4.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.Web.Mvc4.xml" target="lib\net45" />
     <file src="src\Platforms\Contoso.Abstract.Web.Mvc4\**\*.cs" target="src\Contoso.Abstract.Web.Mvc4" />
   </files>
 </package>

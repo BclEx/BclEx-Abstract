@@ -136,6 +136,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\nuspecs\BclEx-Abstract.AutoMapper.nuspec">
+      <Link>BclEx-Abstract.AutoMapper.nuspec</Link>
+    </None>
     <None Include="app.config" />
     <None Include="BclEx.4.snk" />
     <None Include="BclEx.snk" />

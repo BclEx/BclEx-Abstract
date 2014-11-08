@@ -26,6 +26,8 @@
     <file src="build\3.5\Contoso.Practices.Cqrs.xml" target="lib\net35" />
     <file src="build\4.0\Contoso.Practices.Cqrs.dll" target="lib\net40" />
     <file src="build\4.0\Contoso.Practices.Cqrs.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Practices.Cqrs.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Practices.Cqrs.xml" target="lib\net45" />
     <file src="src\Practices\Contoso.Practices.Cqrs\**\*.cs" target="src\Contoso.Practices.Cqrs" />
   </files>
 </package>
