@@ -30,17 +30,17 @@ using NEventStore;
 namespace Contoso.Abstract.EventSourcing
 {
     /// <summary>
-    /// ESEventStore
+    /// NESEventStore
     /// </summary>
-    public class ESEventStore : IEventStore
+    public class NESEventStore : IEventStore
     {
         private readonly IStoreEvents _store;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ESEventStore"/> class.
+        /// Initializes a new instance of the <see cref="NESEventStore"/> class.
         /// </summary>
         /// <param name="store">The store.</param>
-        public ESEventStore(IStoreEvents store)
+        public NESEventStore(IStoreEvents store)
         {
             if (store == null)
                 throw new ArgumentNullException("store");

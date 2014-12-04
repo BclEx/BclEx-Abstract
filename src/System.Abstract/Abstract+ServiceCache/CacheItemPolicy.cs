@@ -111,7 +111,7 @@ namespace System.Abstract
         }
 
         /// <summary>
-        /// Gets or sets the TimeSpan instance that indicate the length of time to use for a sliding or dynamice expiration time.
+        /// Gets or sets the TimeSpan instance that indicate the length of time to use for a sliding or dynamic expiration time.
         /// A sliding expiration is one that is constantly updated, based on the time value provided, whenever the underlying item
         /// having been cached is retrieved from cache.
         /// </summary>

@@ -35,7 +35,7 @@ namespace System.Abstract
         /// </summary>
         AboveNormal = 4,
         /// <summary>
-        /// Cached item has an below normal relative priority value.
+        /// Cached item has a below normal relative priority value.
         /// </summary>
         BelowNormal = 2,
         /// <summary>
@@ -55,7 +55,7 @@ namespace System.Abstract
         /// </summary>
         Normal = 3,
         /// <summary>
-        /// Cached item has a priority value indicating it can not be removed from cache.
+        /// Cached item has a priority value indicating it cannot be removed from cache.
         /// </summary>
         NotRemovable = 6
     }

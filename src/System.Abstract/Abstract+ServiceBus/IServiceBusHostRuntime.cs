@@ -26,9 +26,9 @@ THE SOFTWARE.
 namespace System.Abstract
 {
     /// <summary>
-    /// IServiceBusHostBootstrap
+    /// IServiceBusHostRuntime
     /// </summary>
-    public interface IServiceBusHostBootstrap
+    public interface IServiceBusHostRuntime
     {
         /// <summary>
         /// Initializes this instance.

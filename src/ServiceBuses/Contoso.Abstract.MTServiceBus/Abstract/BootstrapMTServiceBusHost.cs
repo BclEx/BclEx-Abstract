@@ -30,7 +30,7 @@ namespace Contoso.Abstract
     /// <summary>
     /// BootstrapMTServiceBusHost
     /// </summary>
-    public abstract class BootstrapMTServiceBusHost : IServiceBusHostBootstrap
+    public abstract class BootstrapMTServiceBusHost : IServiceBusHostRuntime
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BootstrapMTServiceBusHost"/> class.

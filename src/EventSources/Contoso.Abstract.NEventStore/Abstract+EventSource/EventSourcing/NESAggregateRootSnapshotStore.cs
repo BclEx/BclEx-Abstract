@@ -27,17 +27,17 @@ using NEventStore;
 namespace System.Abstract.EventSourcing
 {
     /// <summary>
-    /// ESAggregateRootSnapshotStore
+    /// NESAggregateRootSnapshotStore
     /// </summary>
-    public class ESAggregateRootSnapshotStore : IAggregateRootSnapshotStore
+    public class NESAggregateRootSnapshotStore : IAggregateRootSnapshotStore
     {
         private readonly IStoreEvents _store;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ESAggregateRootSnapshotStore"/> class.
+        /// Initializes a new instance of the <see cref="NESAggregateRootSnapshotStore"/> class.
         /// </summary>
         /// <param name="store">The store.</param>
-        public ESAggregateRootSnapshotStore(IStoreEvents store)
+        public NESAggregateRootSnapshotStore(IStoreEvents store)
         {
             if (store == null)
                 throw new ArgumentNullException("store");

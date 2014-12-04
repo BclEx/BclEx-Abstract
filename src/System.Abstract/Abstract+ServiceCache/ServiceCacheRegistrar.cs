@@ -99,7 +99,7 @@ namespace System.Abstract
         }
 
         /// <summary>
-        /// Gets or sets the type of the anchor.
+        /// Gets the type of the anchor.
         /// </summary>
         /// <value>
         /// The type of the anchor.
@@ -159,7 +159,7 @@ namespace System.Abstract
         }
 
         /// <summary>
-        /// Clears this all registrations.
+        /// Clears all registrations.
         /// </summary>
         public void Clear()
         {

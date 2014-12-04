@@ -204,7 +204,7 @@
     <Compile Include="Abstract+EventSource\IEventHandler.cs" />
     <Compile Include="Abstract+PlatformWeb\PlatformWebExtensions.cs" />
     <Compile Include="Abstract+PlatformWeb\IPlatformWeb.cs" />
-    <Compile Include="Abstract+ServiceBus\IServiceBusHostBootstrap.cs" />
+    <Compile Include="Abstract+ServiceBus\IServiceBusHostRuntime.cs" />
     <Compile Include="Abstract+ServiceBus\ServiceBusExtensions.cs" />
     <Compile Include="Abstract+ServiceCache\CacheItemDependency.cs" />
     <Compile Include="Abstract+ServiceCache\CacheItemHeader.cs" />

@@ -74,7 +74,7 @@ namespace System.Abstract
         public ServiceCacheRegistrar Registrar { get; internal set; }
 
         /// <summary>
-        /// Gets the name.
+        /// Gets or sets the name.
         /// </summary>
         /// <value>
         /// The name.

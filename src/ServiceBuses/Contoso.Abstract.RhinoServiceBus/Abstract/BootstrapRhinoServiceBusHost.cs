@@ -30,7 +30,7 @@ namespace Contoso.Abstract
     /// <summary>
     /// BootstrapRhinoServiceBusHost
     /// </summary>
-    public abstract class BootstrapRhinoServiceBusHost : ServiceLocatorBootStrapper, IServiceBusHostBootstrap
+    public abstract class BootstrapRhinoServiceBusHost : ServiceLocatorBootStrapper, IServiceBusHostRuntime
     {
         private readonly string _name;
 

@@ -32,30 +32,30 @@ using System.Abstract.Parts;
 namespace Contoso.Abstract
 {
     /// <summary>
-    /// IESEventSource
+    /// INESEventSource
     /// </summary>
-    public interface IESEventSource : IEventSource { }
+    public interface INESEventSource : IEventSource { }
 
     /// <summary>
-    /// ESEventSource
+    /// NESEventSource
     /// </summary>
-    public class ESEventSource : IESEventSource, EventSourceManager.ISetupRegistration
+    public class NESEventSource : INESEventSource, EventSourceManager.ISetupRegistration
     {
         private readonly IStoreEvents _store;
 
-        static ESEventSource() { EventSourceManager.EnsureRegistration(); }
+        static NESEventSource() { EventSourceManager.EnsureRegistration(); }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ESEventSource"/> class.
+        /// Initializes a new instance of the <see cref="NESEventSource"/> class.
         /// </summary>
         /// <param name="store">The store.</param>
-        public ESEventSource(IStoreEvents store)
+        public NESEventSource(IStoreEvents store)
         {
             _store = store;
         }
 
         Action<IServiceLocator, string> EventSourceManager.ISetupRegistration.DefaultServiceRegistrar
         {
-            get { return (locator, name) => EventSourceManager.RegisterInstance<IESEventSource>(this, locator, name); }
+            get { return (locator, name) => EventSourceManager.RegisterInstance<INESEventSource>(this, locator, name); }
         }
 
         /// <summary>
@@ -76,6 +76,6 @@ namespace Contoso.Abstract
         /// <param name="arg">The arg.</param>
         /// <param name="serializer">The serializer.</param>
         /// <returns></returns>
-        public IAggregateRootRepository MakeRepository<T>(T arg, ITypeSerializer serializer) { return new AggregateRootRepository(new ESEventStore(_store), new ESAggregateRootSnapshotStore(_store)); }
+        public IAggregateRootRepository MakeRepository<T>(T arg, ITypeSerializer serializer) { return new AggregateRootRepository(new NESEventStore(_store), new NESAggregateRootSnapshotStore(_store)); }
     }
 }

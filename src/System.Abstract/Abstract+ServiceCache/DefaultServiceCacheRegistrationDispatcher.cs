@@ -98,7 +98,7 @@ namespace System.Abstract
         }
 
         /// <summary>
-        /// Querys the specified cache.
+        /// Queries the specified cache.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="cache">The cache.</param>
