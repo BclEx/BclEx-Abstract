@@ -187,7 +187,6 @@
     <Compile Include="Collections\Generic\NameableComparer.cs" />
     <Compile Include="Collections\IIndexer.cs" />
     <Compile Include="Collections\IIndexer2.cs" />
-    <Compile Include="Collections\IValue.cs" />
     <Compile Include="ComponentModel\NameableConverter.cs" />
     <Compile Include="IConvertFormatter.cs" />
     <Compile Include="IConvertParser.cs" />
