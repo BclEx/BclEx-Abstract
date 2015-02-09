@@ -23,29 +23,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Configuration;
-using System.Abstract.Configuration.ServiceBus;
-namespace System.Abstract.Configuration
+using System;
+namespace Contoso.Abstract.AzureServiceBus
 {
     /// <summary>
-    /// ServiceBusConfiguration
+    /// AzureServiceBusAbstractor
     /// </summary>
-    public class ServiceBusConfiguration : ConfigurationElementEx
+    public class MicroTransport
     {
-        [ConfigurationProperty("assemblies")]
-        public AssemblyElementCollection Assemblies
-        {
-            get { return (base["assemblies"] as AssemblyElementCollection); }
-            set { base["assemblies"] = value; }
-        }
-
-        /// <summary>
-        /// Gets the endpoints.
-        /// </summary>
-        [ConfigurationProperty("endpoints")]
-        public EndpointElementCollection Endpoints
-        {
-            get { return (EndpointElementCollection)base["endpoints"]; }
-        }
     }
 }

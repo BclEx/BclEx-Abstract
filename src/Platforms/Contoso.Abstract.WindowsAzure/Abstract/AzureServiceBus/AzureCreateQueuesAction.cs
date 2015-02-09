@@ -23,29 +23,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Configuration;
-using System.Abstract.Configuration.ServiceBus;
-namespace System.Abstract.Configuration
+using Contoso.Abstract.Micro;
+using Microsoft.ServiceBus;
+using System;
+namespace Contoso.Abstract.AzureServiceBus
 {
     /// <summary>
-    /// ServiceBusConfiguration
+    /// AzureCreateQueuesAction
     /// </summary>
-    public class ServiceBusConfiguration : ConfigurationElementEx
+    public class AzureCreateQueuesAction : IMicroDeploymentAction
     {
-        [ConfigurationProperty("assemblies")]
-        public AssemblyElementCollection Assemblies
+        public void Execute(string user)
         {
-            get { return (base["assemblies"] as AssemblyElementCollection); }
-            set { base["assemblies"] = value; }
-        }
-
-        /// <summary>
-        /// Gets the endpoints.
-        /// </summary>
-        [ConfigurationProperty("endpoints")]
-        public EndpointElementCollection Endpoints
-        {
-            get { return (EndpointElementCollection)base["endpoints"]; }
+            //var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
+            //if (!namespaceManager.QueueExists(queueName))
+            //    namespaceManager.CreateQueue(queueName);
         }
     }
 }

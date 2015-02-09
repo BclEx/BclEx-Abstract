@@ -1,4 +1,4 @@
-#region License
+﻿#region License
 /*
 The MIT License
 
@@ -23,29 +23,31 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Configuration;
-using System.Abstract.Configuration.ServiceBus;
-namespace System.Abstract.Configuration
+using Contoso.Abstract.Micro.ServiceBus.Impl;
+using System.Abstract;
+namespace Contoso.Abstract.Micro.ServiceBus
 {
     /// <summary>
-    /// ServiceBusConfiguration
+    /// Extensions
     /// </summary>
-    public class ServiceBusConfiguration : ConfigurationElementEx
+    public static class ServiceBusExtensions
     {
-        [ConfigurationProperty("assemblies")]
-        public AssemblyElementCollection Assemblies
-        {
-            get { return (base["assemblies"] as AssemblyElementCollection); }
-            set { base["assemblies"] = value; }
-        }
-
         /// <summary>
-        /// Gets the endpoints.
+        /// Uses the abstract service locator.
         /// </summary>
-        [ConfigurationProperty("endpoints")]
-        public EndpointElementCollection Endpoints
+        /// <param name="configuration">The configuration.</param>
+        /// <returns></returns>
+        public static AbstractMicroServiceBusConfiguration UseAbstractServiceLocator(this AbstractMicroServiceBusConfiguration configuration) { return UseAbstractServiceLocator(configuration, ServiceLocatorManager.Current); }
+        /// <summary>
+        /// Uses the abstract service locator.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
+        /// <param name="locator">The locator.</param>
+        /// <returns></returns>
+        public static AbstractMicroServiceBusConfiguration UseAbstractServiceLocator(this AbstractMicroServiceBusConfiguration configuration, IServiceLocator locator)
         {
-            get { return (EndpointElementCollection)base["endpoints"]; }
+            new ServiceLocatorBuilder(locator, configuration);
+            return configuration;
         }
     }
 }

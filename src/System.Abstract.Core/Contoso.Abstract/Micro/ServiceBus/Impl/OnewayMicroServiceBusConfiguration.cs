@@ -1,4 +1,4 @@
-#region License
+﻿#region License
 /*
 The MIT License
 
@@ -23,29 +23,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Configuration;
-using System.Abstract.Configuration.ServiceBus;
-namespace System.Abstract.Configuration
+using System;
+using System.Abstract;
+using System.Reflection;
+namespace Contoso.Abstract.Micro.ServiceBus.Impl
 {
-    /// <summary>
-    /// ServiceBusConfiguration
-    /// </summary>
-    public class ServiceBusConfiguration : ConfigurationElementEx
+    public class OnewayMicroServiceBusConfiguration : AbstractMicroServiceBusConfiguration
     {
-        [ConfigurationProperty("assemblies")]
-        public AssemblyElementCollection Assemblies
+        protected override void ApplyConfiguration()
         {
-            get { return (base["assemblies"] as AssemblyElementCollection); }
-            set { base["assemblies"] = value; }
+            var assemblies = ConfigurationSection.Assemblies;
+            if (assemblies != null)
+                foreach (Assembly element in assemblies)
+                    ScanAssemblies.Add(element.Assembly);
         }
 
-        /// <summary>
-        /// Gets the endpoints.
-        /// </summary>
-        [ConfigurationProperty("endpoints")]
-        public EndpointElementCollection Endpoints
-        {
-            get { return (EndpointElementCollection)base["endpoints"]; }
-        }
+        public MessageOwner[] MessageOwners { get; set; }
     }
 }

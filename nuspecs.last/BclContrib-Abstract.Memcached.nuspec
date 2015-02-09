@@ -23,13 +23,13 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="build\3.5\Contoso.Abstract.ServerAppFabric.dll" target="lib\net35" />
-    <file src="build\3.5\Contoso.Abstract.ServerAppFabric.xml" target="lib\net35" />
-    <file src="build\4.0\Contoso.Abstract.ServerAppFabric.dll" target="lib\net40" />
-    <file src="build\4.0\Contoso.Abstract.ServerAppFabric.xml" target="lib\net40" />
-    <file src="build\4.5\Contoso.Abstract.ServerAppFabric.dll" target="lib\net45" />
-    <file src="build\4.5\Contoso.Abstract.ServerAppFabric.xml" target="lib\net45" />
-    <file src="src\ServiceCaches\Contoso.Abstract.ServerAppFabric\**\*.cs" target="src\Contoso.Abstract.ServerAppFabric" />
+    <file src="build\3.5\Contoso.Abstract.Memcached.dll" target="lib\net35" />
+    <file src="build\3.5\Contoso.Abstract.Memcached.xml" target="lib\net35" />
+    <file src="build\4.0\Contoso.Abstract.Memcached.dll" target="lib\net40" />
+    <file src="build\4.0\Contoso.Abstract.Memcached.xml" target="lib\net40" />
+    <file src="build\4.5\Contoso.Abstract.Memcached.dll" target="lib\net45" />
+    <file src="build\4.5\Contoso.Abstract.Memcached.xml" target="lib\net45" />
+    <file src="src\ServiceCaches\Contoso.Abstract.Memcached\**\*.cs" target="src\Contoso.Abstract.Memcached" />
   </files>
 </package>
 

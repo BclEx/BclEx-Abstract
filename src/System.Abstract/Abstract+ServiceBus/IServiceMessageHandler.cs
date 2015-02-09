@@ -28,6 +28,10 @@ namespace System.Abstract
     /// <summary>
     /// IServiceMessageHandler
     /// </summary>
+    public interface IServiceMessageHandler { }
+    /// <summary>
+    /// IServiceMessageHandler
+    /// </summary>
     public interface IServiceMessageHandler<TMessage>
         where TMessage : class
     {

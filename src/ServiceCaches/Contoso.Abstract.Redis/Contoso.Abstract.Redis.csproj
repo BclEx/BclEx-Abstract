@@ -5,25 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{23DE10E6-3675-417C-A0E6-FE9CF566CBB0}</ProjectGuid>
+    <ProjectGuid>{8C98BF48-5739-47D8-A3A6-F94A51D3C86D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Contoso.Abstract</RootNamespace>
-    <AssemblyName>Contoso.Abstract.RabbitMq</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AssemblyName>Contoso.Abstract.Redis</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug.4|AnyCPU'">
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -49,17 +39,6 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Contoso.Abstract.RabbitMq.XML</DocumentationFile>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release.4|AnyCPU'">
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <DebugType>pdbonly</DebugType>
@@ -68,7 +47,7 @@
     <DefineConstants>TRACE;CLR4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release.4\Contoso.Abstract.RabbitMq.XML</DocumentationFile>
+    <DocumentationFile>bin\Release.4\Contoso.Abstract.Redis.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -80,27 +59,35 @@
     <DefineConstants>TRACE;CLR4;CLR45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release.45\Contoso.Abstract.RabbitMq.XML</DocumentationFile>
+    <DocumentationFile>bin\Release.45\Contoso.Abstract.Redis.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="RabbitMQ.Client">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\RabbitMQ.Client.3.3.5\lib\net30\RabbitMQ.Client.dll</HintPath>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
+    <Reference Include="StackExchange.Redis.StrongName">
+      <HintPath>..\..\..\packages\StackExchange.Redis.StrongName.1.0.394\lib\net40\StackExchange.Redis.StrongName.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System.Runtime">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
+    <Reference Include="StackExchange.Redis.StrongName">
+      <HintPath>..\..\..\packages\StackExchange.Redis.StrongName.1.0.394\lib\net45\StackExchange.Redis.StrongName.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\RabbitServiceBusAbstractor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Abstract\RedisServiceCache.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\nuspecs\BclEx-Abstract.RabbitMQ.nuspec">
-      <Link>BclEx-Abstract.RabbitMQ.nuspec</Link>
+    <None Include="..\..\..\nuspecs\BclEx-Abstract.Redis.nuspec">
+      <Link>BclEx-Abstract.Redis.nuspec</Link>
     </None>
     <None Include="BclEx.4.snk" />
-    <None Include="BclEx.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +96,6 @@
       <Name>System.Abstract</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

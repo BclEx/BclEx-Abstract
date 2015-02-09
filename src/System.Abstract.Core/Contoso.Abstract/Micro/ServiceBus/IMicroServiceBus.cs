@@ -1,4 +1,4 @@
-#region License
+﻿#region License
 /*
 The MIT License
 
@@ -23,29 +23,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Configuration;
-using System.Abstract.Configuration.ServiceBus;
-namespace System.Abstract.Configuration
+using System.Abstract;
+namespace Contoso.Abstract.Micro.ServiceBus
 {
     /// <summary>
-    /// ServiceBusConfiguration
+    /// IMicroServiceBus
     /// </summary>
-    public class ServiceBusConfiguration : ConfigurationElementEx
+    public interface IMicroServiceBus
     {
-        [ConfigurationProperty("assemblies")]
-        public AssemblyElementCollection Assemblies
-        {
-            get { return (base["assemblies"] as AssemblyElementCollection); }
-            set { base["assemblies"] = value; }
-        }
-
         /// <summary>
-        /// Gets the endpoints.
+        /// Replies the specified messages.
         /// </summary>
-        [ConfigurationProperty("endpoints")]
-        public EndpointElementCollection Endpoints
-        {
-            get { return (EndpointElementCollection)base["endpoints"]; }
-        }
+        /// <param name="messages">The messages.</param>
+        void Reply(params object[] messages);
+        /// <summary>
+        /// Sends the specified messages.
+        /// </summary>
+        /// <param name="messages">The messages.</param>
+        void Send(params object[] messages);
+        /// <summary>
+        /// Sends the specified endpoint.
+        /// </summary>
+        /// <param name="endpoint">The endpoint.</param>
+        /// <param name="messages">The messages.</param>
+        void Send(IServiceBusEndpoint endpoint, params object[] messages);
+        /// <summary>
+        /// Gets the endpoint.
+        /// </summary>
+        /// <value>
+        /// The endpoint.
+        /// </value>
+        IServiceBusEndpoint Endpoint { get; }
     }
 }

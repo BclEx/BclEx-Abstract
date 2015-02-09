@@ -1,4 +1,4 @@
-#region License
+﻿#region License
 /*
 The MIT License
 
@@ -23,29 +23,17 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Configuration;
-using System.Abstract.Configuration.ServiceBus;
-namespace System.Abstract.Configuration
+namespace Contoso.Abstract.Micro.ServiceBus
 {
     /// <summary>
-    /// ServiceBusConfiguration
+    /// IOnewayMicroServiceBus
     /// </summary>
-    public class ServiceBusConfiguration : ConfigurationElementEx
+    public interface IOnewayMicroServiceBus
     {
-        [ConfigurationProperty("assemblies")]
-        public AssemblyElementCollection Assemblies
-        {
-            get { return (base["assemblies"] as AssemblyElementCollection); }
-            set { base["assemblies"] = value; }
-        }
-
         /// <summary>
-        /// Gets the endpoints.
+        /// Sends the specified MSGS.
         /// </summary>
-        [ConfigurationProperty("endpoints")]
-        public EndpointElementCollection Endpoints
-        {
-            get { return (EndpointElementCollection)base["endpoints"]; }
-        }
+        /// <param name="msgs">The MSGS.</param>
+        void Send(params object[] msgs);
     }
 }

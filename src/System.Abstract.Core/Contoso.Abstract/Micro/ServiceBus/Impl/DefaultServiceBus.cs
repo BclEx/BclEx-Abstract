@@ -1,4 +1,4 @@
-#region License
+﻿#region License
 /*
 The MIT License
 
@@ -23,29 +23,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Configuration;
-using System.Abstract.Configuration.ServiceBus;
-namespace System.Abstract.Configuration
+using Contoso.Abstract.Micro;
+using System;
+using System.Abstract;
+namespace Contoso.Abstract.Micro.ServiceBus.Impl
 {
-    /// <summary>
-    /// ServiceBusConfiguration
-    /// </summary>
-    public class ServiceBusConfiguration : ConfigurationElementEx
+    public class DefaultServiceBus : IMicroServiceBus
     {
-        [ConfigurationProperty("assemblies")]
-        public AssemblyElementCollection Assemblies
+        public NativeServiceBus(Type service, Type implementation, Func<object> resolveAction)
         {
-            get { return (base["assemblies"] as AssemblyElementCollection); }
-            set { base["assemblies"] = value; }
-        }
-
-        /// <summary>
-        /// Gets the endpoints.
-        /// </summary>
-        [ConfigurationProperty("endpoints")]
-        public EndpointElementCollection Endpoints
-        {
-            get { return (EndpointElementCollection)base["endpoints"]; }
         }
     }
 }
