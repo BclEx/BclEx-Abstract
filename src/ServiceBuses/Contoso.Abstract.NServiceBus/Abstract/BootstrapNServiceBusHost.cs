@@ -34,7 +34,7 @@ namespace Contoso.Abstract
     /// BootstrapNServiceBusHost
     /// </summary>
 #if !CLR4
-    public abstract class BootstrapNServiceBusHost : IServiceBusHostBootstrap, IConfigureThisEndpoint, AsA_Publisher, IWantToRunAtStartup, IWantCustomLogging
+    public abstract class BootstrapNServiceBusHost : IServiceBusHostRuntime, IConfigureThisEndpoint, AsA_Publisher, IWantToRunAtStartup, IWantCustomLogging
 #elif !CLR45
     public abstract class BootstrapNServiceBusHost : IServiceBusHostRuntime, IConfigureThisEndpoint, AsA_Publisher, IWantToRunWhenBusStartsAndStops, IWantCustomLogging
 #else
