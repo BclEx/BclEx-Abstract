@@ -23,15 +23,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using Contoso.Abstract.Micro;
 using System;
 using System.Abstract;
-namespace Contoso.Abstract.Micro.ServiceBus.Impl
+namespace Contoso.Abstract.Micro.ServiceBus.Modules
 {
-    public class DefaultServiceBus : IMicroServiceBus
+    /// <summary>
+    /// IMicroMessageModule
+    /// </summary>
+    public interface IMicroMessageModule
     {
-        public NativeServiceBus(Type service, Type implementation, Func<object> resolveAction)
-        {
-        }
+        /// <summary>
+        /// Initializes the specified transport.
+        /// </summary>
+        /// <param name="transport">The transport.</param>
+        /// <param name="bus">The bus.</param>
+        void Init(object transport, IMicroServiceBus bus);
+        /// <summary>
+        /// Stops the specified transport.
+        /// </summary>
+        /// <param name="transport">The transport.</param>
+        /// <param name="bus">The bus.</param>
+        void Stop(object transport, IMicroServiceBus bus);
     }
 }

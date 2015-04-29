@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 /*
 The MIT License
 
@@ -23,16 +23,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System;
-using System.Abstract;
-namespace Contoso.Abstract.Micro.ServiceBus.Modules
+using System.Configuration;
+namespace System.Abstract.Configuration
 {
     /// <summary>
-    /// IMicroMessageModule
+    /// AssemblyElementCollection
     /// </summary>
-    public interface IMicroMessageModule
+    public class AssemblyElementCollection : ConfigurationElementCollectionEx<ConfigurationElementCollectionEx.AssemblyElement>
     {
-        void Init(object transport, IMicroServiceBus bus);
-        void Stop(object transport, IMicroServiceBus bus);
     }
 }

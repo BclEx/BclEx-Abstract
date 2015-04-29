@@ -23,8 +23,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Collections;
 using System.ComponentModel;
+using System.Globalization;
 using System.Reflection;
 namespace System.Configuration
 {
@@ -33,6 +33,56 @@ namespace System.Configuration
     /// </summary>
     public class ConfigurationElementCollectionEx : ConfigurationElementCollectionEx<ConfigurationElementCollectionEx.NameValueElement>
     {
+        /// <summary>
+        /// AssemblyNameConverter
+        /// </summary>
+        public class AssemblyNameConverter : ConfigurationConverterBase
+        {
+            /// <summary>
+            /// Converts from.
+            /// </summary>
+            /// <param name="ctx">The CTX.</param>
+            /// <param name="ci">The ci.</param>
+            /// <param name="data">The data.</param>
+            /// <returns></returns>
+            public override object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data)
+            {
+                var assembly = GetAssembly((string)data, false);
+                if (assembly == null)
+                    throw new ArgumentException(string.Format("Type_cannot_be_resolved {0}", (string)data));
+                return assembly;
+            }
+
+            /// <summary>
+            /// Converts to.
+            /// </summary>
+            /// <param name="ctx">The CTX.</param>
+            /// <param name="ci">The ci.</param>
+            /// <param name="value">The value.</param>
+            /// <param name="type">The type.</param>
+            /// <returns></returns>
+            public override object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type)
+            {
+                if (!(value is Type))
+                    ValidateType(value, typeof(Assembly));
+                return (value != null ? ((Assembly)value).FullName : null);
+            }
+
+            private void ValidateType(object value, Type expected)
+            {
+                if (value != null && value.GetType() != expected)
+                    throw new ArgumentException(string.Format("Converter_unsupported_value_type {0}", expected.Name));
+            }
+
+            private static Assembly GetAssembly(string assemblyString, bool throwOnError)
+            {
+                var fileAsUri = (assemblyString.StartsWith("file://", StringComparison.OrdinalIgnoreCase) ? new Uri(assemblyString) : null);
+                if (fileAsUri == null || !fileAsUri.IsFile)
+                    return Assembly.Load(assemblyString);
+                return Assembly.LoadFile(fileAsUri.LocalPath);
+            }
+        }
+
         /// <summary>
         /// TypeElement
         /// </summary>

@@ -32,6 +32,12 @@ namespace System.Abstract.Configuration
     /// </summary>
     public class ServiceBusConfiguration : ConfigurationElementEx
     {
+        /// <summary>
+        /// Gets or sets the assemblies.
+        /// </summary>
+        /// <value>
+        /// The assemblies.
+        /// </value>
         [ConfigurationProperty("assemblies")]
         public AssemblyElementCollection Assemblies
         {
@@ -42,6 +48,9 @@ namespace System.Abstract.Configuration
         /// <summary>
         /// Gets the endpoints.
         /// </summary>
+        /// <value>
+        /// The endpoints.
+        /// </value>
         [ConfigurationProperty("endpoints")]
         public EndpointElementCollection Endpoints
         {

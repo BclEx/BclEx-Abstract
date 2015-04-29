@@ -29,9 +29,22 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Contoso.Abstract.Micro.ServiceBus.Impl
 {
+    /// <summary>
+    /// IServiceLocatorAdapter
+    /// </summary>
     public interface IServiceLocatorAdapter
     {
+        /// <summary>
+        /// Determines whether this instance can resolve the specified type.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         bool CanResolve(Type type);
+        /// <summary>
+        /// Gets all handlers for.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         IEnumerable<IServiceMessageHandler> GetAllHandlersFor(Type type);
     }
 
@@ -49,7 +62,7 @@ namespace Contoso.Abstract.Micro.ServiceBus.Impl
         public IEnumerable<IServiceMessageHandler> GetAllHandlersFor(Type type)
         {
             return _locator.Registrar.GetRegistrationsFor(type)
-                .Select(x => (IServiceMessageHandler)new DefaultServiceMessageHandler(x.ServiceType, x.ImplementationType, () => _locator.Resolve(x.ServiceType, x.Name)));
+                .Select(x => (IServiceMessageHandler)new DefaultMicroServiceMessageHandler(x.ServiceType, x.ImplementationType, () => _locator.Resolve(x.ServiceType, x.Name)));
         }
 
         //public void Release(object item) { }

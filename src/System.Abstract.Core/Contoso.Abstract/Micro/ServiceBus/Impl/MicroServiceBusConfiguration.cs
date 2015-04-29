@@ -26,87 +26,89 @@ THE SOFTWARE.
 using System;
 using System.Abstract;
 using System.Collections.Generic;
+using System.Configuration;
 namespace Contoso.Abstract.Micro.ServiceBus.Impl
 {
+    /// <summary>
+    /// MicroServiceBusConfiguration
+    /// </summary>
     public class MicroServiceBusConfiguration : AbstractMicroServiceBusConfiguration
     {
         readonly List<MessageOwner> _messageOwners = new List<MessageOwner>();
 
+        /// <summary>
+        /// Applies the configuration.
+        /// </summary>
         protected override void ApplyConfiguration()
         {
-            Uri uri;
-            bool flag;
-            BusElement bus = BusConfiguration.Bus;
-            if (bus == null)
-            {
-                throw new ConfigurationErrorsException("Could not find 'bus' node in configuration");
-            }
-            if (bus.NumberOfRetries.HasValue)
-            {
-                base.NumberOfRetries = bus.NumberOfRetries.Value;
-            }
-            if (bus.ThreadCount.HasValue)
-            {
-                base.ThreadCount = bus.ThreadCount.Value;
-            }
-            string queueIsolationLevel = bus.QueueIsolationLevel;
-            if (!string.IsNullOrEmpty(queueIsolationLevel))
-            {
-                base.queueIsolationLevel = (IsolationLevel)Enum.Parse(typeof(IsolationLevel), queueIsolationLevel);
-            }
-            if (bus.ConsumeInTransaction.HasValue)
-            {
-                base.consumeInTxn = bus.ConsumeInTransaction.Value;
-            }
-            string endpoint = bus.Endpoint;
-            if (!Uri.TryCreate(endpoint, UriKind.Absolute, out uri))
-            {
-                throw new ConfigurationErrorsException("Attribute 'endpoint' on 'bus' has an invalid value '" + endpoint + "'");
-            }
-            base.Endpoint = uri;
-            string transactional = bus.Transactional;
-            if (bool.TryParse(transactional, out flag))
-            {
-                base.Transactional = flag ? TransactionalOptions.Transactional : TransactionalOptions.NonTransactional;
-            }
-            else if (transactional != null)
-            {
-                throw new ConfigurationErrorsException("Attribute 'transactional' on 'bus' has an invalid value '" + transactional + "'");
-            }
-            AssemblyElementCollection assemblies = base.ConfigurationSection.Assemblies;
-            if (assemblies != null)
-            {
-                foreach (AssemblyElement element2 in assemblies)
-                {
-                    base._scanAssemblies.Add(element2.Assembly);
-                }
-            }
+            //Uri uri;
+            //bool flag;
+            //BusElement bus = BusConfiguration.Bus;
+            //if (bus == null)
+            //{
+            //    throw new ConfigurationErrorsException("Could not find 'bus' node in configuration");
+            //}
+            //if (bus.NumberOfRetries.HasValue)
+            //    base.NumberOfRetries = bus.NumberOfRetries.Value;
+            //if (bus.ThreadCount.HasValue)
+            //    base.ThreadCount = bus.ThreadCount.Value;
+            //var queueIsolationLevel = bus.QueueIsolationLevel;
+            //if (!string.IsNullOrEmpty(queueIsolationLevel))
+            //    base.queueIsolationLevel = (IsolationLevel)Enum.Parse(typeof(IsolationLevel), queueIsolationLevel);
+            //if (bus.ConsumeInTransaction.HasValue)
+            //    base.ConsumeInTxn = bus.ConsumeInTransaction.Value;
+            //var endpoint = bus.Endpoint;
+            //if (!Uri.TryCreate(endpoint, UriKind.Absolute, out uri))
+            //    throw new ConfigurationErrorsException("Attribute 'endpoint' on 'bus' has an invalid value '" + endpoint + "'");
+            //base.Endpoint = uri;
+            //string transactional = bus.Transactional;
+            //if (bool.TryParse(transactional, out flag))
+            //    base.Transactional = flag ? TransactionalOptions.Transactional : TransactionalOptions.NonTransactional;
+            //else if (transactional != null)
+            //    throw new ConfigurationErrorsException("Attribute 'transactional' on 'bus' has an invalid value '" + transactional + "'");
+            //var assemblies = BusConfiguration.Assemblies;
+            //if (assemblies != null)
+            //    foreach (Assembly element in assemblies)
+            //        Assemblies.Add(element);
         }
 
+        /// <summary>
+        /// Configures this instance.
+        /// </summary>
         public override void Configure()
         {
             base.Configure();
-            base.Builder.RegisterBus();
+            Builder.RegisterBus();
         }
 
+        /// <summary>
+        /// Reads the bus configuration.
+        /// </summary>
         protected override void ReadBusConfiguration()
         {
             base.ReadBusConfiguration();
-            new MessageOwnersConfigReader(base.ConfigurationSection, this._messageOwners).ReadMessageOwners();
+            new MessageOwnersConfigReader(BusConfiguration, _messageOwners).ReadMessageOwners();
         }
 
-        public AbstractRhinoServiceBusConfiguration UseFlatQueueStructure()
+        /// <summary>
+        /// Uses the flat queue structure.
+        /// </summary>
+        /// <returns></returns>
+        public AbstractMicroServiceBusConfiguration UseFlatQueueStructure()
         {
-            base.UseFlatQueue = true;
+            UseFlatQueue = true;
             return this;
         }
 
+        /// <summary>
+        /// Gets the message owners.
+        /// </summary>
+        /// <value>
+        /// The message owners.
+        /// </value>
         public IEnumerable<MessageOwner> MessageOwners
         {
-            get
-            {
-                return this._messageOwners;
-            }
+            get { return _messageOwners; }
         }
     }
 }

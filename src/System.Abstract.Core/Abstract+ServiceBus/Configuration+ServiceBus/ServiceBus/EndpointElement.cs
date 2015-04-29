@@ -51,6 +51,20 @@ namespace System.Abstract.Configuration.ServiceBus
         public string Endpoint
         {
             get { return (string)base["endpoint"]; }
+            set { this["endpoint"] = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the transactional.
+        /// </summary>
+        /// <value>
+        /// The transactional.
+        /// </value>
+        [ConfigurationProperty("transactional", DefaultValue = false)]
+        public string Transactional
+        {
+            get { return (string)this["transactional"]; }
+            set { this["transactional"] = value; }
         }
     }
 }

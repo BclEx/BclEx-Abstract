@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 /*
 The MIT License
 
@@ -23,31 +23,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Reflection;
-namespace Contoso.Abstract.Micro.ServiceBus.Impl
+using Contoso.Abstract.Micro.ServiceBus.Impl;
+namespace Contoso.Abstract.Micro.ServiceBus.Actions
 {
     /// <summary>
-    /// OnewayMicroServiceBusConfiguration
+    /// CreateQueuesAction
     /// </summary>
-    public class OnewayMicroServiceBusConfiguration : AbstractMicroServiceBusConfiguration
+    public class CreateQueuesAction : AbstractCreateQueuesAction
     {
+        private readonly IMicroServiceBus _serviceBus;
+
         /// <summary>
-        /// Applies the configuration.
+        /// Initializes a new instance of the <see cref="CreateQueuesAction"/> class.
         /// </summary>
-        protected override void ApplyConfiguration()
+        /// <param name="queueStrategy">The queue strategy.</param>
+        /// <param name="serviceBus">The service bus.</param>
+        public CreateQueuesAction(IMicroQueueStrategy queueStrategy, IMicroServiceBus serviceBus)
+            : base(queueStrategy)
         {
-            var assemblies = BusConfiguration.Assemblies;
-            if (assemblies != null)
-                foreach (Assembly element in assemblies)
-                    _assemblies.Add(element);
+            _serviceBus = serviceBus;
         }
 
         /// <summary>
-        /// Gets or sets the message owners.
+        /// Executes the specified user.
         /// </summary>
-        /// <value>
-        /// The message owners.
-        /// </value>
-        public MessageOwner[] MessageOwners { get; set; }
+        /// <param name="user">The user.</param>
+        public override void Execute(string user)
+        {
+            CreateQueues(1, _serviceBus.Endpoint, user);
+        }
     }
 }

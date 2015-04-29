@@ -28,15 +28,36 @@ using System.Abstract;
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
+using Contoso.Abstract.Micro.ServiceBus.Actions;
 namespace Contoso.Abstract.Micro.ServiceBus.Impl
 {
+    /// <summary>
+    /// IServiceLocatorBuilder
+    /// </summary>
     public interface IServiceLocatorBuilder
     {
+        /// <summary>
+        /// Registers all.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="condition">The condition.</param>
         void RegisterAll<T>(Predicate<Type> condition);
+        /// <summary>
+        /// Registers all.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="excludes">The excludes.</param>
         void RegisterAll<T>(params Type[] excludes);
+        /// <summary>
+        /// Registers the bus.
+        /// </summary>
         void RegisterBus();
+        /// <summary>
+        /// Registers the default services.
+        /// </summary>
+        /// <param name="assemblies">The assemblies.</param>
         void RegisterDefaultServices(IEnumerable<Assembly> assemblies);
-        void RegisterLoggingEndpoint(Uri logEndpoint);
+        //void RegisterLoggingEndpoint(Uri logEndpoint);
     }
 
     internal class ServiceLocatorBuilder : IServiceLocatorBuilder
@@ -54,47 +75,44 @@ namespace Contoso.Abstract.Micro.ServiceBus.Impl
         }
 
         public void RegisterAll<T>(Predicate<Type> condition)
-            where T : class
         {
             _registrar.RegisterByTypeMatch<T>(condition, typeof(T).Assembly);
         }
 
         public void RegisterAll<T>(params Type[] excludes)
-            where T : class
         {
             _registrar.RegisterByTypeMatch<T>(x => (!x.IsAbstract && !x.IsInterface && typeof(T).IsAssignableFrom(x) && !excludes.Contains<Type>(x)), typeof(T).Assembly);
         }
 
         public void RegisterBus()
         {
-            var config = (NativeServiceBusConfiguration)_config;
             _registrar.Register<IMicroDeploymentAction, CreateQueuesAction>(Guid.NewGuid().ToString());
-            _registrar.BehaveAs(ServiceRegistrarLifetime.Singleton).Register<IStartableMicroServiceBus>(l => new DefaultServiceBus(l.Resolve<IServiceLocator>(), l.Resolve<ITransport>(), l.ResolveAll<IMessageModule>().ToArray(), config.MessageOwners.ToArray(), l.Resolve<IEndpointRouter>()));
+            //_registrar.BehaveAs(ServiceRegistrarLifetime.Singleton).Register<IStartableMicroServiceBus>(l => new DefaultMicroServiceBus(l.Resolve<IServiceLocator>(), l.Resolve<ITransport>(), l.ResolveAll<IMessageModule>().ToArray(), config.MessageOwners.ToArray(), l.Resolve<IEndpointRouter>()));
             _registrar.Register<IMicroServiceBus, IStartableMicroServiceBus>();
         }
 
         public void RegisterDefaultServices(IEnumerable<Assembly> assemblies)
         {
-            _registrar.Register<IServiceLocator, ServiceLocatorAdapter>();
-            ServiceLocatorExtensions.RegisterByTypeMatch<IBusConfigurationAware>(_registrar, typeof(IServiceBus).Assembly);
-            foreach (var assembly in assemblies)
-                _registrar.RegisterByTypeMatch<IBusConfigurationAware>(assembly);
-            var locator = _locator.Resolve<IServiceLocator>();
-            foreach (var aware in _locator.ResolveAll<IBusConfigurationAware>())
-                aware.Configure(_config, this, locator);
-            foreach (var messageModule in _config.MessageModules)
-                if (!_registrar.HasRegistered(messageModule))
-                    _registrar.Register<IMessageModule>(messageModule, messageModule.FullName);
-            _registrar.Register<IReflection, DefaultReflection>();
-            _registrar.Register<IMessageSerializer>(_config.SerializerType);
-            _registrar.Register<IEndpointRouter, EndpointRouter>();
+            //_registrar.Register<IServiceLocator, ServiceLocatorAdapter>();
+            //ServiceLocatorExtensions.RegisterByTypeMatch<IBusConfigurationAware>(_registrar, typeof(IServiceBus).Assembly);
+            //foreach (var assembly in assemblies)
+            //    _registrar.RegisterByTypeMatch<IBusConfigurationAware>(assembly);
+            //var locator = _locator.Resolve<IServiceLocator>();
+            //foreach (var aware in _locator.ResolveAll<IBusConfigurationAware>())
+            //    aware.Configure(_config, this, locator);
+            //foreach (var messageModule in _config.MessageModules)
+            //    if (!_registrar.HasRegistered(messageModule))
+            //        _registrar.Register<IMessageModule>(messageModule, messageModule.FullName);
+            //_registrar.Register<IReflection, DefaultReflection>();
+            //_registrar.Register<IMessageSerializer>(_config.SerializerType);
+            //_registrar.Register<IEndpointRouter, EndpointRouter>();
         }
 
-        public void RegisterLoggingEndpoint(Uri logEndpoint)
-        {
-            _registrar.Register<MessageLoggingModule>(l => new MessageLoggingModule(l.Resolve<IEndpointRouter>(), logEndpoint));
-            _registrar.Register<IMicroDeploymentAction, CreateLogQueueAction>(Guid.NewGuid().ToString());
-        }
+        //public void RegisterLoggingEndpoint(Uri logEndpoint)
+        //{
+        //    _registrar.Register<MessageLoggingModule>(l => new MessageLoggingModule(l.Resolve<IEndpointRouter>(), logEndpoint));
+        //    _registrar.Register<IMicroDeploymentAction, CreateLogQueueAction>(Guid.NewGuid().ToString());
+        //}
 
         public void RegisterSingleton<T>(Func<T> func)
             where T : class

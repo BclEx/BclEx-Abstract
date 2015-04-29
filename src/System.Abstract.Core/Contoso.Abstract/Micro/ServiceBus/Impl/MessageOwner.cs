@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 /*
 The MIT License
 
@@ -24,22 +24,34 @@ THE SOFTWARE.
 */
 #endregion
 using System;
-using System.Abstract;
 namespace Contoso.Abstract.Micro.ServiceBus.Impl
 {
-    public class DefaultServiceMessageHandler : IServiceMessageHandler
+    /// <summary>
+    /// MessageOwner
+    /// </summary>
+    public class MessageOwner
     {
-        readonly Func<object> _resolveAction;
+        /// <summary>
+        /// The name
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// The endpoint
+        /// </summary>
+        public Uri Endpoint;
+        /// <summary>
+        /// The transactional
+        /// </summary>
+    	public bool? Transactional;
 
-        public DefaultServiceMessageHandler(Type service, Type implementation, Func<object> resolveAction)
+        /// <summary>
+        /// Determines whether the specified MSG is owner.
+        /// </summary>
+        /// <param name="msg">The MSG.</param>
+        /// <returns></returns>
+        public bool IsOwner(Type msg)
         {
-            _resolveAction = resolveAction;
-            Implementation = implementation;
-            Service = service;
+            return msg.FullName.StartsWith(Name);
         }
-
-        public object Resolve() { return _resolveAction(); }
-        public Type Implementation { get; private set; }
-        public Type Service { get; private set; }
     }
 }

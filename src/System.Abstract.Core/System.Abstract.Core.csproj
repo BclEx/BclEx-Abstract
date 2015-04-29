@@ -133,6 +133,7 @@
     <Compile Include="..\+fromcoreex\io\WrapTextReader.cs">
       <Link>+FromCoreEx\IO\WrapTextReader.cs</Link>
     </Compile>
+    <Compile Include="Abstract\Configuration\AssemblyElementCollection.cs" />
     <Compile Include="ConsoleEx.cs" />
     <Compile Include="Abstract+EventSource\Configuration+EventSource\EventSourceConfiguration.cs" />
     <Compile Include="Abstract+ServiceBus\Configuration+ServiceBus\ServiceBusConfiguration.cs" />
@@ -189,18 +190,23 @@
     <Compile Include="Contoso.Abstract\Micro\+Json\JsonSerializer.cs" />
     <Compile Include="Contoso.Abstract\Micro\+Json\JsonSerializer2.cs" />
     <Compile Include="Contoso.Abstract\Micro\+Json\JsonValueType.cs" />
+    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Actions\AbstractCreateQueuesAction.cs" />
+    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Actions\CreateQueuesAction.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\Actions\IMicroDeploymentAction.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\AbstractMicroServiceBusConfiguration.cs" />
+    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\IMicroQueueStrategy.cs" />
+    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\MessageOwner.cs" />
+    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\MessageOwnersConfigReader.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\MicroServiceBusConfiguration.cs" />
-    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\DefaultServiceBus.cs" />
-    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\DefaultServiceMessageHandler.cs" />
+    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\DefaultMicroServiceBus.cs" />
+    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\DefaultMicroServiceMessageHandler.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\OnewayMicroServiceBusConfiguration.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\ServiceLocatorAdapter.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\Impl\ServiceLocatorBuilder.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\IOnewayMicroServiceBus.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\IMicroServiceBus.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\IStartableMicroServiceBus.cs" />
-    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Modules\IMicroDeploymentAction.cs" />
+    <Compile Include="Contoso.Abstract\Micro\ServiceBus\Modules\IMicroMessageModule.cs" />
     <Compile Include="Contoso.Abstract\Micro\ServiceBus\ServiceBusExtensions.cs" />
     <Compile Include="Local.Designer.cs">
       <DependentUpon>Local.resx</DependentUpon>

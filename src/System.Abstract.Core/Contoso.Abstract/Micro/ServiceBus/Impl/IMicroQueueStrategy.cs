@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 /*
 The MIT License
 
@@ -23,31 +23,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Reflection;
+using System;
+using System.Abstract;
+using System.Collections.Generic;
 namespace Contoso.Abstract.Micro.ServiceBus.Impl
 {
     /// <summary>
-    /// OnewayMicroServiceBusConfiguration
+    /// IMicroQueueStrategy
     /// </summary>
-    public class OnewayMicroServiceBusConfiguration : AbstractMicroServiceBusConfiguration
+    public interface IMicroQueueStrategy
     {
         /// <summary>
-        /// Applies the configuration.
+        /// Initializes the queue.
         /// </summary>
-        protected override void ApplyConfiguration()
-        {
-            var assemblies = BusConfiguration.Assemblies;
-            if (assemblies != null)
-                foreach (Assembly element in assemblies)
-                    _assemblies.Add(element);
-        }
-
+        /// <param name="queueEndpoint">The queue endpoint.</param>
+        /// <param name="queueType">Type of the queue.</param>
+        /// <returns></returns>
+        object[] InitializeQueue(IServiceBusEndpoint queueEndpoint, int queueType);
         /// <summary>
-        /// Gets or sets the message owners.
+        /// Grants the permissions.
         /// </summary>
-        /// <value>
-        /// The message owners.
-        /// </value>
-        public MessageOwner[] MessageOwners { get; set; }
+        /// <param name="queue">The queue.</param>
+        /// <param name="user">The user.</param>
+        void GrantPermissions(object queue, string user);
+        //Uri CreateSubscriptionQueueUri(Uri subscriptionQueue);
+        //IEnumerable<TimeoutInfo> GetTimeoutMessages(OpenedQueue queue);
+        //void MoveTimeoutToMainQueue(OpenedQueue queue, string messageId);
+        //bool TryMoveMessage(OpenedQueue queue, Message message, SubQueue subQueue, out string msgId);
+        //void SendToErrorQueue(OpenedQueue queue, Message message);
+        //OpenedQueue OpenSubQueue(OpenedQueue queue, SubQueue subQueue, QueueAccessMode accessMode);
     }
 }

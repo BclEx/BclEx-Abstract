@@ -23,31 +23,48 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Reflection;
+using System;
+using System.Abstract;
 namespace Contoso.Abstract.Micro.ServiceBus.Impl
 {
     /// <summary>
-    /// OnewayMicroServiceBusConfiguration
+    /// DefaultMicroServiceMessageHandler
     /// </summary>
-    public class OnewayMicroServiceBusConfiguration : AbstractMicroServiceBusConfiguration
+    public class DefaultMicroServiceMessageHandler : IServiceMessageHandler
     {
+        readonly Func<object> _resolveAction;
+
         /// <summary>
-        /// Applies the configuration.
+        /// Initializes a new instance of the <see cref="DefaultMicroServiceMessageHandler"/> class.
         /// </summary>
-        protected override void ApplyConfiguration()
+        /// <param name="service">The service.</param>
+        /// <param name="implementation">The implementation.</param>
+        /// <param name="resolveAction">The resolve action.</param>
+        public DefaultMicroServiceMessageHandler(Type service, Type implementation, Func<object> resolveAction)
         {
-            var assemblies = BusConfiguration.Assemblies;
-            if (assemblies != null)
-                foreach (Assembly element in assemblies)
-                    _assemblies.Add(element);
+            _resolveAction = resolveAction;
+            Implementation = implementation;
+            Service = service;
         }
 
         /// <summary>
-        /// Gets or sets the message owners.
+        /// Resolves this instance.
+        /// </summary>
+        /// <returns></returns>
+        public object Resolve() { return _resolveAction(); }
+        /// <summary>
+        /// Gets the implementation.
         /// </summary>
         /// <value>
-        /// The message owners.
+        /// The implementation.
         /// </value>
-        public MessageOwner[] MessageOwners { get; set; }
+        public Type Implementation { get; private set; }
+        /// <summary>
+        /// Gets the service.
+        /// </summary>
+        /// <value>
+        /// The service.
+        /// </value>
+        public Type Service { get; private set; }
     }
 }

@@ -23,19 +23,44 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System;
+using Contoso.Abstract.Micro.ServiceBus.Impl;
 using System.Abstract;
 namespace Contoso.Abstract.Micro.ServiceBus.Actions
 {
     /// <summary>
-    /// IMicroDeploymentAction
+    /// AbstractCreateQueuesAction
     /// </summary>
-    public interface IMicroDeploymentAction
+    public abstract class AbstractCreateQueuesAction : IMicroDeploymentAction
     {
+        private readonly IMicroQueueStrategy _queueStrategy;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AbstractCreateQueuesAction"/> class.
+        /// </summary>
+        /// <param name="queueStrategy">The queue strategy.</param>
+        protected AbstractCreateQueuesAction(IMicroQueueStrategy queueStrategy)
+        {
+            _queueStrategy = queueStrategy;
+        }
+
         /// <summary>
         /// Executes the specified user.
         /// </summary>
         /// <param name="user">The user.</param>
-        void Execute(string user);
+        public abstract void Execute(string user);
+
+        /// <summary>
+        /// Creates the queues.
+        /// </summary>
+        /// <param name="mainQueueType">Type of the main queue.</param>
+        /// <param name="mainQueueEndpoint">The main queue endpoint.</param>
+        /// <param name="user">The user.</param>
+        protected void CreateQueues(int mainQueueType, IServiceBusEndpoint mainQueueEndpoint, string user)
+        {
+            // will create the queues if they are not already there
+            var queues = _queueStrategy.InitializeQueue(mainQueueEndpoint, mainQueueType);
+            foreach (var queue in queues)
+                _queueStrategy.GrantPermissions(queue, user);
+        }
     }
 }
