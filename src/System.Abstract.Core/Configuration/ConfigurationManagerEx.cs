@@ -131,63 +131,71 @@ namespace System.Configuration
         /// Encodes the specified value.
         /// </summary>
         /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        public static T Encode<T>(T value) { return Encode<T>(null, value); }
+        public static T Encode<T, TSource>(TSource value) { return Encode<T, TSource>(value, null); }
         /// <summary>
         /// Encodes the specified tag.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="tag">The tag.</param>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
+        /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        public static T Encode<T>(object tag, T value)
+        /// <exception cref="System.InvalidOperationException"></exception>
+        public static T Encode<T, TSource>(TSource value, object tag)
         {
-            var codec = GetCodec<T>();
+            var codec = GetCodec<T, TSource>();
             if (codec == null)
                 throw new InvalidOperationException(string.Format("No registration found for {0}. Please register one.", typeof(T).Name));
-            return codec.Encode(tag, value);
+            return codec.Encode(value, tag);
         }
 
         /// <summary>
         /// Decodes the specified value.
         /// </summary>
         /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        public static T Decode<T>(T value) { return Decode<T>(null, value); }
+        public static T Decode<T, TSource>(TSource value) { return Decode<T, TSource>(value, null); }
         /// <summary>
         /// Decodes the specified tag.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="tag">The tag.</param>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
+        /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        public static T Decode<T>(object tag, T value)
+        /// <exception cref="System.InvalidOperationException"></exception>
+        public static T Decode<T, TSource>(TSource value, object tag)
         {
-            var codec = GetCodec<T>();
+            var codec = GetCodec<T, TSource>();
             if (codec == null)
                 throw new InvalidOperationException(string.Format("No registration found for {0}. Please register one.", typeof(T).Name));
-            return codec.Decode(tag, value);
+            return codec.Decode(value, tag);
         }
 
         /// <summary>
         /// Gets the codec.
         /// </summary>
         /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <returns></returns>
-        public static ICodec<T> GetCodec<T>() { return Registration<T>.Codec; }
+        public static ICodec<T, TSource> GetCodec<T, TSource>() { return Registration<T, TSource>.Codec; }
 
         /// <summary>
         /// Sets the codec.
         /// </summary>
         /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="codec">The codec.</param>
-        public static void SetCodec<T>(ICodec<T> codec) { Registration<T>.Codec = codec; }
+        public static void SetCodec<T, TSource>(ICodec<T, TSource> codec) { Registration<T, TSource>.Codec = codec; }
 
-        internal static class Registration<T>
+        internal static class Registration<T, TSource>
         {
-            public static ICodec<T> Codec { get; set; }
+            public static ICodec<T, TSource> Codec { get; set; }
         }
 
         #endregion

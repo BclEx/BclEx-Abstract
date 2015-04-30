@@ -33,7 +33,7 @@ namespace System
 #if !COREINTERNAL
     public
 #endif
- static class ExceptionExtensions
+    static class ExceptionExtensions
     {
         private static readonly MethodInfo _prepForRemotingMethod = typeof(Exception).GetMethod("PrepForRemoting", BindingFlags.NonPublic | BindingFlags.Instance);
         private static readonly MethodInfo _internalPreserveStackTraceMethod = typeof(Exception).GetMethod("InternalPreserveStackTrace", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -58,15 +58,9 @@ namespace System
         /// Prepares for rethrow.
         /// </summary>
         /// <param name="exception">The exception.</param>
-        /// <returns></returns>
-        public static Exception PrepareForRethrow(this Exception exception) { return PrepareForRethrow(exception, false); }
-        /// <summary>
-        /// Prepares for rethrow.
-        /// </summary>
-        /// <param name="exception">The exception.</param>
         /// <param name="remoting">if set to <c>true</c> [remoting].</param>
         /// <returns></returns>
-        public static Exception PrepareForRethrow(this Exception exception, bool remoting)
+        public static Exception PrepareForRethrow(this Exception exception, bool remoting = false)
         {
             if (exception == null)
                 throw new ArgumentNullException("exception");

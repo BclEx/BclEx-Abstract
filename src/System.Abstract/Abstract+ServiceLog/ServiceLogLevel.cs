@@ -35,23 +35,23 @@ namespace System.Abstract
         /// </summary>
         None,
         /// <summary>
-        /// Fatal
+        /// Logging action involving information regarding a critical system or application error.
         /// </summary>
         Fatal,
         /// <summary>
-        /// Error
+        /// Logging action involving information regarding a system or application error of a non-critical nature.
         /// </summary>
         Error,
         /// <summary>
-        /// Warning
+        /// Logging action involving information of concern.
         /// </summary>
         Warning,
         /// <summary>
-        /// Information
+        /// Logging action involving non-specific information of general purpose.
         /// </summary>
         Information,
         /// <summary>
-        /// Debug
+        /// Logging action involving application debugging information.
         /// </summary>
         Debug
     }

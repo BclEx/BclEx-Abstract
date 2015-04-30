@@ -45,6 +45,7 @@ namespace System.Abstract.EventSourcing
         /// </value>
         public T1 Item1 { get; set; }
     }
+
     /// <summary>
     /// AggregateTuple
     /// </summary>
@@ -71,5 +72,82 @@ namespace System.Abstract.EventSourcing
         /// The item2.
         /// </value>
         public T2 Item2 { get; set; }
+    }
+
+    /// <summary>
+    /// AggregateTuple
+    /// </summary>
+    public class AggregateTuple<T1, T2, T3>
+    {
+        /// <summary>
+        /// Gets or sets the aggregate ID.
+        /// </summary>
+        /// <value>
+        /// The aggregate ID.
+        /// </value>
+        public object AggregateID { get; set; }
+        /// <summary>
+        /// Gets or sets the item1.
+        /// </summary>
+        /// <value>
+        /// The item1.
+        /// </value>
+        public T1 Item1 { get; set; }
+        /// <summary>
+        /// Gets or sets the item2.
+        /// </summary>
+        /// <value>
+        /// The item2.
+        /// </value>
+        public T2 Item2 { get; set; }
+        /// <summary>
+        /// Gets or sets the item3.
+        /// </summary>
+        /// <value>
+        /// The item3.
+        /// </value>
+        public T3 Item3 { get; set; }
+    }
+
+    /// <summary>
+    /// AggregateTuple
+    /// </summary>
+    public class AggregateTuple<T1, T2, T3, T4>
+    {
+        /// <summary>
+        /// Gets or sets the aggregate ID.
+        /// </summary>
+        /// <value>
+        /// The aggregate ID.
+        /// </value>
+        public object AggregateID { get; set; }
+        /// <summary>
+        /// Gets or sets the item1.
+        /// </summary>
+        /// <value>
+        /// The item1.
+        /// </value>
+        public T1 Item1 { get; set; }
+        /// <summary>
+        /// Gets or sets the item2.
+        /// </summary>
+        /// <value>
+        /// The item2.
+        /// </value>
+        public T2 Item2 { get; set; }
+        /// <summary>
+        /// Gets or sets the item3.
+        /// </summary>
+        /// <value>
+        /// The item3.
+        /// </value>
+        public T3 Item3 { get; set; }
+        /// <summary>
+        /// Gets or sets the item4.
+        /// </summary>
+        /// <value>
+        /// The item4.
+        /// </value>
+        public T4 Item4 { get; set; }
     }
 }

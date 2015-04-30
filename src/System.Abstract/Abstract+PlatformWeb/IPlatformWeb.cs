@@ -25,10 +25,10 @@ THE SOFTWARE.
 #endregion
 namespace System.Abstract
 {
-	/// <summary>
+    /// <summary>
     /// IPlatformWeb
-	/// </summary>
+    /// </summary>
     public interface IPlatformWeb : IServiceProvider
-	{
-	}
+    {
+    }
 }

@@ -30,22 +30,23 @@ namespace System
     /// encoding/decoding interface.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface ICodec<T>
+    /// <typeparam name="TSource">The type of the source.</typeparam>
+    public interface ICodec<T, TSource>
     {
         /// <summary>
         /// Decodes the specified tag.
         /// </summary>
-        /// <param name="tag">The tag.</param>
         /// <param name="value">The value.</param>
+        /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        T Decode(object tag, T value);
+        T Decode(TSource value, object tag);
 
         /// <summary>
         /// Encodes the specified tag.
         /// </summary>
-        /// <param name="tag">The tag.</param>
         /// <param name="value">The value.</param>
+        /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        T Encode(object tag, T value);
+        T Encode(TSource value, object tag);
     }
 }

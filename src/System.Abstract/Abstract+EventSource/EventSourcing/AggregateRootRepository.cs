@@ -93,24 +93,10 @@ namespace System.Abstract.EventSourcing
         /// </summary>
         /// <param name="eventStore">The event store.</param>
         /// <param name="snapshotStore">The snapshot store.</param>
-        public AggregateRootRepository(IEventStore eventStore, IAggregateRootSnapshotStore snapshotStore)
-            : this(eventStore, snapshotStore, null, EventSource.DefaultFactory.Factory) { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AggregateRootRepository"/> class.
-        /// </summary>
-        /// <param name="eventStore">The event store.</param>
-        /// <param name="snapshotStore">The snapshot store.</param>
-        /// <param name="eventDispatcher">The event dispatcher.</param>
-        public AggregateRootRepository(IEventStore eventStore, IAggregateRootSnapshotStore snapshotStore, Action<IEnumerable<Event>> eventDispatcher)
-            : this(eventStore, snapshotStore, eventDispatcher, EventSource.DefaultFactory.Factory) { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AggregateRootRepository"/> class.
-        /// </summary>
-        /// <param name="eventStore">The event store.</param>
-        /// <param name="snapshotStore">The snapshot store.</param>
         /// <param name="eventDispatcher">The event dispatcher.</param>
         /// <param name="factory">The factory.</param>
-        public AggregateRootRepository(IEventStore eventStore, IAggregateRootSnapshotStore snapshotStore, Action<IEnumerable<Event>> eventDispatcher, Func<Type, AggregateRoot> factory)
+        /// <exception cref="System.ArgumentNullException">eventStore</exception>
+        public AggregateRootRepository(IEventStore eventStore, IAggregateRootSnapshotStore snapshotStore, Action<IEnumerable<Event>> eventDispatcher = null, Func<Type, AggregateRoot> factory = null)
         {
             if (eventStore == null)
                 throw new ArgumentNullException("eventStore");

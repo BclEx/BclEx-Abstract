@@ -102,20 +102,9 @@ namespace System.Abstract
         /// </summary>
         /// <typeparam name="TMessage">The type of the message.</typeparam>
         /// <param name="serviceBus">The service bus.</param>
-        public static void Subscribe<TMessage>(this IPublishingServiceBus serviceBus)
-            where TMessage : class { serviceBus.Subscribe(typeof(TMessage), null); }
-        /// <summary>
-        /// Subscribes the specified service bus.
-        /// </summary>
-        /// <typeparam name="TMessage">The type of the message.</typeparam>
-        /// <param name="serviceBus">The service bus.</param>
         /// <param name="condition">The condition.</param>
-        public static void Subscribe<TMessage>(this IPublishingServiceBus serviceBus, Predicate<TMessage> condition)
-            where TMessage : class
-        {
-            var p = new Predicate<object>(m => (m is TMessage ? condition((TMessage)m) : true));
-            serviceBus.Subscribe(typeof(TMessage), p);
-        }
+        public static void Subscribe<TMessage>(this IPublishingServiceBus serviceBus, Predicate<TMessage> condition = null)
+            where TMessage : class { serviceBus.Subscribe(typeof(TMessage), (condition == null ? null : new Predicate<object>(m => (m is TMessage ? condition((TMessage)m) : true)))); }
         /// <summary>
         /// Subscribes the specified service bus.
         /// </summary>
@@ -160,17 +149,9 @@ namespace System.Abstract
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="service">The service.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator<T>(this Lazy<IServiceBus> service)
-            where T : class, IServiceBus { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator<T>(service, ServiceLocatorManager.Lazy, null); return service; }
-        /// <summary>
-        /// Registers the with service locator.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="service">The service.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator<T>(this Lazy<IServiceBus> service, string name)
+        public static Lazy<IServiceBus> RegisterWithServiceLocator<T>(this Lazy<IServiceBus> service, string name = null)
             where T : class, IServiceBus { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator<T>(service, ServiceLocatorManager.Lazy, name); return service; }
         /// <summary>
         /// Registers the with service locator.
@@ -178,39 +159,17 @@ namespace System.Abstract
         /// <typeparam name="T"></typeparam>
         /// <param name="service">The service.</param>
         /// <param name="locator">The locator.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator<T>(this Lazy<IServiceBus> service, Lazy<IServiceLocator> locator)
-            where T : class, IServiceBus { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator<T>(service, locator, null); return service; }
-        /// <summary>
-        /// Registers the with service locator.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="service">The service.</param>
-        /// <param name="locator">The locator.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator<T>(this Lazy<IServiceBus> service, Lazy<IServiceLocator> locator, string name)
+        public static Lazy<IServiceBus> RegisterWithServiceLocator<T>(this Lazy<IServiceBus> service, Lazy<IServiceLocator> locator, string name = null)
             where T : class, IServiceBus { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator<T>(service, locator, name); return service; }
         /// <summary>
         /// Registers the with service locator.
         /// </summary>
         /// <param name="service">The service.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator(this Lazy<IServiceBus> service) { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator(service, ServiceLocatorManager.Lazy, null); return service; }
-        /// <summary>
-        /// Registers the with service locator.
-        /// </summary>
-        /// <param name="service">The service.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator(this Lazy<IServiceBus> service, string name) { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator(service, ServiceLocatorManager.Lazy, name); return service; }
-        /// <summary>
-        /// Registers the with service locator.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="locator">The locator.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator(this Lazy<IServiceBus> service, Lazy<IServiceLocator> locator) { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator(service, locator, null); return service; }
+        public static Lazy<IServiceBus> RegisterWithServiceLocator(this Lazy<IServiceBus> service, string name = null) { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator(service, ServiceLocatorManager.Lazy, name); return service; }
         /// <summary>
         /// Registers the with service locator.
         /// </summary>
@@ -218,7 +177,7 @@ namespace System.Abstract
         /// <param name="locator">The locator.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator(this Lazy<IServiceBus> service, Lazy<IServiceLocator> locator, string name) { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator(service, locator, name); return service; }
+        public static Lazy<IServiceBus> RegisterWithServiceLocator(this Lazy<IServiceBus> service, Lazy<IServiceLocator> locator, string name = null) { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator(service, locator, name); return service; }
 
         /// <summary>
         /// Registers the with service locator.
@@ -226,34 +185,18 @@ namespace System.Abstract
         /// <typeparam name="T"></typeparam>
         /// <param name="service">The service.</param>
         /// <param name="locator">The locator.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator<T>(this Lazy<IServiceBus> service, IServiceLocator locator)
-            where T : class, IServiceBus { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator<T>(service, locator, null); return service; }
-        /// <summary>
-        /// Registers the with service locator.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="service">The service.</param>
-        /// <param name="locator">The locator.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator<T>(this Lazy<IServiceBus> service, IServiceLocator locator, string name)
+        public static Lazy<IServiceBus> RegisterWithServiceLocator<T>(this Lazy<IServiceBus> service, IServiceLocator locator, string name = null)
             where T : class, IServiceBus { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator<T>(service, locator, name); return service; }
         /// <summary>
         /// Registers the with service locator.
         /// </summary>
         /// <param name="service">The service.</param>
         /// <param name="locator">The locator.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator(this Lazy<IServiceBus> service, IServiceLocator locator) { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator(service, locator, null); return service; }
-        /// <summary>
-        /// Registers the with service locator.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="locator">The locator.</param>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public static Lazy<IServiceBus> RegisterWithServiceLocator(this Lazy<IServiceBus> service, IServiceLocator locator, string name) { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator(service, locator, name); return service; }
+        public static Lazy<IServiceBus> RegisterWithServiceLocator(this Lazy<IServiceBus> service, IServiceLocator locator, string name = null) { ServiceBusManager.GetSetupDescriptor(service).RegisterWithServiceLocator(service, locator, name); return service; }
 
         /// <summary>
         /// Adds the endpoint.

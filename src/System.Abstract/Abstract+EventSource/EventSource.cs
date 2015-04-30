@@ -55,29 +55,14 @@ namespace System.Abstract
         /// </summary>
         /// <param name="eventStore">The event store.</param>
         /// <param name="snapshotStore">The snapshot store.</param>
-        public EventSource(IEventStore eventStore, IAggregateRootSnapshotStore snapshotStore)
-            : this(eventStore, snapshotStore, null, DefaultFactory.Factory) { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EventSource"/> class.
-        /// </summary>
-        /// <param name="eventStore">The event store.</param>
-        /// <param name="snapshotStore">The snapshot store.</param>
-        /// <param name="eventDispatcher">The event dispatcher.</param>
-        public EventSource(IEventStore eventStore, IAggregateRootSnapshotStore snapshotStore, Action<IEnumerable<Event>> eventDispatcher)
-            : this(eventStore, snapshotStore, eventDispatcher, DefaultFactory.Factory) { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="EventSource"/> class.
-        /// </summary>
-        /// <param name="eventStore">The event store.</param>
-        /// <param name="snapshotStore">The snapshot store.</param>
         /// <param name="eventDispatcher">The event dispatcher.</param>
         /// <param name="factory">The factory.</param>
-        public EventSource(IEventStore eventStore, IAggregateRootSnapshotStore snapshotStore, Action<IEnumerable<Event>> eventDispatcher, Func<Type, AggregateRoot> factory)
+        public EventSource(IEventStore eventStore, IAggregateRootSnapshotStore snapshotStore, Action<IEnumerable<Event>> eventDispatcher = null, Func<Type, AggregateRoot> factory = null)
         {
             _eventStore = eventStore;
             _snapshotStore = snapshotStore;
             _eventDispatcher = eventDispatcher;
-            _factory = factory;
+            _factory = (factory ?? DefaultFactory.Factory);
         }
 
         Action<IServiceLocator, string> EventSourceManager.ISetupRegistration.DefaultServiceRegistrar

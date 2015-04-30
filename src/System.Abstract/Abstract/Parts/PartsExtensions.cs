@@ -28,7 +28,5 @@ namespace System.Abstract.Parts
     /// <summary>
     /// PartsExtensions
     /// </summary>
-    public static partial class PartsExtensions
-    {
-    }
+    public static partial class PartsExtensions { }
 }

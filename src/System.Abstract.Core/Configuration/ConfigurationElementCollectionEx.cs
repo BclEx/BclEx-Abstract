@@ -157,34 +157,38 @@ namespace System.Configuration
         /// <summary>
         /// Encodes the specified value.
         /// </summary>
-        /// <typeparam name="T2"></typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        protected T2 Encode<T2>(T2 value) { return ConfigurationManagerEx.Encode(null, value); }
+        protected T2 Encode<T2, TSource>(TSource value) { return ConfigurationManagerEx.Encode<T2, TSource>(value, null); }
         /// <summary>
         /// Encodes the specified tag.
         /// </summary>
-        /// <typeparam name="T2"></typeparam>
-        /// <param name="tag">The tag.</param>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
+        /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        protected T2 Encode<T2>(object tag, T2 value) { return ConfigurationManagerEx.Encode(tag, value); }
+        protected T2 Encode<T2, TSource>(TSource value, object tag) { return ConfigurationManagerEx.Encode<T2, TSource>(value, tag); }
 
         /// <summary>
         /// Decodes the specified value.
         /// </summary>
-        /// <typeparam name="T2"></typeparam>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        protected T2 Decode<T2>(T2 value) { return ConfigurationManagerEx.Decode(null, value); }
+        protected T2 Decode<T2, TSource>(TSource value) { return ConfigurationManagerEx.Decode<T2, TSource>(value, null); }
         /// <summary>
         /// Decodes the specified tag.
         /// </summary>
-        /// <typeparam name="T2"></typeparam>
-        /// <param name="tag">The tag.</param>
+        /// <typeparam name="T2">The type of the 2.</typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
+        /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        protected T2 Decode<T2>(object tag, T2 value) { return ConfigurationManagerEx.Decode(tag, value); }
+        protected T2 Decode<T2, TSource>(TSource value, object tag) { return ConfigurationManagerEx.Decode<T2, TSource>(value, tag); }
 
         #endregion
 

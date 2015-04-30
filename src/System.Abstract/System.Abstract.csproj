@@ -143,6 +143,7 @@
     <Compile Include="Abstract+EventSource\EventSourceManager.cs" />
     <Compile Include="Abstract+EventSource\EventSourceManagerDebugger.cs" />
     <Compile Include="Abstract+EventSource\EventSourcing\DefaultRegistryEventDispatcher.cs" />
+    <Compile Include="Abstract+PlatformWeb\IPlatformWeb.cs" />
     <Compile Include="Abstract+PlatformWeb\PlatformWeb.cs" />
     <Compile Include="Abstract+PlatformWeb\PlatformWebManager.cs" />
     <Compile Include="Abstract+PlatformWeb\PlatformWebManagerDebugger.cs" />
@@ -202,7 +203,6 @@
     <Compile Include="Abstract+EventSource\EventBus.cs" />
     <Compile Include="Abstract+EventSource\IEventHandler.cs" />
     <Compile Include="Abstract+PlatformWeb\PlatformWebExtensions.cs" />
-    <Compile Include="Abstract+PlatformWeb\IPlatformWeb.cs" />
     <Compile Include="Abstract+ServiceBus\IServiceBusHostRuntime.cs" />
     <Compile Include="Abstract+ServiceBus\ServiceBusExtensions.cs" />
     <Compile Include="Abstract+ServiceCache\CacheItemDependency.cs" />
@@ -226,7 +226,6 @@
     <Compile Include="Abstract+ServiceLocator\IIgnoreServiceLocator.cs" />
     <Compile Include="Abstract+ServiceLog\ServiceLogExtensions.cs" />
     <Compile Include="IConsoleEx.cs" />
-    <Compile Include="Abstract+ServiceLog\ServiceLogEventType.cs" />
     <Compile Include="Abstract+ServiceMap\IServiceMap.cs" />
     <Compile Include="Abstract+ServiceMap\ServiceMapExtensions.cs" />
     <Compile Include="Nameable.cs" />

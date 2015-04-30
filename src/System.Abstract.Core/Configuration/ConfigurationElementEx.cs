@@ -91,33 +91,37 @@ namespace System.Configuration
         /// Encodes the specified value.
         /// </summary>
         /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        protected T Encode<T>(T value) { return ConfigurationManagerEx.Encode(null, value); }
+        protected T Encode<T, TSource>(TSource value) { return ConfigurationManagerEx.Encode<T, TSource>(value, null); }
         /// <summary>
         /// Encodes the specified tag.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="tag">The tag.</param>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
+        /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        protected T Encode<T>(object tag, T value) { return ConfigurationManagerEx.Encode(tag, value); }
+        protected T Encode<T, TSource>(TSource value, object tag) { return ConfigurationManagerEx.Encode<T, TSource>(value, tag); }
 
         /// <summary>
         /// Decodes the specified value.
         /// </summary>
         /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
         /// <returns></returns>
-        protected T Decode<T>(T value) { return ConfigurationManagerEx.Decode(null, value); }
+        protected T Decode<T, TSource>(TSource value) { return ConfigurationManagerEx.Decode<T, TSource>(value, null); }
         /// <summary>
         /// Decodes the specified tag.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="tag">The tag.</param>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
         /// <param name="value">The value.</param>
+        /// <param name="tag">The tag.</param>
         /// <returns></returns>
-        protected T Decode<T>(object tag, T value) { return ConfigurationManagerEx.Decode(tag, value); }
+        protected T Decode<T, TSource>(TSource value, object tag) { return ConfigurationManagerEx.Decode<T, TSource>(value, tag); }
 
         #endregion
 

@@ -30,7 +30,7 @@ namespace System.Configuration
     /// <summary>
     /// CodecConverter
     /// </summary>
-    public class CodecConverter<T> : ConfigurationConverterBase
+    public class CodecConverter<T, TSource> : ConfigurationConverterBase
     {
         /// <summary>
         /// FromCredentials
@@ -44,7 +44,7 @@ namespace System.Configuration
             /// <param name="ci">The ci.</param>
             /// <param name="data">The data.</param>
             /// <returns></returns>
-            public override object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data) { return ConfigurationManagerEx.Decode<T>(typeof(FromCredentials), (T)data); }
+            public override object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data) { return ConfigurationManagerEx.Decode<T, TSource>((TSource)data, typeof(FromCredentials)); }
 
             /// <summary>
             /// Converts to.
@@ -54,7 +54,7 @@ namespace System.Configuration
             /// <param name="value">The value.</param>
             /// <param name="type">The type.</param>
             /// <returns></returns>
-            public override object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type) { return ConfigurationManagerEx.Encode<T>(typeof(FromCredentials), (T)value); }
+            public override object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type) { return ConfigurationManagerEx.Encode<T, TSource>((TSource)value, typeof(FromCredentials)); }
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace System.Configuration
         /// <param name="ci">The ci.</param>
         /// <param name="data">The data.</param>
         /// <returns></returns>
-        public override object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data) { return ConfigurationManagerEx.Decode<T>(null, (T)data); }
+        public override object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data) { return ConfigurationManagerEx.Decode<T, TSource>((TSource)data, null); }
 
         /// <summary>
         /// Converts to.
@@ -74,6 +74,6 @@ namespace System.Configuration
         /// <param name="value">The value.</param>
         /// <param name="type">The type.</param>
         /// <returns></returns>
-        public override object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type) { return ConfigurationManagerEx.Encode<T>(null, (T)value); }
+        public override object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type) { return ConfigurationManagerEx.Encode<T, TSource>((TSource)value, null); }
     }
 }

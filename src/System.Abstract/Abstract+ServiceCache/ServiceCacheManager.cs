@@ -70,28 +70,16 @@ namespace System.Abstract
         /// Sets the provider.
         /// </summary>
         /// <param name="provider">The provider.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceCache> SetProvider(Func<IServiceCache> provider) { return (Lazy = MakeByProviderProtected(provider, null)); }
-        /// <summary>
-        /// Sets the provider.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
         /// <param name="setupDescriptor">The setup descriptor.</param>
         /// <returns></returns>
-        public static Lazy<IServiceCache> SetProvider(Func<IServiceCache> provider, ISetupDescriptor setupDescriptor) { return (Lazy = MakeByProviderProtected(provider, setupDescriptor)); }
-        /// <summary>
-        /// Makes the by provider.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <returns></returns>
-        public static Lazy<IServiceCache> MakeByProvider(Func<IServiceCache> provider) { return MakeByProviderProtected(provider, null); }
+        public static Lazy<IServiceCache> SetProvider(Func<IServiceCache> provider, ISetupDescriptor setupDescriptor = null) { return (Lazy = MakeByProviderProtected(provider, setupDescriptor)); }
         /// <summary>
         /// Makes the by provider.
         /// </summary>
         /// <param name="provider">The provider.</param>
         /// <param name="setupDescriptor">The setup descriptor.</param>
         /// <returns></returns>
-        public static Lazy<IServiceCache> MakeByProvider(Func<IServiceCache> provider, ISetupDescriptor setupDescriptor) { return MakeByProviderProtected(provider, setupDescriptor); }
+        public static Lazy<IServiceCache> MakeByProvider(Func<IServiceCache> provider, ISetupDescriptor setupDescriptor = null) { return MakeByProviderProtected(provider, setupDescriptor); }
 
         /// <summary>
         /// Gets the current.

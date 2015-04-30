@@ -32,7 +32,7 @@ namespace System.Abstract
     public static class ServiceBus
     {
         /// <summary>
-        /// 
+        /// SelfEndpoint
         /// </summary>
         public readonly static IServiceBusEndpoint SelfEndpoint = new LiteralServiceBusEndpoint("#local");
 

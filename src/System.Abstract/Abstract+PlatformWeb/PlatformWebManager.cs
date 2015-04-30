@@ -59,28 +59,16 @@ namespace System.Abstract
         /// Sets the provider.
         /// </summary>
         /// <param name="provider">The provider.</param>
-        /// <returns></returns>
-        public static Lazy<IPlatformWeb> SetProvider(Func<IPlatformWeb> provider) { return (Lazy = MakeByProviderProtected(provider, null)); }
-        /// <summary>
-        /// Sets the provider.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
         /// <param name="setupDescriptor">The setup descriptor.</param>
         /// <returns></returns>
-        public static Lazy<IPlatformWeb> SetProvider(Func<IPlatformWeb> provider, ISetupDescriptor setupDescriptor) { return (Lazy = MakeByProviderProtected(provider, setupDescriptor)); }
-        /// <summary>
-        /// Makes the by provider.
-        /// </summary>
-        /// <param name="provider">The provider.</param>
-        /// <returns></returns>
-        public static Lazy<IPlatformWeb> MakeByProvider(Func<IPlatformWeb> provider) { return MakeByProviderProtected(provider, null); }
+        public static Lazy<IPlatformWeb> SetProvider(Func<IPlatformWeb> provider, ISetupDescriptor setupDescriptor = null) { return (Lazy = MakeByProviderProtected(provider, setupDescriptor)); }
         /// <summary>
         /// Makes the by provider.
         /// </summary>
         /// <param name="provider">The provider.</param>
         /// <param name="setupDescriptor">The setup descriptor.</param>
         /// <returns></returns>
-        public static Lazy<IPlatformWeb> MakeByProvider(Func<IPlatformWeb> provider, ISetupDescriptor setupDescriptor) { return MakeByProviderProtected(provider, setupDescriptor); }
+        public static Lazy<IPlatformWeb> MakeByProvider(Func<IPlatformWeb> provider, ISetupDescriptor setupDescriptor = null) { return MakeByProviderProtected(provider, setupDescriptor); }
 
         /// <summary>
         /// Gets the current.

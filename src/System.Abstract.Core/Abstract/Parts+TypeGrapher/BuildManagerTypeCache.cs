@@ -69,21 +69,14 @@ namespace System.Abstract.Parts
         /// </summary>
         /// <param name="cacheName">Name of the cache.</param>
         /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
-        public IEnumerable<Type> GetFilteredTypesFromAssemblies(string cacheName, Predicate<Type> predicate) { return GetFilteredTypesFromAssemblies(cacheName, predicate, BuildManager.GetReferencedAssemblies()); }
-        /// <summary>
-        /// Gets the filtered types from assemblies.
-        /// </summary>
-        /// <param name="cacheName">Name of the cache.</param>
-        /// <param name="predicate">The predicate.</param>
         /// <param name="assemblies">The assemblies.</param>
         /// <returns></returns>
-        public IEnumerable<Type> GetFilteredTypesFromAssemblies(string cacheName, Predicate<Type> predicate, IEnumerable<Assembly> assemblies)
+        public IEnumerable<Type> GetFilteredTypesFromAssemblies(string cacheName, Predicate<Type> predicate, IEnumerable<Assembly> assemblies = null)
         {
             var matchingTypes = TypeCacheManager.ReadTypesFromCache(BuildManager, cacheName, predicate, Serializer);
             if (matchingTypes == null)
             {
-                matchingTypes = FilterTypesInAssemblies(BuildManager, predicate, assemblies)
+                matchingTypes = FilterTypesInAssemblies(BuildManager, predicate, (assemblies ?? BuildManager.GetReferencedAssemblies()))
                     .ToList();
                 TypeCacheManager.SaveTypesToCache(BuildManager, cacheName, matchingTypes, Serializer);
             }
