@@ -128,14 +128,6 @@ namespace System.Configuration
         #region Codec
 
         /// <summary>
-        /// Encodes the specified value.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
-        public static T Encode<T, TSource>(TSource value) { return Encode<T, TSource>(value, null); }
-        /// <summary>
         /// Encodes the specified tag.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -144,7 +136,7 @@ namespace System.Configuration
         /// <param name="tag">The tag.</param>
         /// <returns></returns>
         /// <exception cref="System.InvalidOperationException"></exception>
-        public static T Encode<T, TSource>(TSource value, object tag)
+        public static T Encode<T, TSource>(TSource value, object tag = null)
         {
             var codec = GetCodec<T, TSource>();
             if (codec == null)
@@ -152,14 +144,6 @@ namespace System.Configuration
             return codec.Encode(value, tag);
         }
 
-        /// <summary>
-        /// Decodes the specified value.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <typeparam name="TSource">The type of the source.</typeparam>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
-        public static T Decode<T, TSource>(TSource value) { return Decode<T, TSource>(value, null); }
         /// <summary>
         /// Decodes the specified tag.
         /// </summary>
@@ -169,7 +153,7 @@ namespace System.Configuration
         /// <param name="tag">The tag.</param>
         /// <returns></returns>
         /// <exception cref="System.InvalidOperationException"></exception>
-        public static T Decode<T, TSource>(TSource value, object tag)
+        public static T Decode<T, TSource>(TSource value, object tag = null)
         {
             var codec = GetCodec<T, TSource>();
             if (codec == null)

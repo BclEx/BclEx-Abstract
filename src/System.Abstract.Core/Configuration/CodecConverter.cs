@@ -33,31 +33,6 @@ namespace System.Configuration
     public class CodecConverter<T, TSource> : ConfigurationConverterBase
     {
         /// <summary>
-        /// FromCredentials
-        /// </summary>
-        public class FromCredentials : ConfigurationConverterBase
-        {
-            /// <summary>
-            /// Converts from.
-            /// </summary>
-            /// <param name="ctx">The CTX.</param>
-            /// <param name="ci">The ci.</param>
-            /// <param name="data">The data.</param>
-            /// <returns></returns>
-            public override object ConvertFrom(ITypeDescriptorContext ctx, CultureInfo ci, object data) { return ConfigurationManagerEx.Decode<T, TSource>((TSource)data, typeof(FromCredentials)); }
-
-            /// <summary>
-            /// Converts to.
-            /// </summary>
-            /// <param name="ctx">The CTX.</param>
-            /// <param name="ci">The ci.</param>
-            /// <param name="value">The value.</param>
-            /// <param name="type">The type.</param>
-            /// <returns></returns>
-            public override object ConvertTo(ITypeDescriptorContext ctx, CultureInfo ci, object value, Type type) { return ConfigurationManagerEx.Encode<T, TSource>((TSource)value, typeof(FromCredentials)); }
-        }
-
-        /// <summary>
         /// Converts from.
         /// </summary>
         /// <param name="ctx">The CTX.</param>
