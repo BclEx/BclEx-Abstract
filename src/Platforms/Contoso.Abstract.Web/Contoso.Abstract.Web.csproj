@@ -84,6 +84,14 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
@@ -101,6 +109,8 @@
     <Compile Include="Abstract\AssemblyResourceFile.cs" />
     <Compile Include="Abstract\AssemblyResourcePathProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Abstract\Dependencies\DependencyResolver.cs" />
+    <Compile Include="Abstract\Dependencies\DependencyScope.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\nuspecs.last\BclContrib-Abstract.Web.nuspec">

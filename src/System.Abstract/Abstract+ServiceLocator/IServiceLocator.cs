@@ -29,7 +29,7 @@ namespace System.Abstract
     /// <summary>
     /// IServiceLocator
     /// </summary>
-    public interface IServiceLocator : IServiceProvider
+    public interface IServiceLocator : IDisposable, IServiceProvider
     {
         /// <summary>
         /// Gets the underlying container.

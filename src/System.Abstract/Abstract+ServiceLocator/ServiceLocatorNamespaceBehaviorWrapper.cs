@@ -87,5 +87,6 @@ namespace System.Abstract
         public void TearDown<TService>(TService instance)
             where TService : class { throw new NotSupportedException(); }
         public void Reset() { throw new NotSupportedException(); }
+        public void Dispose() { _parent.Dispose(); }
     }
 }
