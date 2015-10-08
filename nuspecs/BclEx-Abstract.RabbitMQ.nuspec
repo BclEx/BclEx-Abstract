@@ -17,7 +17,15 @@
     <dependencies>
       <group>
         <dependency id="BclEx-Abstract" version="1.0.0" />
-        <dependency id="RabbitMQ.Client" version="3.3.5" />
+      </group>
+      <group targetFramework="net35">
+        <dependency id="RabbitMQ.Client" version="[3.4.3]" />
+      </group>
+      <group targetFramework="net40">
+        <dependency id="RabbitMQ.Client" version="3.5.6" />
+      </group>
+      <group targetFramework="net45">
+        <dependency id="RabbitMQ.Client" version="3.5.6" />
       </group>
     </dependencies>
   </metadata>
