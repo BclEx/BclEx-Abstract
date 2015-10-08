@@ -17,9 +17,9 @@
     <dependencies>
         <dependency id="BclEx-Abstract" version="1.0.0" />
         <dependency id="Magnum" version="2.1.3" />
-        <dependency id="MassTransit" version="2.9.8" />
-        <dependency id="Newtonsoft.Json" version="6.0.5" />
-        <dependency id="MassTransit.MSMQ" version="2.9.8" />
+        <dependency id="MassTransit" version="2.10.1" />
+        <dependency id="MassTransit.MSMQ" version="2.10.1" />
+        <dependency id="Newtonsoft.Json" version="6.0.6" />
     </dependencies>
   </metadata>
   <files>
