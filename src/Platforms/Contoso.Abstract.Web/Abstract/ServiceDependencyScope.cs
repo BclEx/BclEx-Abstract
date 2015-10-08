@@ -30,12 +30,12 @@ using System.Collections.Generic;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dependencies;
 
-namespace Contoso.Abstract.Dependencies
+namespace Contoso.Abstract
 {
     /// <summary>
-    /// DependencyScope
+    /// ServiceDependencyScope
     /// </summary>
-    public class DependencyScope : IDependencyScope
+    public class ServiceDependencyScope : IDependencyScope
     {
         /// <summary>
         /// Gets the container.
@@ -46,10 +46,10 @@ namespace Contoso.Abstract.Dependencies
         protected IServiceLocator Container { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DependencyScope"/> class.
+        /// Initializes a new instance of the <see cref="ServiceDependencyScope"/> class.
         /// </summary>
         /// <param name="container">The container.</param>
-        public DependencyScope(IServiceLocator container)
+        public ServiceDependencyScope(IServiceLocator container)
         {
             Container = container;
         }

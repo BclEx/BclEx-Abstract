@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{369E75C5-AAA0-4CD6-84A1-837C04F259DA}</ProjectGuid>
+    <ProjectGuid>{0FDD553F-9E3E-484A-A1E6-B2B2B2D18CCF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Contoso</RootNamespace>
-    <AssemblyName>Contoso.Bundle.Bundle01Web</AssemblyName>
+    <AssemblyName>Contoso.Bundle.Bundle01Core</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -57,7 +57,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Contoso.Bundle.Bundle01Web.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Contoso.Bundle.Bundle01Core.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -69,7 +69,7 @@
     <DefineConstants>TRACE;CLR4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release.4\Contoso.Bundle.Bundle01Web.XML</DocumentationFile>
+    <DocumentationFile>bin\Release.4\Contoso.Bundle.Bundle01Core.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -81,7 +81,7 @@
     <DefineConstants>TRACE;CLR4;CLR45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release.45\Contoso.Bundle.Bundle01Web.XML</DocumentationFile>
+    <DocumentationFile>bin\Release.45\Contoso.Bundle.Bundle01Core.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -92,8 +92,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\nuspecs\BclEx-Bundle.Bundle01Web.nuspec">
-      <Link>BclEx-Bundle.Bundle01Web.nuspec</Link>
+    <None Include="..\..\..\nuspecs\BclEx-Bundle.Bundle01Core.nuspec">
+      <Link>BclEx-Bundle.Bundle01Core.nuspec</Link>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

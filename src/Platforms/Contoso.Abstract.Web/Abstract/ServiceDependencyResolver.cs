@@ -27,23 +27,23 @@ THE SOFTWARE.
 using System.Abstract;
 using System.Web.Http.Dependencies;
 
-namespace Contoso.Abstract.Dependencies
+namespace Contoso.Abstract
 {
     /// <summary>
-    /// DependencyResolver
+    /// ServiceDependencyResolver
     /// </summary>
-    public class DependencyResolver : DependencyScope, IDependencyResolver
+    public class ServiceDependencyResolver : ServiceDependencyScope, IDependencyResolver
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DependencyResolver"/> class.
+        /// Initializes a new instance of the <see cref="ServiceDependencyResolver"/> class.
         /// </summary>
-        public DependencyResolver()
+        public ServiceDependencyResolver()
             : base(ServiceLocatorManager.Current) { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DependencyResolver"/> class.
+        /// Initializes a new instance of the <see cref="ServiceDependencyResolver"/> class.
         /// </summary>
         /// <param name="container">The container.</param>
-        public DependencyResolver(IServiceLocator container)
+        public ServiceDependencyResolver(IServiceLocator container)
             : base(container) { }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Contoso.Abstract.Dependencies
         public IDependencyScope BeginScope()
         {
             var childContainer = Container.CreateChild(null);
-            return new DependencyScope(childContainer);
+            return new ServiceDependencyScope(childContainer);
         }
     }
 }

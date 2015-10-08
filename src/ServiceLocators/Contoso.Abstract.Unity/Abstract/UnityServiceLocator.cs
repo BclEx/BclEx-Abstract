@@ -104,7 +104,7 @@ namespace Contoso.Abstract
         /// Creates the child.
         /// </summary>
         /// <returns></returns>
-        public IServiceLocator CreateChild(object tag) { throw new NotSupportedException(); }
+        public IServiceLocator CreateChild(object tag) { return new UnityServiceLocator(Container.CreateChildContainer()); }
 
         /// <summary>
         /// Gets the underlying container.
