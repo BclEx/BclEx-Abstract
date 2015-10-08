@@ -24,9 +24,13 @@
         <dependency id="log4net" version="[1.2.10]" />
       </group>
       <group targetFramework="net40">
-        <dependency id="NServiceBus" version="4.4.2" />
-        <dependency id="NServiceBus.Host" version="4.4.2" />
-        <dependency id="NServiceBus.Interfaces" version="4.4.2" />
+        <dependency id="NServiceBus" version="[4.7.6]" />
+        <dependency id="NServiceBus.Host" version="[4.7.6]" />
+        <dependency id="NServiceBus.Interfaces" version="[4.7.6]" />
+      </group>
+      <group targetFramework="net45">
+        <dependency id="NServiceBus" version="5.2.7" />
+        <dependency id="NServiceBus.Host" version="6.0.0" />
       </group>
     </dependencies>
   </metadata>
