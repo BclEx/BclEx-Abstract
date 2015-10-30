@@ -23,7 +23,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 #endregion
-using System.Abstract.Configuration.ServiceBus;
 namespace System.Patterns.ReleaseManagement
 {
     /// <summary>

@@ -28,29 +28,29 @@ using Contoso.Abstract.RhinoServiceBus;
 namespace Contoso.Abstract
 {
     /// <summary>
-    /// BootstrapRhinoServiceBusHost
+    /// RuntimeRhinoServiceBusHost
     /// </summary>
-    public abstract class BootstrapRhinoServiceBusHost : ServiceLocatorBootStrapper, IServiceBusHostRuntime
+    public abstract class RuntimeRhinoServiceBusHost : ServiceLocatorBootStrapper, IServiceBusHostRuntime
     {
         private readonly string _name;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BootstrapRhinoServiceBusHost"/> class.
+        /// Initializes a new instance of the <see cref="RuntimeRhinoServiceBusHost"/> class.
         /// </summary>
-        protected BootstrapRhinoServiceBusHost()
+        protected RuntimeRhinoServiceBusHost()
             : base(ServiceLocatorManager.Current) { CommonLoggingFactoryAdapter.EnsureRegistration(); }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BootstrapRhinoServiceBusHost"/> class.
+        /// Initializes a new instance of the <see cref="RuntimeRhinoServiceBusHost"/> class.
         /// </summary>
         /// <param name="locator">The locator.</param>
-        protected BootstrapRhinoServiceBusHost(IServiceLocator locator)
+        protected RuntimeRhinoServiceBusHost(IServiceLocator locator)
             : base(locator) { CommonLoggingFactoryAdapter.EnsureRegistration(); }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BootstrapRhinoServiceBusHost"/> class.
+        /// Initializes a new instance of the <see cref="RuntimeRhinoServiceBusHost"/> class.
         /// </summary>
         /// <param name="locator">The locator.</param>
         /// <param name="name">The name.</param>
-        protected BootstrapRhinoServiceBusHost(IServiceLocator locator, string name)
+        protected RuntimeRhinoServiceBusHost(IServiceLocator locator, string name)
             : base(locator) { CommonLoggingFactoryAdapter.EnsureRegistration(); _name = name; }
 
         /// <summary>

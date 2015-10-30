@@ -42,7 +42,7 @@ namespace Contoso.Abstract
 
     //: might need to make thread safe
     /// <summary>
-    /// 
+    /// StaticServiceCache
     /// </summary>
     /// <remark>
     /// Provides a static dictionary adapter for the service cache sub-system.

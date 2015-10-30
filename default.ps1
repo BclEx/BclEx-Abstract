@@ -78,6 +78,7 @@ task Release -depends Dependency, Compile, Test {
 }
 
 task Bundle {
+	& del "$35_build_dir\Common.Logging.pdb"
 	& $tools_dir\ILMerge.exe /targetplatform:v2 /out:"$35_build_dir\Contoso.Bundle01Core.exe" `
 /lib:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5" `
 /lib:"C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies" `
@@ -88,10 +89,13 @@ task Bundle {
 "$35_build_dir\contoso.Abstract.RhinoServiceBus.dll" `
 "$35_build_dir\contoso.Abstract.ServerAppFabric.dll" `
 "$35_build_dir\Contoso.Abstract.Unity.dll" `
+"$35_build_dir\Common.Logging.dll" `
 "$35_build_dir\log4net.dll" `
 "$35_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
 "$35_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
-"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$35_build_dir\Microsoft.WindowsFabric.Common.dll" `
+"$35_build_dir\Microsoft.WindowsFabric.Data.Common.dll" `
+"$lib_dir\Microsoft\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
 "$35_build_dir\Microsoft.Practices.Unity.dll" `
 "$35_build_dir\Rhino.ServiceBus.dll"
 	& $tools_dir\ILMerge.exe /targetplatform:v2 /out:"$35_build_dir\Contoso.Bundle01Web.dll" `
@@ -107,11 +111,14 @@ task Bundle {
 "$35_build_dir\log4net.dll" `
 "$35_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
 "$35_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
-"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$35_build_dir\Microsoft.WindowsFabric.Common.dll" `
+"$35_build_dir\Microsoft.WindowsFabric.Data.Common.dll" `
+"$lib_dir\Microsoft\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
 "$35_build_dir\Microsoft.Practices.Unity.dll" `
 "$35_build_dir\Rhino.ServiceBus.dll"
 
 
+	& del "$40_build_dir\Common.Logging.pdb"
 	& $tools_dir\ILMerge.exe /targetplatform:v4 /out:"$40_build_dir\Contoso.Bundle01Core.exe" `
 /lib:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" `
 /lib:"C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies" `
@@ -122,10 +129,13 @@ task Bundle {
 "$40_build_dir\contoso.Abstract.RhinoServiceBus.dll" `
 "$40_build_dir\contoso.Abstract.ServerAppFabric.dll" `
 "$40_build_dir\Contoso.Abstract.Unity.dll" `
+"$40_build_dir\Common.Logging.dll" `
 "$40_build_dir\log4net.dll" `
 "$40_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
 "$40_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
-"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$40_build_dir\Microsoft.WindowsFabric.Common.dll" `
+"$40_build_dir\Microsoft.WindowsFabric.Data.Common.dll" `
+"$lib_dir\Microsoft\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
 "$40_build_dir\Microsoft.Practices.Unity.dll" `
 "$40_build_dir\Rhino.ServiceBus.dll"
 	& $tools_dir\ILMerge.exe /targetplatform:v4 /out:"$40_build_dir\Contoso.Bundle01Web.dll" `
@@ -138,14 +148,18 @@ task Bundle {
 "$40_build_dir\contoso.Abstract.ServerAppFabric.dll" `
 "$40_build_dir\Contoso.Abstract.Unity.dll" `
 "$40_build_dir\Contoso.Abstract.Web.dll" `
+"$40_build_dir\Common.Logging.dll" `
 "$40_build_dir\log4net.dll" `
 "$40_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
 "$40_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
-"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$40_build_dir\Microsoft.WindowsFabric.Common.dll" `
+"$40_build_dir\Microsoft.WindowsFabric.Data.Common.dll" `
+"$lib_dir\Microsoft\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
 "$40_build_dir\Microsoft.Practices.Unity.dll" `
 "$40_build_dir\Rhino.ServiceBus.dll"
 
 
+	& del "$45_build_dir\Common.Logging.pdb"
 	& $tools_dir\ILMerge.exe /targetplatform:v4 /out:"$45_build_dir\Contoso.Bundle01Core.exe" `
 /lib:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5" `
 /lib:"C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies" `
@@ -156,10 +170,13 @@ task Bundle {
 "$45_build_dir\contoso.Abstract.RhinoServiceBus.dll" `
 "$45_build_dir\contoso.Abstract.ServerAppFabric.dll" `
 "$45_build_dir\Contoso.Abstract.Unity.dll" `
+"$45_build_dir\Common.Logging.dll" `
 "$45_build_dir\log4net.dll" `
 "$45_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
 "$45_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
-"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$45_build_dir\Microsoft.WindowsFabric.Common.dll" `
+"$45_build_dir\Microsoft.WindowsFabric.Data.Common.dll" `
+"$lib_dir\Microsoft\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
 "$45_build_dir\Microsoft.Practices.Unity.dll" `
 "$45_build_dir\Rhino.ServiceBus.dll"
 	& $tools_dir\ILMerge.exe /targetplatform:v4 /out:"$45_build_dir\Contoso.Bundle01Web.dll" `
@@ -172,10 +189,13 @@ task Bundle {
 "$45_build_dir\contoso.Abstract.ServerAppFabric.dll" `
 "$45_build_dir\Contoso.Abstract.Unity.dll" `
 "$45_build_dir\Contoso.Abstract.Web.dll" `
+"$45_build_dir\Common.Logging.dll" `
 "$45_build_dir\log4net.dll" `
 "$45_build_dir\Microsoft.ApplicationServer.Caching.Client.dll" `
 "$45_build_dir\Microsoft.ApplicationServer.Caching.Core.dll" `
-"$lib_dir\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
+"$45_build_dir\Microsoft.WindowsFabric.Common.dll" `
+"$45_build_dir\Microsoft.WindowsFabric.Data.Common.dll" `
+"$lib_dir\Microsoft\CommonServiceLocator\Microsoft.Practices.ServiceLocation.dll" `
 "$45_build_dir\Microsoft.Practices.Unity.dll" `
 "$45_build_dir\Rhino.ServiceBus.dll"
 

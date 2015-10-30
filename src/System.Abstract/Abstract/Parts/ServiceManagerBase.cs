@@ -125,20 +125,34 @@ namespace System.Abstract.Parts
                 return LazyValue;
             if (Lazy.IsValueCreated)
                 return Lazy.Value;
-            var value = Lazy.Value;
-            if (LastException != null)
+            try { return Lazy.Value; }
+            catch (Exception e)
             {
-                var reflectionTypeLoadException = (LastException as ReflectionTypeLoadException);
+                var reflectionTypeLoadException = (e as ReflectionTypeLoadException);
                 if (reflectionTypeLoadException != null)
                 {
                     var b = new StringBuilder();
                     foreach (var ex2 in reflectionTypeLoadException.LoaderExceptions)
                         b.AppendLine(ex2.Message);
-                    throw new Exception(b.ToString(), LastException);
+                    throw new Exception(b.ToString(), e);
                 }
-                throw LastException.PrepareForRethrow();
+                throw e.PrepareForRethrow();
             }
-            return value;
+
+            //var value = Lazy.Value;
+            //if (LastException != null)
+            //{
+            //    var reflectionTypeLoadException = (LastException as ReflectionTypeLoadException);
+            //    if (reflectionTypeLoadException != null)
+            //    {
+            //        var b = new StringBuilder();
+            //        foreach (var ex2 in reflectionTypeLoadException.LoaderExceptions)
+            //            b.AppendLine(ex2.Message);
+            //        throw new Exception(b.ToString(), LastException);
+            //    }
+            //    throw LastException.PrepareForRethrow();
+            //}
+            //return value;
         }
 
         #region Setup
@@ -286,13 +300,14 @@ namespace System.Abstract.Parts
                 {
                     descriptor = (firstDescriptor ?? new SetupDescriptor(Registration, null));
                     _setupDescriptors.Add(service, descriptor);
-                    service.HookValueFactory(valueFactory =>
-                    {
-                        TIService s = null;
-                        try { s = ApplySetup(service, LazyValue = valueFactory()); }
-                        catch (Exception e) { LastException = e; }
-                        return s;
-                    });
+                    service.HookValueFactory(valueFactory => ApplySetup(service, LazyValue = valueFactory()));
+                    //service.HookValueFactory(valueFactory =>
+                    //{
+                    //    TIService s = null;
+                    //    try { s = ApplySetup(service, LazyValue = valueFactory()); }
+                    //    catch (Exception e) { LastException = e; }
+                    //    return s;
+                    //});
                 }
             return descriptor;
         }

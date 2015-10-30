@@ -126,10 +126,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="+EnvironmentEx\EnvironmentEx+OSVersion.cs" />
-    <Compile Include="+EnvironmentEx\EnvironmentEx+Resource.cs" />
-    <Compile Include="+EnvironmentEx\EnvironmentEx.cs" />
-    <Compile Include="+EnvironmentEx\OperatingSystemEx.cs" />
     <Compile Include="..\+fromcoreex\io\WrapTextReader.cs">
       <Link>+FromCoreEx\IO\WrapTextReader.cs</Link>
     </Compile>
@@ -150,17 +146,11 @@
     <Compile Include="Abstract\Parts+TypeSerializer\WcfTypeSerializer.cs" />
     <Compile Include="Abstract\Parts+TypeSerializer\XmlTypeSerializer.cs" />
     <Compile Include="Abstract\ServiceConfigurationExtensions.cs" />
-    <Compile Include="Configuration\AssemblyNameConverter.cs" />
-    <Compile Include="Configuration\CodecConverter.cs" />
-    <Compile Include="Configuration\ConfigurationElementCollectionEx.cs" />
-    <Compile Include="Configuration\ConfigurationElementCollectionEx2.cs" />
-    <Compile Include="Configuration\ConfigurationElementEx.cs" />
-    <Compile Include="Configuration\ConfigurationManagerEx.cs" />
-    <Compile Include="Configuration\ConfigurationSectionEx.cs" />
     <Compile Include="Contoso.Abstract\+ServiceBus\AppServiceBus.cs" />
     <Compile Include="Contoso.Abstract\+ServiceBus\AppServiceBusRegistration.cs" />
     <Compile Include="Contoso.Abstract\+ServiceBus\IAppServiceMessageHandler.cs" />
     <Compile Include="Contoso.Abstract\+ServiceBus\IAppServiceMessageHandlerFactory.cs" />
+    <Compile Include="Contoso.Abstract\+ServiceCache\EmptyServiceCache.cs" />
     <Compile Include="Contoso.Abstract\+ServiceCache\StaticServiceCache.cs" />
     <Compile Include="Contoso.Abstract\+ServiceCache\SystemServiceCache.cs" />
     <Compile Include="Contoso.Abstract\+ServiceLocator\MicroServiceLocator.cs" />
@@ -214,8 +204,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Patterns\ReleaseManagement\ReleaseManagementConfiguration.cs" />
-    <Compile Include="Patterns\ReleaseManagement\ReleaseManagementManager.cs" />
     <Compile Include="Resources\ResourceManagerEx.cs" />
     <Compile Include="Web+Activation\ActivationManager.cs" />
     <Compile Include="Web+Activation\ApplicationShutdownMethodAttribute.cs" />

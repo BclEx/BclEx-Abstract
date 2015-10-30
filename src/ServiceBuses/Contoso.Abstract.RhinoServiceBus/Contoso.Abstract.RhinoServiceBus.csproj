@@ -134,8 +134,8 @@
     <Compile Include="..\..\ServiceLogs\Contoso.Abstract.CommonLogging\Abstract\CommonLoggingFactoryAdapter.cs">
       <Link>Abstract\+FromCommonLogging\CommonLoggingFactoryAdapter.cs</Link>
     </Compile>
-    <Compile Include="Abstract\BootstrapRhinoServiceBusLoadBalancedHost.cs" />
-    <Compile Include="Abstract\BootstrapRhinoServiceBusHost.cs" />
+    <Compile Include="Abstract\RuntimeRhinoServiceBusLoadBalancedHost.cs" />
+    <Compile Include="Abstract\RuntimeRhinoServiceBusHost.cs" />
     <Compile Include="Abstract\OnewayRhinoWrapServiceBusAbstractor.cs" />
     <Compile Include="Abstract\RhinoServiceBus\Serializers\XmlMessageSerializer.cs" />
     <Compile Include="Abstract\RhinoWrapServiceBusAbstractor.cs" />

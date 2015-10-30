@@ -30,26 +30,26 @@ using Rhino.ServiceBus.LoadBalancer;
 namespace Contoso.Abstract
 {
     /// <summary>
-    /// BootstrapRhinoServiceBusLoadBalancedHost
+    /// RuntimeRhinoServiceBusLoadBalancedHost
     /// </summary>
-    public abstract class BootstrapRhinoServiceBusLoadBalancedHost : BootstrapRhinoServiceBusHost
+    public abstract class RuntimeRhinoServiceBusLoadBalancedHost : RuntimeRhinoServiceBusHost
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BootstrapRhinoServiceBusLoadBalancedHost"/> class.
+        /// Initializes a new instance of the <see cref="RuntimeRhinoServiceBusLoadBalancedHost"/> class.
         /// </summary>
-        protected BootstrapRhinoServiceBusLoadBalancedHost() { }
+        protected RuntimeRhinoServiceBusLoadBalancedHost() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BootstrapRhinoServiceBusLoadBalancedHost"/> class.
+        /// Initializes a new instance of the <see cref="RuntimeRhinoServiceBusLoadBalancedHost"/> class.
         /// </summary>
         /// <param name="locator">The locator.</param>
-        protected BootstrapRhinoServiceBusLoadBalancedHost(IServiceLocator locator)
+        protected RuntimeRhinoServiceBusLoadBalancedHost(IServiceLocator locator)
             : base(locator) { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="BootstrapRhinoServiceBusLoadBalancedHost"/> class.
+        /// Initializes a new instance of the <see cref="RuntimeRhinoServiceBusLoadBalancedHost"/> class.
         /// </summary>
         /// <param name="locator">The locator.</param>
         /// <param name="name">The name.</param>
-        protected BootstrapRhinoServiceBusLoadBalancedHost(IServiceLocator locator, string name)
+        protected RuntimeRhinoServiceBusLoadBalancedHost(IServiceLocator locator, string name)
             : base(locator, name) { }
 
         /// <summary>

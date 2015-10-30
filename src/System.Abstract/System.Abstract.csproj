@@ -111,10 +111,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="+EnvironmentEx\EnvironmentEx+OSVersion.cs" />
+    <Compile Include="+EnvironmentEx\EnvironmentEx+Resource.cs" />
+    <Compile Include="+EnvironmentEx\EnvironmentEx.cs" />
+    <Compile Include="+EnvironmentEx\OperatingSystemEx.cs" />
     <Compile Include="..\+fromcoreex\+polyfill\collections\HashHelpers.cs">
       <Link>+FromCoreEx\+Polyfill\Runtime\Collections\HashHelpers.cs</Link>
     </Compile>
@@ -189,6 +194,13 @@
     <Compile Include="Collections\IIndexer.cs" />
     <Compile Include="Collections\IIndexer2.cs" />
     <Compile Include="ComponentModel\NameableConverter.cs" />
+    <Compile Include="Configuration\AssemblyNameConverter.cs" />
+    <Compile Include="Configuration\CodecConverter.cs" />
+    <Compile Include="Configuration\ConfigurationElementCollectionEx.cs" />
+    <Compile Include="Configuration\ConfigurationElementCollectionEx2.cs" />
+    <Compile Include="Configuration\ConfigurationElementEx.cs" />
+    <Compile Include="Configuration\ConfigurationManagerEx.cs" />
+    <Compile Include="Configuration\ConfigurationSectionEx.cs" />
     <Compile Include="IConvertFormatter.cs" />
     <Compile Include="IConvertParser.cs" />
     <Compile Include="Local.Designer.cs">
@@ -268,6 +280,8 @@
     <Compile Include="AbstractExtensions+EnvironmentEx.cs" />
     <Compile Include="+EnvironmentEx\PlatformProductID.cs" />
     <Compile Include="+EnvironmentEx\PlatformSuites.cs" />
+    <Compile Include="Patterns\ReleaseManagement\ReleaseManagementConfiguration.cs" />
+    <Compile Include="Patterns\ReleaseManagement\ReleaseManagementManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Abstract+ServiceLocator\IServiceLocator.cs" />
     <Compile Include="Abstract+ServiceLocator\IServiceRegistrar.cs" />
