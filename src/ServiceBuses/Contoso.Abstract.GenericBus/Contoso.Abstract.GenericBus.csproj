@@ -5,14 +5,15 @@
     <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C1A8AD53-BCFC-447D-8C03-D7C453D2739E}</ProjectGuid>
+    <ProjectGuid>{6A838AF8-5153-4CF5-9D1D-D330A02185BA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Contoso.Abstract</RootNamespace>
-    <AssemblyName>Contoso.Abstract.RhinoServiceBus</AssemblyName>
+    <AssemblyName>Contoso.Abstract.GenericBus</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -56,7 +57,7 @@
     <DefineConstants>TRACE;COMMONLOGGING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Contoso.Abstract.RhinoServiceBus.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Contoso.Abstract.GenericBus.XML</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -68,7 +69,7 @@
     <DefineConstants>TRACE;CLR4;COMMONLOGGING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release.4\Contoso.Abstract.RhinoServiceBus.XML</DocumentationFile>
+    <DocumentationFile>bin\Release.4\Contoso.Abstract.GenericBus.XML</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -80,7 +81,7 @@
     <DefineConstants>TRACE;CLR4;CLR45;COMMONLOGGING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release.45\Contoso.Abstract.RhinoServiceBus.XML</DocumentationFile>
+    <DocumentationFile>bin\Release.45\Contoso.Abstract.GenericBus.XML</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyOriginatorKeyFile>BclEx.4.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -88,67 +89,32 @@
     <Reference Include="Common.Logging">
       <HintPath>..\..\..\packages\Common.Logging.2.1.1\lib\net35\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Rhino.ServiceBus">
-      <HintPath>..\..\..\packages\Rhino.ServiceBus.3.1.1.0\lib\3.5\Rhino.ServiceBus.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus.Host">
-      <ExecutableExtension>.exe</ExecutableExtension>
-      <HintPath>..\..\..\packages\Rhino.ServiceBus.Host.3.1.1.0\lib\3.5\Rhino.ServiceBus.Host.exe</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.0'">
     <Reference Include="Common.Logging">
       <HintPath>..\..\..\packages\Common.Logging.2.1.1\lib\net40\Common.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Rhino.ServiceBus.3.1.1.0\lib\4.0\Rhino.ServiceBus.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus.Host">
-      <ExecutableExtension>.exe</ExecutableExtension>
-      <HintPath>..\..\..\packages\Rhino.ServiceBus.Host.3.1.1.0\lib\4.0\Rhino.ServiceBus.Host.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkVersion)' == 'v4.5'">
     <Reference Include="Common.Logging">
       <HintPath>..\..\..\packages\Common.Logging.2.1.1\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Rhino.ServiceBus">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Rhino.ServiceBus.3.1.1.0\lib\4.0\Rhino.ServiceBus.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.ServiceBus.Host">
-      <ExecutableExtension>.exe</ExecutableExtension>
-      <HintPath>..\..\..\packages\Rhino.ServiceBus.Host.3.1.1.0\lib\4.0\Rhino.ServiceBus.Host.exe</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
-    <Reference Include="System.Messaging" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.XML" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\ServiceLogs\Contoso.Abstract.CommonLogging\Abstract\CommonLoggingFactoryAdapter.cs">
       <Link>Abstract\+FromCommonLogging\CommonLoggingFactoryAdapter.cs</Link>
     </Compile>
-    <Compile Include="Abstract\RuntimeRhinoServiceBusLoadBalancedHost.cs" />
-    <Compile Include="Abstract\RuntimeRhinoServiceBusHost.cs" />
-    <Compile Include="Abstract\OnewayRhinoWrapServiceBusAbstractor.cs" />
-    <Compile Include="Abstract\RhinoServiceBus\Serializers\XmlMessageSerializer.cs" />
-    <Compile Include="Abstract\RhinoWrapServiceBusAbstractor.cs" />
-    <Compile Include="Abstract\OnewayRhinoServiceBusAbstractor.cs" />
-    <Compile Include="Abstract\IRhinoServiceMessageHandler.cs" />
-    <Compile Include="Abstract\RhinoServiceBusTransport.cs" />
-    <Compile Include="Abstract\RhinoServiceBusAbstractor.cs" />
-    <Compile Include="Abstract\RhinoServiceBus\ConsumerInterceptorAdapter.cs" />
-    <Compile Include="Abstract\RhinoServiceBus\ServiceLocatorLoadBalancerBootStrapper.cs" />
-    <Compile Include="Abstract\RhinoServiceBus\ServiceLocatorAdapter.cs" />
-    <Compile Include="Abstract\RhinoServiceBus\ServiceLocatorBuilder.cs" />
-    <Compile Include="Abstract\RhinoServiceBus\Extensions.cs" />
-    <Compile Include="Abstract\RhinoServiceBus\ServiceLocatorBootStrapper.cs" />
+    <Compile Include="Abstract\GenericBusAbstractor.cs" />
+    <Compile Include="Abstract\GenericBus\Extensions.cs" />
+    <Compile Include="Abstract\GenericBus\ServiceLocatorAdapter.cs" />
+    <Compile Include="Abstract\GenericBus\ServiceLocatorBootStrapper.cs" />
+    <Compile Include="Abstract\GenericBus\ServiceLocatorBuilder.cs" />
+    <Compile Include="Abstract\GenericBusTransport.cs" />
+    <Compile Include="Abstract\RuntimeGenericBusHost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,10 +122,14 @@
       <Project>{A44E9D89-BFF2-41A4-AADC-3C2BDFDAEEB1}</Project>
       <Name>System.Abstract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Contoso.GenericBus\Contoso.GenericBus.csproj">
+      <Project>{1b21c8a5-5e0e-412b-a7f4-9f28b4427f21}</Project>
+      <Name>Contoso.GenericBus</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\nuspecs\BclEx-Abstract.RhinoServiceBus.nuspec">
-      <Link>BclEx-Abstract.RhinoServiceBus.nuspec</Link>
+    <None Include="..\..\..\nuspecs\BclEx-Abstract.GenericBus.nuspec">
+      <Link>BclEx-Abstract.GenericBus.nuspec</Link>
     </None>
     <None Include="BclEx.4.snk" />
     <None Include="BclEx.snk" />
